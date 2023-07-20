@@ -1,0 +1,700 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <style>
+        {#.flag_img {#}
+        {#    width: 24px;#}
+        {#    height: 24px;#}
+        {#    float: left;#}
+        {#    margin-right: 10px;#}
+        {# }#}
+
+        .sell__product-list {
+            width: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .sell__product-list-sell {
+            width: 210px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+
+        .all__list-btn {
+            width: 180px;
+            --tw-bg-opacity: 1;
+        {#background-color: rgb(40 83 99/var(--tw-bg-opacity));#} background-color: #3e67c1;
+            border-radius: 30px;
+            padding: 10px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .add__list-btn {
+            --tw-bg-opacity: 1;
+        {#background-color: rgb(245 137 55/var(--tw-bg-opacity));#} background-color: #019bfb;
+            border-radius: 30px;
+            padding: 10px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .add-btn {
+            color: white;
+        }
+
+        .add-btn:hover {
+            color: white;
+        }
+
+        .all__list {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255/var(--tw-text-opacity));
+            font-weight: 600;
+        }
+
+        .add__list {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255/var(--tw-text-opacity));
+            font-weight: 600;
+        }
+
+        .add {
+            width: 25px;
+            height: 24px;
+        }
+
+        div {
+            padding: 0 0 0 1px;
+        }
+
+        span {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        *, :after, :before {
+            box-sizing: border-box;
+        }
+
+        p.card-category {
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 4px;
+        }
+
+        .overflow-hidden {
+            overflow: hidden !important;
+            width: 1111px;
+        }
+
+        .textil {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        {#.btn__cup {#}
+        {#    border-radius: 10px;#}
+        {#    border: none;#}
+        {#    outline: none;#}
+        {#    background: #0b5ed7;#}
+        {#    padding: 13px;#}
+        {#    color: white;#}
+        {# }#}
+
+        {#.btn__cup2 {#}
+        {#    border-radius: 10px;#}
+        {#    border: none;#}
+        {#    outline: none;#}
+        {#    background: #0b5ed7;#}
+        {#    padding: 13px;#}
+        {#    color: white;#}
+        {# }#}
+        {##}
+        {#.btn__cup2:hover {#}
+        {#    color: white;#}
+        {# }#}
+        {##}
+        {#.btn__cup:hover {#}
+        {#    color: white;#}
+        {# }#}
+
+        .btn:hover {
+            color: var(--bs-btn-hover-color);
+            background-color: var(--bs-btn-hover-bg);
+            border-color: white;
+        }
+
+        .section__item {
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .section {
+            background: #88C8F4;
+            padding: 20px;
+            width: 50%;
+            background-color: rgba(136, 200, 244, 0.25);
+        }
+
+        .sale {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .section__sale {
+            padding: 10px 0 0 60px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .section--blue {
+            background-color: #88C8F4;
+            border: 1px solid #000;
+            border-color: rgba(136, 200, 244, 0.5);
+            background-color: rgba(136, 200, 244, 0.25);
+        }
+
+        .section--white {
+            background-color: #fff;
+            border: 1px solid #000;
+            border-color: rgba(136, 200, 244, 0.5);
+        }
+
+        .sect {
+            display: flex;
+            gap: 30px;
+            padding: 10px 0 20px 0;
+            justify-content: center;
+        }
+
+        .sect1 {
+            padding: 50px;
+            width: 350px;
+            background-color: rgba(136, 200, 244, 0.25);
+        }
+
+        .sect2 {
+            padding: 50px;
+            width: 350px;
+            background-color: rgba(136, 200, 244, 0.25);
+        }
+
+        .sect3 {
+            padding: 50px;
+            width: 350px;
+            background-color: rgba(136, 200, 244, 0.25);
+        }
+
+        {#.btn__item-content {#}
+        {#    display: flex;#}
+        {#    flex-direction: column;#}
+        {#    align-items: flex-start;#}
+        {#    gap: 4px#}
+        {# }#}
+
+
+        {#.categories {#}
+        {#    display: flex;#}
+        {#    gap: 14px;#}
+        {#    flex-direction: column;#}
+        {# }#}
+
+        .main {
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-title {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 10px;
+        {#max-width: 50ch;#}
+        }
+
+        .card-text-product {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 50ch;
+        }
+
+        {#.card-body-product {#}
+        {#    width: 260px;#}
+        {#    height: 350px;#}
+        {# }#}
+    </style>
+    <style>
+        .group6-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .group6-group6 {
+            width: 200px;
+            height: 350px;
+            display: flex;
+            position: relative;
+            flex-shrink: 1;
+        }
+
+        .group6-group5buttoninput {
+            width: 200px;
+            height: 350px;
+            display: flex;
+            position: absolute;
+            align-items: flex-start;
+            flex-shrink: 1;
+        }
+
+        .group6-group3 {
+            width: 200px;
+            height: 350px;
+            display: flex;
+            position: absolute;
+            align-items: flex-start;
+            flex-shrink: 1;
+            border-radius: 14px;
+            background-color: white;
+        }
+
+        .group6-rectangle6596 {
+            width: 202px;
+            height: 116px;
+            position: absolute;
+            border-radius: 15px;
+            padding-right: 2px;
+        }
+
+        .group6-button-more {
+            top: 300.877197265625px;
+            left: 31.521728515625px;
+            width: 136.95652770996094px;
+            height: 31.174089431762695px;
+            display: flex;
+            position: absolute;
+            align-items: flex-start;
+            flex-shrink: 1;
+            border-radius: 8px;
+            background-color: rgba(13, 110, 253, 0.8);
+        }
+
+        .group6-text {
+            display: flex;
+            top: 5px;
+            color: rgba(255, 255, 255, 1);
+            width: 136px;
+            height: auto;
+            position: absolute;
+            font-size: 15px;
+            text-align: center;
+            font-weight: 400;
+            line-height: normal;
+            font-stretch: normal;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .group6-info {
+            top: 127.0579833984375px;
+            left: 17.391357421875px;
+            width: 152.71739196777344px;
+            height: 168.6234893798828px;
+            display: flex;
+            position: absolute;
+            align-items: flex-start;
+            flex-shrink: 1;
+        }
+
+        .group6-text02 {
+            color: black;
+            width: 160px;
+            height: auto;
+            position: absolute;
+            font-size: 15px;
+        {#font-style: Bold;#} text-align: left;
+            font-family: Arial, serif;
+            font-weight: 700;
+            line-height: normal;
+            font-stretch: normal;
+            text-decoration: none;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .group6-text04 {
+            top: 37.78680419921875px;
+            color: rgb(0, 0, 0);
+            width: 153px;
+            height: auto;
+            position: absolute;
+            font-size: 15px;
+            font-style: Regular;
+            text-align: left;
+            font-family: Arial, serif;
+            font-weight: 400;
+            line-height: normal;
+            font-stretch: normal;
+            text-decoration: none;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .group6-text08 {
+            top: 97.7733154296875px;
+            color: rgba(0, 0, 0, 1);
+            width: 153px;
+            height: auto;
+            position: absolute;
+            font-size: 12px;
+            font-style: Regular;
+            text-align: left;
+            font-family: Arial, serif;
+            font-weight: 400;
+            line-height: normal;
+            font-stretch: normal;
+            text-decoration: none;
+        }
+
+        .group6-text10 {
+            top: 137.9217529296875px;
+            color: rgba(0, 0, 0, 1);
+            width: 153px;
+            height: auto;
+            position: absolute;
+            font-size: 12px;
+            font-style: Regular;
+            text-align: left;
+            font-family: Arial, serif;
+            font-weight: 400;
+            line-height: normal;
+            font-stretch: normal;
+            text-decoration: none;
+        }
+
+        @media (max-width: 991px) {
+            .group6-group6 {
+                animation: inherit;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div class="sect">
+            <img src="#" alt="" class="sect1">
+            <img src="#" alt="" class="sect2">
+            <img src="#" alt="" class="sect3">
+        </div>
+    </div>
+
+    <div class="mb-4">
+
+        <div class="main">
+            <div class="card overflow-hidden">
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        <div class="col-md-6 align-items-center d-flex"><a href=""><img
+                                src="{% static 'img/img.jpg' %}" alt="" class="img-fluid"></a></div>
+                        <div class="col-md-6 px-3 pt-3"><h3 class="mb-1 h5">Запросить цены</h3> <small
+                                class="d-block text-muted mb-2">
+                            Массовая рассылка в один клик</small>
+
+                            <form id="filmForm" data-subcategories-url='{% url 'ajax_load_sub_categories' %}'
+                                  data-cities-url='{% url 'ajax_load_cities' %}'
+                                  action="{% url 'add_film' %}"
+                                  method="post"><input type="hidden"
+                                                       name="_csrf-frontend"
+                                                       value="YhYw9ZJq8n4bIQ6I9PD5eAH-GYPZlpTzNgrr3aHcJVpXQQGm9Q7FMlETZNmloYgNcaRsxZ3E155eSb6H0o1_Hw==">
+                                <div class="form-group field-expressrequestform-name required">
+                                    <input type="text" id="title" name="title"
+                                           placeholder="Заголовок"
+                                           aria-required="true"
+                                           class="form-control">
+                                    <div class="help-block"></div>
+                                </div>
+                                <div class="form-group field-expressrequestform-description required"><textarea
+                                        id="description" name="description"
+                                        rows="3" placeholder="Описание" aria-required="true"
+                                        class="form-control"></textarea>
+                                    <div class="help-block"></div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12 col-lg-6 mb-3 mb-lg-0"><input type="tel"
+                                                                                     id="telephone"
+                                                                                     name="telephone"
+                                                                                     placeholder="Телефон"
+                                                                                     class="form-control"></div>
+                                    {#                                    <div class="col-12 col-lg-6"><input type="email" id="email"#}
+                                    {#                                                                        name="email"#}
+                                    {#                                                                        placeholder="E-mail" class="form-control"></div>#}
+                                </div>
+                                {% csrf_token %}
+                                {#                                <div class="categories">#}
+                                {{ form.as_p }}
+                                {#                                </div>#}
+                                <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+                                <script>
+                                    $("#id_category").change(function () {
+                                        const url = $("#filmForm").attr("data-subcategories-url");  // get the url of the `load_cities` view
+                                        const categoryId = $(this).val();  // get the selected country ID from the HTML input
+
+                                        $.ajax({                       // initialize an AJAX request
+                                            url: url,                // set the url of the request (= /persons/ajax/load-cities/ )
+                                            data: {
+                                                'category_id': categoryId,       // add the country id to the GET parameters
+                                            },
+                                            success: function (data) {   // `data` is the return of the `load_cities` view function
+                                                $("#id_sub_category").html(data);  // replace the contents of the city input with the data that came from the server
+
+                                                /*
+
+                                                let html_data = '<option value="">---------</option>';
+                                                data.forEach(function (sub_category) {
+                                                    html_data += `<option value="${sub_category.id}">${sub_category.name}</option>`
+                                                });
+                                                console.log(html_data);
+                                                $("#id_sub_category").html(html_data);
+
+                                                */
+                                            }
+                                        });
+
+                                    });
+                                </script>
+                                <script>
+                                    $("#id_country").change(function () {
+                                        const url = $("#filmForm").attr("data-cities-url");  // get the url of the `load_cities` view
+                                        const countryId = $(this).val();  // get the selected country ID from the HTML input
+                                        $.ajax({                       // initialize an AJAX request
+                                            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+                                            data: {
+                                                'country_id': countryId       // add the country id to the GET parameters
+                                            },
+                                            success: function (data) {   // `data` is the return of the `load_cities` view function
+                                                $("#id_city").html(data);  // replace the contents of the city input with the data that came from the server
+                                                /*
+
+                                                let html_data = '<option value="">---------</option>';
+                                                data.forEach(function (city) {
+                                                    html_data += `<option value="${city.id}">${city.name}</option>`
+                                                });
+                                                console.log(html_data);
+                                                $("#id_city").html(html_data);
+                                                */
+                                            }
+                                        });
+
+                                    });
+                                </script>
+                                <div class="otp btn">
+                                    <button type="submit" class="btn btn-primary">Отправить</button>
+                                </div>
+
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="textil">
+                {#                <h1 class="text">Купить оптом</h1>#}
+                <h1 class="text">Купить</h1>
+                {#                <a href="{% url 'add_film' %}" class="btn__cup" style="margin-left: 20px;">Купить</a>#}
+            </div>
+            <div class="section__item">
+                {% for film in films_buy %}
+
+                    {% if forloop.counter|divisibleby:2 == 1 %}
+                        <div class="section section--blue">
+                    {% else %}
+                        <div class="section section--white">
+                    {% endif %}
+                <h5 class="card-title">{{ film.title }}</h5>
+                {#                        {% if user.is_superuser or request.user.pk == film.author.pk %}#}
+                <p class="card-text-product" style="width: 550px">{{ film.description }}</p>
+                {#                        {% endif %}#}
+                {#                        {% if request.user.is_superuser %}#}
+                {#                        <p class="card-telephone"><small class="text-muted">{{ film.telephone }}</small></p>#}
+                <p class="card-category"><small class="text-muted">{{ film.category }}</small>
+                </p>
+                <p class="card-category"><small
+                        class="text-muted">{{ film.sub_category }}</small>
+                </p>
+                {#                        {% endif %}#}
+                <p class="card-create-date"><small class="text-muted">{{ film.create_date }}</small></p>
+
+                <a href="{{ film.get_absolute_url }}" class="btn"
+                   style="background: rgba(13,110,253,0.8); color: white;">Подробнее</a>
+                </div>
+
+
+                {% endfor %}
+                <!-- Добавьте следующий код для отображения пагинации -->
+                <div class="sell__product-list">
+                    <div class="all__list-btn">
+                        <div class="all__list"><a class="add-btn" href="{% url 'buy' %}">Все объявления</a></div>
+                        <svg class="next" width="25" height="24" viewBox="0 0 25 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.5 11C4.94772 11 4.5 11.4477 4.5 12C4.5 12.5523 4.94772 13 5.5 13V11ZM19.5 12L20.2071 12.7071C20.5976 12.3166 20.5976 11.6834 20.2071 11.2929L19.5 12ZM13.2071 4.29289C12.8166 3.90237 12.1834 3.90237 11.7929 4.29289C11.4024 4.68342 11.4024 5.31658 11.7929 5.70711L13.2071 4.29289ZM11.7929 18.2929C11.4024 18.6834 11.4024 19.3166 11.7929 19.7071C12.1834 20.0976 12.8166 20.0976 13.2071 19.7071L11.7929 18.2929ZM5.5 13H19.5V11H5.5V13ZM11.7929 5.70711L18.7929 12.7071L20.2071 11.2929L13.2071 4.29289L11.7929 5.70711ZM18.7929 11.2929L11.7929 18.2929L13.2071 19.7071L20.2071 12.7071L18.7929 11.2929Z"
+                                  fill="#ffffff"></path>
+                        </svg>
+                    </div>
+                    <span class="or">или</span>
+                    <div class="add__list">
+                        <div class="add__list-btn"><a class="add-btn" href="{% url 'add_film' %}">Создать объвление</a>
+                            <img src="{% static 'img/add_product_img.png' %}" alt="" class="add">
+                        </div>
+                    </div>
+                </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="sale">
+                {#                <h1 class="sale__text">Продать оптом</h1>#}
+                <h1 class="sale__text">Продать</h1>
+                {#                <a href="{% url 'add_film' %}" class="btn__cup2" style="margin-left: 20px;">Купить</a>#}
+            </div>
+
+            <div class="section__sale">
+                {% for film in films_sell %}
+
+                    {#                {% if film.type == 'Продать' %}#}
+                    <div class="group6-container">
+                        <div class="group6-group6">
+                            <div class="group6-group5buttoninput">
+                                <div class="group6-group3">
+                                    <img src="{{ film.image.url }}" class="group6-rectangle6596"/>
+                                </div>
+                                <div class="group6-button-more">
+                                    <a href="{% url 'film_detail' film.pk %}"
+                                       class="group6-text">Подробнее</a>
+                                </div>
+                                <div class="group6-info">
+                                    <a href="{% url 'film_detail' film.pk %}"
+                                       class="group6-text02"><span>{{ film.title }}</span></a>
+                                    <span class="group6-text04">
+                                        <span>{{ film.description }}</span>
+                                    </span>
+                                    <span class="group6-text08"><span>Category: {{ film.category }}</span></span>
+                                    <span class="group6-text10">
+                                    <span>Sub Category: {{ film.sub_category }}</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {#                {% endif %}#}
+
+                {% empty %}
+
+                    <h5 class="text-center mt-3">Запросов еще нет</h5>
+
+                {% endfor %}
+                <div class="sell__product-list-sell">
+                    <div class="all__list-btn">
+                        <div class="all__list"><a class="add-btn" href="{% url 'sell' %}">Все объявления</a></div>
+                        <svg class="next" width="25" height="24" viewBox="0 0 25 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.5 11C4.94772 11 4.5 11.4477 4.5 12C4.5 12.5523 4.94772 13 5.5 13V11ZM19.5 12L20.2071 12.7071C20.5976 12.3166 20.5976 11.6834 20.2071 11.2929L19.5 12ZM13.2071 4.29289C12.8166 3.90237 12.1834 3.90237 11.7929 4.29289C11.4024 4.68342 11.4024 5.31658 11.7929 5.70711L13.2071 4.29289ZM11.7929 18.2929C11.4024 18.6834 11.4024 19.3166 11.7929 19.7071C12.1834 20.0976 12.8166 20.0976 13.2071 19.7071L11.7929 18.2929ZM5.5 13H19.5V11H5.5V13ZM11.7929 5.70711L18.7929 12.7071L20.2071 11.2929L13.2071 4.29289L11.7929 5.70711ZM18.7929 11.2929L11.7929 18.2929L13.2071 19.7071L20.2071 12.7071L18.7929 11.2929Z"
+                                  fill="#ffffff"></path>
+                        </svg>
+                    </div>
+                    <span class="or">или</span>
+                    <div class="add__list">
+                        <div class="add__list-btn"><a class="add-btn" href="{% url 'sell_film' %}">Создать объвление</a>
+                            <img src="{% static 'img/add_product_img.png' %}" alt="" class="add">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {#            <a href="{% url 'buy' %}">Buy</a>#}
+
+            {#            <a href="{% url 'sell' %}">Sell</a>#}
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="section__footer-info-lid">
+            <img src="{% static '/img/tecnoprom-logo.png' %}" alt="" class="img__technoprom">
+            <p class="text__info-technoprom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto maxime,
+                labore eaque temporibus optio voluptas aliquam vitae unde perspiciatis consequatur.</p>
+        </div>
+        <div class="section__footer-info">
+            <h2 class="info__text-img">telegram
+                <img src="{% static '/img/telegram.png' %}" alt="" class="telegram">
+            </h2>
+            <a href="#" class="section__links">Главная</a>
+            <a href="#" class="section__links">Документация</a>
+            <a href="#" class="section__links">Примеры</a>
+            <a href="#" class="section__links">Иконки</a>
+            <a href="#" class="section__links">Блог</a>
+            <a href="#" class="section__links">Swag Store</a>
+        </div>
+        <div class="section__footer-info">
+            <h2 class="info__text">Руководство</h2>
+            <a href="#" class="section__links">Начало работы</a>
+            <a href="#" class="section__links">Стартовый шаблон</a>
+            <a href="#" class="section__links">Webpack</a>
+            <a href="#" class="section__links">Parcel</a>
+            <a href="#" class="section__links">Vite</a>
+        </div>
+        <div class="section__footer-info">
+            <h2 class="info__text">Проекты</h2>
+            <a href="#" class="section__links">Bootstrap 5</a>
+            <a href="#" class="section__links">Bootstrap 4</a>
+            <a href="#" class="section__links">Иконки</a>
+            <a href="#" class="section__links">RFS</a>
+            <a href="#" class="section__links">npm starter</a>
+        </div>
+    </div>
+
+{% endblock main %}

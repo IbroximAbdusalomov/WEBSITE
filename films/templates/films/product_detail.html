@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<title>{{ film.title }}</title>
+
+{% block main %}
+    <style>.copy-button-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .copy-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    #copy-url-input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    </style>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <div class="intro">
+        <div class="container">
+            <div class="profil">
+                <div class="photo__va-info">
+                    <img src="{{ film.image.url }}" alt="" class="photo">
+                    <div class="info">
+                        <div class="auther__info">
+                            <div class="user">ПОЛЬЗОВАТЕЛЬ</div>
+                            <div class="user__name">Maftuna</div>
+                            <div class="phone__va-telegram">
+                                <div class="phone__number">{{ film.telephone }}</div>
+                                <a href="https://t.me/{{ film.telephone }}" class="telegram__btn">Telegram</a>
+                            </div>
+                            <div class="copy-button-container">
+                                <button class="copy-button" onclick="copyToClipboard()">Копировать</button>
+                            </div>
+
+                            <script>function copyToClipboard() {
+                                const textToCopy = "{{ request.build_absolute_uri }}";
+                                const tempInput = document.createElement("input");
+                                tempInput.value = textToCopy;
+                                document.body.appendChild(tempInput);
+                                tempInput.select();
+                                document.execCommand("copy");
+                                document.body.removeChild(tempInput);
+                                alert("Value copied to clipboard!");
+                            }</script>
+
+
+                        </div>
+                        <div class="product_info">
+                            <a href="/category/{{ film.category.slug }}" class="category">{{ film.category }}</a>
+                            <a href="/category/{{ film.sub_category.slug }}"
+                               class="category">{{ film.sub_category }}</a>
+                            <div class="counrty">{{ film.country }}</div>
+                            <div class="city">{{ film.city }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo__info">
+                    <div class="info__name">{{ film.title }}</div>
+                    <div class="description">ОПИСАНИЕ</div>
+                    <div class="text">{{ film.description }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

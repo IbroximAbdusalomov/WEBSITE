@@ -1,0 +1,163 @@
+<nav class="navbar navbar-expand-lg bg-primary" style="height: 80px;">
+    <div class="container">
+        <a class="navbar-brand text-white" href="{% url 'index' %}">Technoprom</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Yangi/ishlatilgan uskunalar:
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item"
+                                   href="{% url 'category_detail' slug='uskuna_hammasi' %}">Hammasi</a></li>
+                            <li><a class="dropdown-item"
+                                   href="{% url 'category_detail' slug='uskuna_uskuna_taminotchisi' %}">Umumiy turdagi
+                                uskunalar ta'minotchisi</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Plastmassa' %}">Plastmassa
+                                va resin </a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Tekstil' %}">Tekstil/yengil
+                                sanoat</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Agro' %}">Agro</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                   href="{% url 'category_detail' slug='uskuna_Metall' %}">Metall</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Qadoqlash' %}">Qadoqlash/fasovka/markirovka/pechat</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Sanoat' %}">Sanoat
+                                iqlim uskunalari</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Ombor' %}">Ombor
+                                uskunalari</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Oziq' %}">Oziq-ovqat
+                                ishlab chiqarish</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Kimyoviy' %}">Kimyoviy
+                                jarayonlar uskunalari</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Energiya' %}">Energiya
+                                va elektr jihozlari</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Xizmat' %}">Xizmat
+                                ko'rsatish</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Qurilish' %}">Qurilish
+                                uskuna va texnikalari</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Yogoch' %}">Yog'och
+                                va mebelsozlik</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Yordamchi' %}">Yordamchi
+                                uskunalar</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' slug='uskuna_Mashinasozlik' %}">Mashinasozlik
+                                detallari</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="/category/Hammasi/" id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Texnologlar:
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/category/texnologlar_hammasi">Hammasi</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_umumiy">Umumiy turdagi texnologlar ta'minotchisi</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_plastmassa">Plastmassa va resin </a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_tekstil">Tekstil/yengil sanoat</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_agro">Agro</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_metall">Metall</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_qadoqlash">Qadoqlash/fasovka/markirovka/pechat</a></li>
+                        <li><a class="dropdown-item" href="/category/exnologlari_sanoat_">Sanoat iqlim uskunalari</a> </li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_ombor">Ombor uskunalari</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_oziq">Oziq-ovqat ishlab chiqarish</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_kimyoviy">Kimyoviy jarayonlar uskunalari</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_energiya">Energiya va elektr jihozlari</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_xizmat">Xizmat ko'rsatish</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_qurilish">Qurilish uskuna va texnikalari</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_yogoch">Yog'och va mebelsozlik</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_yordamchi">Yordamchi uskunalar</a></li>
+                        <li><a class="dropdown-item" href="/category/texnologlar_mashinasozlik">Mashinasozlik detallari</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Xom-ashyo:
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xomashyo_hammasi' %}">Hammasi</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xomashyo_umumiy' %}">Umumiy turdagi xomashyo ta'minotchisi</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xomashyo_Plastmassa' %}">Plastmassa va resin </a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xomashyo_Tekstil' %}">Tekstil/yengil sanoat</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xomashyo_Mineral' %}">Mineral o'g'itlar</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xomashyo_Metall' %}">Metall</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xomashyo_Oziq' %}">Oziq-ovqat ingridientlari</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xomashyo_Kosmetika' %}">Kosmetika</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xomashyo_Sanoat' %}">Sanoat kimyosi</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xomashyo_Xojalik' %}">Xo'jalik mahsulotlari kimyosi</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xomashyo_Boshqa' %}">Boshqa turdagi xom-ashyolar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Xizmat ko'rsatish:
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_hammasi' %}">Hammasi</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Umumiy' %}">Umumiy turdagi xizmat ko'rsatish ta'minotchisi</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Plastmassa' %}">Plastmassa va resin </a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Tekstil' %}">Tekstil/yengil sanoat</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Agro' %}">Agro</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Metall' %}">Metall</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Qadoqlash' %}">Qadoqlash/fasovka/markirovka/pechat</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Sanoat' %}">Sanoat iqlim uskunalari</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Ombor' %}">Ombor uskunalari</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Oziq' %}">Oziq-ovqat ishlab chiqarish</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Kimyoviy' %}">Kimyoviy jarayonlar uskunalari</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Energiya' %}">Energiya va elektr jihozlari</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Xizmat' %}">Xizmat ko'rsatish</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Qurilish' %}">Qurilish uskuna va texnikalari</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Yogoch' %}">Yog'och va mebelsozlik</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Yordamchi' %}">Yordamchi uskunalar</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_detail' slug='xizmat_Mashinasozlik' %}">Mashinasozlik detallari</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'add_film' %}" class="btn btn-light" style="margin-left: 20px;">Купить</a>
+                </li>
+                <li>
+                    {% if user.is_superuser or user.is_authenticated %}
+                        <a href="{% url 'sell_film' %}" class="btn btn-light" style="margin-left: 20px;">Продать</a>
+                    {% endif %}
+                </li>
+            </ul>
+            {#            <form method="get" action="{% url 'search' %}" class="d-flex" role="search">#}
+            {#                {% csrf_token %}#}
+            {#                <input name="film_name" class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">#}
+            {#                <button class="btn btn-outline-light" type="submit">Поиск</button>#}
+            {#            </form>#}
+            {% if user.is_authenticated %}
+                <div class="dropdown" style="margin-left: 15px;">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ user.username }}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item active" href="{% url 'profile' pk=user.pk %}">Профиль</a></li>
+                        <li><a class="dropdown-item" href="{% url 'edit_profile' pk=user.pk %}">Редактировать
+                            Профиль</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Выход</a></li>
+                    </ul>
+                </div>
+            {% else %}
+                <a class="btn btn-primary" href="{% url 'auth' %}" style="margin-left: 15px;">Войти</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

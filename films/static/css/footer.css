@@ -1,0 +1,60 @@
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+
+.footer {
+    margin: 15px 0 0 0;
+    padding: 60px 0 60px 140px;
+    display: flex;
+    gap: 50px;
+    background: #363136;
+}
+
+.img__technoprom {
+    width: 275px;
+}
+
+.telegram {
+    width: 45px;
+}
+
+.info__text-img {
+    display: flex;
+    flex-direction: row-reverse;
+    color: cadetblue;
+}
+
+.section__footer-info-lid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.section__footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.text__info-technoprom {
+    width: 300px;
+}
+
+
+.text__info-technoprom {
+    color: cadetblue;
+}
+
+.info__text {
+    color: cadetblue;
+}
+
+.section__links {
+    color: cadetblue;
+}
+

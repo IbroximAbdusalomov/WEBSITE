@@ -1,0 +1,436 @@
+{% extends 'base.html' %}
+{% block main %}
+
+    <style>
+
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 0 solid transparent;
+            border-radius: .25rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+        }
+
+        .card.card-profile {
+            width: 100%;
+        }
+
+
+        .me-2 {
+            margin-right: .5rem !important;
+        }
+
+        {#------------------------------------#}
+        * {
+            padding: 0;
+            margin: 0;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+
+        .listing-section, .cart-section {
+            width: 100%;
+            float: left;
+            padding: 1%;
+            border-bottom: 0.01em solid #dddbdb;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+
+        }
+
+
+        .product {
+            float: left;
+            width: 257px;
+            border-radius: 2%;
+            margin: 1%;
+        }
+
+        .image-box {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 2% 2% 0 0;
+        }
+
+        .image {
+            width: 100%;
+        }
+
+        .images {
+            width: 348px;
+            height: 15em;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 2% 2% 0 0;
+            transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -ms-transition: all 1s ease;
+            -webkit-transition: all 1s ease;
+            -o-transition: all 1s ease;
+        }
+
+        .images:hover {
+            transform: scale(1.2);
+            overflow: hidden;
+            border-radius: 2%;
+        }
+
+        /* IMAGES */
+
+        .text-box {
+            width: 100%;
+            float: left;
+            border: 0.01em solid #dddbdb;
+            border-radius: 0 0 2% 2%;
+            padding: 1em;
+        }
+
+        h2, h3 {
+            float: left;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 1em;
+            text-transform: uppercase;
+            margin: 0.2em auto;
+        }
+
+        .item, .price {
+            clear: left;
+            width: 100%;
+            text-align: center;
+        }
+
+        .price {
+            color: Grey;
+        }
+
+        .description, label, button, input {
+            float: left;
+            clear: left;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 1em;
+            text-align: center;
+            margin: 0.2em auto;
+        }
+
+        input:focus {
+            outline-color: #fdf;
+        }
+
+        label {
+            width: 60%;
+        }
+
+        .text-box input {
+            width: 15%;
+            clear: none;
+        }
+
+        .text-box button {
+            margin-top: 1em;
+        }
+
+        button {
+            padding: 2%;
+            background-color: Tomato;
+            border: none;
+            border-radius: 2%;
+        }
+
+        button:hover {
+            bottom: 0.1em;
+        }
+
+        button:focus {
+            outline: 0;
+        }
+
+        button:active {
+            bottom: 0;
+            background-color: #fdf;
+        }
+
+        .table-heading, .table-content {
+            width: 75%;
+            margin: 1% 12.25%;
+            float: left;
+            background-color: #dfd;
+        }
+
+        .table-heading h2 {
+            padding: 1%;
+            margin: 0;
+            text-align: center;
+        }
+
+        .cart-product {
+            width: 50%;
+            float: left;
+        }
+
+        .cart-price {
+            width: 15%;
+            float: left;
+        }
+
+        .cart-quantity {
+            width: 10%;
+            float: left;
+        }
+
+        .cart-total {
+            width: 25%;
+            float: left;
+        }
+
+        .cart-image-box {
+            width: 20%;
+            overflow: hidden;
+            border-radius: 2%;
+            float: left;
+            margin: 1%;
+        }
+
+        .cart-images {
+            height: 7em;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .cart-item {
+            width: 20%;
+            float: left;
+            margin: 3.2em 1%;
+            text-align: center;
+        }
+
+        .cart-description {
+            width: 53%;
+            float: left;
+            margin: 3.2em 1%;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        .cart-price h3, .cart-total h3 {
+            margin: 3.2em 5% 3.2em 20%;
+            width: 60%;
+        }
+
+        .cart-quantity input {
+            margin: 3.2em 1%;
+            border: none;
+        }
+
+        .remove {
+            width: 10%;
+            margin: 1px;
+            float: right;
+            clear: right;
+        }
+
+        .coupon {
+            width: 20%;
+            background-color: #dfd;
+            margin: 1% 1% 1% 12.25%;
+            float: left;
+            height: 6em;
+        }
+
+        .coupon input {
+            width: 60%;
+            border: none;
+            margin: 12.75% 5%;
+            padding: 1%;
+        }
+
+        .coupon button {
+            width: 25%;
+            float: left;
+            clear: right;
+            margin: 12% 5% 12% 0;
+        }
+
+        .keep-shopping {
+            width: 15%;
+            height: 6em;
+            float: left;
+            margin: 1% auto;
+            padding: 1%;
+            background-color: #dfd;
+        }
+
+        .keep-shopping button {
+            text-transform: uppercase;
+            margin: 12% auto;
+
+        }
+
+        .checkout {
+            width: 37.25%;
+            margin: 1% 12.75% 1% 1%;
+            float: right;
+            background-color: #dfd;
+            height: 6em;
+        }
+
+        .checkout button {
+            width: 30%;
+            clear: none;
+            margin: 5.4% 0 5.4% 5.5%;
+            text-transform: uppercase;
+        }
+
+        .final-cart-total {
+            width: 15%;
+            float: right;
+            margin: 7%;
+            background-color: White;
+        }
+
+        .final-cart-total h3 {
+            color: Black;
+        }
+
+        .confirm-btn {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 20px;
+            background-color: Tomato;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            flex-direction: row-reverse;
+            flex-wrap: nowrap;
+            margin-bottom: 1em;
+        }
+
+    </style>
+
+
+    <div class="container">
+        <div class="main-body">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="card card-profile">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+
+                                <div class="mt-3">
+                                    <h4>{{ user.username }}</h4>
+                                </div>
+                                <div class="mt-3">
+                                    <h4>ID: {{ user.id }}</h4>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0">
+                                        First name
+                                    </h6>
+                                    <span class="text-secondary">{{ user.first_name }}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0">
+                                        Last name
+                                    </h6>
+                                    <span class="text-secondary">{{ user.last_name }}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0">
+                                        Email
+                                    </h6>
+                                    <span class="text-secondary">{{ user.email }}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0">
+                                        Point
+                                    </h6>
+                                    <span class="text-secondary">{{ user.score }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-section">
+                                    <div class="film">
+
+                                        <div class="listing-section">
+                                            <div class="listing-section">
+                                                {% for film in user_films %}
+
+                                                    <div class="product">
+                                                        <div class="image-box">
+                                                            {% if film.image %}
+                                                                <img class="image"
+                                                                     src="{{ film.image.url }}"
+                                                                     alt="">
+                                                            {% else %}
+                                                                <img class="image"
+                                                                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGK38apLc9aw4HPerkqqB3E1HDqiroDk4_tA&usqp=CAU"
+                                                                     alt="">
+                                                            {% endif %}
+
+                                                        </div>
+                                                        <div class="text-box">
+                                                            <h2 class="item">{{ film.title }}</h2>
+                                                            <h3 class="description">{{ film.description }}</h3>
+                                                            <p class="category">{{ film.category }}</p>
+                                                            <p class="sub-category">{{ film.sub_category }}</p>
+                                                            <a href="{{ film.get_absolute_url }}" class="confirm-btn"
+                                                               style="background: rgba(13,110,253,0.8); color: white;">Подробнее</a>
+                                                            <a href="{% url 'edit_film' film.pk %}"
+                                                               class="confirm-btn"
+                                                               style="background: mediumslateblue; color: white;">Изменить</a>
+                                                            <a href="{% url 'del' pk=film.pk %}" class="confirm-btn"
+                                                               style="color: white;" id="item-2-button">Удалить</a>
+                                                            <a href="{% url 'up_to_recommendations' pk=film.pk %}"
+                                                               class="confirm-btn"
+                                                               style="color: dimgray;" id="item-2-button">Up to
+                                                                recommendation</a>
+
+                                                            {#                                                            <a href=""#}
+                                                            {#                                                               class="confirm-btn" style="background: mediumslateblue"></a>#}
+
+                                                            {#                                                            <a class="confirm-btn" #}
+                                                            {#                                                               href=""></a>#}
+                                                        </div>
+                                                    </div>
+
+                                                {% endfor %}
+
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.db.models import Model, CharField, SlugField, CASCADE, ForeignKey, TextField, DateTimeField, BooleanField, \
-    PositiveBigIntegerField, ImageField, SET_NULL
+    PositiveBigIntegerField, ImageField, SET_NULL, FloatField
 from django.urls import reverse_lazy
 
 
@@ -92,6 +92,7 @@ class Films(Model):  # Модель
     is_active = BooleanField(default=False)
     type = CharField(max_length=50)
     author = ForeignKey(get_user_model(), SET_NULL, blank=True, null=True)
+    price = FloatField("Цена", blank=True, null=True)
 
     def str(self):
         return self.title
@@ -104,3 +105,15 @@ class Films(Model):  # Модель
     class Meta:
         verbose_name = "Запрос"
         verbose_name_plural = "Запросы"
+
+
+class Favorite(Model):
+    user = ForeignKey(get_user_model(), CASCADE)
+    product_id = ForeignKey(Films, CASCADE)
+    created_at = DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'product_id')
+
+    def __str__(self):
+        return f"{self.user} - Product ID: {self.product_id}"

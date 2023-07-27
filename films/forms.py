@@ -64,7 +64,7 @@ class FilmsForm(forms.ModelForm):
             "title",
             "description",
             "telephone",
-            # "email",
+            "price",
             "image",
             "country",
             "city",
@@ -83,9 +83,9 @@ class FilmsForm(forms.ModelForm):
             "telephone": forms.TextInput(attrs={
                 "class": "form-control"
             }),
-            # "email": forms.TextInput(attrs={
-            #     "class": "form-control"
-            # }),
+            "price": forms.TextInput(attrs={
+                "class": "form-control"
+            }),
             "image": forms.FileInput(attrs={
                 "class": "form-control"
             }),
@@ -139,6 +139,7 @@ class EditFilmForm(forms.ModelForm):
         fields = [
             "title",
             "description",
+            "price",
             "image",
             "category",
             "sub_category",
@@ -149,6 +150,10 @@ class EditFilmForm(forms.ModelForm):
                 "class": "form-control"
             }),
             "description": forms.Textarea(attrs={
+                "class": "form-control",
+                "rows": 5,
+            }),
+            "price": forms.Textarea(attrs={
                 "class": "form-control",
                 "rows": 5,
             }),
@@ -192,3 +197,10 @@ class EditFilmForm(forms.ModelForm):
                 pass  # invalid input from the client; ignore and fallback to empty City queryset
         elif self.instance.pk:
             self.fields['city'].queryset = self.instance.country.city_set.order_by('name')
+
+
+class FilmFilterForm(forms.Form):
+    country = forms.CharField(required=False)
+    city = forms.CharField(required=False)
+    category = forms.CharField(required=False)
+    sub_category = forms.CharField(required=False)

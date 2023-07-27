@@ -28,6 +28,28 @@
     }
     </style>
 
+    {#favorite button css#}
+    <style>
+        /* Ваши стили CSS */
+        .add-to-favorites-btn,
+        .already-favorite-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-to-favorites-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .already-favorite-btn {
+            background-color: #28a745;
+        }
+
+    </style>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <div class="intro">
@@ -38,7 +60,7 @@
                     <div class="info">
                         <div class="auther__info">
                             <div class="user">ПОЛЬЗОВАТЕЛЬ</div>
-                            <div class="user__name">Maftuna</div>
+                            <div class="user__name">{{ film.author.username }}</div>
                             <div class="phone__va-telegram">
                                 <div class="phone__number">{{ film.telephone }}</div>
                                 <a href="https://t.me/{{ film.telephone }}" class="telegram__btn">Telegram</a>
@@ -46,6 +68,26 @@
                             <div class="copy-button-container">
                                 <button class="copy-button" onclick="copyToClipboard()">Копировать</button>
                             </div>
+                            <!-- Ваш шаблон Django -->
+
+                            {% if user.is_authenticated %}
+                                {% if not is_favorite %}
+                                    <a href="{% url 'add_to_favorite' film.pk %}">
+                                        <img src="{% static 'img/add_favorite.png' %}"
+                                             style="width: 40px; height: 40px;">
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'remove_from_favorite' film.pk %}">
+                                        <img src="{% static 'img/del_favorite.png' %}"
+                                             style="width: 40px; height: 40px;">
+                                    </a>
+                                {% endif %}
+                            {% endif %}
+
+                            {% if user.trust %}
+                                Мы этому человеку доверяем
+                            {% endif %}
+
 
                             <script>function copyToClipboard() {
                                 const textToCopy = "{{ request.build_absolute_uri }}";

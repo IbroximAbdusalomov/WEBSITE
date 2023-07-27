@@ -32,6 +32,12 @@ urlpatterns = [
     path('sell-page', views.SellView.as_view(), name='sell'),
 
     # up to recommendation
-    path('up-to-recommendation/<int:pk>', views.up_to_recommendation, name='up_to_recommendations')
+    path('up-to-recommendation/<int:pk>', views.up_to_recommendation, name='up_to_recommendations'),
+
+    path('add/<int:product_id>/', views.add_to_favorite, name='add_to_favorite'),
+    # Удаление объекта из избранного
+    path('remove/<int:product_id>/', views.remove_from_favorite, name='remove_from_favorite'),
+
+    path('favorites', views.my_favorite_list, name='favo'),
 
 ]

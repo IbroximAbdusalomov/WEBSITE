@@ -140,7 +140,7 @@ class ProfileView(DetailView):
         context = super().get_context_data(**kwargs)
         context["categories"] = Categories.objects.all()
         context["title"] = f"{self.object.first_name} {self.object.last_name}"
-        context["user"] = self.model.objects.get()
+        context["user"] = self.model.objects.get(pk=self.kwargs['pk'])
         context["user_films"] = Films.objects.filter(author_id=self.object.pk).order_by('-create_date')
         return context
 

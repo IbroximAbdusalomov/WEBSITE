@@ -1,5 +1,5 @@
 from django.contrib.auth.models import AbstractUser
-from django.db.models import EmailField, IntegerField, CharField
+from django.db.models import EmailField, IntegerField, CharField, BooleanField
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
@@ -10,6 +10,9 @@ class User(AbstractUser):
         # MaxValueValidator(50),
         MinValueValidator(0)
     ])
+    trust = BooleanField(default=False)
+
+    # favorites =
 
     # code = CharField(max_length=4, blank=True, null=True)
 

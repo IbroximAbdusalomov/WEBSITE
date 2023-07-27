@@ -8,18 +8,10 @@ from django.forms.models import model_to_dict
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
-from rest_framework.decorators import action
-from rest_framework.filters import SearchFilter
-from rest_framework.parsers import FormParser, MultiPartParser
-from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet
+from django.contrib.auth.decorators import login_required
 from accounts.models import User
-from .forms import FilmsForm, PersonCreationForm, EditFilmForm
-from .models import Categories, Films, SubCategories, City
-from .pagination import FilmPagination
-from .serializers import FilmModelSerializer, ListFilmModelSerializer, RetrieveFilmModelSerializer, \
-    UpdateFilmModelSerializer, FilmListModelSerializer
+from .forms import FilmsForm, PersonCreationForm, EditFilmForm, FilmFilterForm
+from .models import Categories, Films, SubCategories, City, Favorite
 from .utils import send_message_to_bot
 
 
@@ -39,70 +31,36 @@ class IndexView(ListView):
         return context
 
 
-# делаю тут свою версию
-#
-# class FilmFilterView(ModelViewSet):
-#     queryset = Films.objects.order_by('-create_date')
-#     serializer_class = FilmModelSerializer
-#     permission_classes = [AllowAny]
-#     parser_classes = (MultiPartParser, FormParser)
-#     pagination_class = FilmPagination
-#     lookup_url_kwarg = 'id'
-#     search_fields = ['id, category', 'title', 'description']
-#     filter_backends = [SearchFilter]
-#
-#     def get_serializer_class(self):
-#         serializer_dict = {
-#             'list': ListFilmModelSerializer,
-#             'create': FilmModelSerializer,
-#             'retrieve': RetrieveFilmModelSerializer,
-#             'update': UpdateFilmModelSerializer
-#         }
-#
-#         return serializer_dict.get(self.action, self.serializer_class)
-#
-#     def get_permissions(self):
-#         if self.action in ['create', 'update', 'partial_update', 'delete']:
-#             self.permission_classes = [IsAuthenticated]
-#         else:
-#             self.permission_classes = [AllowAny]
-#
-#         return super().get_permissions()
-#
-#     @action(methods=['GET'], detail=False, url_path='list', url_name='list-blog',
-#             serializer_class=FilmListModelSerializer, pagination_class=FilmPagination)
-#     def get(self, request):
-#         blogs = Films.objects.all()
-#         serializer = FilmListModelSerializer(blogs, many=True)
-#         return Response(serializer.data)
-
-
-# filter for categories in nav
 class FilmFilterView(ListView):
     template_name = "films/product_list/filtered_products.html"
     context_object_name = "films"
     paginate_by = 24
 
     def get_queryset(self):
-        slug = self.kwargs['slug']
-        if slug:
-            sub_category = SubCategories.objects.get(slug=slug).pk
-            self.film = Films.objects.filter(sub_category=sub_category)
-            return self.film.order_by('-create_date')
-        category = self.request.GET.get('category')
-        sub_category = self.request.GET.get('sub_category')
-        country = self.request.GET.get('country')
-        city = self.request.GET.get('city')
+        self.film = Films.objects.filter(is_active=True, is_published=True)
 
-        if category:
-            self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True, category=category)
-        if sub_category:
-            self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True,
-                                             sub_category=sub_category)
-        if country:
-            self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True, country=country)
-        if city:
-            self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True, city=city)
+        # Обработка параметров из формы фильтрации
+        form = FilmFilterForm(self.request.GET)
+        if bool(form.data):
+            country = form.data.get('country')
+            city = form.data.get('city')
+            category = form.data.get('category')
+            sub_category = form.data.get('sub_category')
+
+            if country:
+                self.film = self.film.filter(country=int(country))
+            if city:
+                self.film = self.film.filter(city=int(city))
+            if category:
+                self.film = self.film.filter(category=int(category))
+            if sub_category:
+                self.film = self.film.filter(sub_category=int(sub_category))
+        else:
+            slug = self.kwargs.get('slug')
+            if slug:
+                sub_category = SubCategories.objects.get(slug=slug).pk
+                self.film = Films.objects.filter(sub_category=sub_category, type='Продать', is_active=True,
+                                                 is_published=True)
         return self.film.order_by('-create_date')
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -127,12 +85,15 @@ class FilmDetailView(DetailView):
         return super().dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
-        return Films.objects.filter(pk=self.kwargs["pk"])
+        self.film = Films.objects.filter(pk=self.kwargs["pk"])
+        return self.film
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["categories"] = Categories.objects.all()
         context["title"] = self.object.title
+        context["is_favorite"] = Favorite.objects.filter(user=self.request.user,
+                                                         product_id=self.film.first().pk).exists()
         return context
 
 
@@ -380,3 +341,28 @@ def up_to_recommendation(request, pk):
         return redirect('profile', request.user.id)
     film.save()
     return redirect('profile', request.user.id)
+
+
+@login_required
+def add_to_favorite(request, product_id):
+    # Здесь вы должны получить объект, который пользователь хочет добавить в избранное,
+    # например, по его идентификатору (object_id), и создать запись в модели Favorite.
+    favorite_object = Films.objects.get(pk=product_id)
+    favorite = Favorite(user=request.user, product_id=favorite_object)
+    favorite.save()
+    return redirect('film_detail', product_id)
+
+
+@login_required
+def remove_from_favorite(request, product_id):
+    # Здесь вы должны получить объект, который пользователь хочет удалить из избранного,
+    # и удалить соответствующую запись из модели Favorite.
+    favorite_object = Films.objects.get(pk=product_id)
+    favorite = Favorite.objects.get(user=request.user, product_id=favorite_object)
+    favorite.delete()
+    return redirect('film_detail', product_id)
+
+
+def my_favorite_list(request):
+    favorites = Favorite.objects.filter(user=request.user)
+    return render(request, 'favorite_list.html', {'favorites': favorites})

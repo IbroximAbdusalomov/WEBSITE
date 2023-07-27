@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c68291c1-1d29-48cb-ab05-4138f8bb5ec3" name="Changes" comment="commit" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/films/views.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2RKGfbTgErB7LTwFdW0ron0C0zP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+    <option name="sortKey" value="BY_TYPE" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Notification.DisplayName-DoNotAsk-IDE Update Results": "IDE updates installed",
+    "Notification.DoNotAsk-IDE Update Results": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TODO_SCOPE": "All Places",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "last_opened_file_path": "/home/ibroxim/PycharmProjects/drf",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/films/static/flags" />
+      <recent name="$PROJECT_DIR$/films/templates/films" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/media/footer" />
+      <recent name="$PROJECT_DIR$/films/static/img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/films/templates/films/product_list" />
+      <recent name="$PROJECT_DIR$/films/static/css" />
+      <recent name="$PROJECT_DIR$/accounts/static/css" />
+      <recent name="$PROJECT_DIR$/films/static/img" />
+      <recent name="$PROJECT_DIR$/films/static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Django Server.Technoprom">
+    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Technoprom" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/films" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/films/tests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Technoprom" type="Python.DjangoServer" factoryName="Django server">
+      <module name="Technoprom" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="Technoprom.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.tests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c68291c1-1d29-48cb-ab05-4138f8bb5ec3" name="Changes" comment="" />
+      <created>1686991463633</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686991463633</updated>
+      <workItem from="1686991469930" duration="5699000" />
+      <workItem from="1687001875133" duration="8848000" />
+      <workItem from="1687070850095" duration="618000" />
+      <workItem from="1687075393319" duration="61000" />
+      <workItem from="1687076489497" duration="14000" />
+      <workItem from="1687077426573" duration="1360000" />
+      <workItem from="1687085846961" duration="613000" />
+      <workItem from="1687166405175" duration="18176000" />
+      <workItem from="1687251498102" duration="12734000" />
+      <workItem from="1687280695435" duration="600000" />
+      <workItem from="1687337818269" duration="16662000" />
+      <workItem from="1687359471005" duration="1044000" />
+      <workItem from="1687360661406" duration="15936000" />
+      <workItem from="1687417727795" duration="7000" />
+      <workItem from="1687420015442" duration="157000" />
+      <workItem from="1687420326420" duration="14329000" />
+      <workItem from="1687437873877" duration="128000" />
+      <workItem from="1687439092784" duration="5000" />
+      <workItem from="1687439109178" duration="749000" />
+      <workItem from="1687518401037" duration="9333000" />
+      <workItem from="1687529008829" duration="2573000" />
+      <workItem from="1687604965969" duration="14663000" />
+      <workItem from="1687624219278" duration="496000" />
+      <workItem from="1687771369326" duration="18952000" />
+      <workItem from="1687790843001" duration="157000" />
+      <workItem from="1687855707944" duration="16368000" />
+      <workItem from="1688031749638" duration="16617000" />
+      <workItem from="1688057253990" duration="3014000" />
+      <workItem from="1688116286615" duration="7535000" />
+      <workItem from="1688123968308" duration="8383000" />
+      <workItem from="1688149231600" duration="21900000" />
+      <workItem from="1688221061313" duration="721000" />
+      <workItem from="1688318649862" duration="3417000" />
+      <workItem from="1688376779260" duration="14864000" />
+      <workItem from="1688431480768" duration="47000" />
+      <workItem from="1688464332869" duration="14789000" />
+      <workItem from="1688549382969" duration="19000" />
+      <workItem from="1688549997642" duration="14897000" />
+      <workItem from="1688633653899" duration="11164000" />
+      <workItem from="1688667991815" duration="1297000" />
+      <workItem from="1688706522651" duration="685000" />
+      <workItem from="1688710439791" duration="6000" />
+      <workItem from="1688723363799" duration="14904000" />
+      <workItem from="1688746962633" duration="1909000" />
+      <workItem from="1688806940628" duration="15276000" />
+      <workItem from="1688829656428" duration="44000" />
+      <workItem from="1688886209327" duration="632000" />
+      <workItem from="1688915736255" duration="3962000" />
+      <workItem from="1688985214547" duration="6659000" />
+      <workItem from="1689069900421" duration="4841000" />
+      <workItem from="1689079277283" duration="2082000" />
+      <workItem from="1689133408527" duration="1304000" />
+      <workItem from="1689144573517" duration="11847000" />
+      <workItem from="1689167174455" duration="5965000" />
+      <workItem from="1689238325143" duration="14924000" />
+      <workItem from="1689313176596" duration="3169000" />
+      <workItem from="1689319449150" duration="14194000" />
+      <workItem from="1689397824277" duration="21757000" />
+      <workItem from="1689446059257" duration="1164000" />
+      <workItem from="1689491281184" duration="3924000" />
+      <workItem from="1689500433734" duration="2113000" />
+      <workItem from="1689511945210" duration="6970000" />
+      <workItem from="1689549200635" duration="162000" />
+      <workItem from="1689570153321" duration="26045000" />
+      <workItem from="1689602277065" duration="1747000" />
+      <workItem from="1689618131438" duration="7000" />
+      <workItem from="1689618344159" duration="2000" />
+      <workItem from="1689658711288" duration="18736000" />
+      <workItem from="1689743674812" duration="5524000" />
+      <workItem from="1689749790049" duration="13263000" />
+      <workItem from="1689773495661" duration="2360000" />
+      <workItem from="1689825844537" duration="5590000" />
+      <workItem from="1689839781548" duration="1020000" />
+      <workItem from="1689860754354" duration="1454000" />
+      <workItem from="1690174925256" duration="14518000" />
+      <workItem from="1690200583078" duration="1297000" />
+      <workItem from="1690220421355" duration="313000" />
+      <workItem from="1690261796633" duration="19000" />
+      <workItem from="1690433692711" duration="4375000" />
+      <workItem from="1690442760552" duration="46000" />
+    </task>
+    <task id="LOCAL-00001" summary="requirements">
+      <option name="closed" value="true" />
+      <created>1689831270963</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689831270963</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commit">
+      <option name="closed" value="true" />
+      <created>1690441757039</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1690441757039</updated>
+    </task>
+    <task id="LOCAL-00003" summary="commit">
+      <option name="closed" value="true" />
+      <created>1690441790991</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1690441790991</updated>
+    </task>
+    <task id="LOCAL-00004" summary="commit">
+      <option name="closed" value="true" />
+      <created>1690442655839</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690442655839</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="requirements" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/films/views.py</url>
+          <line>367</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Technoprom$tests.coverage" NAME="tests Coverage Results" MODIFIED="1688124691838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/films" />
+  </component>
+</project>

@@ -1,6 +1,6 @@
 import logging
 from aiogram import Bot, types
-from HelloDjango.settings import TOKEN
+from root.settings import TOKEN
 from aiogram.dispatcher import Dispatcher
 
 # Configure logging

@@ -45,7 +45,7 @@ class RegisterUserView(CreateView):
         code = generate_verification_code()
         user.save()
 
-        subject = 'Technoprom'
+        subject = 'HelloDjango'
         message = f"{code}"
         from_email = settings.EMAIL_HOST_USER
         to = [user.email]

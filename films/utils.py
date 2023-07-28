@@ -4,7 +4,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from django.forms import model_to_dict
 
-from Technoprom.settings import TOKEN, chat_id
+from HelloDjango.settings import TOKEN, chat_id
 
 logging.basicConfig(level=logging.INFO)
 

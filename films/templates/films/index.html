@@ -565,7 +565,7 @@
                 {% endif %}
                 <p class="card-create-date"><small class="text-muted">{{ film.create_date }}</small></p>
 
-                <a href="{{ film.get_absolute_url }}" class="btn"
+                <a href="{% url 'film_detail' film.pk %}" class="btn"
                    style="background: rgba(13,110,253,0.8); color: white;">Подробнее</a>
                 <!-- Ваш шаблон Django -->
                 <!-- template.html -->
@@ -639,7 +639,7 @@
 
                     {#                {% endif %}#}
 
-                {% empty %}
+                    {% empty %}
 
                     <h5 class="text-center mt-3">Запросов еще нет</h5>
 

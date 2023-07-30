@@ -31,9 +31,8 @@ INSTALLED_APPS = [
     'accounts',
 
     'django_filters',
-    'rest_framework',
+    # 'rest_framework',
 ]
-
 # Замените 'auth.User' на 'accounts.User'
 AUTH_USER_MODEL = 'accounts.User'
 
@@ -111,10 +110,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 # префикс -> https://test.com/media/product-images/123.jpg
-MEDIA_URL = "media/"
+MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'films/static')
 # STATICFILES_DIRS = os.path.join(BASE_DIR, 'films/static')
 

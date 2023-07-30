@@ -10,7 +10,7 @@ from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from accounts.models import User
-from .forms import FilmsForm, PersonCreationForm, EditFilmForm, FilmFilterForm
+from .forms import FilmsFormBUY, FilmsFormSELL, PersonCreationForm, EditFilmForm, FilmFilterForm
 from .models import Categories, Films, SubCategories, City, Favorite
 from .utils import send_message_to_bot
 
@@ -57,9 +57,13 @@ class FilmFilterView(ListView):
                 self.film = self.film.filter(sub_category=int(sub_category))
         else:
             slug = self.kwargs.get('slug')
-            if slug:
+            if not slug in ['uskuna', 'texnolog', 'xomashyo', 'xizmat_korsatish']:
                 sub_category = SubCategories.objects.get(slug=slug).pk
-                self.film = Films.objects.filter(sub_category=sub_category, type='Продать', is_active=True,
+                self.film = Films.objects.filter(sub_category=sub_category, is_active=True,
+                                                 is_published=True)
+            else:
+                category = Categories.objects.get(slug=slug).pk
+                self.film = Films.objects.filter(category=category, is_active=True,
                                                  is_published=True)
         return self.film.order_by('-create_date')
 
@@ -74,12 +78,12 @@ class FilmFilterView(ListView):
 
 
 class FilmDetailView(DetailView):
+    model = Films
     template_name = "films/product_detail.html"
     context_object_name = "film"
 
     def dispatch(self, request, *args, **kwargs):
-        """Управляющий, который принимает запрос и перенаправляет обработчикам"""
-        film = self.get_queryset()[0]
+        film = self.get_queryset().first()
         film.view_count += 1
         film.save()
         return super().dispatch(request, *args, **kwargs)
@@ -92,8 +96,9 @@ class FilmDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context["categories"] = Categories.objects.all()
         context["title"] = self.object.title
-        context["is_favorite"] = Favorite.objects.filter(user=self.request.user,
-                                                         product_id=self.film.first().pk).exists()
+        if not self.request.user.is_anonymous:
+            context["is_favorite"] = Favorite.objects.filter(user=self.request.user,
+                                                             product_id=self.film.first().pk).exists()
         return context
 
 
@@ -160,7 +165,7 @@ class FilmDeleteView(DeleteView):
 
 class FilmBuyView(CreateView):
     template_name = "films/film_form.html"
-    form_class = FilmsForm
+    form_class = FilmsFormBUY
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -198,7 +203,7 @@ class FilmBuyView(CreateView):
 
 class FilmSellView(CreateView):
     template_name = "films/sellfilm_form.html"
-    form_class = FilmsForm
+    form_class = FilmsFormSELL
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

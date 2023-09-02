@@ -16,7 +16,7 @@ from .utils import send_message_to_bot
 
 
 class IndexView(ListView):
-    template_name = "films/index.html"
+    template_name = "index.html"
     context_object_name = "films_buy"
 
     def get_queryset(self):
@@ -100,6 +100,10 @@ class FilmDetailView(DetailView):
             context["is_favorite"] = Favorite.objects.filter(user=self.request.user,
                                                              product_id=self.film.first().pk).exists()
         return context
+
+    def post(self, request, *args, **kwargs):
+        ball = request.POST['ball']
+        return redirect('film_detail', self.object.pk)
 
 
 class FilmsSearchView(ListView):

@@ -1,5 +1,4 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import User
 from django.db.models import Model, CharField, SlugField, CASCADE, ForeignKey, TextField, DateTimeField, BooleanField, \
     PositiveBigIntegerField, ImageField, SET_NULL, FloatField
 from django.urls import reverse_lazy
@@ -117,3 +116,9 @@ class Favorite(Model):
 
     def __str__(self):
         return f"{self.user} - Product ID: {self.product_id}"
+
+
+class Rating(Model):
+    user = get_user_model()
+    product = Films()
+    stars = ...

@@ -1,0 +1,727 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial=scale=1">
+    <title>Tecnoprom</title>
+    <link rel="icon" href="{% static 'images/categories/yangi-uskunalar-24px.png' %}" type="image/png">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
+    <link rel="stylesheet" href="{% static '/js/style.js' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+
+<style>
+    @font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto/Roboto-BlackItalic.eot');
+    src: url('../static/fonts/Roboto/Roboto-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('../static/fonts/Roboto/Roboto-BlackItalic.woff2') format('woff2'),
+        url('../static/fonts/Roboto/Roboto-BlackItalic.woff') format('woff'),
+        url('../static/fonts/Roboto/Roboto-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto/Roboto-Black.eot');
+    src: url('../static/fonts/Roboto/Roboto-Black.eot?#iefix') format('embedded-opentype'),
+        url('../static/fonts/Roboto/Roboto-Black.woff2') format('woff2'),
+        url('../static/fonts/Roboto/Roboto-Black.woff') format('woff'),
+        url('../static/fonts/Roboto/Roboto-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto/Roboto-BoldItalic.eot');
+    src: url('../static/fonts/Roboto/Roboto-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../static/fonts/Roboto/Roboto-BoldItalic.woff2') format('woff2'),
+        url('../static/fonts/Roboto/Roboto-BoldItalic.woff') format('woff'),
+        url('../static/fonts/Roboto/Roboto-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto/Roboto-Bold.eot');
+    src: url('../static/fonts/Roboto/Roboto-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../static/fonts/Roboto/Roboto-Bold.woff2') format('woff2'),
+        url('../static/fonts/Roboto/Roboto-Bold.woff') format('woff'),
+        url('../static/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto/Roboto-Italic.eot');
+    src: url('../static/fonts/Roboto/Roboto-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../static/fonts/Roboto/Roboto-Italic.woff2') format('woff2'),
+        url('../static/fonts/Roboto/Roboto-Italic.woff') format('woff'),
+        url('../static/fonts/Roboto/Roboto-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto/Roboto-MediumItalic.eot');
+    src: url('../static/fonts/Roboto/Roboto-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../static/fonts/Roboto/Roboto-MediumItalic.woff2') format('woff2'),
+        url('../static/fonts/Roboto/Roboto-MediumItalic.woff') format('woff'),
+        url('../static/fonts/Roboto/Roboto-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto/Roboto-Medium.eot');
+    src: url('../static/fonts/Roboto/Roboto-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../static/fonts/Roboto/Roboto-Medium.woff2') format('woff2'),
+        url('../static/fonts/Roboto/Roboto-Medium.woff') format('woff'),
+        url('../static/fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto/Roboto-Regular.eot');
+    src: url('../static/fonts/Roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../static/fonts/Roboto/Roboto-Regular.woff2') format('woff2'),
+        url('../static/fonts/Roboto/Roboto-Regular.woff') format('woff'),
+        url('../static/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto/Roboto-ThinItalic.eot');
+    src: url('../static/fonts/Roboto/Roboto-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('../static/fonts/Roboto/Roboto-ThinItalic.woff2') format('woff2'),
+        url('../static/fonts/Roboto/Roboto-ThinItalic.woff') format('woff'),
+        url('../static/fonts/Roboto/Roboto-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto/Roboto-LightItalic.eot');
+    src: url('../static/fonts/Roboto/Roboto-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../static/fonts/Roboto/Roboto-LightItalic.woff2') format('woff2'),
+        url('../static/fonts/Roboto/Roboto-LightItalic.woff') format('woff'),
+        url('../static/fonts/Roboto/Roboto-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto/Roboto-Light.eot');
+    src: url('../static/fonts/Roboto/Roboto-Light.eot?#iefix') format('embedded-opentype'),
+        url('../static/fonts/Roboto/Roboto-Light.woff2') format('woff2'),
+        url('../static/fonts/Roboto/Roboto-Light.woff') format('woff'),
+        url('../static/fonts/Roboto/Roboto-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto/Roboto-Thin.eot');
+    src: url('../static/fonts/Roboto/Roboto-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../static/fonts/Roboto/Roboto-Thin.woff2') format('woff2'),
+        url('../static/fonts/Roboto/Roboto-Thin.woff') format('woff'),
+        url('../static/fonts/Roboto/Roboto-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+/* a {
+    transition: 0.3s;
+} */
+
+.container {
+    width: 1300px;
+    margin: 0 auto; /* Автоматический отступ по горизонтали, центрирует контейнер */
+}
+
+.horizontal_line {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 10px 0;
+}
+
+.to-uppercase {
+    text-transform: uppercase;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Navbar  */
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 3px 16px 0px rgb(0, 0, 0, .2);
+    z-index: 10;
+    padding: 10px 0;
+}
+
+.main-header .container {
+    display: flex;
+    align-items: center;
+}
+
+.main-header__logo img {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Buttons 1------------------------------------------ */
+
+.main-navigations {
+    display: flex;
+    padding-left: 20px;
+}
+
+.main-navigation {
+    padding: 0 30px;
+}
+
+.main-navigation__button {
+    /* display: inline-block; */
+    text-decoration: none;
+    color: black;
+}
+
+.main-navigation__button::before,
+.main-navigation__button::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 20px;
+    left: 20px;
+    right: 20px;
+    opacity: 0;
+}
+
+.main-navigation__button::before {
+    top: 0;
+    bottom: -20px;
+}
+
+.main-navigation__button::after {
+    bottom: 0;
+    top: 20px;
+}
+
+.main-navigation__button:hover::before,
+.main-navigation__button:hover::after {
+    opacity: 1;
+}
+
+
+.main-navigation__button img {
+    position: absolute;
+    margin-left: 5px;
+    top: -3px;
+}
+
+.main-navigation {
+    position: relative; /* Добавьте это */
+}
+
+.main-navigation__items {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 15px 0;
+    border-radius: 10px;
+    top: 70%;
+    left: -30px;
+    width: 300px;
+    list-style: none;
+}
+
+.main-navigation__item {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+}
+
+.main-navigation__item a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.main-navigation__item a img {
+    text-align: end;
+    padding: 0 15px 0 0;
+}
+
+.main-navigation__button:hover + .main-navigation__items,
+.main-navigation__items:hover {
+    display: block;
+}
+
+.main-navigation__item:hover,
+.main-navigation__item a:hover {
+    color: #0c29d0;
+}
+
+
+/* buttons in navbar  */
+
+.right-buttons {
+    margin-left: auto; /* Размещает блок на правой части */
+}
+
+.buttons {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.right-buttons .buttons .planos-button a,
+.right-buttons .buttons .price-button a,
+.right-buttons .buttons .login-button a {
+    text-decoration: none;
+    margin: 0 10px;
+    border-radius: 20px; /* Border radius */
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.right-buttons .buttons .login-button a {
+    border: 1px solid #0c29d0; /* Border color */
+    color: #0c29d0; /* Text color */
+    padding: 7px 24px;
+}
+
+.right-buttons .buttons .login-button a:hover {
+    background-color: #0c29d0; /* Background color */
+    color: white; /* Text color on hover */
+}
+
+.right-buttons .buttons .price-button a {
+    color: white; /* Text color */
+    background-color: #0c29d0; /* Background color */
+    padding: 8px 24px;
+}
+
+.right-buttons .buttons .price-button a:hover {
+    background-color: #505faf; /* Background color */
+    color: white; /* Text color on hover */
+}
+
+
+
+/* ------------------------------------------------------ */
+
+
+.footer {
+    background-color: #f3f7fc;
+    padding: 40px 0;
+    position: relative;
+    font-family: Arial, sans-serif;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: "";
+    width: 120%;
+    height: 100px;
+    position: absolute;
+    border-radius: 100%;
+    background: #fff;
+    top: -50px;
+    left: -10%;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.footer-widgets {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 100px;
+}
+
+.column-1,
+.column-2,
+.column-3,
+.column-4 {
+    width: 25%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.column-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.column-2,
+.column-3,
+.column-4 {
+    text-align: center;
+}
+
+.column-1 img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.column-1 p {
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.column-2 h5,
+.column-3 h5,
+.column-4 h5 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.footer-navigation-items-2,
+.footer-navigation-items-4 {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-navigation-item {
+    margin-bottom: 8px;
+}
+
+.footer-navigation-item a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-navigation-item a:hover {
+    color: #007bff;
+}
+
+
+.svg-icon {
+    cursor: pointer;
+}
+</style>
+
+<body>
+<!-- Header section -->
+<header class="main-header">
+    <div class="container">
+        <div class="main-header__logo">
+            <a href="index.html">
+                <img class="main-header__logo" src="{% static 'images/TECNOPROM-LOGO.png' %}" alt="logo">
+            </a>
+        </div>
+        <div class="main-navigations">
+            <nav class="main-navigation">
+                <a href="#" class="main-navigation__button">
+                    sanoat
+                    <img src="{% static 'images/at.png' %}" class="img__categories" alt="img for categories">
+                </a>
+
+                <ul class="main-navigation__items">
+                    <li class="main-navigation__item"><a href="#">Plastmassa</a></li>
+                    <li class="main-navigation__item"><a href="#">Qadoqlash</a></li>
+                    <li class="main-navigation__item"><a href="#">Tekstil</a></li>
+                    <li class="main-navigation__item"><a href="#">Oziq-ovqat</a></li>
+                    <li class="main-navigation__item"><a href="#">Agro</a></li>
+                    <li class="main-navigation__item"><a href="#">Metall</a></li>
+                </ul>
+            </nav>
+
+            <nav class="main-navigation">
+                <a href="#" class="main-navigation__button">yo'nalishlar</a>
+                <ul class="main-navigation__items">
+                    <li class="main-navigation__item">
+                        <a href="./product_list.html">
+                            <img src="{% static 'images/categories/yangi-uskunalar-24px.png' %}" alt="">
+                            Yangi uskunalar
+                        </a>
+                    </li>
+                    <li class="main-navigation__item">
+                        <a href="./product_list.html">
+                            <img src="{% static 'images/categories/ishlatilgan-uskunalar-24px.png' %}" alt="">
+                            Ishlatilgan uskunalar
+                        </a>
+                    </li>
+                    <li class="main-navigation__item">
+                        <a href="./product_list.html">
+                            <img src="{% static 'images/categories/xomashyo-24px.png' %}" alt="">
+                            Xom ashyo
+                        </a>
+                    </li>
+                    <li class="main-navigation__item">
+                        <a href="./product_list.html">
+                            <img src="{% static 'images/categories/sanoat-xomashyo-24px.png' %}" alt="">
+                            Xizmat ko'rsatish
+                        </a>
+                    </li>
+                    <li class="main-navigation__item">
+                        <a href="./product_list.html">
+                            <img src="{% static 'images/categories/texnologlar-24px.png' %}" alt="">
+                            Texnologlar
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="right-buttons">
+            <ul class="buttons">
+                <li class="planos-button"><a href="#">contact</a></li>
+                <li class="login-button"><a href="{% url 'login' %}">login</a></li>
+                <li class="price-button"><a href="#price-form">buyurtma berish</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!-- /Header section -->
+
+<!-- Topmost section -->
+<div class="main-banner">
+    <div class="container">
+        <section id="price__form-section" class="price__form-section">
+            <div class="price__form-text">
+                Ishlab chiqarish uchun hammasini <br> bir joyda toping va taklif eting!
+            </div>
+            <div class="price__form-buttons">
+                <ul class="price__form-button__items">
+                    <li class="price__form-button__item btn_active" data-image="banner-yangi-uskuna.svg"
+                        data-title="Soluções que || o dia a dia de qualquer negócio" data-span-text="facilitam">
+                        <a href="#">yangi uskunalar</a>
+                    </li>
+                    <li class="price__form-button__item" data-image="banner-ishlatilgan-uskuna.svg"
+                        data-title="Diferenciais que || sua operação" data-span-text="otimizam">
+                        <a href="#">ishlatilgan uskunalar</a>
+                    </li>
+                    <li class="price__form-button__item" data-image="banner-xom-ashyo.svg"
+                        data-title="Histórias de quem || a operação com o Tiny" data-span-text="transformou">
+                        <a href="#">xom ashyo</a>
+                    </li>
+                    <li class="price__form-button__item" data-image="banner-xizmat-korsatish.svg"
+                        data-title="Aproveite || que se conectam com seu negócio" data-span-text="conteúdos">
+                        <a href="#">xizmat ko'rsatish</a>
+                    </li>
+                    <li class="price__form-button__item" data-image="banner-texnolog.svg"
+                        data-title="Emissão de notas || como você nunca viu" data-span-text="fiscais">
+                        <a href="#">texnolog</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- /Topmost section -->
+
+<!-- Form and image -->
+<div id="price-form" class="container">
+    <section class="price-form">
+        <div class="price__image-form">
+            <h2 class="style-title-home">Soluções que <span class="border-color"
+                                                            style="background-color: #D4E9FF; border-radius: 20px; padding: 6px 10px;">facilitam </span>
+                o dia a dia de qualquer negócio</h2>
+
+            <img id="bannerImage" src="{% static 'images/banners/banner-yangi-uskuna.svg' %}" alt="">
+        </div>
+
+        <div class="price__form-form">
+            <form class="custom-form">
+                <div class="form-group">
+                    <label for="name" class="form-label">Название:</label>
+                    <input type="text" id="name" name="name" required placeholder="Введите название" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="description" class="form-label">Описание:</label>
+                    <textarea id="description" name="description" rows="4" required placeholder="Введите описание"
+                              class="form-textarea"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="category" class="form-label">Категория:</label>
+                    <select id="category" name="category" required class="form-select">
+                        <option value="" disabled selected>Выберите категорию</option>
+                        <option value="yangi uskunalar">Yangi uskunalar</option>
+                        <option value="ishlatilgan uskunalar">Ishlatilgan uskunalar</option>
+                        <option value="xom ashyo">Xom ashyo</option>
+                        <option value="xizmat ko'rsatish">Xizmat ko'rsatish</option>
+                        <option value="texnolog">Texnolog</option>
+                        <!-- Другие варианты категорий -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subcategory" class="form-label">Субкатегория:</label>
+                    <select id="subcategory" name="subcategory" required class="form-select">
+                        <option value="" disabled selected>Выберите субкатегорию</option>
+                        <option value="Субкатегория 1">Субкатегория 1</option>
+                        <option value="Субкатегория 2">Субкатегория 2</option>
+                        <!-- Другие варианты субкатегорий -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="form-label">Телефон:</label>
+                    <input type="text" id="phone" name="phone" required placeholder="+998 66 666 66 66"
+                           class="form-input">
+                </div>
+                <button type="submit" class="form-button">Отправить</button>
+            </form>
+
+
+        </div>
+    </section>
+</div>
+<!-- /Form and image section -->
+
+<div class="horizontal_line"></div>
+
+{% block content %}
+
+{% endblock content %}
+
+<!-- Footer section -->
+<footer class="footer">
+    <div class="container">
+        <section class="footer-widgets">
+            <div class="column-1">
+                <img src="{% static 'images/TECNOPROM-LOGO.png' %}" alt="Lego">
+                <p>Av. Cândido Hartmann, 590 <br>
+                    Mercês, Curitiba – PR <br>
+                    80730-440.
+                </p>
+
+                <p>
+                    consulte nossos termos de uso, política <br>de privacidade, política de cookies,<br> código de
+                    conduta e ética , canal de <br> denúncias e encarregado pelo <br>tratamento de dados pessoais.
+                </p>
+
+            </div>
+
+            <div class="column-2">
+                <h5>Footer 2</h5>
+                <ul class="footer-navigation-items-2">
+                    <li class="footer-navigation-item"><a href="#">1</a></li>
+                    <li class="footer-navigation-item"><a href="#">2</a></li>
+                    <li class="footer-navigation-item"><a href="#">3</a></li>
+                </ul>
+            </div>
+            <div class="column-3">
+                <h5>Footer 3</h5>
+                <ul class="footer-navigation-items-2">
+                    <li class="footer-navigation-item"><a href="#">1</a></li>
+                    <li class="footer-navigation-item"><a href="#">2</a></li>
+                    <li class="footer-navigation-item"><a href="#">3</a></li>
+                </ul>
+            </div>
+            <div class="column-4">
+                <h5>Footer 4</h5>
+                <ul class="footer-navigation-items-4">
+                    <li class="footer-navigation-item"><a href="#">1</a></li>
+                    <li class="footer-navigation-item"><a href="#">2</a></li>
+                    <li class="footer-navigation-item"><a href="#">3</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</footer>
+<!-- /Footer section -->
+
+
+<script>
+    const categorySelect = document.getElementById('category');
+    const buttons = document.querySelectorAll('.price__form-button__item');
+    const bannerImage = document.getElementById('bannerImage');
+    const titleH2 = document.querySelector('.style-title-home');
+    const span = document.querySelector('.border-color');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            buttons.forEach(btn => btn.classList.remove('btn_active'));
+            button.classList.add('btn_active');
+            const imageName = button.getAttribute('data-image');
+            bannerImage.src = `../static/images/banners/${imageName}`;
+            const titleParts = button.getAttribute('data-title').split('||');
+            const spanText = button.getAttribute('data-span-text');
+            titleH2.innerHTML = `${titleParts[0]} <span class="border-color">${spanText}</span> ${titleParts[1]}`;
+            const categoryText = button.querySelector('a').innerText;
+            const categoryOption = categorySelect.querySelector(`[value="${categoryText}"]`);
+            if (categoryOption) {
+                categoryOption.selected = true;
+            }
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

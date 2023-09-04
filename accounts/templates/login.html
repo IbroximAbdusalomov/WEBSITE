@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/authentication.css' %}">
+</head>
+<body>
+    <section class="authentication">
+        <div class="form login">
+            <div class="form-content">
+                <header>
+                    Login
+                </header>
+
+                <form action="#">
+                    <div class="field input-field">
+                        <input type="username" placeholder="Username" class="input">
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" placeholder="Password" class="password">
+                        <i class="fa-regular fa-eye-slash eye-icon"></i>
+                    </div>
+
+                    <div class="form-link">
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <div class="field button-field">
+                        <button>Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="signup">
+            <div class="signup-content">
+                <img src="{% static 'images/banners/banner-ishlatilgan-uskuna.svg' %}" alt="logo" class="signup-logo">
+                <div class="signup-text">
+                    <p>Don't have an account?</p>
+                    <a href="{% url 'register' %}">Singup</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>

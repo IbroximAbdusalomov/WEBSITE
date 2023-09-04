@@ -25,7 +25,7 @@ class AuthorizationView(View):
 
     @staticmethod
     def get(request):
-        return render(request, "accounts/user_auth.html", {
+        return render(request, "login.html", {
             "register_form": UserRegisterForm(),
             "login_form": UserLoginForm(),
             "title": "Авторизация"
@@ -38,6 +38,10 @@ def generate_verification_code():
 
 class RegisterUserView(CreateView):
     form_class = UserRegisterForm
+    # template_name = 'register.html'
+
+    # def post(self, request, *args, **kwargs):
+    #     return render(request, self.template_name)
 
     def form_valid(self, form):
         user = form.save(commit=False)

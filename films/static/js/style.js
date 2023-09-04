@@ -10,7 +10,7 @@ buttons.forEach(button => {
         buttons.forEach(btn => btn.classList.remove('btn_active'));
         button.classList.add('btn_active');
         const imageName = button.getAttribute('data-image');
-        bannerImage.src = `./images/${imageName}`;
+        bannerImage.src = `media/images/banners/${imageName}`;
 
         const titleParts = button.getAttribute('data-title').split('||');
         const spanText = button.getAttribute('data-span-text');

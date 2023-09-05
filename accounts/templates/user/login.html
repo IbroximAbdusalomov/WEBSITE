@@ -1,0 +1,133 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/authentication.css' %}">
+</head>
+<body>
+<section class="authentication">
+    <div class="main-header__logo">
+        <a href="../..">
+            <img src="{% static 'images/TECNOPROM-LOGO.png' %}" alt="logo">
+        </a>
+    </div>
+    <div class="form login">
+        <div class="form-content">
+            <div class="form-text">
+                <header>
+                    Войти
+                </header>
+            </div>
+
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div class="field input-field">
+                    {{ login_form.username }}
+                </div>
+
+                <div class="field input-field">
+                    {{ login_form.password }}
+                    <i class="fa-regular fa-eye-slash eye-icon"></i>
+                </div>
+
+                <div class="form-link">
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <div class="field button-field">
+                    <button>Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="form register">
+        <div class="form-content">
+            <div class="form-text">
+                <header>
+                    Зарегистрироваться
+                </header>
+            </div>
+
+            <form id="registrationForm" method="post" action="{% url 'register' %}">
+                {% csrf_token %}
+                {#                {{ register_form.as_p }}#}
+                <div class="field">
+                    <label type="text" for="username">Имя</label>
+                    {{ register_form.username }}
+{#                    <input type="text" placeholder="Имя" class="input" name="name" id="name">#}
+                </div>
+
+                <div class="field">
+                    <label type="email">Электронная почта</label>
+                    {{ register_form.email }}
+                    {#                    <input type="email" placeholder="user@gmail.com" class="input" name="email" id="email">#}
+                </div>
+
+                <div class="field">
+                    <label for="text">Номер телеграмма</label>
+                    {{ register_form.telephone }}
+                    {#                    <input type="email" placeholder="user@gmail.com" class="input" name="email" id="email">#}
+                </div>
+
+                <div class="field">
+                    <label for="password">Пароль</label>
+                    {{ register_form.password1 }}
+                    {#                    <input type="password" placeholder="Пароль" class="input" name="password" id="password">#}
+                </div>
+
+                <div class="field">
+                    <label for="confirmPassword">Подтвердите пароль</label>
+                    {{ register_form.password2 }}
+                    {#                    <input type="password" placeholder="Подтвердите пароль" class="input" name="confirmPassword" id="confirmPassword">#}
+                </div>
+
+                <div class="field button-field">
+                    <button>Зарегистрироваться</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="signup" id="for-singup-page">
+        <div class="signup-content">
+            <img src="{% static 'images/banners/banner-ishlatilgan-uskuna.svg' %}" alt="logo" class="signup-logo">
+            <div class="signup-text">
+                <p>Don't have an account?</p>
+                <a href="#" id="toggleRegisterLink">Signup</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Форма регистрации -->
+
+
+<!-- JavaScript для переключения форм -->
+<script>
+    const toggleRegisterLink = document.getElementById("toggleRegisterLink");
+    const forSingupPage = document.getElementById("for-singup-page");
+    const loginForm = document.querySelector(".login");
+    const registerForm = document.querySelector(".register");
+
+    registerForm.style.display = "none";
+    toggleRegisterLink.addEventListener("click", function (event) {
+        event.preventDefault(); // Предотвратить переход по ссылке
+
+        // Скрыть форму входа и показать форму регистрации
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+        forSingupPage.style.display = "none"
+    });
+</script>
+</body>
+</html>

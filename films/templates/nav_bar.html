@@ -1,0 +1,80 @@
+{% load static %}
+
+<!-- Header section -->
+<header class="main-header">
+    <div class="container">
+        <div class="main-header__logo">
+            <a href="{% url 'index' %}">
+                <img class="main-header__logo" src="{% static 'images/TECNOPROM-LOGO.png' %}" alt="logo">
+            </a>
+        </div>
+        <div class="main-navigations">
+            <nav class="main-navigation">
+                <a href="#" class="main-navigation__button">
+                    sanoat
+                    <img src="{% static 'images/at.png' %}" class="img__categories" alt="img for categories">
+                </a>
+
+                <ul class="main-navigation__items">
+                    <li class="main-navigation__item"><a href="#">Plastmassa</a></li>
+                    <li class="main-navigation__item"><a href="#">Qadoqlash</a></li>
+                    <li class="main-navigation__item"><a href="#">Tekstil</a></li>
+                    <li class="main-navigation__item"><a href="#">Oziq-ovqat</a></li>
+                    <li class="main-navigation__item"><a href="#">Agro</a></li>
+                    <li class="main-navigation__item"><a href="#">Metall</a></li>
+                </ul>
+            </nav>
+
+            <nav class="main-navigation">
+                <a href="#" class="main-navigation__button">yo'nalishlar</a>
+                <ul class="main-navigation__items">
+                    <li class="main-navigation__item">
+                        <a href="#">
+                            <img src="{% static 'images/categories/yangi-uskunalar-24px.png' %}" alt="">
+                            Yangi uskunalar
+                        </a>
+                    </li>
+                    <li class="main-navigation__item">
+                        <a href="#">
+                            <img src="{% static 'images/categories/ishlatilgan-uskunalar-24px.png' %}" alt="">
+                            Ishlatilgan uskunalar
+                        </a>
+                    </li>
+                    <li class="main-navigation__item">
+                        <a href="#">
+                            <img src="{% static 'images/categories/xomashyo-24px.png' %}" alt="">
+                            Xom ashyo
+                        </a>
+                    </li>
+                    <li class="main-navigation__item">
+                        <a href="#">
+                            <img src="{% static 'images/categories/sanoat-xomashyo-24px.png' %}" alt="">
+                            Xizmat ko'rsatish
+                        </a>
+                    </li>
+                    <li class="main-navigation__item">
+                        <a href="#">
+                            <img src="{% static 'images/categories/texnologlar-24px.png' %}" alt="">
+                            Texnologlar
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="right-buttons">
+            <ul class="buttons">
+            {% if user.is_authenticated%}
+                <li class="planos-button"><a href="{% url 'logout' %}">logout</a></li>
+            {% endif %}
+                {% if user.is_authenticated %}
+                    <li class="login-button"><a href="{% url 'profile' user.pk %}">Profile</a></li>
+                {% else %}
+                    <li class="login-button"><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li class="price-button"><a href="#">buyurtma berish</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!-- /Header section -->

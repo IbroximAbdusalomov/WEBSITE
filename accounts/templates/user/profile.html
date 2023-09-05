@@ -1,0 +1,309 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin-panel.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    .seller-profile-infos {
+        display: flex;
+        justify-content: space-between;
+        padding: 24px 24px;
+        background: #e8efff;
+    }
+
+    .seller-profile-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .seller-profile-img img {
+        width: 74px;
+    }
+</style>
+
+{% include 'nav_bar.html' %}
+
+
+<!-- ADMIN PANEL -->
+<section class="admin-panel">
+
+{#    <div class="container">#}
+{#        <div class="seller-profile-infos">#}
+{#            <div class="seller-profile-info">#}
+{#                <div class="seller-profile-img">#}
+{#                    <img src="{% static 'avatar-svgrepo-com.svg' %}" alt="">#}
+{#                </div>#}
+{#                <div class="seller-profile-username">#}
+{#                    <h1 class="to-uppercase">username</h1>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#        </div>#}
+{#    </div>#}
+    <div class="container">
+        <div class="row-1">
+            <a href="{% url 'logout' %}"></a>
+            <div><h3 data-testid="header-title" class="css-6i2gxn er34gjf0">Ваши объявления</h3></div>
+            <div class="admin-panel__buttons right-buttons">
+                <ul class="buttons">
+                    <li class="login-button"><a href="#">Hisobni to'ldiring</a></li>
+                    <li class="price-button"><a href="#price-form">Tariflar</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tab-list">
+            <button class="tab-button active" data-target="active-section">Faollar</button>
+            <button class="tab-button" data-target="waiting-section">Tekshiruvda</button>
+            <button class="tab-button" data-target="finished-section">Faol emaslar</button>
+            {#            <button class="tab-button" data-target="moderated-section">O'chirilganlar</button>#}
+            <div class="underline"></div>
+        </div>
+
+        <div class="sections">
+            <div class="section active-section">
+                <div class="action-buttons">
+                    <button class="action-button delete-button" data-action="delete" disabled>Удалить</button>
+                    <button class="action-button edit-button" data-action="edit" disabled>Изменить</button>
+                    <button class="action-button activate-button" data-action="activate" disabled>Активировать</button>
+                </div>
+                <div class="cards">
+                    {% for user_film in user_films %}
+                        {% if user_film.is_active %}
+                            <div class="card__buy card-color">
+                                <div class="card__buy-content">
+                                    <label>
+                                        <input type="checkbox" class="card-checkbox">
+                                    </label>
+                                    <div class="category-info">
+                                        <div class="product-cat__image">
+                                            <img src="{{ user_film.image }}" alt="cat image">
+                                        </div>
+                                        <a href="#">{{ user_film.category }}</a>
+                                    </div>
+                                    <h2 class="title"><a href="{% url 'product_detail' user_film.pk %}"
+                                                         class="title">{{ user_film.title }}</a>
+                                    </h2>
+                                    <p class="description">▪️ Холати:  ишлатилган
+                                        ▪️ каймок, сыр, катик, шоколод, кетчуп  хуллас куюк
+                                        махсулотларни хайдаш учун ишлатилади.
+                                        ▪️Зангламас металлдан нержевейкадан.
+                                        ————————
+                                        ▪️рабочый
+                                        ▪️ сметана, сыр, кефир, шоколод, кетчуп. Исползуеться для густые продукции.
+                                        ▪️Корпус нержевейще металл.
+
+                                        💰Келишилади.
+
+                                        📱+998909902448
+                                        📱+998999649003</p>
+                                    <div class="product-data">
+                                        <div class="flags">
+                                            <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
+                                            <span class="country">Страна</span>
+                                        </div>
+                                        <div class="date">
+                                            <span class="full-date">{{ user_film.create_date }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="section waiting-section">
+                <div class="action-buttons">
+                    <button class="action-button delete-button" data-action="delete" disabled>Удалить</button>
+                    <button class="action-button edit-button" data-action="edit" disabled>Изменить</button>
+                    <button class="action-button activate-button" data-action="activate" disabled>Активировать</button>
+                </div>
+                <div class="cards">
+                    {% for user_film in user_films %}
+                        {% if not user_film.is_active %}
+                            <div class="card__buy card-color">
+                                <div class="card__buy-content">
+                                    <label>
+                                        <input type="checkbox" class="card-checkbox">
+                                    </label>
+                                    <div class="category-info">
+                                        <div class="product-cat__image">
+                                            <img src="{{ user_film.image }}" alt="cat image">
+                                        </div>
+                                        <a href="#">{{ user_film.category }}</a>
+                                    </div>
+                                    <h2 class="title"><a href="{% url 'product_detail' user_film.pk %}"
+                                                         class="title">{{ user_film.title }}</a>
+                                    </h2>
+                                    <p class="description">▪️ Холати:  ишлатилган
+                                        ▪️ каймок, сыр, катик, шоколод, кетчуп  хуллас куюк
+                                        махсулотларни хайдаш учун ишлатилади.
+                                        ▪️Зангламас металлдан нержевейкадан.
+                                        ————————
+                                        ▪️рабочый
+                                        ▪️ сметана, сыр, кефир, шоколод, кетчуп. Исползуеться для густые продукции.
+                                        ▪️Корпус нержевейще металл.
+
+                                        💰Келишилади.
+
+                                        📱+998909902448
+                                        📱+998999649003</p>
+                                    <div class="product-data">
+                                        <div class="flags">
+                                            <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
+                                            <span class="country">Страна</span>
+                                        </div>
+                                        <div class="date">
+                                            <span class="full-date">{{ user_film.create_date }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="section finished-section">
+                <div class="cards">
+                    {% for user_film in user_films %}
+                        {% if not user_film.is_published %}
+                            <div class="card__buy card-color">
+                                <div class="card__buy-content">
+                                    <label>
+                                        <input type="checkbox" class="card-checkbox">
+                                    </label>
+                                    <div class="category-info">
+                                        <div class="product-cat__image">
+                                            <img src="{{ user_film.image }}" alt="cat image">
+                                        </div>
+                                        <a href="#">{{ user_film.category }}</a>
+                                    </div>
+                                    <h2 class="title"><a href="{% url 'product_detail' user_film.pk %}"
+                                                         class="title">{{ user_film.title }}</a>
+                                    </h2>
+                                    <p class="description">▪️ Холати:  ишлатилган
+                                        ▪️ каймок, сыр, катик, шоколод, кетчуп  хуллас куюк
+                                        махсулотларни хайдаш учун ишлатилади.
+                                        ▪️Зангламас металлдан нержевейкадан.
+                                        ————————
+                                        ▪️рабочый
+                                        ▪️ сметана, сыр, кефир, шоколод, кетчуп. Исползуеться для густые продукции.
+                                        ▪️Корпус нержевейще металл.
+
+                                        💰Келишилади.
+
+                                        📱+998909902448
+                                        📱+998999649003</p>
+                                    <div class="product-data">
+                                        <div class="flags">
+                                            <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
+                                            <span class="country">Страна</span>
+                                        </div>
+                                        <div class="date">
+                                            <span class="full-date">{{ user_film.create_date }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+            {#            <div class="section moderated-section">Содержимое раздела "Отклоненные"</div>#}
+        </div>
+
+
+    </div>
+</section>
+
+<!-- ADMIN PANEL -->
+
+<script>
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const sections = document.querySelectorAll('.section');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Скрываем все разделы
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Определяем соответствующий раздел
+            const target = button.getAttribute('data-target');
+            const sectionToShow = document.querySelector(`.${target}`);
+
+            // Показываем выбранный раздел
+            sectionToShow.style.display = 'block';
+
+            // Подсвечиваем активную кнопку
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+        });
+    });
+</script>
+
+
+<script>
+    // Get all the tag placeholders
+    const tagPlaceholders = document.querySelectorAll('.tag-placeholder');
+
+    // Loop through each tag placeholder
+    tagPlaceholders.forEach(tagPlaceholder => {
+        // Add event listener to each tag placeholder
+        tagPlaceholder.addEventListener('click', () => {
+            // Prompt the user for input (tag text)
+            const tagText = prompt('Enter tag text:');
+
+            // Set the tag placeholder's content to the entered tag text
+            tagPlaceholder.textContent = tagText;
+        });
+    });
+
+</script>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const checkboxes = document.querySelectorAll('.card-checkbox');
+        const actionButtons = document.querySelectorAll('.action-button');
+
+        function updateButtonsState() {
+            const checkedCheckboxes = document.querySelectorAll('.card-checkbox:checked');
+            const isAnyCheckboxChecked = checkedCheckboxes.length > 0;
+
+            actionButtons.forEach(button => {
+                if (!isAnyCheckboxChecked) {
+                    button.disabled = true;
+                } else {
+                    button.disabled = false;
+                    if (button.classList.contains('edit-button')) {
+                        button.disabled = checkedCheckboxes.length > 1;
+                    }
+                }
+            });
+        }
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateButtonsState);
+        });
+    });
+
+
+</script>
+</body>
+</html>

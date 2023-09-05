@@ -15,6 +15,10 @@
     width: 150px;
 }
 
+body {
+    background-color: #e8efff;
+}
+
 .authentication {
     height: 100vh;
     width: 100%;
@@ -22,8 +26,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* column-gap: 30px; */
-    background-color: #e8efff;
     position: absolute;
     gap: 20px;
 }
@@ -41,6 +43,7 @@
     font-weight: 600;
     color: #232836;
     text-align: center;
+    position: relative;
 }
 
 .form-text p {
@@ -55,7 +58,7 @@
     position: relative;
     height: 50px;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 35px;
     border-radius: 6px;
 }
 
@@ -171,6 +174,10 @@
     padding-top: 10px;
     width: 150px;
     height: 100%;
+}
+
+.login-text {
+    position: absolute;
 }
 
 .signup-text {

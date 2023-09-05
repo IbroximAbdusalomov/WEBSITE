@@ -2,209 +2,35 @@
 {% load static %}
 
 {% block content %}
-    <link rel="stylesheet" href="{% static '/css/main.css' %}">
+{#    <link rel="stylesheet" href="{% static '/css/main.css' %}">#}
 
-	<!-- Cards buy section -->
-<div class="container">
-    <section id="cards__buy-section" class="cards__buy-section">
+    <!-- Cards buy section -->
+    <div class="container">
+        <section id="cards__buy-section" class="cards__buy-section">
 
-        <div class="listing-options">
-            <div class="purchase-button">
-                <span>Покупка</span>
-            </div>
-        </div>
-
-        <div class="cards" id="card-container">
-
-            {#                <div class="card-row">#}
-            <div class="card__buy card-color">
-                <div class="card__buy-content">
-                    <div class="category-info">
-                        <div class="product-cat__image">
-                            <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
-                        </div>
-                        <a href="#">yangi uskuna</a>
-                    </div>
-                    <h2 class="title"><a href="./product-detail.html" class="title">Сушилка сотилади</a></h2>
-                    <p class="description">Сушилка сотилади
-                        50 kg 450$
-                        75kg 700$
-                        100kg 900$
-                        тел.+998945630030</p>
-                    <div class="product-data">
-                        <div class="flags">
-                            <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
-                            <span class="country">Страна</span>
-                        </div>
-                        <div class="date">
-                            <span class="full-date">01.01.2023</span>
-                        </div>
-                        <div class="like-and-more">
-                            <a href="#" class="read-more">Подробнее</a>
-                            <div class="svg-icon-container">
-                                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em"
-                                     height="1em" class="css-1caitfj" onclick="toggleSVG()">
-                                    <path fill="currentColor" fill-rule="evenodd"
-                                          d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+            <div class="listing-options">
+                <div class="purchase-button">
+                    <span>Покупка</span>
                 </div>
             </div>
-            <div class="card__buy card-color">
-                <div class="card__buy-content">
-                    <div class="category-info">
-                        <div class="product-cat__image">
-                            <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
-                        </div>
-                        <a href="#">yangi uskuna</a>
-                    </div>
-                    <h2 class="title"><a href="./product-detail.html" class="title">Сушилка сотилади</a></h2>
-                    <p class="description">Сушилка сотилади
-                        50 kg 450$
-                        75kg 700$
-                        100kg 900$
-                        тел.+998945630030</p>
-                    <div class="product-data">
-                        <div class="flags">
-                            <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
-                            <span class="country">Страна</span>
-                        </div>
-                        <div class="date">
-                            <span class="full-date">01.01.2023</span>
-                        </div>
-                        <div class="like-and-more">
-                            <a href="#" class="read-more">Подробнее</a>
-                            <div class="svg-icon-container">
-                                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em"
-                                     height="1em" class="css-1caitfj" onclick="toggleSVG()">
-                                    <path fill="currentColor" fill-rule="evenodd"
-                                          d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card__buy card-color">
-                <div class="card__buy-content">
-                    <div class="category-info">
-                        <div class="product-cat__image">
-                            <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
-                        </div>
-                        <a href="#">ishlatilgan uskuna</a>
-                    </div>
-                    <h2 class="title"><a href="./product-detail.html" class="title">Сушилка сотилади</a></h2>
-                    <p class="description">▪️Янги, бир хафта ишлатилган
-                        ▪️Хитой ускунаси
-                        ▪️380 вольтда ишлиди
-                        ▪️Соатига 400 та упаковка чиқаради
-                        ▪️Компрессор қўшиб берилади</p>
-                    <div class="product-data">
-                        <div class="flags">
-                            <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
-                            <span class="country">Страна</span>
-                        </div>
-                        <div class="date">
-                            <span class="full-date">01.01.2023</span>
-                        </div>
-                        <div class="like-and-more">
-                            <a href="#" class="read-more">Подробнее</a>
-                            <div class="svg-icon-container">
-                                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em"
-                                     height="1em" class="css-1caitfj" onclick="toggleSVG()">
-                                    <path fill="currentColor" fill-rule="evenodd"
-                                          d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card__buy card-color">
-                <div class="card__buy-content">
-                    <div class="category-info">
-                        <div class="product-cat__image">
-                            <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
-                        </div>
-                        <a href="#">xom ashyo</a>
-                    </div>
-                    <h2 class="title"><a href="./product-detail.html" class="title">Сушилка сотилади</a></h2>
-                    <p class="description">ишлаб чиқаради.
-                        (Производство пластиковых вставок для воротников мужских
-                        рубашек)
 
-                        ▪️Холати: Яхши холатда.
-                        ▪️Ишлаб чиқариш қуввати: Соатига 2000-3000 дона.
-                        ▪️Логотип босиш имкониятига эга.
-                        ▪️Хитойдан сотиб олинган.
-                        ▪️Ҳом ашёлари Ўзбекистонда мавжуд.
+            <div class="cards" id="card-container">
 
-                        ✅Ишлатишни ўргатиб қўямиз хамда барча клиент базасини
-                        хам берамиз.
-
-                        💰9 000$
-
-                        📱+998944050004</p>
-                    <div class="product-data">
-                        <div class="flags">
-                            <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
-                            <span class="country">Страна</span>
-                        </div>
-                        <div class="date">
-                            <span class="full-date">01.01.2023</span>
-                        </div>
-                        <div class="like-and-more">
-                            <a href="#" class="read-more">Подробнее</a>
-                            <div class="svg-icon-container">
-                                <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em"
-                                     height="1em" class="css-1caitfj" onclick="toggleSVG()">
-                                    <path fill="currentColor" fill-rule="evenodd"
-                                          d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {#                </div>      #}
-        </div>
-
-        <div class="listing-options">
-            <div class="view-all-button">
-                <a href="#">Все объявления</a>
-            </div>
-            <div class="create-listing-button">
-                <a href="#">Создать объявление</a>
-            </div>
-        </div>
-
-    </section>
-    <div class="horizontal_line"></div>
-</div>
-<!-- /Cards buy section -->
-
-<!-- Cards sell section -->
-<div class="container">
-    <section id="cards__sell-section" class="cards__sell-section">
-
-        <div class="listing-options">
-            <div class="purchase-button">
-                <span>Продажа</span>
-            </div>
-        </div>
-
-        <div class="cards" id="card-container">
-
-            <div class="card-row">
-                <div class="card__sell card-color">
+                {#                <div class="card-row">#}
+                <div class="card__buy card-color">
                     <div class="card__buy-content">
-                        <div class="card__sell-image">
-                            <img src="./images/product-images/1.jpg" alt="Product Image">
+                        <div class="category-info">
+                            <div class="product-cat__image">
+                                <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
+                            </div>
+                            <a href="#">yangi uskuna</a>
                         </div>
-                        <a href="./product-detail.html" class="title">Плесос сотилади</a>
-
+                        <h2 class="title"><a href="{% url 'index' %}" class="title">Сушилка сотилади</a></h2>
+                        <p class="description">Сушилка сотилади
+                            50 kg 450$
+                            75kg 700$
+                            100kg 900$
+                            тел.+998945630030</p>
                         <div class="product-data">
                             <div class="flags">
                                 <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
@@ -216,8 +42,9 @@
                             <div class="like-and-more">
                                 <a href="#" class="read-more">Подробнее</a>
                                 <div class="svg-icon-container">
-                                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                         width="1em" height="1em" class="css-1caitfj" onclick="toggleSVG()">
+                                    <svg class="svg-icon css-1caitfj" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 24 24" width="1em"
+                                         height="1em">
                                         <path fill="currentColor" fill-rule="evenodd"
                                               d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
                                     </svg>
@@ -226,13 +53,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="card__sell card-color">
+                <div class="card__buy card-color">
                     <div class="card__buy-content">
-                        <div class="card__sell-image">
-                            <img src="./images/product-images/2.jpg" alt="Product Image">
+                        <div class="category-info">
+                            <div class="product-cat__image">
+                                <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
+                            </div>
+                            <a href="#">yangi uskuna</a>
                         </div>
-                        <a href="./product-detail.html" class="title">Эркаклар кўйлакларини ёқасига қўйиладиган пластик
-                            (ПВХ)</a>
+                        <h2 class="title"><a href="#" class="title">Сушилка сотилади</a></h2>
+                        <p class="description">Сушилка сотилади
+                            50 kg 450$
+                            75kg 700$
+                            100kg 900$
+                            тел.+998945630030</p>
                         <div class="product-data">
                             <div class="flags">
                                 <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
@@ -244,8 +78,9 @@
                             <div class="like-and-more">
                                 <a href="#" class="read-more">Подробнее</a>
                                 <div class="svg-icon-container">
-                                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                         width="1em" height="1em" class="css-1caitfj" onclick="toggleSVG()">
+                                    <svg class="svg-icon css-1caitfj" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 24 24" width="1em"
+                                         height="1em">
                                         <path fill="currentColor" fill-rule="evenodd"
                                               d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
                                     </svg>
@@ -254,13 +89,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="card__sell card-color">
+                <div class="card__buy card-color">
                     <div class="card__buy-content">
-                        <div class="card__sell-image">
-                            <img src="./images/product-images/3.jpg" alt="Product Image">
+                        <div class="category-info">
+                            <div class="product-cat__image">
+                                <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
+                            </div>
+                            <a href="#">ishlatilgan uskuna</a>
                         </div>
-                        <a href="./product-detail.html" class="title">Эркаклар кўйлакларини ёқасига қўйиладиган пластик
-                            (ПВХ)</a>
+                        <h2 class="title"><a href="#" class="title">Сушилка сотилади</a></h2>
+                        <p class="description">▪️Янги, бир хафта ишлатилган
+                            ▪️Хитой ускунаси
+                            ▪️380 вольтда ишлиди
+                            ▪️Соатига 400 та упаковка чиқаради
+                            ▪️Компрессор қўшиб берилади</p>
                         <div class="product-data">
                             <div class="flags">
                                 <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
@@ -272,8 +114,9 @@
                             <div class="like-and-more">
                                 <a href="#" class="read-more">Подробнее</a>
                                 <div class="svg-icon-container">
-                                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                         width="1em" height="1em" class="css-1caitfj" onclick="toggleSVG()">
+                                    <svg class="svg-icon css-1caitfj" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 24 24" width="1em"
+                                         height="1em">
                                         <path fill="currentColor" fill-rule="evenodd"
                                               d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
                                     </svg>
@@ -282,13 +125,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="card__sell card-color">
+                <div class="card__buy card-color">
                     <div class="card__buy-content">
-                        <div class="card__sell-image">
-                            <img src="./images/product-images/4.jpg" alt="Product Image">
+                        <div class="category-info">
+                            <div class="product-cat__image">
+                                <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
+                            </div>
+                            <a href="#">xom ashyo</a>
                         </div>
-                        <a href="./product-detail.html" class="title">Эркаклар кўйлакларини ёқасига қўйиладиган пластик
-                            (ПВХ) </a>
+                        <h2 class="title"><a href="#" class="title">Сушилка сотилади</a></h2>
+                        <p class="description">ишлаб чиқаради.
+                            (Производство пластиковых вставок для воротников мужских
+                            рубашек)
+
+                            ▪️Холати: Яхши холатда.
+                            ▪️Ишлаб чиқариш қуввати: Соатига 2000-3000 дона.
+                            ▪️Логотип босиш имкониятига эга.
+                            ▪️Хитойдан сотиб олинган.
+                            ▪️Ҳом ашёлари Ўзбекистонда мавжуд.
+
+                            ✅Ишлатишни ўргатиб қўямиз хамда барча клиент базасини
+                            хам берамиз.
+
+                            💰9 000$
+
+                            📱+998944050004</p>
                         <div class="product-data">
                             <div class="flags">
                                 <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
@@ -300,8 +161,9 @@
                             <div class="like-and-more">
                                 <a href="#" class="read-more">Подробнее</a>
                                 <div class="svg-icon-container">
-                                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                         width="1em" height="1em" class="css-1caitfj" onclick="toggleSVG()">
+                                    <svg class="svg-icon css-1caitfj" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 24 24" width="1em"
+                                         height="1em">
                                         <path fill="currentColor" fill-rule="evenodd"
                                               d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
                                     </svg>
@@ -309,173 +171,329 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                {#                </div>      #}
+            </div>
+
+            <div class="listing-options">
+                <div class="view-all-button">
+                    <a href="#">Все объявления</a>
+                </div>
+                <div class="create-listing-button">
+                    <a href="#">Создать объявление</a>
                 </div>
             </div>
 
-            <div class="card-row">
-                <div class="card__sell card-color">
-                    <div class="card__buy-content">
-                        <div class="card__sell-image">
-                            <img src="./images/product-images/1.jpg" alt="Product Image">
-                        </div>
-                        <a href="./product-detail.html" class="title">Плесос сотилади</a>
+        </section>
+        <div class="horizontal_line"></div>
+    </div>
+    <!-- /Cards buy section -->
 
-                        <div class="product-data">
-                            <div class="flags">
-                                <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
-                                <span class="country">Страна</span>
-                            </div>
-                            <div class="date">
-                                <span class="full-date">01.01.2023</span>
-                            </div>
-                            <div class="like-and-more">
-                                <a href="#" class="read-more">Подробнее</a>
-                                <div class="svg-icon-container">
-                                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                         width="1em" height="1em" class="css-1caitfj" onclick="toggleSVG()">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                              d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card__sell card-color">
-                    <div class="card__buy-content">
-                        <div class="card__sell-image">
-                            <img src="./images/product-images/2.jpg" alt="Product Image">
-                        </div>
-                        <a href="./product-detail.html" class="title">Эркаклар кўйлакларини ёқасига қўйиладиган пластик
-                            (ПВХ)</a>
-                        <div class="product-data">
-                            <div class="flags">
-                                <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
-                                <span class="country">Страна</span>
-                            </div>
-                            <div class="date">
-                                <span class="full-date">01.01.2023</span>
-                            </div>
-                            <div class="like-and-more">
-                                <a href="#" class="read-more">Подробнее</a>
-                                <div class="svg-icon-container">
-                                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                         width="1em" height="1em" class="css-1caitfj" onclick="toggleSVG()">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                              d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card__sell card-color">
-                    <div class="card__buy-content">
-                        <div class="card__sell-image">
-                            <img src="./images/product-images/3.jpg" alt="Product Image">
-                        </div>
-                        <a href="./product-detail.html" class="title">Эркаклар кўйлакларини ёқасига қўйиладиган пластик
-                            (ПВХ)</a>
-                        <div class="product-data">
-                            <div class="flags">
-                                <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
-                                <span class="country">Страна</span>
-                            </div>
-                            <div class="date">
-                                <span class="full-date">01.01.2023</span>
-                            </div>
-                            <div class="like-and-more">
-                                <a href="#" class="read-more">Подробнее</a>
-                                <div class="svg-icon-container">
-                                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                         width="1em" height="1em" class="css-1caitfj" onclick="toggleSVG()">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                              d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card__sell card-color">
-                    <div class="card__buy-content">
-                        <div class="card__sell-image">
-                            <img src="./images/product-images/4.jpg" alt="Product Image">
-                        </div>
-                        <a href="./product-detail.html" class="title">Эркаклар кўйлакларини ёқасига қўйиладиган пластик
-                            (ПВХ) </a>
-                        <div class="product-data">
-                            <div class="flags">
-                                <img src="{% static 'images/Flag_of_Uzbekistan.svg'' %}" alt="Флаг страны">
-                                <span class="country">Страна</span>
-                            </div>
-                            <div class="date">
-                                <span class="full-date">01.01.2023</span>
-                            </div>
-                            <div class="like-and-more">
-                                <a href="#" class="read-more">Подробнее</a>
+    <!-- Cards sell section -->
+    <div class="container">
+        <section id="cards__sell-section" class="cards__sell-section">
 
-                                <div class="svg-icon-container">
-                                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                         width="1em" height="1em" class="css-1caitfj" onclick="toggleSVG()">
-                                        <path fill="currentColor" fill-rule="evenodd"
-                                              d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="listing-options">
+                <div class="purchase-button">
+                    <span>Продажа</span>
                 </div>
             </div>
 
-        </div>
+            <div class="cards" id="card-container">
 
-        <div class="listing-options">
-            <div class="view-all-button">
-                <a href="#">Все объявления</a>
-            </div>
-            <div class="create-listing-button">
-                <a href="#">Создать объявление</a>
-            </div>
-        </div>
+                <div class="card-row">
+                    <div class="card__sell card-color">
+                        <div class="card__buy-content">
+                            <div class="card__sell-image">
+                                <img src="#" alt="Product Image">
+                            </div>
+                            <a href="#" class="title">Плесос сотилади</a>
 
-    </section>
-</div>
-<!-- /Cards sell section -->
+                            <div class="product-data">
+                                <div class="flags">
+                                    <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
+                                    <span class="country">Страна</span>
+                                </div>
+                                <div class="date">
+                                    <span class="full-date">01.01.2023</span>
+                                </div>
+                                <div class="like-and-more">
+                                    <a href="#" class="read-more">Подробнее</a>
+                                    <div class="svg-icon-container">
+                                        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 24 24"
+                                             width="1em" height="1em">
+                                            <path fill="currentColor" fill-rule="evenodd"
+                                                  d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__sell card-color">
+                        <div class="card__buy-content">
+                            <div class="card__sell-image">
+                                <img src="#" alt="Product Image">
+                            </div>
+                            <a href="#" class="title">Эркаклар кўйлакларини ёқасига қўйиладиган
+                                пластик
+                                (ПВХ)</a>
+                            <div class="product-data">
+                                <div class="flags">
+                                    <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
+                                    <span class="country">Страна</span>
+                                </div>
+                                <div class="date">
+                                    <span class="full-date">01.01.2023</span>
+                                </div>
+                                <div class="like-and-more">
+                                    <a href="#" class="read-more">Подробнее</a>
+                                    <div class="svg-icon-container">
+                                        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 24 24"
+                                             width="1em" height="1em">
+                                            <path fill="currentColor" fill-rule="evenodd"
+                                                  d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__sell card-color">
+                        <div class="card__buy-content">
+                            <div class="card__sell-image">
+                                <img src="#" alt="Product Image">
+                            </div>
+                            <a href="#" class="title">Эркаклар кўйлакларини ёқасига қўйиладиган
+                                пластик
+                                (ПВХ)</a>
+                            <div class="product-data">
+                                <div class="flags">
+                                    <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
+                                    <span class="country">Страна</span>
+                                </div>
+                                <div class="date">
+                                    <span class="full-date">01.01.2023</span>
+                                </div>
+                                <div class="like-and-more">
+                                    <a href="#" class="read-more">Подробнее</a>
+                                    <div class="svg-icon-container">
+                                        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 24 24"
+                                             width="1em" height="1em">
+                                            <path fill="currentColor" fill-rule="evenodd"
+                                                  d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__sell card-color">
+                        <div class="card__buy-content">
+                            <div class="card__sell-image">
+                                <img src="#" alt="Product Image">
+                            </div>
+                            <a href="#" class="title">Эркаклар кўйлакларини ёқасига қўйиладиган
+                                пластик
+                                (ПВХ) </a>
+                            <div class="product-data">
+                                <div class="flags">
+                                    <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
+                                    <span class="country">Страна</span>
+                                </div>
+                                <div class="date">
+                                    <span class="full-date">01.01.2023</span>
+                                </div>
+                                <div class="like-and-more">
+                                    <a href="#" class="read-more">Подробнее</a>
+                                    <div class="svg-icon-container">
+                                        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 24 24"
+                                             width="1em" height="1em">
+                                            <path fill="currentColor" fill-rule="evenodd"
+                                                  d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-row">
+                    <div class="card__sell card-color">
+                        <div class="card__buy-content">
+                            <div class="card__sell-image">
+                                <img src="#" alt="Product Image">
+                            </div>
+                            <a href="#" class="title">Плесос сотилади</a>
+
+                            <div class="product-data">
+                                <div class="flags">
+                                    <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
+                                    <span class="country">Страна</span>
+                                </div>
+                                <div class="date">
+                                    <span class="full-date">01.01.2023</span>
+                                </div>
+                                <div class="like-and-more">
+                                    <a href="#" class="read-more">Подробнее</a>
+                                    <div class="svg-icon-container">
+                                        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 24 24"
+                                             width="1em" height="1em">
+                                            <path fill="currentColor" fill-rule="evenodd"
+                                                  d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__sell card-color">
+                        <div class="card__buy-content">
+                            <div class="card__sell-image">
+                                <img src="#" alt="Product Image">
+                            </div>
+                            <a href="#" class="title">Эркаклар кўйлакларини ёқасига қўйиладиган
+                                пластик
+                                (ПВХ)</a>
+                            <div class="product-data">
+                                <div class="flags">
+                                    <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
+                                    <span class="country">Страна</span>
+                                </div>
+                                <div class="date">
+                                    <span class="full-date">01.01.2023</span>
+                                </div>
+                                <div class="like-and-more">
+                                    <a href="#" class="read-more">Подробнее</a>
+                                    <div class="svg-icon-container">
+                                        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 24 24"
+                                             width="1em" height="1em">
+                                            <path fill="currentColor" fill-rule="evenodd"
+                                                  d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__sell card-color">
+                        <div class="card__buy-content">
+                            <div class="card__sell-image">
+                                <img src="#" alt="Product Image">
+                            </div>
+                            <a href="#" class="title">Эркаклар кўйлакларини ёқасига қўйиладиган
+                                пластик
+                                (ПВХ)</a>
+                            <div class="product-data">
+                                <div class="flags">
+                                    <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
+                                    <span class="country">Страна</span>
+                                </div>
+                                <div class="date">
+                                    <span class="full-date">01.01.2023</span>
+                                </div>
+                                <div class="like-and-more">
+                                    <a href="#" class="read-more">Подробнее</a>
+                                    <div class="svg-icon-container">
+                                        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 24 24"
+                                             width="1em" height="1em">
+                                            <path fill="currentColor" fill-rule="evenodd"
+                                                  d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__sell card-color">
+                        <div class="card__buy-content">
+                            <div class="card__sell-image">
+                                <img src="#" alt="Product Image">
+                            </div>
+                            <a href="#" class="title">Эркаклар кўйлакларини ёқасига қўйиладиган
+                                пластик
+                                (ПВХ) </a>
+                            <div class="product-data">
+                                <div class="flags">
+                                    <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
+                                    <span class="country">Страна</span>
+                                </div>
+                                <div class="date">
+                                    <span class="full-date">01.01.2023</span>
+                                </div>
+                                <div class="like-and-more">
+                                    <a href="#" class="read-more">Подробнее</a>
+
+                                    <div class="svg-icon-container">
+                                        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 24 24"
+                                             width="1em" height="1em">
+                                            <path fill="currentColor" fill-rule="evenodd"
+                                                  d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="listing-options">
+                <div class="view-all-button">
+                    <a href="#">Все объявления</a>
+                </div>
+                <div class="create-listing-button">
+                    <a href="#">Создать объявление</a>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <!-- /Cards sell section -->
 
     <script>
-    const cardRows = document.querySelectorAll('.card-row');
-    const colorClasses = ['card-color-pink', 'card-color-yellow', 'card-color-green', 'card-color-blue'];
+        const cardRows = document.querySelectorAll('.card-row');
+        const colorClasses = ['card-color-pink', 'card-color-yellow', 'card-color-green', 'card-color-blue'];
 
-    cardRows.forEach((row, index) => {
-        const colorClass = colorClasses[index % colorClasses.length];
-        row.querySelectorAll('.card__buy').forEach(card => {
-            card.classList.add(colorClass);
+        cardRows.forEach((row, index) => {
+            const colorClass = colorClasses[index % colorClasses.length];
+            row.querySelectorAll('.card__buy').forEach(card => {
+                card.classList.add(colorClass);
+            });
         });
-    });
-</script>
+    </script>
 
-<!-- like button -->
-<script>
-    // Выбираем все элементы с классом .svg-icon-container
-    const svgContainers = document.querySelectorAll('.svg-icon-container');
+    <!-- like button -->
+    <script>
+        // Выбираем все элементы с классом .svg-icon-container
+        const svgContainers = document.querySelectorAll('.svg-icon-container');
 
-    // Добавляем обработчик клика к каждому элементу
-    svgContainers.forEach(svgContainer => {
-        svgContainer.addEventListener('click', function () {
-            const svgElement = svgContainer.querySelector('.svg-icon');
-            const currentPath = svgElement.querySelector('path').getAttribute('d');
-            let newPath = '';
+        // Добавляем обработчик клика к каждому элементу
+        svgContainers.forEach(svgContainer => {
+            svgContainer.addEventListener('click', function () {
+                const svgElement = svgContainer.querySelector('.svg-icon');
+                const currentPath = svgElement.querySelector('path').getAttribute('d');
+                let newPath = 'M20';
 
-            if (currentPath === "M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6") { // Ваш текущий путь здесь
-                newPath = "M17 2a6 6 0 0 0-5 2.686A6 6 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.233 3.633L10.709 22h2.583l8.5-10.399A5.942 5.942 0 0 0 23 8c0-3.309-2.691-6-6-6"; // Новый путь здесь
-            } else {
-                newPath = "M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"; // Ваш исходный путь здесь
-            }
+                if (currentPath === "M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6") { // Ваш текущий путь здесь
+                    newPath = "M17 2a6 6 0 0 0-5 2.686A6 6 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.233 3.633L10.709 22h2.583l8.5-10.399A5.942 5.942 0 0 0 23 8c0-3.309-2.691-6-6-6"; // Новый путь здесь
+                } else {
+                    newPath = "M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"; // Ваш исходный путь здесь
+                }
 
-            svgElement.querySelector('path').setAttribute('d', newPath);
+                svgElement.querySelector('path').setAttribute('d', newPath);
+            });
         });
-    });
+    </script>
 
-</script>
 {% endblock %}

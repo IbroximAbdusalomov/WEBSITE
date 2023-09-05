@@ -31,7 +31,7 @@ class IndexView(ListView):
         return context
 
 
-class FilmFilterView(ListView):
+class ProductFilterView(ListView):
     template_name = "films/product_list/filtered_products.html"
     context_object_name = "films"
     paginate_by = 24
@@ -77,7 +77,7 @@ class FilmFilterView(ListView):
         return context
 
 
-class FilmDetailView(DetailView):
+class ProductDetailView(DetailView):
     model = Films
     template_name = "films/product_detail.html"
     context_object_name = "film"
@@ -106,7 +106,7 @@ class FilmDetailView(DetailView):
         return redirect('film_detail', self.object.pk)
 
 
-class FilmsSearchView(ListView):
+class ProductsSearchView(ListView):
     template_name = "films/index.html"
     context_object_name = "films"
 
@@ -123,7 +123,7 @@ class FilmsSearchView(ListView):
         return context
 
 
-class FilmEditView(View):
+class ProductEditView(View):
     form_class = EditFilmForm
     initial = {"key": "value"}
     template_name = 'films/edit_film.html'
@@ -148,7 +148,7 @@ class FilmEditView(View):
             return redirect('profile', pk=film.author_id)
 
 
-class FilmDeleteView(DeleteView):
+class ProductDeleteView(DeleteView):
     model = Films
 
     def dispatch(self, request, *args, **kwargs):
@@ -167,7 +167,7 @@ class FilmDeleteView(DeleteView):
         return self.object.get_absolute_url()
 
 
-class FilmBuyView(CreateView):
+class ProductBuyView(CreateView):
     template_name = "films/film_form.html"
     form_class = FilmsFormBUY
 
@@ -205,7 +205,7 @@ class FilmBuyView(CreateView):
         return self.object.get_absolute_url()
 
 
-class FilmSellView(CreateView):
+class ProductSellView(CreateView):
     template_name = "films/sellfilm_form.html"
     form_class = FilmsFormSELL
 

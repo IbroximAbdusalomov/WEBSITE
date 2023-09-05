@@ -25,7 +25,7 @@ class AuthorizationView(View):
 
     @staticmethod
     def get(request):
-        return render(request, "login.html", {
+        return render(request, "user/login.html", {
             "register_form": UserRegisterForm(),
             "login_form": UserLoginForm(),
             "title": "Авторизация"
@@ -37,11 +37,10 @@ def generate_verification_code():
 
 
 class RegisterUserView(CreateView):
+    # model = get_user_model()
     form_class = UserRegisterForm
-    # template_name = 'register.html'
 
-    # def post(self, request, *args, **kwargs):
-    #     return render(request, self.template_name)
+    # template_name = 'user/register.html'
 
     def form_valid(self, form):
         user = form.save(commit=False)
@@ -49,7 +48,7 @@ class RegisterUserView(CreateView):
         code = generate_verification_code()
         user.save()
 
-        subject = 'root'
+        subject = 'Ibroxim'
         message = f"{code}"
         from_email = settings.EMAIL_HOST_USER
         to = [user.email]
@@ -74,7 +73,7 @@ class RegisterUserView(CreateView):
 
 
 class VerifyCodeView(View):
-    template_name = 'verify_code.html'
+    template_name = "user/verify_code.html"
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
@@ -95,21 +94,24 @@ class VerifyCodeView(View):
                     user.is_active = True
                     user.save()
                     login(request, user)
-                    messages.success(request, "Your account has been activated. You can now log in.")
-                    return redirect('index')
+                    messages.success(request,
+                                     "Ваша учетная запись была успешно активирована. Вы можете теперь войти в систему.")
+                    return redirect('profile', request.user.pk)
                 else:
-                    messages.error(request, "Invalid verification code. Please try again.")
+                    messages.error(request, "Неверный код подтверждения. Пожалуйста, попробуйте еще раз.")
+                    return redirect('login')
             except User.DoesNotExist:
-                messages.error(request, "Invalid verification code. Please try again.")
+                messages.error(request, "Пользователь не существует")
+                return redirect('login')
         else:
             messages.error(request,
                            "Verification code not found in session. Please go through the registration process again.")
-
         return render(request, self.template_name)
 
 
 class LoginUserView(LoginView):
-    form_class = UserLoginForm
+    # form_class = UserLoginForm
+    # template_name = 'user/login.html'
 
     def form_valid(self, form):
         user = form.get_user()
@@ -137,7 +139,7 @@ class LogoutUserView(LogoutView):
 
 class ProfileView(DetailView):
     model = get_user_model()
-    template_name = "accounts/profile.html"
+    template_name = "user/profile.html"
     context_object_name = "profile"
 
     def get_context_data(self, **kwargs):

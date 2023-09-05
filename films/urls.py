@@ -1,43 +1,37 @@
 from django.urls import path
 
-from . import views
+from .views import (IndexView, ProductFilterView, ProductDetailView, ProductsSearchView, ProductBuyView,
+                    ProductSellView, ProductEditView, ProductDeleteView, load_cities, load_categories, BuyView,
+                    SellView, up_to_recommendation,
+                    add_to_favorite, remove_from_favorite, my_favorite_list)
 
 urlpatterns = [
-    path("", views.IndexView.as_view(), name="index"),
-    path("category/<slug:slug>", views.FilmFilterView.as_view(), name="category_detail"),
-    path("film/<int:pk>/", views.FilmDetailView.as_view(), name="film_detail"),
-    path("search/", views.FilmsSearchView.as_view(), name="search"),
-    path("add-film/", views.FilmBuyView.as_view(), name="add_film"),
-    path("sell-film/", views.FilmSellView.as_view(), name="sell_film"),
-    path('edit/<int:pk>', views.FilmEditView.as_view(), name="edit_film"),
-    path("delete-film/<int:pk>/", views.FilmDeleteView.as_view(), name="delete_film"),
-
-    # send to bot
-    # path("upload", views.my_view, name='upload'),
-    # path("sell", views.my_view, name='kuku'),
+    path("", IndexView.as_view(), name="index"),
+    path("category/<slug:slug>", ProductFilterView.as_view(), name="category_detail"),
+    path("film/<int:pk>/", ProductDetailView.as_view(), name="product_detail"),
+    path("search/", ProductsSearchView.as_view(), name="search"),
+    path("add-film/", ProductBuyView.as_view(), name="add_film"),
+    path("sell-film/", ProductSellView.as_view(), name="sell_film"),
+    path('edit/<int:pk>', ProductEditView.as_view(), name="edit_film"),
+    path("delete-film/<int:pk>/", ProductDeleteView.as_view(), name="delete_film"),
 
     # category
-    path('ajax/load-sub-categories/', views.load_categories, name='ajax_load_sub_categories'),
-    # path('add-film/load-cities/', views.load_categories, name='ajax_load_cities_1'),
+    path('ajax/load-sub-categories/', load_categories, name='ajax_load_sub_categories'),
 
     # country
-    path('ajax/load-cities/', views.load_cities, name='ajax_load_cities'),
-    # path('ajax/load-cities/', views.load_categories, name='ajax_load_cities'),
-
-    # categorise in navbar
-    # path('category/<str:slug>', views.filter_category, name='category_detail'),
+    path('ajax/load-cities/', load_cities, name='ajax_load_cities'),
 
     # product list
-    path('buy-page', views.BuyView.as_view(), name='buy'),
-    path('sell-page', views.SellView.as_view(), name='sell'),
+    path('buy-page', BuyView.as_view(), name='buy'),
+    path('sell-page', SellView.as_view(), name='sell'),
 
     # up to recommendation
-    path('up-to-recommendation/<int:pk>', views.up_to_recommendation, name='up_to_recommendations'),
+    path('up-to-recommendation/<int:pk>', up_to_recommendation, name='up_to_recommendations'),
 
-    path('add/<int:product_id>/', views.add_to_favorite, name='add_to_favorite'),
+    path('add/<int:product_id>/', add_to_favorite, name='add_to_favorite'),
     # Удаление объекта из избранного
-    path('remove/<int:product_id>/', views.remove_from_favorite, name='remove_from_favorite'),
+    path('remove/<int:product_id>/', remove_from_favorite, name='remove_from_favorite'),
 
-    path('favorites', views.my_favorite_list, name='favo'),
+    path('favorites', my_favorite_list, name='favo'),
 
 ]

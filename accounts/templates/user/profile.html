@@ -18,6 +18,7 @@
         justify-content: space-between;
         padding: 24px 24px;
         background: #e8efff;
+        margin-bottom: 50px;
     }
 
     .seller-profile-info {
@@ -37,19 +38,19 @@
 <!-- ADMIN PANEL -->
 <section class="admin-panel">
 
-{#    <div class="container">#}
-{#        <div class="seller-profile-infos">#}
-{#            <div class="seller-profile-info">#}
-{#                <div class="seller-profile-img">#}
-{#                    <img src="{% static 'avatar-svgrepo-com.svg' %}" alt="">#}
-{#                </div>#}
-{#                <div class="seller-profile-username">#}
-{#                    <h1 class="to-uppercase">username</h1>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#        </div>#}
-{#    </div>#}
+    <div class="container">
+        <div class="seller-profile-infos">
+            <div class="seller-profile-info">
+                <div class="seller-profile-img">
+                    <img src="{% static 'avatar-svgrepo-com.svg' %}" alt="">
+                </div>
+                <div class="seller-profile-username">
+                    <h1 class="to-uppercase">{{ user.username }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row-1">
             <a href="{% url 'logout' %}"></a>

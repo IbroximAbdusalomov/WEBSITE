@@ -14,6 +14,7 @@ from django.views import View
 from django.views.generic import UpdateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
+from rest_framework.templatetags.rest_framework import form_for_link
 
 from films.models import Films, Categories
 from .forms import UserLoginForm, ProfileForm
@@ -37,10 +38,7 @@ def generate_verification_code():
 
 
 class RegisterUserView(CreateView):
-    # model = get_user_model()
     form_class = UserRegisterForm
-
-    # template_name = 'user/register.html'
 
     def form_valid(self, form):
         user = form.save(commit=False)
@@ -56,7 +54,7 @@ class RegisterUserView(CreateView):
             send_mail(subject, message, from_email, to)
         except:
             messages.error(self.request, f"Problem sending email to {to}, check if you typed it correctly.")
-            return redirect('index')
+            return redirect('register')
         self.request.session['verification_code'] = code
         self.request.session['user_id'] = user.pk
         return redirect('verify_code')
@@ -67,9 +65,6 @@ class RegisterUserView(CreateView):
 
     def render_to_response(self, context, **response_kwargs):
         return redirect("auth")
-
-    def get_success_url(self):
-        return reverse("index")
 
 
 class VerifyCodeView(View):
@@ -84,13 +79,11 @@ class VerifyCodeView(View):
         User = get_user_model()
 
         if verification_code and user_id:
-            # Получить код верификации, отправленный пользователем, из POST-запроса
             entered_code = request.POST.get('verification_code')
-            # Проверка и обработка кода верификации здесь
+
             try:
                 user = User.objects.get(id=user_id, is_active=False)
                 if entered_code == verification_code:
-                    # Коды совпадают, активируем учетную запись пользователя
                     user.is_active = True
                     user.save()
                     login(request, user)
@@ -99,14 +92,14 @@ class VerifyCodeView(View):
                     return redirect('profile', request.user.pk)
                 else:
                     messages.error(request, "Неверный код подтверждения. Пожалуйста, попробуйте еще раз.")
-                    return redirect('login')
-            except User.DoesNotExist:
-                messages.error(request, "Пользователь не существует")
-                return redirect('login')
+                    return redirect('register')
+            except Exception as e:
+                messages.error(request, "Произошла ошибка при активации учетной записи.")
+                return redirect('register')  # Можно перенаправить на страницу регистрации или на другую страницу
         else:
             messages.error(request,
-                           "Verification code not found in session. Please go through the registration process again.")
-        return render(request, self.template_name)
+                           "Код подтверждения не найден в сессии. Пожалуйста, пройдите процесс регистрации заново.")
+            return redirect('register')  # Можно перенаправить на страницу регистрации или на другую страницу
 
 
 class LoginUserView(LoginView):
@@ -121,8 +114,11 @@ class LoginUserView(LoginView):
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, form.errors)
+        # messages.error(self.request, form.errors['__all__'][0])
+        messages.error(self.request, "Имя пользоватея или пароль на верный")
         return super().form_invalid(form)
+
+    # отправка ощибки
 
     def render_to_response(self, context, **response_kwargs):
         return redirect("auth")

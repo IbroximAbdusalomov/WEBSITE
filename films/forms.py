@@ -1,6 +1,6 @@
 from django import forms
-
-from .models import Films, SubCategories, City
+from .models import Films, SubCategories, City, Country, Categories, Tag
+from django.utils.translation import gettext as _
 
 
 class PersonCreationForm(forms.ModelForm):
@@ -126,9 +126,11 @@ class FilmsFormBUY(forms.ModelForm):
                 country_id = int(self.data.get('country'))
                 self.fields['city'].queryset = City.objects.filter(country_id=country_id).order_by('name')
             except (ValueError, TypeError):
-                pass  # invalid input from the client; ignore and fallback to empty City queryset
+                pass
         elif self.instance.pk:
             self.fields['city'].queryset = self.instance.country.city_set.order_by('name')
+
+
 class FilmsFormSELL(forms.ModelForm):
     class Meta:
         model = Films
@@ -145,6 +147,7 @@ class FilmsFormSELL(forms.ModelForm):
             "sub_category",
             "is_published",
         )
+
         widgets = {
             "title": forms.TextInput(attrs={
                 "class": "form-control"
@@ -277,3 +280,122 @@ class FilmFilterForm(forms.Form):
     city = forms.CharField(required=False)
     category = forms.CharField(required=False)
     sub_category = forms.CharField(required=False)
+
+
+class FilmForm(forms.Form):
+    name = forms.CharField(
+        label='Название',
+        widget=forms.TextInput(attrs={'class': 'form-input'}),
+        required=True,
+        max_length=255  # Максимальная длина названия
+    )
+    description = forms.CharField(
+        label='Описание',
+        widget=forms.Textarea(attrs={'class': 'form-textarea'}),
+        required=True
+    )
+    category = forms.ChoiceField(
+        label='Категория',
+        widget=forms.Select(attrs={'class': 'form-select'}),
+        required=True,
+        choices=[
+            ('', 'Выберите категорию'),
+            ('yangi uskunalar', 'Yangi uskunalar'),
+            ('ishlatilgan uskunalar', 'Ishlatilgan uskunalar'),
+            ('xom ashyo', 'Xom ashyo'),
+            ('xizmat ko\'rsatish', 'Xizmat ko\'rsatish'),
+            ('texnolog', 'Texnolog'),
+            # Другие варианты категорий
+        ]
+    )
+    subcategory = forms.ChoiceField(
+        label='Субкатегория',
+        widget=forms.Select(attrs={'class': 'form-select'}),
+        required=True,
+        choices=[
+            ('', 'Выберите субкатегорию'),
+            ('Субкатегория 1', 'Субкатегория 1'),
+            ('Субкатегория 2', 'Субкатегория 2'),
+            # Другие варианты субкатегорий
+        ]
+    )
+    phone = forms.CharField(
+        label='Телефон',
+        widget=forms.TextInput(attrs={'class': 'form-input'}),
+        required=True
+    )
+
+
+class FilmsForm(forms.ModelForm):
+    class Meta:
+        model = Films
+        fields = ['title', 'description', 'category', 'sub_category', 'tags', 'telephone', 'country', 'city']
+
+    title = forms.CharField(label='Название', widget=forms.TextInput(attrs={'class': 'form-input'}))
+    description = forms.CharField(
+        widget=forms.Textarea(attrs={'class': 'form-textarea', 'placeholder': _('Введите описание'), 'rows': '4'})
+    )
+    category = forms.ModelChoiceField(
+        label='',
+        queryset=Categories.objects.all(),
+        empty_label="Выберите категорию",
+        to_field_name="id",
+        widget=forms.Select(attrs={'class': 'form-select', "id": "id_category", "name": "category", }),
+    )
+
+    tags = forms.ModelMultipleChoiceField(
+        label='',
+        queryset=Tag.objects.all(),  # Замените на ваш запрос для выбора тегов
+        widget=forms.CheckboxSelectMultiple,  # Используем виджет для выбора нескольких значений
+    )
+
+    telephone = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': _('+998 66 666 66 66')}))
+
+    country = forms.ModelChoiceField(
+        label='',
+        queryset=Country.objects.all(),
+        empty_label="Выберите страну",
+        to_field_name="id",
+        widget=forms.Select(attrs={'class': 'form-select', "id": "id_country", "name": "country", }),
+    )
+
+    city = forms.ModelChoiceField(
+        label='',
+        queryset=City.objects.all(),
+        empty_label="Выберите город",
+        to_field_name="id",
+        widget=forms.Select(attrs={'class': 'form-select', "id": "id_city", "name": "city", }),
+    )
+
+
+class CategoryForm(forms.Form):
+    university = forms.ModelChoiceField(
+        label='',
+        queryset=Categories.objects.all(),
+        empty_label="Выберите категорию",
+        to_field_name="id",
+        widget=forms.Select(attrs={'class': 'form-select', "id": "id_category", "name": "category", }),
+    )
+
+
+class SubCategoryForm(forms.Form):
+    sub_category = forms.ModelChoiceField(
+        label='',
+        queryset=SubCategories.objects.all(),
+        empty_label="Выберите субкатегорию",
+        to_field_name="id",
+        widget=forms.Select(attrs={'class': 'form-select', "id": "id_sub_category", "name": "sub_category"}),
+    )
+
+
+class TagForm(forms.Form):
+    tags = forms.ModelMultipleChoiceField(
+        label='',
+        queryset=Tag.objects.all(),  # Замените на ваш запрос для выбора тегов
+        widget=forms.CheckboxSelectMultiple,  # Используем виджет для выбора нескольких значений
+    )
+
+    # class Meta:
+    #     model = Tag
+    #     fields = ['name', 'tags']

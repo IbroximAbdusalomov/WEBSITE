@@ -160,7 +160,7 @@ body {
 
 .container {
     width: 1300px;
-    margin: 0 auto; /* Автоматический отступ по горизонтали, центрирует контейнер */
+    margin: 0 auto;
 }
 
 .horizontal_line {
@@ -247,7 +247,6 @@ body {
     opacity: 1;
 }
 
-
 .main-navigation__button img {
     position: absolute;
     margin-left: 5px;
@@ -255,7 +254,7 @@ body {
 }
 
 .main-navigation {
-    position: relative; /* Добавьте это */
+    position: relative;
 }
 
 .main-navigation__items {
@@ -299,7 +298,6 @@ body {
 .main-navigation__item a:hover {
     color: #0c29d0;
 }
-
 
 /* buttons in navbar  */
 
@@ -346,9 +344,7 @@ body {
     color: white; /* Text color on hover */
 }
 
-
 /* ------------------------------------------------------ */
-
 
 .footer {
     background-color: #f3f7fc;
@@ -447,7 +443,52 @@ body {
     color: #007bff;
 }
 
-
 .svg-icon {
     cursor: pointer;
+}
+
+/*  Checkbox --------------------------------------------------*/
+#tags-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cat {
+    display: inline;
+    margin: 4px;
+    /*border-radius: 24px;*/
+    /*border: 1px solid #6f6f6f;*/
+    /*overflow: hidden;*/
+    /*float: left;*/
+    /*width: 26%;*/
+}
+
+.cat label span {
+    border: 1px solid #6f6f6f;
+    border-radius: 24px;
+    text-align: center;
+    display: block;
+    font-size: 14px;
+    padding: 8px 10px;
+}
+
+.cat label input {
+    position: absolute;
+    display: none;
+    color: #fff !important;
+}
+
+.cat label input + span {
+    color: #6f6f6f;
+}
+
+.cat input:checked + span {
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+}
+
+.action input:checked + span {
+    background-color: #0c29d0;
+    border-radius: 24px;
+    border: 1px solid #0c29d0;
 }

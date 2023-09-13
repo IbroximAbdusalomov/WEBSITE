@@ -1,11 +1,12 @@
 from django.urls import path
-
 from .views import (IndexView, ProductFilterView, ProductDetailView, ProductsSearchView, ProductBuyView,
-                    ProductSellView, ProductEditView, ProductDeleteView, load_cities, load_categories, BuyView,
-                    SellView, up_to_recommendation,
+                    ProductSellView, ProductEditView, ProductDeleteView, load_cities, related_to_it, BuyView,
+                    SellView,
+    #  up_to_recommendation,
                     add_to_favorite, remove_from_favorite, my_favorite_list)
 
 urlpatterns = [
+
     path("", IndexView.as_view(), name="index"),
     path("category/<slug:slug>", ProductFilterView.as_view(), name="category_detail"),
     path("film/<int:pk>/", ProductDetailView.as_view(), name="product_detail"),
@@ -16,7 +17,7 @@ urlpatterns = [
     path("delete-film/<int:pk>/", ProductDeleteView.as_view(), name="delete_film"),
 
     # category
-    path('ajax/load-sub-categories/', load_categories, name='ajax_load_sub_categories'),
+    path('related_to_it/', related_to_it, name='related_to_it'),
 
     # country
     path('ajax/load-cities/', load_cities, name='ajax_load_cities'),
@@ -26,7 +27,7 @@ urlpatterns = [
     path('sell-page', SellView.as_view(), name='sell'),
 
     # up to recommendation
-    path('up-to-recommendation/<int:pk>', up_to_recommendation, name='up_to_recommendations'),
+    # path('up-to-recommendation/<int:pk>', up_to_recommendation, name='up_to_recommendations'),
 
     path('add/<int:product_id>/', add_to_favorite, name='add_to_favorite'),
     # Удаление объекта из избранного

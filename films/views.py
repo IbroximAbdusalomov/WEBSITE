@@ -1,17 +1,17 @@
 import asyncio
-import datetime
-
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 from django.forms.models import model_to_dict
+from django.http import JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from accounts.models import User
-from .forms import FilmsFormBUY, FilmsFormSELL, PersonCreationForm, EditFilmForm, FilmFilterForm
-from .models import Categories, Films, SubCategories, City, Favorite
+from .forms import FilmsFormBUY, FilmsFormSELL, PersonCreationForm, EditFilmForm, FilmFilterForm, CategoryForm, \
+    SubCategoryForm, FilmsForm, TagForm
+from .models import Categories, Films, SubCategories, City, Favorite, Tag, Country
 from .utils import send_message_to_bot
 
 
@@ -27,8 +27,34 @@ class IndexView(ListView):
         context["films_sell"] = Films.objects.filter(type='Продать', is_active=True, is_published=True).order_by(
             '-create_date')[:7]
         context["title"] = "Запросы: "
-        context["form"] = PersonCreationForm()
+        context["form"] = FilmsForm()
+        context["category_form"] = CategoryForm()
+        context["subcategory_form"] = SubCategoryForm()
+        context["tags_form"] = TagForm()
         return context
+
+    def post(self, request):
+        form = FilmsForm(request.POST)
+        # title = request.POST.get('title')
+        # description = request.POST.get('description')
+        # category = request.POST.get('category')
+        # sub_category = request.POST.get('sub_category')
+        # tags = request.POST.get('tags')
+        # telephone = request.POST.get('telephone')
+        # if title and description and category and sub_category and tags and telephone:
+        if form.is_valid():
+            film = form.save(commit=False)
+            if not request.user.is_anonymous:
+                film.author = request.user
+            film.is_published = True
+            film.save()
+            message = get_object_or_404(Films, pk=film.pk)
+            # asyncio.run(send_message_to_bot(message, message.category, message.sub_category))
+            messages.success(request, 'Отправилься модерацию')
+            return redirect('index')
+        else:
+            messages.error(request, 'Не отправилься модерацию')
+            return redirect('index')
 
 
 class ProductFilterView(ListView):
@@ -167,24 +193,50 @@ class ProductDeleteView(DeleteView):
         return self.object.get_absolute_url()
 
 
+# class ProductBuyView(CreateView):
+#     template_name = "films/film_form.html"
+#     form_class = FilmsFormBUY
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["forma"] = PersonCreationForm()
+#         context["title"] = "Дать обьявление"
+#         context["btn_text"] = "Отправить"
+#         return context
+#
+#     def form_invalid(self, form):
+#         """Если форма не валидна"""
+#         messages.error(self.request, form.errors)
+#         return super().form_invalid(form)
+#
+#     def form_valid(self, form):
+#         """Если форма валидна"""
+#         film = form.save(commit=False)
+#         if not self.request.user.is_anonymous:
+#             film.author = self.request.user
+#         film.is_published = True
+#         image = self.request.FILES
+#         if not image:
+#             film.image = 'product-images/image.png'
+#         film.type = 'Купить'
+#         film.save()
+#         model_id = model_to_dict(film).get('id')
+#         message = get_object_or_404(Films, pk=model_id)
+#         asyncio.run(send_message_to_bot(message, message.category, message.sub_category))
+#         messages.success(self.request, "Вы успешно отправили запрос !")
+#         return super().form_valid(form)
+#
+#     def get_success_url(self):
+#         """Строит url-ссылку, если форма прошла валидацию"""
+#         return self.object.get_absolute_url()
+
+
 class ProductBuyView(CreateView):
-    template_name = "films/film_form.html"
+    model = Films
+    template_name = 'form.html'
     form_class = FilmsFormBUY
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["forma"] = PersonCreationForm()
-        context["title"] = "Дать обьявление"
-        context["btn_text"] = "Отправить"
-        return context
-
-    def form_invalid(self, form):
-        """Если форма не валидна"""
-        messages.error(self.request, form.errors)
-        return super().form_invalid(form)
-
     def form_valid(self, form):
-        """Если форма валидна"""
         film = form.save(commit=False)
         if not self.request.user.is_anonymous:
             film.author = self.request.user
@@ -199,10 +251,6 @@ class ProductBuyView(CreateView):
         asyncio.run(send_message_to_bot(message, message.category, message.sub_category))
         messages.success(self.request, "Вы успешно отправили запрос !")
         return super().form_valid(form)
-
-    def get_success_url(self):
-        """Строит url-ссылку, если форма прошла валидацию"""
-        return self.object.get_absolute_url()
 
 
 class ProductSellView(CreateView):
@@ -315,6 +363,23 @@ class SellView(ListView):
         return context
 
 
+def related_to_it(request):
+    category_id = request.GET.get('category_id', None)
+    subcategory_id = request.GET.get('subcategory_id', None)
+
+    sub_categories = {}
+    if category_id:
+        subcategories = SubCategories.objects.filter(category_id=category_id).all()
+        sub_categories = {subcategory.id: subcategory.name for subcategory in subcategories}
+
+    tags = {}
+    if subcategory_id:
+        tags_query = Tag.objects.filter(subcategory=subcategory_id)
+        tags = {tag.id: tag.name for tag in tags_query}
+
+    return JsonResponse({'subcategories': sub_categories, 'tags': tags})
+
+
 def load_categories(request):
     category_id = request.GET.get('category_id')
     sub_categories = SubCategories.objects.filter(category_id=category_id).all()
@@ -337,19 +402,19 @@ def filter_category(request, slug):
     return render(request, 'films/product_list/filtered_products.html', {"films": films})
 
 
-def up_to_recommendation(request, pk):
-    time_now = datetime.datetime.now().__str__()
-    film = Films.objects.filter(pk=pk).first()
-    film.create_date = time_now
-    user = User.objects.get(pk=request.user.id)
-    if user.score >= 5:
-        user.score = user.score - 5
-        user.save()
-    else:
-        messages.error(request, "Sizda maglag'  yetarli emas")
-        return redirect('profile', request.user.id)
-    film.save()
-    return redirect('profile', request.user.id)
+# def up_to_recommendation(request, pk):
+#     time_now = datetime.datetime.now().__str__()
+#     film = Films.objects.filter(pk=pk).first()
+#     film.create_date = time_now
+#     user = User.objects.get(pk=request.user.id)
+#     if user.score >= 5:
+#         user.score = user.score - 5
+#         user.save()
+#     else:
+#         messages.error(request, "Sizda maglag'  yetarli emas")
+#         return redirect('profile', request.user.id)
+#     film.save()
+#     return redirect('profile', request.user.id)
 
 
 @login_required

@@ -2,6 +2,8 @@ import os
 from pathlib import Path
 import environ
 
+# from django.utils.translation import gettext as _
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
@@ -31,7 +33,8 @@ INSTALLED_APPS = [
     'accounts',
 
     'django_filters',
-    # 'rest_framework',
+    'modeltranslation',
+    'django_countries'
 ]
 # Замените 'auth.User' на 'accounts.User'
 AUTH_USER_MODEL = 'accounts.User'
@@ -143,3 +146,9 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 # PASSWORD_RESET_TIMEOUT = 14400
+
+
+# LANGUAGES = (
+#     ('en', 'English'),
+#     ('ru', 'Russian'),
+# )

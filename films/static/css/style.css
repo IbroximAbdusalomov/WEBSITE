@@ -448,6 +448,8 @@ body {
 }
 
 /*  Checkbox --------------------------------------------------*/
+
+
 #tags-checkboxes {
     display: flex;
     flex-wrap: wrap;
@@ -492,3 +494,30 @@ body {
     border-radius: 24px;
     border: 1px solid #0c29d0;
 }
+
+.buttons-for-choice-type {
+    display: inline-flex;
+    padding: 5px;
+    background-color: #CCC;
+    border-radius: 24px;
+}
+
+.btn-primary {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 24px;
+    background-color: #CCC;
+    cursor: pointer;
+}
+
+.btn-primary.active {
+    color: white;
+    background-color: #0c29d0;
+}
+
+
+/* Стили для формы изображения */
+#image-group {
+    margin-top: 10px; /* Расстояние сверху */
+}
+

@@ -1,10 +1,264 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-aasdads
+
+<style>
+    .price-form {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+<div id="price-form" class="container">
+    <section class="price-form">
+        <div class="price__image-form" style="width: 40%; align-content: center">
+            <img style="max-width: 100%;" id="bannerImage" src="{% static 'images/banners/banner-yangi-uskuna.svg' %}"
+                 alt="">
+        </div>
+        <div class="price__form-form" style="width: 50%">
+            <div class="form-group">
+                <label class="form-label">Выберите действие:</label>
+                <div class="buttons-for-choice-type">
+                    <div class="form-check form-check-active">
+                        <button type="button" id="buy-button" class="btn btn-primary active">Купить</button>
+                    </div>
+                    <div class="form-check">
+                        <button type="button" id="sell-button" class="btn btn-primary"
+                                data-authenticated="{{ request.user.is_authenticated }}">Продать
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <form class="custom-form" method="post" action="{% url 'add_film' %}">
+                {% csrf_token %}
+                <input type="hidden" name="form-name" id="form-name" value="buy">
+                <div class="form-group">
+                    <label for="name" class="form-label">Название:</label>
+                    {{ form.title }}
+                </div>
+                <div class="form-group">
+                    <label for="description" class="form-label">Описание:</label>
+                    {{ form.description }}
+                </div>
+                <div class="form-group">
+                    <label for="category" class="form-label">Категория:</label>
+                    {{ form.category }}
+                </div>
+                <div class="form-group" id="subcategory-group">
+                    <label for="subcategory" class="form-label">Субкатегория:</label>
+                    {{ form.sub_category }}
+                </div>
+                <div class="form-group" id="tags-group" style="display: block">
+                    <label for="subcategory" class="form-label">Теги:</label>
+                    <div id="tags-checkboxes">
+                        {{ tags_form }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="form-label">Телефон:</label>
+                    {{ form.telephone }}
+                </div>
+                <div class="form-group" id="country-group">
+                    <label for="country" class="form-label">Страна</label>
+                    {{ form.country }}
+                </div>
+                <div class="form-group" id="city-group">
+                    <label for="city" class="form-label">Город</label>
+                    {{ form.city }}
+                </div>
+
+                <div class="form-group" id="image-group">
+                    <label class="form-label">Фотографии</label>
+                    {{ form.image }}
+                </div>
+
+                <button class="form-button">Отправить</button>
+            </form>
+
+        </div>
+    </section>
+</div>
 </body>
+
+<script>
+    $(document).ready(function () {
+        $('.checkbox-container input[type="checkbox"]').change(function () {
+            if ($(this).is(':checked')) {
+                $(this).closest('.checkbox-container').addClass('checked');
+            } else {
+                $(this).closest('.checkbox-container').removeClass('checked');
+            }
+        });
+    });
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        const categorySelect = $('#id_category');
+        const subcategoryGroup = $('#subcategory-group');
+        const subcategorySelect = $('#id_sub_category');
+        const tagsGroup = $('#tags-group'); // Добавляем элемент для тегов
+        const tagsSelect = $('#id_tags'); // Замените на соответствующий id поля тегов
+
+        // Функция для загрузки субкатегорий
+        function loadSubcategories() {
+            const selectedCategoryId = categorySelect.val();
+
+            // Очищаем предыдущие опции и добавляем "Выберите субкатегорию"
+            subcategorySelect.empty().append($('<option></option>').attr('value', '').text('Выберите субкатегорию'));
+            tagsGroup.hide(); // Скрываем поле выбора тегов
+
+            if (selectedCategoryId) {
+                // Запрос на сервер для получения субкатегорий по выбранной категории
+                $.ajax({
+                    url: `/related_to_it/?category_id=${selectedCategoryId}`,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data.subcategories); // Здесь data определена и содержит данные
+                        subcategorySelect.empty();
+                        subcategorySelect.append($('<option></option>').attr('value', '').text('Выберите субкатегорию')); // Добавляем опцию поумолчанию
+                        $.each(data.subcategories, function (key, value) {
+                            subcategorySelect.append($('<option></option>').attr('value', key).text(value));
+                        });
+                        subcategoryGroup.show(); // Показываем поле выбора субкатегории
+                    }
+                });
+            } else {
+                subcategoryGroup.hide(); // Скрываем поле выбора субкатегории, если категория не выбрана
+            }
+        }
+
+        categorySelect.change(loadSubcategories);
+
+        loadSubcategories();
+
+        // Функция для загрузки тегов
+        function loadTags() {
+            const selectedSubcategoryId = subcategorySelect.val();
+
+            // Очищаем предыдущие чекбоксы
+            $('#tags-checkboxes').empty();
+
+            if (selectedSubcategoryId) {
+                // Запрос на сервер для получения тегов по выбранной субкатегории
+                $.ajax({
+                    url: `/related_to_it/?subcategory_id=${selectedSubcategoryId}`,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data.tags); // Здесь data определена и содержит данные
+                        $.each(data.tags, function (key, value) {
+                            // Создаем div контейнер для каждого чекбокса и его лейбла
+                            const checkboxContainer = $('<div>')
+                                .addClass('cat')
+                                {#.addClass(`action`)#}
+                                .addClass('action');
+
+                            // Создаем лейбл для каждого тега
+                            const label = $('<label>');
+
+                            // Создаем чекбокс для каждого тега и добавляем его внутрь лейбла
+                            const checkbox = $('<input type="checkbox">')
+                                .attr('id', `tag-${key}`)
+                                .attr('name', 'tags')
+                                .attr('value', key)
+                                .appendTo(label);
+
+                            // Добавляем текст тега внутрь лейбла
+                            label.append($('<span>').text(value));
+
+                            // Добавляем лейбл в контейнер
+                            checkboxContainer.append(label);
+
+                            // Добавляем контейнер в блок с чекбоксами
+                            $('#tags-checkboxes').append(checkboxContainer);
+                        });
+                        $('#tags-group').show(); // Показываем блок с чекбоксами для тегов
+                    }
+                });
+            } else {
+                $('#tags-group').hide(); // Скрываем блок с чекбоксами для тегов, если субкатегория не выбрана
+            }
+        }
+
+
+// Отслеживаем изменения в поле выбора субкатегории
+        subcategorySelect.change(loadTags);
+
+// Вызываем функцию загрузки тегов при инициализации страницы
+        loadTags();
+
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        // Функция, которая будет вызываться при изменении поля "Страна"
+        $("#id_country").change(function () {
+            // Получаем значение выбранной страны
+            var selectedCountry = $(this).val();
+
+            // Если выбран Узбекистан, показываем поле "Город", иначе скрываем его
+            if (selectedCountry === "1") {
+                $("#city-group").show();
+            } else {
+                $("#city-group").hide();
+            }
+        });
+
+        // Инициализация состояния поля "Город" при загрузке страницы
+        if ($("#country").val() === "1") {
+            $("#city-group").show();
+        } else {
+            $("#city-group").hide();
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const buyButton = document.getElementById('buy-button');
+        const sellButton = document.getElementById('sell-button');
+        const formNameInput = document.getElementById('form-name');
+
+
+        buyButton.addEventListener('click', function () {
+            if (!buyButton.classList.contains("active")) {
+                buyButton.classList.add("active");
+                sellButton.classList.remove("active");
+                formNameInput.value = "buy";
+            }
+        });
+        sellButton.addEventListener('click', function () {
+            if (!sellButton.classList.contains("active")) {
+
+                const isAuthenticated = sellButton.getAttribute('data-authenticated');
+
+                if (isAuthenticated === "True") {
+                    sellButton.classList.add("active");
+                    buyButton.classList.remove("active");
+                    formNameInput.value = "sell";
+                } else {
+                    // Перенаправляем на страницу аутентификации
+                    window.location.href = "{% url 'login' %}";
+                }
+
+            }
+        });
+    });
+</script>
+
+
 </html>

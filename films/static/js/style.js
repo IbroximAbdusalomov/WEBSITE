@@ -34,3 +34,15 @@ cardRows.forEach((row, index) => {
         card.classList.add(colorClass);
     });
 });
+
+
+let currentStep = 0;
+const steps = document.querySelectorAll('.step');
+
+function nextStep() {
+    if (currentStep < steps.length - 1) {
+        steps[currentStep].style.display = 'none';
+        currentStep++;
+        steps[currentStep].style.display = 'block';
+    }
+}

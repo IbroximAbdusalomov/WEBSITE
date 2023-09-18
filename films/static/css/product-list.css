@@ -1,0 +1,123 @@
+.main-banner {
+    display: flex;
+    padding-top: 100px;
+    justify-content: center;
+    height: 200px;
+    background-color: #0c29d0;
+}
+
+.banner-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.banner {
+    width: 35%;
+    height: 100px;
+    margin: 0 10px;
+    background-color: #ccc;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f3f9ff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-form {
+    display: flex;
+}
+
+.filter-item {
+    margin: 0 10px;
+}
+
+.filter-item select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: white;
+}
+
+#submit-filter {
+    padding: 10px 20px;
+    background-color: #0c29d0;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submit-filter:hover {
+    background-color: #0c29d0;
+}
+
+
+.filter-option {
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-option:hover {
+    background-color: #f3f3f3;
+}
+
+.filter-option:checked {
+    background-color: #0c29d0;
+    color: white;
+}
+
+
+/* PAGINATION----------------------- */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 50px;
+}
+
+.pagination__prev,
+.pagination__next,
+.pagination__page {
+    padding: 10px 15px;
+    background-color: #fff;
+    color: #0c29d0;
+    border: 1px solid #0c29d0;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination__page:hover {
+    background-color: #0c29d0;
+    color: #fff;
+}
+
+.pagination__prev:hover,
+.pagination__next:hover {
+    background-color: #0c29d0;
+    color: #fff;
+}

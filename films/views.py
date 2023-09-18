@@ -1,18 +1,15 @@
 import asyncio
+
 from django.contrib import messages
-from django.contrib.auth.models import User
-from django.core.paginator import Paginator
-from django.forms.models import model_to_dict
-from django.http import JsonResponse
-from django.shortcuts import redirect, render, get_object_or_404
-from django.views import View
-from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from accounts.models import User
-from .forms import FilmsFormBUY, FilmsFormSELL, PersonCreationForm, EditFilmForm, FilmFilterForm, CategoryForm, \
-    SubCategoryForm, FilmsForm, TagForm
-from .models import Categories, Films, SubCategories, City, Favorite, Tag, Country
-from .utils import send_message_to_bot
+from django.http import JsonResponse
+from django.shortcuts import redirect, render
+from django.views import View
+from django.views.generic import ListView, CreateView
+from django.db.models import Q
+from .forms import FilmsForm, ProductFilterForm
+from .models import Categories, Films, SubCategories, City, Favorite, Tag
+from .utils import send_message_to_channel
 
 
 class IndexView(ListView):
@@ -24,32 +21,29 @@ class IndexView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["films_sell"] = Films.objects.filter(type='Продать', is_active=True, is_published=True).order_by(
+        context["films_sell"] = Films.objects.filter(type='sell', is_active=True, is_published=True).order_by(
+            '-create_date')[:7]
+        context["films_buy"] = Films.objects.filter(type='buy', is_active=True, is_published=True).order_by(
             '-create_date')[:7]
         context["title"] = "Запросы: "
         context["form"] = FilmsForm()
-        context["category_form"] = CategoryForm()
-        context["subcategory_form"] = SubCategoryForm()
-        context["tags_form"] = TagForm()
         return context
 
     def post(self, request):
         form = FilmsForm(request.POST)
-        # title = request.POST.get('title')
-        # description = request.POST.get('description')
-        # category = request.POST.get('category')
-        # sub_category = request.POST.get('sub_category')
-        # tags = request.POST.get('tags')
-        # telephone = request.POST.get('telephone')
-        # if title and description and category and sub_category and tags and telephone:
         if form.is_valid():
             film = form.save(commit=False)
             if not request.user.is_anonymous:
                 film.author = request.user
             film.is_published = True
+            film.image = 'product-images/image.png'
+            message = {}
+
+            for field_name, field_value in form.cleaned_data.items():
+                message[field_name] = field_value
+            message['тип'] = 'Купить'
+            asyncio.run(send_message_to_channel(message))
             film.save()
-            message = get_object_or_404(Films, pk=film.pk)
-            # asyncio.run(send_message_to_bot(message, message.category, message.sub_category))
             messages.success(request, 'Отправилься модерацию')
             return redirect('index')
         else:
@@ -57,310 +51,303 @@ class IndexView(ListView):
             return redirect('index')
 
 
-class ProductFilterView(ListView):
-    template_name = "films/product_list/filtered_products.html"
-    context_object_name = "films"
-    paginate_by = 24
-
-    def get_queryset(self):
-        self.film = Films.objects.filter(is_active=True, is_published=True)
-
-        # Обработка параметров из формы фильтрации
-        form = FilmFilterForm(self.request.GET)
-        if bool(form.data):
-            country = form.data.get('country')
-            city = form.data.get('city')
-            category = form.data.get('category')
-            sub_category = form.data.get('sub_category')
-
-            if country:
-                self.film = self.film.filter(country=int(country))
-            if city:
-                self.film = self.film.filter(city=int(city))
-            if category:
-                self.film = self.film.filter(category=int(category))
-            if sub_category:
-                self.film = self.film.filter(sub_category=int(sub_category))
-        else:
-            slug = self.kwargs.get('slug')
-            if not slug in ['uskuna', 'texnolog', 'xomashyo', 'xizmat_korsatish']:
-                sub_category = SubCategories.objects.get(slug=slug).pk
-                self.film = Films.objects.filter(sub_category=sub_category, is_active=True,
-                                                 is_published=True)
-            else:
-                category = Categories.objects.get(slug=slug).pk
-                self.film = Films.objects.filter(category=category, is_active=True,
-                                                 is_published=True)
-        return self.film.order_by('-create_date')
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        paginator = Paginator(self.film, self.paginate_by)
-        page = self.request.GET.get('page')
-        page_obj = paginator.get_page(page)
-        context['page_obj'] = page_obj
-        context["form"] = PersonCreationForm()
-        return context
-
-
-class ProductDetailView(DetailView):
-    model = Films
-    template_name = "films/product_detail.html"
-    context_object_name = "film"
-
-    def dispatch(self, request, *args, **kwargs):
-        film = self.get_queryset().first()
-        film.view_count += 1
-        film.save()
-        return super().dispatch(request, *args, **kwargs)
-
-    def get_queryset(self):
-        self.film = Films.objects.filter(pk=self.kwargs["pk"])
-        return self.film
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["categories"] = Categories.objects.all()
-        context["title"] = self.object.title
-        if not self.request.user.is_anonymous:
-            context["is_favorite"] = Favorite.objects.filter(user=self.request.user,
-                                                             product_id=self.film.first().pk).exists()
-        return context
-
-    def post(self, request, *args, **kwargs):
-        ball = request.POST['ball']
-        return redirect('film_detail', self.object.pk)
-
-
-class ProductsSearchView(ListView):
-    template_name = "films/index.html"
-    context_object_name = "films"
-
-    def get_queryset(self):
-        film_name = self.request.GET.get()
-        return Films.objects.filter(title__icontains=film_name)
-
-    def get_context_data(self, **kwargs):
-        film_name = self.request.GET.get()
-
-        context = super().get_context_data(**kwargs)
-        context["categories"] = Categories.objects.all()
-        context["title"] = f"По вашему запросу: \"{film_name}\". Найдено: {len(self.object_list)} запросов."
-        return context
-
-
-class ProductEditView(View):
-    form_class = EditFilmForm
-    initial = {"key": "value"}
-    template_name = 'films/edit_film.html'
-
-    def get(self, request, pk):
-        film = get_object_or_404(Films, pk=pk)
-        fields = [field.name for field in film._meta.get_fields() if field.concrete]
-        exclude_fields = ['category', 'sub_category']
-        fields = [field for field in fields if field not in exclude_fields]
-        data = model_to_dict(film, fields=fields)
-        form = EditFilmForm(initial=data)
-        return render(request, self.template_name, {"form": form, 'id': film.id})
-
-    def post(self, request, pk):
-        film = get_object_or_404(Films, pk=pk)
-        film.is_active = False
-        form = EditFilmForm(request.POST, instance=film)
-        if form.is_valid():
-            form.save()
-            message = get_object_or_404(Films, pk=pk)
-            asyncio.run(send_message_to_bot(message, message.category, message.sub_category))
-            return redirect('profile', pk=film.author_id)
-
-
-class ProductDeleteView(DeleteView):
-    model = Films
-
-    def dispatch(self, request, *args, **kwargs):
-        film = self.get_queryset().first()
-        if request.user.is_superuser:
-            return super().dispatch(request, *args, **kwargs)
-        messages.error(request, "У вас недостаточно прав для удаления этого запроса !")
-        return redirect("index")
-
-    def render_to_response(self, context, **response_kwargs):
-        messages.success(self.request, f"Запрос: {self.object.title}, был успешно удалён !")
-        super().form_valid(self.form_class)
-        return redirect("index")
-
-    def get_success_url(self):
-        return self.object.get_absolute_url()
-
-
-# class ProductBuyView(CreateView):
-#     template_name = "films/film_form.html"
-#     form_class = FilmsFormBUY
+# class ProductFilterView(ListView):
+#     template_name = "films/product_list/filtered_products.html"
+#     context_object_name = "films"
+#     paginate_by = 24
+#
+#     def get_queryset(self):
+#         self.film = Films.objects.filter(is_active=True, is_published=True)
+#
+#         # Обработка параметров из формы фильтрации
+#         form = FilmFilterForm(self.request.GET)
+#         if bool(form.data):
+#             country = form.data.get('country')
+#             city = form.data.get('city')
+#             category = form.data.get('category')
+#             sub_category = form.data.get('sub_category')
+#
+#             if country:
+#                 self.film = self.film.filter(country=int(country))
+#             if city:
+#                 self.film = self.film.filter(city=int(city))
+#             if category:
+#                 self.film = self.film.filter(category=int(category))
+#             if sub_category:
+#                 self.film = self.film.filter(sub_category=int(sub_category))
+#         else:
+#             slug = self.kwargs.get('slug')
+#             if not slug in ['uskuna', 'texnolog', 'xomashyo', 'xizmat_korsatish']:
+#                 sub_category = SubCategories.objects.get(slug=slug).pk
+#                 self.film = Films.objects.filter(sub_category=sub_category, is_active=True,
+#                                                  is_published=True)
+#             else:
+#                 category = Categories.objects.get(slug=slug).pk
+#                 self.film = Films.objects.filter(category=category, is_active=True,
+#                                                  is_published=True)
+#         return self.film.order_by('-create_date')
+#
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         paginator = Paginator(self.film, self.paginate_by)
+#         page = self.request.GET.get('page')
+#         page_obj = paginator.get_page(page)
+#         context['page_obj'] = page_obj
+#         context["form"] = PersonCreationForm()
+#         return context
+#
+#
+# class ProductDetailView(DetailView):
+#     model = Films
+#     template_name = "films/product_detail.html"
+#     context_object_name = "film"
+#
+#     def dispatch(self, request, *args, **kwargs):
+#         film = self.get_queryset().first()
+#         film.view_count += 1
+#         film.save()
+#         return super().dispatch(request, *args, **kwargs)
+#
+#     def get_queryset(self):
+#         self.film = Films.objects.filter(pk=self.kwargs["pk"])
+#         return self.film
 #
 #     def get_context_data(self, **kwargs):
 #         context = super().get_context_data(**kwargs)
-#         context["forma"] = PersonCreationForm()
-#         context["title"] = "Дать обьявление"
-#         context["btn_text"] = "Отправить"
+#         context["categories"] = Categories.objects.all()
+#         context["title"] = self.object.title
+#         if not self.request.user.is_anonymous:
+#             context["is_favorite"] = Favorite.objects.filter(user=self.request.user,
+#                                                              product_id=self.film.first().pk).exists()
 #         return context
 #
-#     def form_invalid(self, form):
-#         """Если форма не валидна"""
-#         messages.error(self.request, form.errors)
-#         return super().form_invalid(form)
+#     def post(self, request, *args, **kwargs):
+#         ball = request.POST['ball']
+#         return redirect('film_detail', self.object.pk)
 #
-#     def form_valid(self, form):
-#         """Если форма валидна"""
-#         film = form.save(commit=False)
-#         if not self.request.user.is_anonymous:
-#             film.author = self.request.user
-#         film.is_published = True
-#         image = self.request.FILES
-#         if not image:
-#             film.image = 'product-images/image.png'
-#         film.type = 'Купить'
-#         film.save()
-#         model_id = model_to_dict(film).get('id')
-#         message = get_object_or_404(Films, pk=model_id)
-#         asyncio.run(send_message_to_bot(message, message.category, message.sub_category))
-#         messages.success(self.request, "Вы успешно отправили запрос !")
-#         return super().form_valid(form)
+#
+# class ProductsSearchView(ListView):
+#     template_name = "films/index.html"
+#     context_object_name = "films"
+#
+#     def get_queryset(self):
+#         film_name = self.request.GET.get()
+#         return Films.objects.filter(title__icontains=film_name)
+#
+#     def get_context_data(self, **kwargs):
+#         film_name = self.request.GET.get()
+#
+#         context = super().get_context_data(**kwargs)
+#         context["categories"] = Categories.objects.all()
+#         context["title"] = f"По вашему запросу: \"{film_name}\". Найдено: {len(self.object_list)} запросов."
+#         return context
+#
+#
+# class ProductEditView(View):
+#     form_class = EditFilmForm
+#     initial = {"key": "value"}
+#     template_name = 'films/edit_film.html'
+#
+#     def get(self, request, pk):
+#         film = get_object_or_404(Films, pk=pk)
+#         fields = [field.name for field in film._meta.get_fields() if field.concrete]
+#         exclude_fields = ['category', 'sub_category']
+#         fields = [field for field in fields if field not in exclude_fields]
+#         data = model_to_dict(film, fields=fields)
+#         form = EditFilmForm(initial=data)
+#         return render(request, self.template_name, {"form": form, 'id': film.id})
+#
+#     def post(self, request, pk):
+#         film = get_object_or_404(Films, pk=pk)
+#         film.is_active = False
+#         form = EditFilmForm(request.POST, instance=film)
+#         if form.is_valid():
+#             form.save()
+#             message = get_object_or_404(Films, pk=pk)
+#             asyncio.run(send_message_to_bot(message, message.category, message.sub_category))
+#             return redirect('profile', pk=film.author_id)
+#
+#
+# class ProductDeleteView(DeleteView):
+#     model = Films
+#
+#     def dispatch(self, request, *args, **kwargs):
+#         film = self.get_queryset().first()
+#         if request.user.is_superuser:
+#             return super().dispatch(request, *args, **kwargs)
+#         messages.error(request, "У вас недостаточно прав для удаления этого запроса !")
+#         return redirect("index")
+#
+#     def render_to_response(self, context, **response_kwargs):
+#         messages.success(self.request, f"Запрос: {self.object.title}, был успешно удалён !")
+#         super().form_valid(self.form_class)
+#         return redirect("index")
 #
 #     def get_success_url(self):
-#         """Строит url-ссылку, если форма прошла валидацию"""
 #         return self.object.get_absolute_url()
+#
+#
 
 
-class ProductBuyView(CreateView):
+class ProductSaveView(CreateView):
     model = Films
+    form_class = FilmsForm
     template_name = 'form.html'
-    form_class = FilmsFormBUY
 
     def form_valid(self, form):
         film = form.save(commit=False)
+        message = {}
+        image = self.request.FILES
+        if self.request.POST.get('form-name') == "sell":
+            film.type = 'sell'
+            message['тип'] = 'Продать'
+        else:
+            message['тип'] = 'Купить'
+
         if not self.request.user.is_anonymous:
             film.author = self.request.user
-        film.is_published = True
-        image = self.request.FILES
-        if not image:
+        if image:
+            film.image = image
+        else:
             film.image = 'product-images/image.png'
-        film.type = 'Купить'
+        film.is_published = True
+
+        for field_name, field_value in form.cleaned_data.items():
+            message[field_name] = field_value
+        # asyncio.run(send_message_to_channel(message))
+
         film.save()
-        model_id = model_to_dict(film).get('id')
-        message = get_object_or_404(Films, pk=model_id)
-        asyncio.run(send_message_to_bot(message, message.category, message.sub_category))
         messages.success(self.request, "Вы успешно отправили запрос !")
-        return super().form_valid(form)
-
-
-class ProductSellView(CreateView):
-    template_name = "films/sellfilm_form.html"
-    form_class = FilmsFormSELL
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["forma"] = PersonCreationForm()
-        context["title"] = "Дать обьявление"
-        context["btn_text"] = "Отправить"
-        return context
-
-    def dispatch(self, request, *args, **kwargs):
-        user = User.objects.filter(pk=self.request.user.id).first()
-        if user.score < 10:
-            messages.error(self.request, 'Need to recharge')
-            return redirect('index')
-        user.score = user.score - 10
-        return super().dispatch(request, *args, **kwargs)
+        return redirect('index')
 
     def form_invalid(self, form):
-        """Если форма не валидна"""
-        messages.error(self.request, form.errors)
-        return super().form_invalid(form)
-
-    def form_valid(self, form):
-        """Если форма валидна"""
-
-        film = form.save(commit=False)
-        film.author = self.request.user
-        # film.is_published = True
-        image = self.request.FILES
-        if not image:
-            film.image = 'product-images/image.png'
-        film.type = 'Продать'
-        film.save()
-        model_id = model_to_dict(film).get('id')
-        message = get_object_or_404(Films, pk=model_id)
-        asyncio.run(send_message_to_bot(message, message.category, message.sub_category))
-        messages.success(self.request, "Вы успешно отправили запрос !")
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        """Строит url-ссылку, если форма прошла валидацию"""
-        return self.object.get_absolute_url()
+        error_message = form.errors['__all__'][
+            0] if '__all__' in form.errors else "Пожалуйста, исправьте ошибки в форме."
+        messages.error(self.request, error_message)
+        # messages.error(self.request, "Пожалуйста, исправьте ошибки в форме.")
+        return redirect("add_film")
 
 
-class BuyView(ListView):
-    template_name = "films/product_list/buy.html"
-    context_object_name = "films"  # context name Главного queryset
+class FilmsListView(ListView):
+    model = Films
+    template_name = 'product-list.html'  # Здесь укажите путь к вашему HTML-шаблону
+    context_object_name = 'films'  # Это имя, по которому вы будете обращаться к объекту списка в шаблоне
     paginate_by = 24
 
-    def get_queryset(self):  # Главный queryset
+    def get_queryset(self):
+        # Извлекаем параметры из запроса
         category = self.request.GET.get('category')
         sub_category = self.request.GET.get('sub_category')
         country = self.request.GET.get('country')
         city = self.request.GET.get('city')
-        self.film = Films.objects.filter(type='Купить', is_active=True, is_published=True)
+
+        # Начинаем с полного набора Films, отфильтровываем по активным и опубликованным записям
+        queryset = Films.objects.filter(is_active=True, is_published=True)
+
+        # Применяем условные фильтры в зависимости от наличия параметров
         if category:
-            self.film = Films.objects.filter(type='Купить', is_active=True, is_published=True, category_id=category)
+            queryset = queryset.filter(category__id=category)
         if sub_category:
-            self.film = Films.objects.filter(type='Купить', is_active=True, is_published=True,
-                                             sub_category=sub_category)
+            queryset = queryset.filter(sub_category__id=sub_category)
         if country:
-            self.film = Films.objects.filter(type='Купить', is_active=True, is_published=True, country=country)
+            queryset = queryset.filter(country__id=country)
         if city:
-            self.film = Films.objects.filter(type='Купить', is_active=True, is_published=True, city=city)
-        return self.film.order_by('-create_date')
+            queryset = queryset.filter(city__id=city)
+
+        # Возвращаем отфильтрованный набор данных
+        return queryset.order_by('-create_date')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        paginator = Paginator(self.film, self.paginate_by)
-        page = self.request.GET.get('page')
-        page_obj = paginator.get_page(page)
-        context['page_obj'] = page_obj
-        context["form"] = PersonCreationForm()
+        context['form'] = ProductFilterForm
         return context
 
 
-class SellView(ListView):
-    template_name = "films/product_list/sell.html"
-    context_object_name = "films"  # context name Главного queryset
-    paginate_by = 24
+class FilterProductsView(View):
+    def get(self, request, *args, **kwargs):
+        # Получите параметры фильтрации из запроса
+        category = request.GET.get('category')
+        subcategory = request.GET.get('subcategory')
+        country = request.GET.get('country')
+        sell_buy = request.GET.get('sell_buy')
 
-    def get_queryset(self):  # Главный queryset
-        category = self.request.GET.get('category')
-        sub_category = self.request.GET.get('sub_category')
-        country = self.request.GET.get('country')
-        city = self.request.GET.get('city')
-        self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True)
-        if category:
-            self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True, category=category)
-        if sub_category:
-            self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True,
-                                             sub_category=sub_category)
-        if country:
-            self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True, country=country)
-        if city:
-            self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True, city=city)
-        return self.film.order_by('-create_date')
+        # Фильтруйте ваш список продуктов на основе полученных параметров
+        filtered_products = Films.objects.filter(
+            category=category,
+            subcategory=subcategory,
+            country=country,
+            type=sell_buy,
+            is_active=True,
+            is_published=True
+        ).order_by('-create_date')
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        paginator = Paginator(self.film, self.paginate_by)
-        page = self.request.GET.get('page')
-        page_obj = paginator.get_page(page)
-        context['page_obj'] = page_obj
-        context["form"] = PersonCreationForm()
-        return context
+        # Верните отфильтрованные продукты в контексте шаблона
+        context = {'films': filtered_products}
+        return render(request, 'product-list.html', context)
+
+
+# class BuyView(ListView):
+#     template_name = "films/product_list/buy.html"
+#     context_object_name = "films"  # context name Главного queryset
+#     paginate_by = 24
+#
+#     def get_queryset(self):  # Главный queryset
+#         category = self.request.GET.get('category')
+#         sub_category = self.request.GET.get('sub_category')
+#         country = self.request.GET.get('country')
+#         city = self.request.GET.get('city')
+#         self.film = Films.objects.filter(type='Купить', is_active=True, is_published=True)
+#         if category:
+#             self.film = Films.objects.filter(type='Купить', is_active=True, is_published=True, category_id=category)
+#         if sub_category:
+#             self.film = Films.objects.filter(type='Купить', is_active=True, is_published=True,
+#                                              sub_category=sub_category)
+#         if country:
+#             self.film = Films.objects.filter(type='Купить', is_active=True, is_published=True, country=country)
+#         if city:
+#             self.film = Films.objects.filter(type='Купить', is_active=True, is_published=True, city=city)
+#         return self.film.order_by('-create_date')
+#
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         paginator = Paginator(self.film, self.paginate_by)
+#         page = self.request.GET.get('page')
+#         page_obj = paginator.get_page(page)
+#         context['page_obj'] = page_obj
+#         context["form"] = PersonCreationForm()
+#         return context
+#
+#
+# class SellView(ListView):
+#     template_name = "films/product_list/sell.html"
+#     context_object_name = "films"  # context name Главного queryset
+#     paginate_by = 24
+#
+#     def get_queryset(self):  # Главный queryset
+#         category = self.request.GET.get('category')
+#         sub_category = self.request.GET.get('sub_category')
+#         country = self.request.GET.get('country')
+#         city = self.request.GET.get('city')
+#         self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True)
+#         if category:
+#             self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True, category=category)
+#         if sub_category:
+#             self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True,
+#                                              sub_category=sub_category)
+#         if country:
+#             self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True, country=country)
+#         if city:
+#             self.film = Films.objects.filter(type='Продать', is_active=True, is_published=True, city=city)
+#         return self.film.order_by('-create_date')
+#
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         paginator = Paginator(self.film, self.paginate_by)
+#         page = self.request.GET.get('page')
+#         page_obj = paginator.get_page(page)
+#         context['page_obj'] = page_obj
+#         context["form"] = PersonCreationForm()
+#         return context
 
 
 def related_to_it(request):

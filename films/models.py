@@ -95,7 +95,6 @@ class Films(Model):  # Модель
     description = TextField("Описание", null=True, blank=True)
     telephone = CharField("Номер телефона", max_length=30)
     email = CharField("Емайл адрес", max_length=100)
-    image = ImageField("Картинка", upload_to="product-images/", blank=True, null=True)
     view_count = PositiveBigIntegerField("Количество просмотров", default=0)
     create_date = DateTimeField("Дата создания", auto_now_add=True)
     update_date = DateTimeField("Дата обновления", auto_now=True)
@@ -121,6 +120,11 @@ class Films(Model):  # Модель
     class Meta:
         verbose_name = "Запрос"
         verbose_name_plural = "Запросы"
+
+
+class Image(Model):
+    image = ImageField(upload_to="product-images/", blank=True, null=True)
+    product = ForeignKey(Films, on_delete=CASCADE)
 
 
 class Favorite(Model):

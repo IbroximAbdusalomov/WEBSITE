@@ -1,0 +1,155 @@
+.row-1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin-panel {
+    padding-top: 200px;
+}
+
+.admin-panel__buttons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+
+.buy-pakkage a,
+.up-wallet a {
+    text-decoration: none;
+    color: #0c29d0;
+    border: 1px solid #0c29d0;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.up-wallet :hover {
+    border: 2px solid #0c29d0;
+    padding: 3px 13px;
+}
+
+.buy-pakkage :hover {
+    background-color: #0c29d0;
+    color: white;
+}
+
+.tab-list {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 20px;
+}
+
+.tab-list {
+    display: flex;
+    justify-content: end;
+    border-bottom: 1px solid rgb(216, 223, 224);
+}
+
+.tab-button {
+    background-color: #e8efff; /* Синий цвет */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 14px;
+    color: rgb(0, 47, 52);
+}
+
+
+.tab-button.active {
+    border-bottom: 2px solid rgb(0, 47, 52);
+    font-weight: bold;
+}
+
+.section {
+    padding-top: 20px;
+    display: none;
+}
+
+.section.active-section {
+    display: block;
+}
+
+.card-color {
+    background-color: aliceblue;
+}
+
+.card-checkbox {
+    position: absolute;
+    right: 10px;
+    width: 5%;
+    height: 5%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.card-checkbox + .card__buy-content::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.card-checkbox:checked + .card__buy-content::before {
+    background-color: #00b300;
+    border-color: #00b300;
+    content: "\2713";
+    color: white;
+    text-align: center;
+    line-height: 20px;
+}
+
+.action-buttons {
+    /* display: flex; */
+    padding-top: 10px;
+    gap: 10px;
+    /* justify-content: flex-end; */
+    padding-bottom: 20px;
+}
+
+.action-button {
+    padding: 8px 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-button:hover {
+    background-color: #555;
+}
+
+/* Стили для недоступных кнопок */
+.action-button[disabled] {
+    background-color: lightgray;
+    cursor: not-allowed;
+}
+
+
+/*@keyframes gradientChange {*/
+/*    0% {*/
+/*        background: linear-gradient(180deg, #555, #e8efff);*/
+/*        background-size: 100% 200%;*/
+/*        background-position: 0% 0;*/
+/*    }*/
+/*    100% {*/
+/*        background: linear-gradient(180deg, #555, #e8efff);*/
+/*        background-size: 100% 200%;*/
+/*        background-position: 0% -100%;*/
+/*    }*/
+/*}*/
+
+/*.gradient-change {*/
+/*    animation: gradientChange .5s ease-in;*/
+/*}*/
+

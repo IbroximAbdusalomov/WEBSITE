@@ -1,0 +1,2094 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.7 30.9">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9bcbe2;
+      }
+
+      .cls-2 {
+        fill: #89b0d4;
+      }
+
+      .cls-3 {
+        fill: #e173a9;
+      }
+
+      .cls-4 {
+        fill: #a47da6;
+      }
+
+      .cls-5 {
+        fill: #45788b;
+      }
+
+      .cls-6 {
+        fill: #3b6e81;
+      }
+
+      .cls-7 {
+        fill: #8db6d7;
+      }
+
+      .cls-8 {
+        fill: #3c6f82;
+      }
+
+      .cls-9 {
+        fill: #83b5c8;
+      }
+
+      .cls-10 {
+        fill: #6b99ba;
+      }
+
+      .cls-11 {
+        fill: #7951a7;
+      }
+
+      .cls-12 {
+        fill: #713899;
+      }
+
+      .cls-13 {
+        fill: #90bbda;
+      }
+
+      .cls-14 {
+        fill: #441a62;
+      }
+
+      .cls-15 {
+        fill: #99cbde;
+      }
+
+      .cls-16 {
+        fill: #0e4a5c;
+      }
+
+      .cls-17 {
+        fill: #fd5cab;
+      }
+
+      .cls-18 {
+        fill: #e0cce4;
+      }
+
+      .cls-19 {
+        fill: #c13276;
+      }
+
+      .cls-20 {
+        fill: #9fd1e5;
+      }
+
+      .cls-21 {
+        fill: #2f5a7a;
+      }
+
+      .cls-22 {
+        fill: #e8f3ff;
+      }
+
+      .cls-23 {
+        fill: #5a257c;
+      }
+
+      .cls-24 {
+        fill: #c5b2ca;
+      }
+
+      .cls-25 {
+        fill: #d54b8e;
+      }
+
+      .cls-26 {
+        fill: #bb5a87;
+      }
+
+      .cls-27 {
+        fill: #94c1dd;
+      }
+
+      .cls-28 {
+        fill: #eda67c;
+      }
+
+      .cls-29 {
+        fill: #3b6686;
+      }
+
+      .cls-30 {
+        fill: #1d1d36;
+      }
+
+      .cls-31 {
+        fill: #024152;
+      }
+
+      .cls-32 {
+        fill: #fcc6bf;
+      }
+
+      .cls-33 {
+        fill: #417487;
+      }
+
+      .cls-34 {
+        fill: #0b485a;
+      }
+
+      .cls-35 {
+        fill: #76a4c3;
+      }
+
+      .cls-36 {
+        fill: #4c78a0;
+      }
+
+      .cls-37 {
+        fill: #fbb583;
+      }
+
+      .cls-38 {
+        fill: #7d7da8;
+      }
+
+      .cls-39 {
+        fill: #80b0cb;
+      }
+
+      .cls-40 {
+        fill: #ede3f0;
+      }
+
+      .cls-41 {
+        fill: #d1a0e5;
+      }
+
+      .cls-42 {
+        fill: #b93578;
+      }
+
+      .cls-43 {
+        fill: #5683a9;
+      }
+
+      .cls-44 {
+        fill: #d5a06e;
+      }
+
+      .cls-45 {
+        fill: #34677a;
+      }
+    </style>
+  </defs>
+  <g id="_Слой_1-2" data-name="Слой 1">
+    <path class="cls-22" d="M45,0c2,0,3.7,1.6,3.7,3.7V27.2c0,2-1.6,3.7-3.7,3.7H17.5l-13.8-1c-2,0-3.7-1.6-3.7-3.7L.5,5.4C.5,3.4,2.1,1.7,4.2,1.7L17.5,.1h27.5v-.1Z"/>
+    <g>
+      <g>
+        <rect class="cls-17" x="21.48" y="3.12" width=".07" height="5.78" transform="translate(-.55 9.46) rotate(-24.49)"/>
+        <rect class="cls-17" x="22.83" y="5.63" width="5.98" height=".07" transform="translate(13.31 28.95) rotate(-74.12)"/>
+        <polygon class="cls-17" points="25.31 8.94 25.25 8.91 29.06 1.97 29.12 2.01 25.31 8.94"/>
+        <rect class="cls-17" x="20.64" y="2.02" width=".07" height="7.24" transform="translate(.41 12.6) rotate(-34.22)"/>
+        <rect class="cls-17" x="22.22" y="3.65" width=".07" height="5" transform="translate(-.76 7.93) rotate(-19.87)"/>
+        <g>
+          <g>
+            <g>
+              <g id="Axo_Extrusion" data-name="Axo Extrusion">
+                <path id="Axo_panel" data-name="Axo panel" class="cls-8" d="M19.81,18.95c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <path id="Axo_base" data-name="Axo base" class="cls-10" d="M19.81,18.95c0-.06-.09-.12-.2-.12s-.2,.05-.2,.12,.09,.12,.2,.12,.2-.05,.2-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-2" data-name="Axo Extrusion">
+                <path id="Axo_panel-2" data-name="Axo panel" class="cls-8" d="M18.28,18.06c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-2" data-name="Axo base" class="cls-10" cx="18.07" cy="18.06" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-3" data-name="Axo Extrusion">
+                <path id="Axo_panel-3" data-name="Axo panel" class="cls-8" d="M18.24,19.86c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <path id="Axo_base-3" data-name="Axo base" class="cls-10" d="M18.24,19.86c0-.06-.09-.12-.2-.12s-.2,.05-.2,.12,.09,.12,.2,.12,.2-.05,.2-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-4" data-name="Axo Extrusion">
+                <path id="Axo_panel-4" data-name="Axo panel" class="cls-8" d="M16.7,18.97c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <path id="Axo_base-4" data-name="Axo base" class="cls-10" d="M16.7,18.97c0-.06-.09-.12-.2-.12s-.2,.05-.2,.12,.09,.12,.2,.12,.2-.05,.2-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-5" data-name="Axo Extrusion">
+                <path id="Axo_panel-5" data-name="Axo panel" class="cls-9" d="M17.17,20.08c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24s-.15-.15-.21-.12l-2.93,1.69Z"/>
+                <path id="Axo_base-5" data-name="Axo base" class="cls-6" d="M17.17,20.08c-.06,.03-.06,.14,0,.24,.06,.1,.15,.15,.21,.12,.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-6" data-name="Axo Extrusion">
+                <path id="Axo_panel-6" data-name="Axo panel" class="cls-9" d="M15.62,19.19c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12l-2.93,1.69Z"/>
+                <path id="Axo_base-6" data-name="Axo base" class="cls-6" d="M15.62,19.19c-.06,.03-.06,.14,0,.24s.15,.15,.21,.12c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-7" data-name="Axo Extrusion">
+                <path id="Axo_panel-7" data-name="Axo panel" class="cls-43" d="M18.21,5.58s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V5.58Z"/>
+                <path id="Axo_base-7" data-name="Axo base" class="cls-43" d="M18.21,5.58s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-8" data-name="Axo Extrusion">
+                  <path id="Axo_panel-8" data-name="Axo panel" class="cls-25" d="M19.1,18.45c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-8" data-name="Axo base" class="cls-42" d="M19.1,18.45c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-9" data-name="Axo Extrusion">
+                  <path id="Axo_panel-9" data-name="Axo panel" class="cls-25" d="M19.55,18.24s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-9" data-name="Axo base" class="cls-42" d="M19.55,18.24s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-10" data-name="Axo Extrusion">
+                  <path id="Axo_panel-10" data-name="Axo panel" class="cls-25" d="M19.1,17c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-10" data-name="Axo base" class="cls-42" d="M19.1,17c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-11" data-name="Axo Extrusion">
+                  <path id="Axo_panel-11" data-name="Axo panel" class="cls-25" d="M19.55,16.78s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-11" data-name="Axo base" class="cls-42" d="M19.55,16.78s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-12" data-name="Axo Extrusion">
+                  <path id="Axo_panel-12" data-name="Axo panel" class="cls-25" d="M19.1,15.54c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-12" data-name="Axo base" class="cls-42" d="M19.1,15.54c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-13" data-name="Axo Extrusion">
+                  <path id="Axo_panel-13" data-name="Axo panel" class="cls-25" d="M19.55,15.32s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-13" data-name="Axo base" class="cls-42" d="M19.55,15.32s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-14" data-name="Axo Extrusion">
+                  <path id="Axo_panel-14" data-name="Axo panel" class="cls-25" d="M19.1,14.08c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-14" data-name="Axo base" class="cls-42" d="M19.1,14.08c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-15" data-name="Axo Extrusion">
+                  <path id="Axo_panel-15" data-name="Axo panel" class="cls-25" d="M19.55,13.87s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-15" data-name="Axo base" class="cls-42" d="M19.55,13.87s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-16" data-name="Axo Extrusion">
+                  <path id="Axo_panel-16" data-name="Axo panel" class="cls-25" d="M19.1,12.62c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-16" data-name="Axo base" class="cls-42" d="M19.1,12.62c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-17" data-name="Axo Extrusion">
+                  <path id="Axo_panel-17" data-name="Axo panel" class="cls-25" d="M19.55,12.41s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-17" data-name="Axo base" class="cls-42" d="M19.55,12.41s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-18" data-name="Axo Extrusion">
+                  <path id="Axo_panel-18" data-name="Axo panel" class="cls-25" d="M19.1,11.16c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-18" data-name="Axo base" class="cls-42" d="M19.1,11.16c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-19" data-name="Axo Extrusion">
+                  <path id="Axo_panel-19" data-name="Axo panel" class="cls-25" d="M19.55,10.95s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-19" data-name="Axo base" class="cls-42" d="M19.55,10.95s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-20" data-name="Axo Extrusion">
+                  <path id="Axo_panel-20" data-name="Axo panel" class="cls-25" d="M19.1,9.71c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-20" data-name="Axo base" class="cls-42" d="M19.1,9.71c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-21" data-name="Axo Extrusion">
+                  <path id="Axo_panel-21" data-name="Axo panel" class="cls-25" d="M19.55,9.49s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-21" data-name="Axo base" class="cls-42" d="M19.55,9.49s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-22" data-name="Axo Extrusion">
+                  <path id="Axo_panel-22" data-name="Axo panel" class="cls-25" d="M19.1,8.25c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-22" data-name="Axo base" class="cls-42" d="M19.1,8.25c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-23" data-name="Axo Extrusion">
+                  <path id="Axo_panel-23" data-name="Axo panel" class="cls-25" d="M19.55,8.03s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-23" data-name="Axo base" class="cls-42" d="M19.55,8.03s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-24" data-name="Axo Extrusion">
+                <path id="Axo_panel-24" data-name="Axo panel" class="cls-43" d="M19.78,6.49s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V6.49Z"/>
+                <path id="Axo_base-24" data-name="Axo base" class="cls-43" d="M19.78,6.49s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g id="Axo_Extrusion-25" data-name="Axo Extrusion">
+                <path id="Axo_panel-25" data-name="Axo panel" class="cls-43" d="M16.66,6.48s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V6.48Z"/>
+                <path id="Axo_base-25" data-name="Axo base" class="cls-43" d="M16.66,6.48s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-26" data-name="Axo Extrusion">
+                  <path id="Axo_panel-26" data-name="Axo panel" class="cls-25" d="M17.55,19.35c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-26" data-name="Axo base" class="cls-42" d="M17.55,19.35c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-27" data-name="Axo Extrusion">
+                  <path id="Axo_panel-27" data-name="Axo panel" class="cls-25" d="M18,19.13s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-27" data-name="Axo base" class="cls-42" d="M18,19.13s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-28" data-name="Axo Extrusion">
+                  <path id="Axo_panel-28" data-name="Axo panel" class="cls-25" d="M17.55,17.89c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-28" data-name="Axo base" class="cls-42" d="M17.55,17.89c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-29" data-name="Axo Extrusion">
+                  <path id="Axo_panel-29" data-name="Axo panel" class="cls-25" d="M18,17.68s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-29" data-name="Axo base" class="cls-42" d="M18,17.68s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-30" data-name="Axo Extrusion">
+                  <path id="Axo_panel-30" data-name="Axo panel" class="cls-25" d="M17.55,16.43c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-30" data-name="Axo base" class="cls-42" d="M17.55,16.43c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-31" data-name="Axo Extrusion">
+                  <path id="Axo_panel-31" data-name="Axo panel" class="cls-25" d="M18,16.22s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-31" data-name="Axo base" class="cls-42" d="M18,16.22s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-32" data-name="Axo Extrusion">
+                  <path id="Axo_panel-32" data-name="Axo panel" class="cls-25" d="M17.55,14.97c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-32" data-name="Axo base" class="cls-42" d="M17.55,14.97c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-33" data-name="Axo Extrusion">
+                  <path id="Axo_panel-33" data-name="Axo panel" class="cls-25" d="M18,14.76s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-33" data-name="Axo base" class="cls-42" d="M18,14.76s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-34" data-name="Axo Extrusion">
+                  <path id="Axo_panel-34" data-name="Axo panel" class="cls-25" d="M17.55,13.52c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-34" data-name="Axo base" class="cls-42" d="M17.55,13.52c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-35" data-name="Axo Extrusion">
+                  <path id="Axo_panel-35" data-name="Axo panel" class="cls-25" d="M18,13.3s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-35" data-name="Axo base" class="cls-42" d="M18,13.3s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-36" data-name="Axo Extrusion">
+                  <path id="Axo_panel-36" data-name="Axo panel" class="cls-25" d="M17.55,12.06c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-36" data-name="Axo base" class="cls-42" d="M17.55,12.06c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-37" data-name="Axo Extrusion">
+                  <path id="Axo_panel-37" data-name="Axo panel" class="cls-25" d="M18,11.84s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-37" data-name="Axo base" class="cls-42" d="M18,11.84s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-38" data-name="Axo Extrusion">
+                  <path id="Axo_panel-38" data-name="Axo panel" class="cls-25" d="M17.55,10.6c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-38" data-name="Axo base" class="cls-42" d="M17.55,10.6c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-39" data-name="Axo Extrusion">
+                  <path id="Axo_panel-39" data-name="Axo panel" class="cls-25" d="M18,10.39s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-39" data-name="Axo base" class="cls-42" d="M18,10.39s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-40" data-name="Axo Extrusion">
+                  <path id="Axo_panel-40" data-name="Axo panel" class="cls-25" d="M17.55,9.14c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-40" data-name="Axo base" class="cls-42" d="M17.55,9.14c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-41" data-name="Axo Extrusion">
+                  <path id="Axo_panel-41" data-name="Axo panel" class="cls-25" d="M18,8.93s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-41" data-name="Axo base" class="cls-42" d="M18,8.93s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-42" data-name="Axo Extrusion">
+                <path id="Axo_panel-42" data-name="Axo panel" class="cls-43" d="M18.23,7.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V7.38Z"/>
+                <path id="Axo_base-42" data-name="Axo base" class="cls-43" d="M18.23,7.38s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-43" data-name="Axo Extrusion">
+                  <path id="Axo_panel-43" data-name="Axo panel" class="cls-9" d="M17.17,7.6c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12l-2.93,1.69Z"/>
+                  <path id="Axo_base-43" data-name="Axo base" class="cls-6" d="M17.17,7.6c-.06,.03-.06,.14,0,.24s.15,.15,.21,.12c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12Z"/>
+                </g>
+                <g id="Axo_Extrusion-44" data-name="Axo Extrusion">
+                  <path id="Axo_panel-44" data-name="Axo panel" class="cls-9" d="M15.62,6.7c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24s-.15-.15-.21-.12l-2.93,1.69Z"/>
+                  <path id="Axo_base-44" data-name="Axo base" class="cls-6" d="M15.62,6.7c-.06,.03-.06,.14,0,.24s.15,.15,.21,.12c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12Z"/>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g id="Axo_Extrusion-45" data-name="Axo Extrusion">
+                <path id="Axo_panel-45" data-name="Axo panel" class="cls-8" d="M17.03,20.56c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-45" data-name="Axo base" class="cls-10" cx="16.83" cy="20.56" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-46" data-name="Axo Extrusion">
+                <path id="Axo_panel-46" data-name="Axo panel" class="cls-8" d="M15.49,19.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-46" data-name="Axo base" class="cls-10" cx="15.29" cy="19.67" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-47" data-name="Axo Extrusion">
+                <path id="Axo_panel-47" data-name="Axo panel" class="cls-8" d="M15.46,21.46c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-47" data-name="Axo base" class="cls-10" cx="15.26" cy="21.46" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-48" data-name="Axo Extrusion">
+                <path id="Axo_panel-48" data-name="Axo panel" class="cls-8" d="M13.92,20.58c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-48" data-name="Axo base" class="cls-10" cx="13.72" cy="20.58" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-49" data-name="Axo Extrusion">
+                <path id="Axo_panel-49" data-name="Axo panel" class="cls-9" d="M14.39,21.69c.06-.03,.15,.02,.21,.12s.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12l-2.93,1.69Z"/>
+                <path id="Axo_base-49" data-name="Axo base" class="cls-6" d="M14.39,21.69c-.06,.03-.06,.14,0,.24,.06,.1,.15,.15,.21,.12s.06-.14,0-.24-.15-.15-.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-50" data-name="Axo Extrusion">
+                <path id="Axo_panel-50" data-name="Axo panel" class="cls-9" d="M12.84,20.79c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12l-2.93,1.69Z"/>
+                <path id="Axo_base-50" data-name="Axo base" class="cls-6" d="M12.84,20.79c-.06,.03-.06,.14,0,.24,.06,.1,.15,.15,.21,.12s.06-.14,0-.24c-.06-.1-.15-.15-.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-51" data-name="Axo Extrusion">
+                <path id="Axo_panel-51" data-name="Axo panel" class="cls-43" d="M15.43,7.19s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V7.19Z"/>
+                <path id="Axo_base-51" data-name="Axo base" class="cls-43" d="M15.43,7.19s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-52" data-name="Axo Extrusion">
+                  <path id="Axo_panel-52" data-name="Axo panel" class="cls-25" d="M16.31,20.06c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-52" data-name="Axo base" class="cls-42" d="M16.31,20.06c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-53" data-name="Axo Extrusion">
+                  <path id="Axo_panel-53" data-name="Axo panel" class="cls-25" d="M16.77,19.85s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-53" data-name="Axo base" class="cls-42" d="M16.77,19.85s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-54" data-name="Axo Extrusion">
+                  <path id="Axo_panel-54" data-name="Axo panel" class="cls-25" d="M16.31,18.6c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-54" data-name="Axo base" class="cls-42" d="M16.31,18.6c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-55" data-name="Axo Extrusion">
+                  <path id="Axo_panel-55" data-name="Axo panel" class="cls-25" d="M16.77,18.39s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-55" data-name="Axo base" class="cls-42" d="M16.77,18.39s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-56" data-name="Axo Extrusion">
+                  <path id="Axo_panel-56" data-name="Axo panel" class="cls-25" d="M16.31,17.14c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-56" data-name="Axo base" class="cls-42" d="M16.31,17.14c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-57" data-name="Axo Extrusion">
+                  <path id="Axo_panel-57" data-name="Axo panel" class="cls-25" d="M16.77,16.93s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-57" data-name="Axo base" class="cls-42" d="M16.77,16.93s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-58" data-name="Axo Extrusion">
+                  <path id="Axo_panel-58" data-name="Axo panel" class="cls-25" d="M16.31,15.69c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-58" data-name="Axo base" class="cls-42" d="M16.31,15.69c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-59" data-name="Axo Extrusion">
+                  <path id="Axo_panel-59" data-name="Axo panel" class="cls-25" d="M16.77,15.47s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-59" data-name="Axo base" class="cls-42" d="M16.77,15.47s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-60" data-name="Axo Extrusion">
+                  <path id="Axo_panel-60" data-name="Axo panel" class="cls-25" d="M16.31,14.23c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-60" data-name="Axo base" class="cls-42" d="M16.31,14.23c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-61" data-name="Axo Extrusion">
+                  <path id="Axo_panel-61" data-name="Axo panel" class="cls-25" d="M16.77,14.01s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-61" data-name="Axo base" class="cls-42" d="M16.77,14.01s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-62" data-name="Axo Extrusion">
+                  <path id="Axo_panel-62" data-name="Axo panel" class="cls-25" d="M16.31,12.77c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-62" data-name="Axo base" class="cls-42" d="M16.31,12.77c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-63" data-name="Axo Extrusion">
+                  <path id="Axo_panel-63" data-name="Axo panel" class="cls-25" d="M16.77,12.56s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-63" data-name="Axo base" class="cls-42" d="M16.77,12.56s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-64" data-name="Axo Extrusion">
+                  <path id="Axo_panel-64" data-name="Axo panel" class="cls-25" d="M16.31,11.31c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-64" data-name="Axo base" class="cls-42" d="M16.31,11.31c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-65" data-name="Axo Extrusion">
+                  <path id="Axo_panel-65" data-name="Axo panel" class="cls-25" d="M16.77,11.1s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-65" data-name="Axo base" class="cls-42" d="M16.77,11.1s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-66" data-name="Axo Extrusion">
+                  <path id="Axo_panel-66" data-name="Axo panel" class="cls-25" d="M16.31,9.85c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-66" data-name="Axo base" class="cls-42" d="M16.31,9.85c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-67" data-name="Axo Extrusion">
+                  <path id="Axo_panel-67" data-name="Axo panel" class="cls-25" d="M16.77,9.64s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-67" data-name="Axo base" class="cls-42" d="M16.77,9.64s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-68" data-name="Axo Extrusion">
+                <path id="Axo_panel-68" data-name="Axo panel" class="cls-43" d="M17,8.09s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V8.09Z"/>
+                <path id="Axo_base-68" data-name="Axo base" class="cls-43" d="M17,8.09s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g id="Axo_Extrusion-69" data-name="Axo Extrusion">
+                <path id="Axo_panel-69" data-name="Axo panel" class="cls-43" d="M13.88,8.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V8.08Z"/>
+                <path id="Axo_base-69" data-name="Axo base" class="cls-43" d="M13.88,8.08s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-70" data-name="Axo Extrusion">
+                  <path id="Axo_panel-70" data-name="Axo panel" class="cls-25" d="M14.76,20.95c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-70" data-name="Axo base" class="cls-42" d="M14.76,20.95c.16,.09,.42-.06,.58-.34s.16-.58,0-.67-.42,.06-.58,.34-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-71" data-name="Axo Extrusion">
+                  <path id="Axo_panel-71" data-name="Axo panel" class="cls-25" d="M15.22,20.74s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-71" data-name="Axo base" class="cls-42" d="M15.22,20.74s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-72" data-name="Axo Extrusion">
+                  <path id="Axo_panel-72" data-name="Axo panel" class="cls-25" d="M14.76,19.5c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-72" data-name="Axo base" class="cls-42" d="M14.76,19.5c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-73" data-name="Axo Extrusion">
+                  <path id="Axo_panel-73" data-name="Axo panel" class="cls-25" d="M15.22,19.28s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-73" data-name="Axo base" class="cls-42" d="M15.22,19.28s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-74" data-name="Axo Extrusion">
+                  <path id="Axo_panel-74" data-name="Axo panel" class="cls-25" d="M14.76,18.04c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-74" data-name="Axo base" class="cls-42" d="M14.76,18.04c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-75" data-name="Axo Extrusion">
+                  <path id="Axo_panel-75" data-name="Axo panel" class="cls-25" d="M15.22,17.82s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-75" data-name="Axo base" class="cls-42" d="M15.22,17.82s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-76" data-name="Axo Extrusion">
+                  <path id="Axo_panel-76" data-name="Axo panel" class="cls-25" d="M14.76,16.58c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-76" data-name="Axo base" class="cls-42" d="M14.76,16.58c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-77" data-name="Axo Extrusion">
+                  <path id="Axo_panel-77" data-name="Axo panel" class="cls-25" d="M15.22,16.37s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-77" data-name="Axo base" class="cls-42" d="M15.22,16.37s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-78" data-name="Axo Extrusion">
+                  <path id="Axo_panel-78" data-name="Axo panel" class="cls-25" d="M14.76,15.12c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-78" data-name="Axo base" class="cls-42" d="M14.76,15.12c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-79" data-name="Axo Extrusion">
+                  <path id="Axo_panel-79" data-name="Axo panel" class="cls-25" d="M15.22,14.91s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-79" data-name="Axo base" class="cls-42" d="M15.22,14.91s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-80" data-name="Axo Extrusion">
+                  <path id="Axo_panel-80" data-name="Axo panel" class="cls-25" d="M14.76,13.66c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-80" data-name="Axo base" class="cls-42" d="M14.76,13.66c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67s-.42,.06-.58,.34-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-81" data-name="Axo Extrusion">
+                  <path id="Axo_panel-81" data-name="Axo panel" class="cls-25" d="M15.22,13.45s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-81" data-name="Axo base" class="cls-42" d="M15.22,13.45s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-82" data-name="Axo Extrusion">
+                  <path id="Axo_panel-82" data-name="Axo panel" class="cls-25" d="M14.76,12.21c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-82" data-name="Axo base" class="cls-42" d="M14.76,12.21c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-83" data-name="Axo Extrusion">
+                  <path id="Axo_panel-83" data-name="Axo panel" class="cls-25" d="M15.22,11.99s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-83" data-name="Axo base" class="cls-42" d="M15.22,11.99s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-84" data-name="Axo Extrusion">
+                  <path id="Axo_panel-84" data-name="Axo panel" class="cls-25" d="M14.76,10.75c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-84" data-name="Axo base" class="cls-42" d="M14.76,10.75c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-85" data-name="Axo Extrusion">
+                  <path id="Axo_panel-85" data-name="Axo panel" class="cls-25" d="M15.22,10.53s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-85" data-name="Axo base" class="cls-42" d="M15.22,10.53s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-86" data-name="Axo Extrusion">
+                <path id="Axo_panel-86" data-name="Axo panel" class="cls-43" d="M15.45,8.99s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V8.99Z"/>
+                <path id="Axo_base-86" data-name="Axo base" class="cls-43" d="M15.45,8.99s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-87" data-name="Axo Extrusion">
+                  <path id="Axo_panel-87" data-name="Axo panel" class="cls-9" d="M14.39,9.21c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12l-2.93,1.69Z"/>
+                  <path id="Axo_base-87" data-name="Axo base" class="cls-6" d="M14.39,9.21c-.06,.03-.06,.14,0,.24,.06,.1,.15,.15,.21,.12s.06-.14,0-.24c-.06-.1-.15-.15-.21-.12Z"/>
+                </g>
+                <g id="Axo_Extrusion-88" data-name="Axo Extrusion">
+                  <path id="Axo_panel-88" data-name="Axo panel" class="cls-9" d="M12.84,8.31c.06-.03,.15,.02,.21,.12s.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24s-.15-.15-.21-.12l-2.93,1.69Z"/>
+                  <path id="Axo_base-88" data-name="Axo base" class="cls-6" d="M12.84,8.31c-.06,.03-.06,.14,0,.24,.06,.1,.15,.15,.21,.12s.06-.14,0-.24-.15-.15-.21-.12Z"/>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g id="Axo_Extrusion-89" data-name="Axo Extrusion">
+                <path id="Axo_panel-89" data-name="Axo panel" class="cls-8" d="M14.25,22.16c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <path id="Axo_base-89" data-name="Axo base" class="cls-10" d="M14.25,22.16c0-.06-.09-.12-.2-.12s-.2,.05-.2,.12,.09,.12,.2,.12,.2-.05,.2-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-90" data-name="Axo Extrusion">
+                <path id="Axo_panel-90" data-name="Axo panel" class="cls-8" d="M12.71,21.28c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <path id="Axo_base-90" data-name="Axo base" class="cls-10" d="M12.71,21.28c0-.06-.09-.12-.2-.12s-.2,.05-.2,.12,.09,.12,.2,.12,.2-.05,.2-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-91" data-name="Axo Extrusion">
+                <path id="Axo_panel-91" data-name="Axo panel" class="cls-8" d="M12.68,23.07c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-91" data-name="Axo base" class="cls-10" cx="12.47" cy="23.07" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-92" data-name="Axo Extrusion">
+                <path id="Axo_panel-92" data-name="Axo panel" class="cls-8" d="M11.14,22.18c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-92" data-name="Axo base" class="cls-10" cx="10.94" cy="22.18" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-93" data-name="Axo Extrusion">
+                <path id="Axo_panel-93" data-name="Axo panel" class="cls-9" d="M11.61,23.3c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12l-2.93,1.69Z"/>
+                <path id="Axo_base-93" data-name="Axo base" class="cls-6" d="M11.61,23.3c-.06,.03-.06,.14,0,.24s.15,.15,.21,.12c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-94" data-name="Axo Extrusion">
+                <path id="Axo_panel-94" data-name="Axo panel" class="cls-9" d="M10.05,22.4c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12l-2.93,1.69Z"/>
+                <path id="Axo_base-94" data-name="Axo base" class="cls-6" d="M10.05,22.4c-.06,.03-.06,.14,0,.24s.15,.15,.21,.12,.06-.14,0-.24c-.06-.1-.15-.15-.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-95" data-name="Axo Extrusion">
+                <path id="Axo_panel-95" data-name="Axo panel" class="cls-43" d="M12.65,8.8s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V8.8Z"/>
+                <path id="Axo_base-95" data-name="Axo base" class="cls-43" d="M12.65,8.8s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-96" data-name="Axo Extrusion">
+                  <path id="Axo_panel-96" data-name="Axo panel" class="cls-25" d="M13.53,21.67c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-96" data-name="Axo base" class="cls-42" d="M13.53,21.67c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-97" data-name="Axo Extrusion">
+                  <path id="Axo_panel-97" data-name="Axo panel" class="cls-25" d="M13.99,21.45s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-97" data-name="Axo base" class="cls-42" d="M13.99,21.45s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-98" data-name="Axo Extrusion">
+                  <path id="Axo_panel-98" data-name="Axo panel" class="cls-25" d="M13.53,20.21c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-98" data-name="Axo base" class="cls-42" d="M13.53,20.21c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-99" data-name="Axo Extrusion">
+                  <path id="Axo_panel-99" data-name="Axo panel" class="cls-25" d="M13.99,19.99s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-99" data-name="Axo base" class="cls-42" d="M13.99,19.99s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-100" data-name="Axo Extrusion">
+                  <path id="Axo_panel-100" data-name="Axo panel" class="cls-25" d="M13.53,18.75c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-100" data-name="Axo base" class="cls-42" d="M13.53,18.75c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-101" data-name="Axo Extrusion">
+                  <path id="Axo_panel-101" data-name="Axo panel" class="cls-25" d="M13.99,18.54s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-101" data-name="Axo base" class="cls-42" d="M13.99,18.54s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-102" data-name="Axo Extrusion">
+                  <path id="Axo_panel-102" data-name="Axo panel" class="cls-25" d="M13.53,17.29c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-102" data-name="Axo base" class="cls-42" d="M13.53,17.29c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-103" data-name="Axo Extrusion">
+                  <path id="Axo_panel-103" data-name="Axo panel" class="cls-25" d="M13.99,17.08s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-103" data-name="Axo base" class="cls-42" d="M13.99,17.08s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-104" data-name="Axo Extrusion">
+                  <path id="Axo_panel-104" data-name="Axo panel" class="cls-25" d="M13.53,15.83c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-104" data-name="Axo base" class="cls-42" d="M13.53,15.83c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-105" data-name="Axo Extrusion">
+                  <path id="Axo_panel-105" data-name="Axo panel" class="cls-25" d="M13.99,15.62s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-105" data-name="Axo base" class="cls-42" d="M13.99,15.62s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-106" data-name="Axo Extrusion">
+                  <path id="Axo_panel-106" data-name="Axo panel" class="cls-25" d="M13.53,14.38c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-106" data-name="Axo base" class="cls-42" d="M13.53,14.38c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67s-.42,.06-.58,.34-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-107" data-name="Axo Extrusion">
+                  <path id="Axo_panel-107" data-name="Axo panel" class="cls-25" d="M13.99,14.16s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-107" data-name="Axo base" class="cls-42" d="M13.99,14.16s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-108" data-name="Axo Extrusion">
+                  <path id="Axo_panel-108" data-name="Axo panel" class="cls-25" d="M13.53,12.92c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-108" data-name="Axo base" class="cls-42" d="M13.53,12.92c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-109" data-name="Axo Extrusion">
+                  <path id="Axo_panel-109" data-name="Axo panel" class="cls-25" d="M13.99,12.7s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-109" data-name="Axo base" class="cls-42" d="M13.99,12.7s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-110" data-name="Axo Extrusion">
+                  <path id="Axo_panel-110" data-name="Axo panel" class="cls-25" d="M13.53,11.46c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-110" data-name="Axo base" class="cls-42" d="M13.53,11.46c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-111" data-name="Axo Extrusion">
+                  <path id="Axo_panel-111" data-name="Axo panel" class="cls-25" d="M13.99,11.25s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-111" data-name="Axo base" class="cls-42" d="M13.99,11.25s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-112" data-name="Axo Extrusion">
+                <path id="Axo_panel-112" data-name="Axo panel" class="cls-43" d="M14.21,9.7s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V9.7Z"/>
+                <path id="Axo_base-112" data-name="Axo base" class="cls-43" d="M14.21,9.7s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g id="Axo_Extrusion-113" data-name="Axo Extrusion">
+                <path id="Axo_panel-113" data-name="Axo panel" class="cls-43" d="M11.1,9.69s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V9.69Z"/>
+                <path id="Axo_base-113" data-name="Axo base" class="cls-43" d="M11.1,9.69s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-114" data-name="Axo Extrusion">
+                  <path id="Axo_panel-114" data-name="Axo panel" class="cls-25" d="M11.98,22.56c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-114" data-name="Axo base" class="cls-42" d="M11.98,22.56c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-115" data-name="Axo Extrusion">
+                  <path id="Axo_panel-115" data-name="Axo panel" class="cls-25" d="M12.44,22.35s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-115" data-name="Axo base" class="cls-42" d="M12.44,22.35s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-116" data-name="Axo Extrusion">
+                  <path id="Axo_panel-116" data-name="Axo panel" class="cls-25" d="M11.98,21.1c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-116" data-name="Axo base" class="cls-42" d="M11.98,21.1c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-117" data-name="Axo Extrusion">
+                  <path id="Axo_panel-117" data-name="Axo panel" class="cls-25" d="M12.44,20.89s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-117" data-name="Axo base" class="cls-42" d="M12.44,20.89s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-118" data-name="Axo Extrusion">
+                  <path id="Axo_panel-118" data-name="Axo panel" class="cls-25" d="M11.98,19.64c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-118" data-name="Axo base" class="cls-42" d="M11.98,19.64c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67s-.42,.06-.58,.34-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-119" data-name="Axo Extrusion">
+                  <path id="Axo_panel-119" data-name="Axo panel" class="cls-25" d="M12.44,19.43s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-119" data-name="Axo base" class="cls-42" d="M12.44,19.43s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-120" data-name="Axo Extrusion">
+                  <path id="Axo_panel-120" data-name="Axo panel" class="cls-25" d="M11.98,18.19c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-120" data-name="Axo base" class="cls-42" d="M11.98,18.19c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-121" data-name="Axo Extrusion">
+                  <path id="Axo_panel-121" data-name="Axo panel" class="cls-25" d="M12.44,17.97s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-121" data-name="Axo base" class="cls-42" d="M12.44,17.97s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-122" data-name="Axo Extrusion">
+                  <path id="Axo_panel-122" data-name="Axo panel" class="cls-25" d="M11.98,16.73c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-122" data-name="Axo base" class="cls-42" d="M11.98,16.73c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-123" data-name="Axo Extrusion">
+                  <path id="Axo_panel-123" data-name="Axo panel" class="cls-25" d="M12.44,16.51s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-123" data-name="Axo base" class="cls-42" d="M12.44,16.51s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-124" data-name="Axo Extrusion">
+                  <path id="Axo_panel-124" data-name="Axo panel" class="cls-25" d="M11.98,15.27c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-124" data-name="Axo base" class="cls-42" d="M11.98,15.27c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-125" data-name="Axo Extrusion">
+                  <path id="Axo_panel-125" data-name="Axo panel" class="cls-25" d="M12.44,15.06s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-125" data-name="Axo base" class="cls-42" d="M12.44,15.06s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-126" data-name="Axo Extrusion">
+                  <path id="Axo_panel-126" data-name="Axo panel" class="cls-25" d="M11.98,13.81c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-126" data-name="Axo base" class="cls-42" d="M11.98,13.81c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-127" data-name="Axo Extrusion">
+                  <path id="Axo_panel-127" data-name="Axo panel" class="cls-25" d="M12.44,13.6s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-127" data-name="Axo base" class="cls-42" d="M12.44,13.6s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-128" data-name="Axo Extrusion">
+                  <path id="Axo_panel-128" data-name="Axo panel" class="cls-25" d="M11.98,12.35c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-128" data-name="Axo base" class="cls-42" d="M11.98,12.35c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67s-.42,.06-.58,.34-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-129" data-name="Axo Extrusion">
+                  <path id="Axo_panel-129" data-name="Axo panel" class="cls-25" d="M12.44,12.14s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-129" data-name="Axo base" class="cls-42" d="M12.44,12.14s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-130" data-name="Axo Extrusion">
+                <path id="Axo_panel-130" data-name="Axo panel" class="cls-43" d="M12.67,10.6s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V10.6Z"/>
+                <path id="Axo_base-130" data-name="Axo base" class="cls-43" d="M12.67,10.6s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-131" data-name="Axo Extrusion">
+                  <path id="Axo_panel-131" data-name="Axo panel" class="cls-9" d="M11.61,10.81c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12l-2.93,1.69Z"/>
+                  <path id="Axo_base-131" data-name="Axo base" class="cls-6" d="M11.61,10.81c-.06,.03-.06,.14,0,.24,.06,.1,.15,.15,.21,.12s.06-.14,0-.24c-.06-.1-.15-.15-.21-.12Z"/>
+                </g>
+                <g id="Axo_Extrusion-132" data-name="Axo Extrusion">
+                  <path id="Axo_panel-132" data-name="Axo panel" class="cls-9" d="M10.05,9.92c.06-.03,.15,.02,.21,.12s.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12l-2.93,1.69Z"/>
+                  <path id="Axo_base-132" data-name="Axo base" class="cls-6" d="M10.05,9.92c-.06,.03-.06,.14,0,.24,.06,.1,.15,.15,.21,.12s.06-.14,0-.24-.15-.15-.21-.12Z"/>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g id="Axo_Extrusion-133" data-name="Axo Extrusion">
+                <path id="Axo_panel-133" data-name="Axo panel" class="cls-8" d="M11.47,23.77c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-133" data-name="Axo base" class="cls-10" cx="11.26" cy="23.77" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-134" data-name="Axo Extrusion">
+                <path id="Axo_panel-134" data-name="Axo panel" class="cls-8" d="M9.93,22.88c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-134" data-name="Axo base" class="cls-10" cx="9.73" cy="22.88" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-135" data-name="Axo Extrusion">
+                <path id="Axo_panel-135" data-name="Axo panel" class="cls-8" d="M9.89,24.68c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-135" data-name="Axo base" class="cls-10" cx="9.69" cy="24.68" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-136" data-name="Axo Extrusion">
+                <path id="Axo_panel-136" data-name="Axo panel" class="cls-8" d="M8.36,23.79c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-136" data-name="Axo base" class="cls-10" cx="8.15" cy="23.79" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-137" data-name="Axo Extrusion">
+                <path id="Axo_panel-137" data-name="Axo panel" class="cls-9" d="M8.82,24.9c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12l-2.93,1.69Z"/>
+                <path id="Axo_base-137" data-name="Axo base" class="cls-6" d="M8.82,24.9c-.06,.03-.06,.14,0,.24s.15,.15,.21,.12c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-138" data-name="Axo Extrusion">
+                <path id="Axo_panel-138" data-name="Axo panel" class="cls-9" d="M7.27,24.01c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24s-.15-.15-.21-.12l-2.93,1.69Z"/>
+                <path id="Axo_base-138" data-name="Axo base" class="cls-6" d="M7.27,24.01c-.06,.03-.06,.14,0,.24,.06,.1,.15,.15,.21,.12,.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-139" data-name="Axo Extrusion">
+                <path id="Axo_panel-139" data-name="Axo panel" class="cls-43" d="M9.87,10.4s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V10.4Z"/>
+                <path id="Axo_base-139" data-name="Axo base" class="cls-43" d="M9.87,10.4s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-140" data-name="Axo Extrusion">
+                  <path id="Axo_panel-140" data-name="Axo panel" class="cls-25" d="M10.75,23.27c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-140" data-name="Axo base" class="cls-42" d="M10.75,23.27c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67s-.42,.06-.58,.34c-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-141" data-name="Axo Extrusion">
+                  <path id="Axo_panel-141" data-name="Axo panel" class="cls-25" d="M11.21,23.06s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-141" data-name="Axo base" class="cls-42" d="M11.21,23.06s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-142" data-name="Axo Extrusion">
+                  <path id="Axo_panel-142" data-name="Axo panel" class="cls-25" d="M10.75,21.82c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-142" data-name="Axo base" class="cls-42" d="M10.75,21.82c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-143" data-name="Axo Extrusion">
+                  <path id="Axo_panel-143" data-name="Axo panel" class="cls-25" d="M11.21,21.6s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-143" data-name="Axo base" class="cls-42" d="M11.21,21.6s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-144" data-name="Axo Extrusion">
+                  <path id="Axo_panel-144" data-name="Axo panel" class="cls-25" d="M10.75,20.36c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-144" data-name="Axo base" class="cls-42" d="M10.75,20.36c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-145" data-name="Axo Extrusion">
+                  <path id="Axo_panel-145" data-name="Axo panel" class="cls-25" d="M11.21,20.14s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-145" data-name="Axo base" class="cls-42" d="M11.21,20.14s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-146" data-name="Axo Extrusion">
+                  <path id="Axo_panel-146" data-name="Axo panel" class="cls-25" d="M10.75,18.9c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-146" data-name="Axo base" class="cls-42" d="M10.75,18.9c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-147" data-name="Axo Extrusion">
+                  <path id="Axo_panel-147" data-name="Axo panel" class="cls-25" d="M11.21,18.68s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-147" data-name="Axo base" class="cls-42" d="M11.21,18.68s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-148" data-name="Axo Extrusion">
+                  <path id="Axo_panel-148" data-name="Axo panel" class="cls-25" d="M10.75,17.44c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-148" data-name="Axo base" class="cls-42" d="M10.75,17.44c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-149" data-name="Axo Extrusion">
+                  <path id="Axo_panel-149" data-name="Axo panel" class="cls-25" d="M11.21,17.23s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-149" data-name="Axo base" class="cls-42" d="M11.21,17.23s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-150" data-name="Axo Extrusion">
+                  <path id="Axo_panel-150" data-name="Axo panel" class="cls-25" d="M10.75,15.98c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-150" data-name="Axo base" class="cls-42" d="M10.75,15.98c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-151" data-name="Axo Extrusion">
+                  <path id="Axo_panel-151" data-name="Axo panel" class="cls-25" d="M11.21,15.77s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-151" data-name="Axo base" class="cls-42" d="M11.21,15.77s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-152" data-name="Axo Extrusion">
+                  <path id="Axo_panel-152" data-name="Axo panel" class="cls-25" d="M10.75,14.53c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-152" data-name="Axo base" class="cls-42" d="M10.75,14.53c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-153" data-name="Axo Extrusion">
+                  <path id="Axo_panel-153" data-name="Axo panel" class="cls-25" d="M11.21,14.31s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-153" data-name="Axo base" class="cls-42" d="M11.21,14.31s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-154" data-name="Axo Extrusion">
+                  <path id="Axo_panel-154" data-name="Axo panel" class="cls-25" d="M10.75,13.07c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-154" data-name="Axo base" class="cls-42" d="M10.75,13.07c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67s-.42,.06-.58,.34c-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-155" data-name="Axo Extrusion">
+                  <path id="Axo_panel-155" data-name="Axo panel" class="cls-25" d="M11.21,12.85s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-155" data-name="Axo base" class="cls-42" d="M11.21,12.85s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-156" data-name="Axo Extrusion">
+                <path id="Axo_panel-156" data-name="Axo panel" class="cls-43" d="M11.43,11.31s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V11.31Z"/>
+                <path id="Axo_base-156" data-name="Axo base" class="cls-43" d="M11.43,11.31s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g id="Axo_Extrusion-157" data-name="Axo Extrusion">
+                <path id="Axo_panel-157" data-name="Axo panel" class="cls-43" d="M8.32,11.3s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V11.3Z"/>
+                <path id="Axo_base-157" data-name="Axo base" class="cls-43" d="M8.32,11.3s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-158" data-name="Axo Extrusion">
+                  <path id="Axo_panel-158" data-name="Axo panel" class="cls-25" d="M9.2,24.17c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-158" data-name="Axo base" class="cls-42" d="M9.2,24.17c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-159" data-name="Axo Extrusion">
+                  <path id="Axo_panel-159" data-name="Axo panel" class="cls-25" d="M9.66,23.95s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-159" data-name="Axo base" class="cls-42" d="M9.66,23.95s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-160" data-name="Axo Extrusion">
+                  <path id="Axo_panel-160" data-name="Axo panel" class="cls-25" d="M9.2,22.71c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-160" data-name="Axo base" class="cls-42" d="M9.2,22.71c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-161" data-name="Axo Extrusion">
+                  <path id="Axo_panel-161" data-name="Axo panel" class="cls-25" d="M9.66,22.49s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-161" data-name="Axo base" class="cls-42" d="M9.66,22.49s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-162" data-name="Axo Extrusion">
+                  <path id="Axo_panel-162" data-name="Axo panel" class="cls-25" d="M9.2,21.25c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-162" data-name="Axo base" class="cls-42" d="M9.2,21.25c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-163" data-name="Axo Extrusion">
+                  <path id="Axo_panel-163" data-name="Axo panel" class="cls-25" d="M9.66,21.04s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-163" data-name="Axo base" class="cls-42" d="M9.66,21.04s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-164" data-name="Axo Extrusion">
+                  <path id="Axo_panel-164" data-name="Axo panel" class="cls-25" d="M9.2,19.79c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-164" data-name="Axo base" class="cls-42" d="M9.2,19.79c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-165" data-name="Axo Extrusion">
+                  <path id="Axo_panel-165" data-name="Axo panel" class="cls-25" d="M9.66,19.58s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-165" data-name="Axo base" class="cls-42" d="M9.66,19.58s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-166" data-name="Axo Extrusion">
+                  <path id="Axo_panel-166" data-name="Axo panel" class="cls-25" d="M9.2,18.34c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-166" data-name="Axo base" class="cls-42" d="M9.2,18.34c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67s-.42,.06-.58,.34-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-167" data-name="Axo Extrusion">
+                  <path id="Axo_panel-167" data-name="Axo panel" class="cls-25" d="M9.66,18.12s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-167" data-name="Axo base" class="cls-42" d="M9.66,18.12s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-168" data-name="Axo Extrusion">
+                  <path id="Axo_panel-168" data-name="Axo panel" class="cls-25" d="M9.2,16.88c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-168" data-name="Axo base" class="cls-42" d="M9.2,16.88c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-169" data-name="Axo Extrusion">
+                  <path id="Axo_panel-169" data-name="Axo panel" class="cls-25" d="M9.66,16.66s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-169" data-name="Axo base" class="cls-42" d="M9.66,16.66s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-170" data-name="Axo Extrusion">
+                  <path id="Axo_panel-170" data-name="Axo panel" class="cls-25" d="M9.2,15.42c-.16-.09-.16-.4,0-.67s.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-170" data-name="Axo base" class="cls-42" d="M9.2,15.42c.16,.09,.42-.06,.58-.34s.16-.58,0-.67c-.16-.09-.42,.06-.58,.34s-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-171" data-name="Axo Extrusion">
+                  <path id="Axo_panel-171" data-name="Axo panel" class="cls-25" d="M9.66,15.2s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-171" data-name="Axo base" class="cls-42" d="M9.66,15.2s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-172" data-name="Axo Extrusion">
+                  <path id="Axo_panel-172" data-name="Axo panel" class="cls-25" d="M9.2,13.96c-.16-.09-.16-.4,0-.67,.16-.28,.42-.43,.58-.34l-1.04-.6c-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67l1.04,.6Z"/>
+                  <path id="Axo_base-172" data-name="Axo base" class="cls-42" d="M9.2,13.96c.16,.09,.42-.06,.58-.34,.16-.28,.16-.58,0-.67-.16-.09-.42,.06-.58,.34-.16,.28-.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-173" data-name="Axo Extrusion">
+                  <path id="Axo_panel-173" data-name="Axo panel" class="cls-25" d="M9.66,13.75s-.04-.1,0-.17c.04-.07,.11-.11,.15-.09l-.24-.14s-.11,.01-.15,.09c-.04,.07-.04,.15,0,.17l.24,.14Z"/>
+                  <path id="Axo_base-173" data-name="Axo base" class="cls-42" d="M9.66,13.75s.11-.01,.15-.09c.04-.07,.04-.15,0-.17-.04-.02-.11,.01-.15,.09-.04,.07-.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-174" data-name="Axo Extrusion">
+                <path id="Axo_panel-174" data-name="Axo panel" class="cls-43" d="M9.88,12.2s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08v12.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08V12.2Z"/>
+                <path id="Axo_base-174" data-name="Axo base" class="cls-43" d="M9.88,12.2s-.03-.07-.09-.08c-.04,0-.08,0-.12,0-.06,.02-.09,.05-.09,.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-175" data-name="Axo Extrusion">
+                  <path id="Axo_panel-175" data-name="Axo panel" class="cls-9" d="M8.82,12.42c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24s-.15-.15-.21-.12l-2.93,1.69Z"/>
+                  <path id="Axo_base-175" data-name="Axo base" class="cls-6" d="M8.82,12.42c-.06,.03-.06,.14,0,.24,.06,.1,.15,.15,.21,.12,.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12Z"/>
+                </g>
+                <g id="Axo_Extrusion-176" data-name="Axo Extrusion">
+                  <path id="Axo_panel-176" data-name="Axo panel" class="cls-9" d="M7.27,11.52c.06-.03,.15,.02,.21,.12,.06,.1,.06,.21,0,.24l2.93-1.69c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12l-2.93,1.69Z"/>
+                  <path id="Axo_base-176" data-name="Axo base" class="cls-6" d="M7.27,11.52c-.06,.03-.06,.14,0,.24s.15,.15,.21,.12c.06-.03,.06-.14,0-.24-.06-.1-.15-.15-.21-.12Z"/>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g id="Axo_Projection" data-name="Axo Projection">
+            <g id="Axo_Extrusion-177" data-name="Axo Extrusion">
+              <path id="Axo_panel-177" data-name="Axo panel" class="cls-21" d="M19.63,20.25c0,.65,.43,1.3,1.29,1.8,1.72,.99,4.52,.99,6.24,0,.86-.5,1.29-1.15,1.29-1.8v4.27c0,.65-.43,1.3-1.29,1.8-1.72,.99-4.52,.99-6.24,0-.86-.5-1.29-1.15-1.29-1.8v-4.27Z"/>
+              <g id="Axo_cap" data-name="Axo cap">
+                <path class="cls-36" d="M28.45,20.25c0,.65-.43,1.3-1.29,1.8-1.72,.99-4.52,.99-6.24,0-.86-.5-1.29-1.15-1.29-1.8,0-.49,.24-.97,.72-1.39l1.75-1.4,3.81-.19,1.93,1.68c.41,.4,.62,.85,.62,1.3Z"/>
+                <path class="cls-29" d="M20.34,18.86c.08-.07,.16-.14,.25-.2l-.25,.2Z"/>
+              </g>
+              <g id="Axo_base-177" data-name="Axo base">
+                <path class="cls-29" d="M21.99,17.77c0-.3,.2-.61,.6-.84,.8-.46,2.1-.46,2.9,0,.4,.23,.6,.53,.6,.84s-.2,.61-.6,.84c-.8,.46-2.1,.46-2.9,0-.4-.23-.6-.53-.6-.84Z"/>
+                <g id="Axo_Compound_Extrusion" data-name="Axo Compound Extrusion">
+                  <g id="Axo_Extrusion-178" data-name="Axo Extrusion">
+                    <path id="Axo_panel-178" data-name="Axo panel" class="cls-4" d="M25.95,17.77c0-.26-.19-.52-.53-.72-.38-.22-.88-.33-1.38-.33s-1,.11-1.38,.33c-.34,.2-.53,.45-.53,.72v.54c0-.26,.19-.52,.53-.72,.38-.22,.88-.33,1.38-.33s1,.11,1.38,.33c.34,.2,.53,.45,.53,.72v-.54Z"/>
+                    <path id="Axo_panel-179" data-name="Axo panel" class="cls-4" d="M21.85,17.77c0,.37,.24,.71,.67,.96,.42,.24,.97,.36,1.52,.36s1.1-.12,1.52-.36c.43-.25,.67-.59,.67-.96v.54c0,.37-.24,.71-.67,.96-.42,.24-.97,.36-1.52,.36s-1.1-.12-1.52-.36c-.43-.25-.67-.59-.67-.96v-.54Z"/>
+                  </g>
+                  <path id="Axo_Compound" data-name="Axo Compound" class="cls-18" d="M24.04,19.09c-.55,0-1.1-.12-1.52-.36-.43-.25-.67-.59-.67-.96s.24-.71,.67-.96c.84-.48,2.2-.48,3.04,0,.43,.25,.67,.59,.67,.96s-.24,.71-.67,.96c-.42,.24-.97,.36-1.52,.36Zm0-2.37c-.5,0-1,.11-1.38,.33-.34,.2-.53,.45-.53,.72s.19,.52,.53,.72c.76,.44,2,.44,2.76,0,.34-.2,.53-.45,.53-.72s-.19-.52-.53-.72c-.38-.22-.88-.33-1.38-.33Z"/>
+                </g>
+              </g>
+            </g>
+            <g id="Axo_Surface_" data-name="Axo Surface*">
+              <polygon id="Axo_panel-180" data-name="Axo panel" class="cls-27" points="19.89 21.82 21.47 22.73 21.47 27 19.89 26.09 19.89 21.82"/>
+              <polygon id="Axo_panel-181" data-name="Axo panel" class="cls-7" points="21.47 22.73 22.01 22.42 22.01 26.69 21.47 27 21.47 22.73"/>
+            </g>
+            <polygon id="Axo_base-178" data-name="Axo base" class="cls-10" points="19.89 21.82 20.44 21.51 22.01 22.42 21.47 22.73 19.89 21.82"/>
+            <g id="Axo_cap-2" data-name="Axo cap">
+              <g id="Axo_Extrusion-179" data-name="Axo Extrusion">
+                <g id="Axo_Surface_-2" data-name="Axo Surface*">
+                  <polygon id="Axo_panel-182" data-name="Axo panel" class="cls-31" points="22.05 14.95 22.29 15.09 22.29 17.1 22.05 16.96 22.05 14.95"/>
+                  <polygon id="Axo_panel-183" data-name="Axo panel" class="cls-16" points="22.29 15.09 22.99 14.68 22.99 16.69 22.29 17.1 22.29 15.09"/>
+                </g>
+                <polygon id="Axo_base-179" data-name="Axo base" class="cls-34" points="22.05 14.95 22.75 14.54 22.99 14.68 22.29 15.09 22.05 14.95"/>
+              </g>
+              <g id="Axo_Extrusion-180" data-name="Axo Extrusion">
+                <g id="Axo_Surface_-3" data-name="Axo Surface*">
+                  <polygon id="Axo_panel-184" data-name="Axo panel" class="cls-31" points="25.1 14.69 25.76 15.07 25.76 17.09 25.1 16.7 25.1 14.69"/>
+                  <polygon id="Axo_panel-185" data-name="Axo panel" class="cls-16" points="25.76 15.07 25.99 14.94 25.99 16.95 25.76 17.09 25.76 15.07"/>
+                </g>
+                <polygon id="Axo_base-180" data-name="Axo base" class="cls-34" points="25.1 14.69 25.33 14.56 25.99 14.94 25.76 15.07 25.1 14.69"/>
+              </g>
+              <g id="Axo_Extrusion-181" data-name="Axo Extrusion">
+                <g id="Axo_Surface_-4" data-name="Axo Surface*">
+                  <polygon id="Axo_panel-186" data-name="Axo panel" class="cls-31" points="22.05 16.47 22.72 16.86 22.72 18.87 22.05 18.48 22.05 16.47"/>
+                  <polygon id="Axo_panel-187" data-name="Axo panel" class="cls-16" points="22.72 16.86 22.95 16.72 22.95 18.74 22.72 18.87 22.72 16.86"/>
+                </g>
+                <polygon id="Axo_base-181" data-name="Axo base" class="cls-34" points="22.05 16.47 22.28 16.34 22.95 16.72 22.72 16.86 22.05 16.47"/>
+              </g>
+              <g id="Axo_Extrusion-182" data-name="Axo Extrusion">
+                <g id="Axo_Surface_-5" data-name="Axo Surface*">
+                  <polygon id="Axo_panel-188" data-name="Axo panel" class="cls-31" points="25.16 16.75 25.4 16.89 25.4 18.9 25.16 18.76 25.16 16.75"/>
+                  <polygon id="Axo_panel-189" data-name="Axo panel" class="cls-16" points="25.4 16.89 26.11 16.48 26.11 18.49 25.4 18.9 25.4 16.89"/>
+                </g>
+                <polygon id="Axo_base-182" data-name="Axo base" class="cls-34" points="25.16 16.75 25.86 16.34 26.11 16.48 25.4 16.89 25.16 16.75"/>
+              </g>
+            </g>
+          </g>
+          <g id="Axo_Compound_Extrusion-2" data-name="Axo Compound Extrusion">
+            <g id="Axo_Extrusion-183" data-name="Axo Extrusion">
+              <path id="Axo_panel-190" data-name="Axo panel" class="cls-4" d="M25.95,15.24c0-.26-.19-.52-.53-.72-.38-.22-.88-.33-1.38-.33s-1,.11-1.38,.33c-.34,.2-.53,.45-.53,.72v.54c0-.26,.19-.52,.53-.72,.38-.22,.88-.33,1.38-.33s1,.11,1.38,.33c.34,.2,.53,.45,.53,.72v-.54Z"/>
+              <path id="Axo_panel-191" data-name="Axo panel" class="cls-4" d="M21.85,15.24c0,.37,.24,.71,.67,.96,.42,.24,.97,.36,1.52,.36s1.1-.12,1.52-.36c.43-.25,.67-.59,.67-.96v.54c0,.37-.24,.71-.67,.96-.42,.24-.97,.36-1.52,.36s-1.1-.12-1.52-.36c-.43-.25-.67-.59-.67-.96v-.54Z"/>
+            </g>
+            <path id="Axo_Compound-2" data-name="Axo Compound" class="cls-18" d="M24.04,16.56c-.55,0-1.1-.12-1.52-.36-.43-.25-.67-.59-.67-.96s.24-.71,.67-.96c.84-.48,2.2-.48,3.04,0,.43,.25,.67,.59,.67,.96s-.24,.71-.67,.96c-.42,.24-.97,.36-1.52,.36Zm0-2.37c-.5,0-1,.11-1.38,.33-.34,.2-.53,.45-.53,.72s.19,.52,.53,.72c.76,.44,2,.44,2.76,0,.34-.2,.53-.45,.53-.72s-.19-.52-.53-.72c-.38-.22-.88-.33-1.38-.33Z"/>
+          </g>
+          <g id="Axo_Compound_Extrusion-3" data-name="Axo Compound Extrusion">
+            <g id="Axo_Extrusion-184" data-name="Axo Extrusion">
+              <path id="Axo_panel-192" data-name="Axo panel" class="cls-18" d="M27.61,13.41c0-.53-.35-1.06-1.05-1.46-1.39-.8-3.66-.8-5.06,0-.7,.4-1.05,.93-1.05,1.46v.39c0-.53,.35-1.06,1.05-1.46,1.39-.8,3.66-.8,5.06,0,.7,.4,1.05,.93,1.05,1.46v-.39Z"/>
+              <path id="Axo_panel-193" data-name="Axo panel" class="cls-24" d="M20.37,13.41c0,.54,.36,1.08,1.07,1.5,1.43,.83,3.76,.83,5.19,0,.72-.41,1.07-.96,1.07-1.5v.39c0,.54-.36,1.08-1.07,1.5-1.43,.83-3.76,.83-5.19,0-.72-.41-1.07-.96-1.07-1.5v-.39Z"/>
+            </g>
+            <path id="Axo_Compound-3" data-name="Axo Compound" class="cls-40" d="M21.45,14.91c-1.43-.83-1.43-2.17,0-3,1.43-.83,3.76-.83,5.19,0,1.43,.83,1.43,2.17,0,3-1.43,.83-3.76,.83-5.19,0Zm5.12-2.96c-1.39-.8-3.66-.8-5.06,0-1.39,.8-1.39,2.11,0,2.92s3.66,.8,5.06,0c1.39-.8,1.39-2.11,0-2.92Z"/>
+          </g>
+          <g id="Axo_Compound_Extrusion-4" data-name="Axo Compound Extrusion">
+            <g id="Axo_Extrusion-185" data-name="Axo Extrusion">
+              <path id="Axo_panel-194" data-name="Axo panel" class="cls-18" d="M28.46,12.23c0-.65-.43-1.31-1.29-1.8-1.72-1-4.53-1-6.25,0-.86,.5-1.29,1.15-1.29,1.8v.48c0-.65,.43-1.31,1.29-1.8,1.72-1,4.53-1,6.25,0,.86,.5,1.29,1.15,1.29,1.8v-.48Z"/>
+              <path id="Axo_panel-195" data-name="Axo panel" class="cls-24" d="M19.51,12.23c0,.67,.44,1.34,1.33,1.85,1.77,1.02,4.64,1.02,6.41,0,.88-.51,1.33-1.18,1.33-1.85v.48c0,.67-.44,1.34-1.33,1.85-1.77,1.02-4.64,1.02-6.41,0-.88-.51-1.33-1.18-1.33-1.85v-.48Z"/>
+            </g>
+            <path id="Axo_Compound-4" data-name="Axo Compound" class="cls-40" d="M20.83,14.08c-1.77-1.02-1.77-2.68,0-3.7,1.77-1.02,4.64-1.02,6.41,0,1.77,1.02,1.77,2.68,0,3.7-1.77,1.02-4.64,1.02-6.41,0Zm6.33-3.66c-1.72-1-4.53-1-6.25,0-1.72,1-1.72,2.61,0,3.61,1.72,1,4.53,1,6.25,0,1.72-.99,1.72-2.61,0-3.61Z"/>
+          </g>
+          <g id="Axo_Compound_Extrusion-5" data-name="Axo Compound Extrusion">
+            <g id="Axo_Extrusion-186" data-name="Axo Extrusion">
+              <path id="Axo_panel-196" data-name="Axo panel" class="cls-18" d="M29.03,10.93c0-.74-.49-1.48-1.46-2.04-1.95-1.12-5.12-1.12-7.06,0-.97,.56-1.46,1.3-1.46,2.04v.54c0-.74,.49-1.48,1.46-2.04,1.95-1.12,5.12-1.12,7.06,0,.97,.56,1.46,1.3,1.46,2.04v-.54Z"/>
+              <path class="cls-40" d="M29.16,10.93v.54c0,.76-.5,1.52-1.5,2.09-2,1.15-5.25,1.15-7.25,0-1-.58-1.5-1.33-1.5-2.09v-.54c0,.3,.08,.6,.24,.89,.01,.02,.02,.04,.03,.06,.01,.02,.03,.05,.04,.07,.02,.03,.04,.07,.07,.1,.05,.07,.11,.14,.17,.21,.01,.02,.03,.03,.04,.05,.01,.02,.03,.03,.05,.05,.06,.06,.11,.12,.18,.17,.02,.02,.05,.04,.07,.06,.18,.15,.39,.3,.62,.43,2,1.15,5.25,1.15,7.25,0,.08-.04,.15-.09,.22-.14,.03-.02,.06-.04,.09-.06,.07-.05,.14-.1,.2-.15,.03-.02,.05-.04,.07-.06,.02-.02,.05-.04,.07-.06,.06-.05,.11-.1,.17-.16,.01-.01,.02-.02,.03-.03,.43-.45,.65-.94,.65-1.44Z"/>
+            </g>
+            <path class="cls-40" d="M27.66,8.83c-2-1.15-5.25-1.15-7.25,0-1,.58-1.5,1.33-1.5,2.09,0,.3,.08,.6,.24,.89,.01,.02,.02,.04,.03,.06,.01,.02,.03,.05,.04,.07,.02,.03,.04,.07,.07,.1,.05,.07,.11,.14,.17,.21,.01,.02,.03,.03,.04,.05,.01,.02,.03,.03,.05,.05,.06,.06,.11,.12,.18,.17,.02,.02,.05,.04,.07,.06,.18,.15,.39,.3,.62,.43,2,1.15,5.25,1.15,7.25,0,.08-.04,.15-.09,.22-.14,.03-.02,.06-.04,.09-.06,.07-.05,.14-.1,.2-.15,.03-.02,.05-.04,.07-.06,.02-.02,.05-.04,.07-.06,.06-.05,.11-.1,.17-.16,.01-.01,.02-.02,.03-.03,.43-.45,.65-.94,.65-1.44,0-.76-.5-1.52-1.5-2.09Zm-.09,4.13c-1.95,1.12-5.12,1.12-7.06,0-1.95-1.12-1.95-2.95,0-4.08,1.95-1.12,5.12-1.12,7.06,0,1.95,1.12,1.95,2.95,0,4.08Z"/>
+            <path class="cls-40" d="M27.66,8.83c-.96-.55-2.2-.84-3.46-.86-.15,0-.3,0-.45,0-1.22,.04-2.41,.33-3.34,.86-1,.58-1.5,1.33-1.5,2.09,0,.3,.08,.6,.24,.89,.01,.02,.02,.04,.03,.06,.01,.02,.03,.05,.04,.07,.02,.03,.04,.07,.07,.1,.05,.07,.11,.14,.17,.21,.01,.02,.03,.03,.04,.05,.01,.02,.03,.03,.05,.05,.06,.06,.11,.12,.18,.17,.02,.02,.05,.04,.07,.06,.18,.15,.39,.3,.62,.43,.93,.54,2.12,.82,3.34,.86v-.07c-1.18-.04-2.35-.32-3.25-.84-1.95-1.12-1.95-2.95,0-4.08,.9-.52,2.07-.8,3.25-.84,.15,0,.3,0,.45,0,1.22,.02,2.44,.3,3.37,.84,1.95,1.12,1.95,2.95,0,4.08-.93,.54-2.14,.82-3.37,.84v.07c1.26-.02,2.5-.31,3.46-.86,.08-.04,.15-.09,.22-.14,.03-.02,.06-.04,.09-.06,.07-.05,.14-.1,.2-.15,.03-.02,.05-.04,.07-.06,.02-.02,.05-.04,.07-.06,.06-.05,.11-.1,.17-.16,.01-.01,.02-.02,.03-.03,.43-.45,.65-.94,.65-1.44,0-.76-.5-1.52-1.5-2.09Z"/>
+          </g>
+          <g>
+            <g>
+              <g id="Axo_Extrusion-187" data-name="Axo Extrusion">
+                <path id="Axo_panel-197" data-name="Axo panel" class="cls-8" d="M28.89,18.95c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <path id="Axo_base-183" data-name="Axo base" class="cls-10" d="M28.89,18.95c0-.06,.09-.12,.2-.12s.2,.05,.2,.12-.09,.12-.2,.12-.2-.05-.2-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-188" data-name="Axo Extrusion">
+                <path id="Axo_panel-198" data-name="Axo panel" class="cls-8" d="M30.42,18.06c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-184" data-name="Axo base" class="cls-10" cx="30.63" cy="18.06" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-189" data-name="Axo Extrusion">
+                <path id="Axo_panel-199" data-name="Axo panel" class="cls-8" d="M30.46,19.86c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <path id="Axo_base-185" data-name="Axo base" class="cls-10" d="M30.46,19.86c0-.06,.09-.12,.2-.12s.2,.05,.2,.12-.09,.12-.2,.12-.2-.05-.2-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-190" data-name="Axo Extrusion">
+                <path id="Axo_panel-200" data-name="Axo panel" class="cls-8" d="M32,18.97c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <path id="Axo_base-186" data-name="Axo base" class="cls-10" d="M32,18.97c0-.06,.09-.12,.2-.12s.2,.05,.2,.12-.09,.12-.2,.12-.2-.05-.2-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-191" data-name="Axo Extrusion">
+                <path id="Axo_panel-201" data-name="Axo panel" class="cls-9" d="M31.53,20.08c-.06-.03-.15,.02-.21,.12s-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24s.15-.15,.21-.12l2.93,1.69Z"/>
+                <path id="Axo_base-187" data-name="Axo base" class="cls-6" d="M31.53,20.08c.06,.03,.06,.14,0,.24-.06,.1-.15,.15-.21,.12s-.06-.14,0-.24,.15-.15,.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-192" data-name="Axo Extrusion">
+                <path id="Axo_panel-202" data-name="Axo panel" class="cls-9" d="M33.08,19.19c-.06-.03-.15,.02-.21,.12s-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12l2.93,1.69Z"/>
+                <path id="Axo_base-188" data-name="Axo base" class="cls-6" d="M33.08,19.19c.06,.03,.06,.14,0,.24s-.15,.15-.21,.12-.06-.14,0-.24,.15-.15,.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-193" data-name="Axo Extrusion">
+                <path id="Axo_panel-203" data-name="Axo panel" class="cls-43" d="M30.49,5.58s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V5.58Z"/>
+                <path id="Axo_base-189" data-name="Axo base" class="cls-43" d="M30.49,5.58s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-194" data-name="Axo Extrusion">
+                  <path id="Axo_panel-204" data-name="Axo panel" class="cls-25" d="M29.6,18.45c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-190" data-name="Axo base" class="cls-42" d="M29.6,18.45c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-195" data-name="Axo Extrusion">
+                  <path id="Axo_panel-205" data-name="Axo panel" class="cls-25" d="M29.15,18.24s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-191" data-name="Axo base" class="cls-42" d="M29.15,18.24s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-196" data-name="Axo Extrusion">
+                  <path id="Axo_panel-206" data-name="Axo panel" class="cls-25" d="M29.6,17c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-192" data-name="Axo base" class="cls-42" d="M29.6,17c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-197" data-name="Axo Extrusion">
+                  <path id="Axo_panel-207" data-name="Axo panel" class="cls-25" d="M29.15,16.78s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-193" data-name="Axo base" class="cls-42" d="M29.15,16.78s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-198" data-name="Axo Extrusion">
+                  <path id="Axo_panel-208" data-name="Axo panel" class="cls-25" d="M29.6,15.54c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-194" data-name="Axo base" class="cls-42" d="M29.6,15.54c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-199" data-name="Axo Extrusion">
+                  <path id="Axo_panel-209" data-name="Axo panel" class="cls-25" d="M29.15,15.32s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-195" data-name="Axo base" class="cls-42" d="M29.15,15.32s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-200" data-name="Axo Extrusion">
+                  <path id="Axo_panel-210" data-name="Axo panel" class="cls-25" d="M29.6,14.08c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-196" data-name="Axo base" class="cls-42" d="M29.6,14.08c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-201" data-name="Axo Extrusion">
+                  <path id="Axo_panel-211" data-name="Axo panel" class="cls-25" d="M29.15,13.87s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-197" data-name="Axo base" class="cls-42" d="M29.15,13.87s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-202" data-name="Axo Extrusion">
+                  <path id="Axo_panel-212" data-name="Axo panel" class="cls-25" d="M29.6,12.62c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-198" data-name="Axo base" class="cls-42" d="M29.6,12.62c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-203" data-name="Axo Extrusion">
+                  <path id="Axo_panel-213" data-name="Axo panel" class="cls-25" d="M29.15,12.41s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-199" data-name="Axo base" class="cls-42" d="M29.15,12.41s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-204" data-name="Axo Extrusion">
+                  <path id="Axo_panel-214" data-name="Axo panel" class="cls-25" d="M29.6,11.16c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-200" data-name="Axo base" class="cls-42" d="M29.6,11.16c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-205" data-name="Axo Extrusion">
+                  <path id="Axo_panel-215" data-name="Axo panel" class="cls-25" d="M29.15,10.95s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-201" data-name="Axo base" class="cls-42" d="M29.15,10.95s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-206" data-name="Axo Extrusion">
+                  <path id="Axo_panel-216" data-name="Axo panel" class="cls-25" d="M29.6,9.71c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-202" data-name="Axo base" class="cls-42" d="M29.6,9.71c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-207" data-name="Axo Extrusion">
+                  <path id="Axo_panel-217" data-name="Axo panel" class="cls-25" d="M29.15,9.49s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-203" data-name="Axo base" class="cls-42" d="M29.15,9.49s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-208" data-name="Axo Extrusion">
+                  <path id="Axo_panel-218" data-name="Axo panel" class="cls-25" d="M29.6,8.25c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-204" data-name="Axo base" class="cls-42" d="M29.6,8.25c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-209" data-name="Axo Extrusion">
+                  <path id="Axo_panel-219" data-name="Axo panel" class="cls-25" d="M29.15,8.03s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-205" data-name="Axo base" class="cls-42" d="M29.15,8.03s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-210" data-name="Axo Extrusion">
+                <path id="Axo_panel-220" data-name="Axo panel" class="cls-43" d="M28.92,6.49s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V6.49Z"/>
+                <path id="Axo_base-206" data-name="Axo base" class="cls-43" d="M28.92,6.49s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g id="Axo_Extrusion-211" data-name="Axo Extrusion">
+                <path id="Axo_panel-221" data-name="Axo panel" class="cls-43" d="M32.04,6.48s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V6.48Z"/>
+                <path id="Axo_base-207" data-name="Axo base" class="cls-43" d="M32.04,6.48s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-212" data-name="Axo Extrusion">
+                  <path id="Axo_panel-222" data-name="Axo panel" class="cls-25" d="M31.15,19.35c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-208" data-name="Axo base" class="cls-42" d="M31.15,19.35c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-213" data-name="Axo Extrusion">
+                  <path id="Axo_panel-223" data-name="Axo panel" class="cls-25" d="M30.7,19.13s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-209" data-name="Axo base" class="cls-42" d="M30.7,19.13s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-214" data-name="Axo Extrusion">
+                  <path id="Axo_panel-224" data-name="Axo panel" class="cls-25" d="M31.15,17.89c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-210" data-name="Axo base" class="cls-42" d="M31.15,17.89c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-215" data-name="Axo Extrusion">
+                  <path id="Axo_panel-225" data-name="Axo panel" class="cls-25" d="M30.7,17.68s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-211" data-name="Axo base" class="cls-42" d="M30.7,17.68s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-216" data-name="Axo Extrusion">
+                  <path id="Axo_panel-226" data-name="Axo panel" class="cls-25" d="M31.15,16.43c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-212" data-name="Axo base" class="cls-42" d="M31.15,16.43c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-217" data-name="Axo Extrusion">
+                  <path id="Axo_panel-227" data-name="Axo panel" class="cls-25" d="M30.7,16.22s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-213" data-name="Axo base" class="cls-42" d="M30.7,16.22s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-218" data-name="Axo Extrusion">
+                  <path id="Axo_panel-228" data-name="Axo panel" class="cls-25" d="M31.15,14.97c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-214" data-name="Axo base" class="cls-42" d="M31.15,14.97c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67s.42,.06,.58,.34,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-219" data-name="Axo Extrusion">
+                  <path id="Axo_panel-229" data-name="Axo panel" class="cls-25" d="M30.7,14.76s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-215" data-name="Axo base" class="cls-42" d="M30.7,14.76s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-220" data-name="Axo Extrusion">
+                  <path id="Axo_panel-230" data-name="Axo panel" class="cls-25" d="M31.15,13.52c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-216" data-name="Axo base" class="cls-42" d="M31.15,13.52c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-221" data-name="Axo Extrusion">
+                  <path id="Axo_panel-231" data-name="Axo panel" class="cls-25" d="M30.7,13.3s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-217" data-name="Axo base" class="cls-42" d="M30.7,13.3s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-222" data-name="Axo Extrusion">
+                  <path id="Axo_panel-232" data-name="Axo panel" class="cls-25" d="M31.15,12.06c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-218" data-name="Axo base" class="cls-42" d="M31.15,12.06c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-223" data-name="Axo Extrusion">
+                  <path id="Axo_panel-233" data-name="Axo panel" class="cls-25" d="M30.7,11.84s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-219" data-name="Axo base" class="cls-42" d="M30.7,11.84s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-224" data-name="Axo Extrusion">
+                  <path id="Axo_panel-234" data-name="Axo panel" class="cls-25" d="M31.15,10.6c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-220" data-name="Axo base" class="cls-42" d="M31.15,10.6c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-225" data-name="Axo Extrusion">
+                  <path id="Axo_panel-235" data-name="Axo panel" class="cls-25" d="M30.7,10.39s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-221" data-name="Axo base" class="cls-42" d="M30.7,10.39s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-226" data-name="Axo Extrusion">
+                  <path id="Axo_panel-236" data-name="Axo panel" class="cls-25" d="M31.15,9.14c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-222" data-name="Axo base" class="cls-42" d="M31.15,9.14c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-227" data-name="Axo Extrusion">
+                  <path id="Axo_panel-237" data-name="Axo panel" class="cls-25" d="M30.7,8.93s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-223" data-name="Axo base" class="cls-42" d="M30.7,8.93s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-228" data-name="Axo Extrusion">
+                <path id="Axo_panel-238" data-name="Axo panel" class="cls-43" d="M30.47,7.38s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V7.38Z"/>
+                <path id="Axo_base-224" data-name="Axo base" class="cls-43" d="M30.47,7.38s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-229" data-name="Axo Extrusion">
+                  <path id="Axo_panel-239" data-name="Axo panel" class="cls-9" d="M31.53,7.6c-.06-.03-.15,.02-.21,.12-.06,.1-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12l2.93,1.69Z"/>
+                  <path id="Axo_base-225" data-name="Axo base" class="cls-6" d="M31.53,7.6c.06,.03,.06,.14,0,.24s-.15,.15-.21,.12c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12Z"/>
+                </g>
+                <g id="Axo_Extrusion-230" data-name="Axo Extrusion">
+                  <path id="Axo_panel-240" data-name="Axo panel" class="cls-9" d="M33.08,6.7c-.06-.03-.15,.02-.21,.12-.06,.1-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24s.15-.15,.21-.12l2.93,1.69Z"/>
+                  <path id="Axo_base-226" data-name="Axo base" class="cls-6" d="M33.08,6.7c.06,.03,.06,.14,0,.24s-.15,.15-.21,.12-.06-.14,0-.24c.06-.1,.15-.15,.21-.12Z"/>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g id="Axo_Extrusion-231" data-name="Axo Extrusion">
+                <path id="Axo_panel-241" data-name="Axo panel" class="cls-8" d="M31.67,20.56c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <path id="Axo_base-227" data-name="Axo base" class="cls-10" d="M31.67,20.56c0-.06,.09-.12,.2-.12s.2,.05,.2,.12-.09,.12-.2,.12-.2-.05-.2-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-232" data-name="Axo Extrusion">
+                <path id="Axo_panel-242" data-name="Axo panel" class="cls-8" d="M33.21,19.67c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-228" data-name="Axo base" class="cls-10" cx="33.41" cy="19.67" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-233" data-name="Axo Extrusion">
+                <path id="Axo_panel-243" data-name="Axo panel" class="cls-8" d="M33.24,21.46c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-229" data-name="Axo base" class="cls-10" cx="33.44" cy="21.46" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-234" data-name="Axo Extrusion">
+                <path id="Axo_panel-244" data-name="Axo panel" class="cls-8" d="M34.78,20.58c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <path id="Axo_base-230" data-name="Axo base" class="cls-10" d="M34.78,20.58c0-.06,.09-.12,.2-.12s.2,.05,.2,.12-.09,.12-.2,.12-.2-.05-.2-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-235" data-name="Axo Extrusion">
+                <path id="Axo_panel-245" data-name="Axo panel" class="cls-9" d="M34.31,21.69c-.06-.03-.15,.02-.21,.12-.06,.1-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12l2.93,1.69Z"/>
+                <path id="Axo_base-231" data-name="Axo base" class="cls-6" d="M34.31,21.69c.06,.03,.06,.14,0,.24-.06,.1-.15,.15-.21,.12-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-236" data-name="Axo Extrusion">
+                <path id="Axo_panel-246" data-name="Axo panel" class="cls-9" d="M35.86,20.79c-.06-.03-.15,.02-.21,.12-.06,.1-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12l2.93,1.69Z"/>
+                <path id="Axo_base-232" data-name="Axo base" class="cls-6" d="M35.86,20.79c.06,.03,.06,.14,0,.24s-.15,.15-.21,.12c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-237" data-name="Axo Extrusion">
+                <path id="Axo_panel-247" data-name="Axo panel" class="cls-43" d="M33.27,7.19s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V7.19Z"/>
+                <path id="Axo_base-233" data-name="Axo base" class="cls-43" d="M33.27,7.19s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-238" data-name="Axo Extrusion">
+                  <path id="Axo_panel-248" data-name="Axo panel" class="cls-25" d="M32.39,20.06c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-234" data-name="Axo base" class="cls-42" d="M32.39,20.06c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-239" data-name="Axo Extrusion">
+                  <path id="Axo_panel-249" data-name="Axo panel" class="cls-25" d="M31.93,19.85s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-235" data-name="Axo base" class="cls-42" d="M31.93,19.85s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-240" data-name="Axo Extrusion">
+                  <path id="Axo_panel-250" data-name="Axo panel" class="cls-25" d="M32.39,18.6c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-236" data-name="Axo base" class="cls-42" d="M32.39,18.6c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67s.42,.06,.58,.34,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-241" data-name="Axo Extrusion">
+                  <path id="Axo_panel-251" data-name="Axo panel" class="cls-25" d="M31.93,18.39s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-237" data-name="Axo base" class="cls-42" d="M31.93,18.39s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-242" data-name="Axo Extrusion">
+                  <path id="Axo_panel-252" data-name="Axo panel" class="cls-25" d="M32.39,17.14c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-238" data-name="Axo base" class="cls-42" d="M32.39,17.14c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-243" data-name="Axo Extrusion">
+                  <path id="Axo_panel-253" data-name="Axo panel" class="cls-25" d="M31.93,16.93s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-239" data-name="Axo base" class="cls-42" d="M31.93,16.93s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-244" data-name="Axo Extrusion">
+                  <path id="Axo_panel-254" data-name="Axo panel" class="cls-25" d="M32.39,15.69c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-240" data-name="Axo base" class="cls-42" d="M32.39,15.69c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67s.42,.06,.58,.34,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-245" data-name="Axo Extrusion">
+                  <path id="Axo_panel-255" data-name="Axo panel" class="cls-25" d="M31.93,15.47s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-241" data-name="Axo base" class="cls-42" d="M31.93,15.47s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-246" data-name="Axo Extrusion">
+                  <path id="Axo_panel-256" data-name="Axo panel" class="cls-25" d="M32.39,14.23c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-242" data-name="Axo base" class="cls-42" d="M32.39,14.23c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-247" data-name="Axo Extrusion">
+                  <path id="Axo_panel-257" data-name="Axo panel" class="cls-25" d="M31.93,14.01s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-243" data-name="Axo base" class="cls-42" d="M31.93,14.01s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-248" data-name="Axo Extrusion">
+                  <path id="Axo_panel-258" data-name="Axo panel" class="cls-25" d="M32.39,12.77c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-244" data-name="Axo base" class="cls-42" d="M32.39,12.77c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-249" data-name="Axo Extrusion">
+                  <path id="Axo_panel-259" data-name="Axo panel" class="cls-25" d="M31.93,12.56s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-245" data-name="Axo base" class="cls-42" d="M31.93,12.56s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-250" data-name="Axo Extrusion">
+                  <path id="Axo_panel-260" data-name="Axo panel" class="cls-25" d="M32.39,11.31c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-246" data-name="Axo base" class="cls-42" d="M32.39,11.31c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-251" data-name="Axo Extrusion">
+                  <path id="Axo_panel-261" data-name="Axo panel" class="cls-25" d="M31.93,11.1s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-247" data-name="Axo base" class="cls-42" d="M31.93,11.1s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-252" data-name="Axo Extrusion">
+                  <path id="Axo_panel-262" data-name="Axo panel" class="cls-25" d="M32.39,9.85c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-248" data-name="Axo base" class="cls-42" d="M32.39,9.85c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-253" data-name="Axo Extrusion">
+                  <path id="Axo_panel-263" data-name="Axo panel" class="cls-25" d="M31.93,9.64s.04-.1,0-.17-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-249" data-name="Axo base" class="cls-42" d="M31.93,9.64s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09s.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-254" data-name="Axo Extrusion">
+                <path id="Axo_panel-264" data-name="Axo panel" class="cls-43" d="M31.7,8.09s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V8.09Z"/>
+                <path id="Axo_base-250" data-name="Axo base" class="cls-43" d="M31.7,8.09s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g id="Axo_Extrusion-255" data-name="Axo Extrusion">
+                <path id="Axo_panel-265" data-name="Axo panel" class="cls-43" d="M34.82,8.08s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V8.08Z"/>
+                <path id="Axo_base-251" data-name="Axo base" class="cls-43" d="M34.82,8.08s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-256" data-name="Axo Extrusion">
+                  <path id="Axo_panel-266" data-name="Axo panel" class="cls-25" d="M33.94,20.95c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-252" data-name="Axo base" class="cls-42" d="M33.94,20.95c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-257" data-name="Axo Extrusion">
+                  <path id="Axo_panel-267" data-name="Axo panel" class="cls-25" d="M33.48,20.74s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-253" data-name="Axo base" class="cls-42" d="M33.48,20.74s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-258" data-name="Axo Extrusion">
+                  <path id="Axo_panel-268" data-name="Axo panel" class="cls-25" d="M33.94,19.5c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-254" data-name="Axo base" class="cls-42" d="M33.94,19.5c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-259" data-name="Axo Extrusion">
+                  <path id="Axo_panel-269" data-name="Axo panel" class="cls-25" d="M33.48,19.28s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-255" data-name="Axo base" class="cls-42" d="M33.48,19.28s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-260" data-name="Axo Extrusion">
+                  <path id="Axo_panel-270" data-name="Axo panel" class="cls-25" d="M33.94,18.04c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-256" data-name="Axo base" class="cls-42" d="M33.94,18.04c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-261" data-name="Axo Extrusion">
+                  <path id="Axo_panel-271" data-name="Axo panel" class="cls-25" d="M33.48,17.82s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-257" data-name="Axo base" class="cls-42" d="M33.48,17.82s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-262" data-name="Axo Extrusion">
+                  <path id="Axo_panel-272" data-name="Axo panel" class="cls-25" d="M33.94,16.58c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-258" data-name="Axo base" class="cls-42" d="M33.94,16.58c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-263" data-name="Axo Extrusion">
+                  <path id="Axo_panel-273" data-name="Axo panel" class="cls-25" d="M33.48,16.37s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-259" data-name="Axo base" class="cls-42" d="M33.48,16.37s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-264" data-name="Axo Extrusion">
+                  <path id="Axo_panel-274" data-name="Axo panel" class="cls-25" d="M33.94,15.12c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-260" data-name="Axo base" class="cls-42" d="M33.94,15.12c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-265" data-name="Axo Extrusion">
+                  <path id="Axo_panel-275" data-name="Axo panel" class="cls-25" d="M33.48,14.91s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-261" data-name="Axo base" class="cls-42" d="M33.48,14.91s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-266" data-name="Axo Extrusion">
+                  <path id="Axo_panel-276" data-name="Axo panel" class="cls-25" d="M33.94,13.66c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-262" data-name="Axo base" class="cls-42" d="M33.94,13.66c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-267" data-name="Axo Extrusion">
+                  <path id="Axo_panel-277" data-name="Axo panel" class="cls-25" d="M33.48,13.45s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-263" data-name="Axo base" class="cls-42" d="M33.48,13.45s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-268" data-name="Axo Extrusion">
+                  <path id="Axo_panel-278" data-name="Axo panel" class="cls-25" d="M33.94,12.21c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-264" data-name="Axo base" class="cls-42" d="M33.94,12.21c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-269" data-name="Axo Extrusion">
+                  <path id="Axo_panel-279" data-name="Axo panel" class="cls-25" d="M33.48,11.99s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-265" data-name="Axo base" class="cls-42" d="M33.48,11.99s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-270" data-name="Axo Extrusion">
+                  <path id="Axo_panel-280" data-name="Axo panel" class="cls-25" d="M33.94,10.75c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-266" data-name="Axo base" class="cls-42" d="M33.94,10.75c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-271" data-name="Axo Extrusion">
+                  <path id="Axo_panel-281" data-name="Axo panel" class="cls-25" d="M33.48,10.53s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-267" data-name="Axo base" class="cls-42" d="M33.48,10.53s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-272" data-name="Axo Extrusion">
+                <path id="Axo_panel-282" data-name="Axo panel" class="cls-43" d="M33.25,8.99s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V8.99Z"/>
+                <path id="Axo_base-268" data-name="Axo base" class="cls-43" d="M33.25,8.99s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-273" data-name="Axo Extrusion">
+                  <path id="Axo_panel-283" data-name="Axo panel" class="cls-9" d="M34.31,9.21c-.06-.03-.15,.02-.21,.12-.06,.1-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12l2.93,1.69Z"/>
+                  <path id="Axo_base-269" data-name="Axo base" class="cls-6" d="M34.31,9.21c.06,.03,.06,.14,0,.24s-.15,.15-.21,.12c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12Z"/>
+                </g>
+                <g id="Axo_Extrusion-274" data-name="Axo Extrusion">
+                  <path id="Axo_panel-284" data-name="Axo panel" class="cls-9" d="M35.86,8.31c-.06-.03-.15,.02-.21,.12-.06,.1-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24s.15-.15,.21-.12l2.93,1.69Z"/>
+                  <path id="Axo_base-270" data-name="Axo base" class="cls-6" d="M35.86,8.31c.06,.03,.06,.14,0,.24-.06,.1-.15,.15-.21,.12-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12Z"/>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g id="Axo_Extrusion-275" data-name="Axo Extrusion">
+                <path id="Axo_panel-285" data-name="Axo panel" class="cls-8" d="M34.45,22.16c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <path id="Axo_base-271" data-name="Axo base" class="cls-10" d="M34.45,22.16c0-.06,.09-.12,.2-.12s.2,.05,.2,.12-.09,.12-.2,.12-.2-.05-.2-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-276" data-name="Axo Extrusion">
+                <path id="Axo_panel-286" data-name="Axo panel" class="cls-8" d="M35.99,21.28c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <path id="Axo_base-272" data-name="Axo base" class="cls-10" d="M35.99,21.28c0-.06,.09-.12,.2-.12s.2,.05,.2,.12-.09,.12-.2,.12-.2-.05-.2-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-277" data-name="Axo Extrusion">
+                <path id="Axo_panel-287" data-name="Axo panel" class="cls-8" d="M36.02,23.07c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-273" data-name="Axo base" class="cls-10" cx="36.23" cy="23.07" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-278" data-name="Axo Extrusion">
+                <path id="Axo_panel-288" data-name="Axo panel" class="cls-8" d="M37.56,22.18c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-274" data-name="Axo base" class="cls-10" cx="37.76" cy="22.18" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-279" data-name="Axo Extrusion">
+                <path id="Axo_panel-289" data-name="Axo panel" class="cls-9" d="M37.09,23.3c-.06-.03-.15,.02-.21,.12-.06,.1-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12l2.93,1.69Z"/>
+                <path id="Axo_base-275" data-name="Axo base" class="cls-6" d="M37.09,23.3c.06,.03,.06,.14,0,.24-.06,.1-.15,.15-.21,.12-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-280" data-name="Axo Extrusion">
+                <path id="Axo_panel-290" data-name="Axo panel" class="cls-9" d="M38.65,22.4c-.06-.03-.15,.02-.21,.12-.06,.1-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12l2.93,1.69Z"/>
+                <path id="Axo_base-276" data-name="Axo base" class="cls-6" d="M38.65,22.4c.06,.03,.06,.14,0,.24-.06,.1-.15,.15-.21,.12s-.06-.14,0-.24c.06-.1,.15-.15,.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-281" data-name="Axo Extrusion">
+                <path id="Axo_panel-291" data-name="Axo panel" class="cls-43" d="M36.05,8.8s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V8.8Z"/>
+                <path id="Axo_base-277" data-name="Axo base" class="cls-43" d="M36.05,8.8s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-282" data-name="Axo Extrusion">
+                  <path id="Axo_panel-292" data-name="Axo panel" class="cls-25" d="M35.17,21.67c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-278" data-name="Axo base" class="cls-42" d="M35.17,21.67c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-283" data-name="Axo Extrusion">
+                  <path id="Axo_panel-293" data-name="Axo panel" class="cls-25" d="M34.71,21.45s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-279" data-name="Axo base" class="cls-42" d="M34.71,21.45s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-284" data-name="Axo Extrusion">
+                  <path id="Axo_panel-294" data-name="Axo panel" class="cls-25" d="M35.17,20.21c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-280" data-name="Axo base" class="cls-42" d="M35.17,20.21c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-285" data-name="Axo Extrusion">
+                  <path id="Axo_panel-295" data-name="Axo panel" class="cls-25" d="M34.71,19.99s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-281" data-name="Axo base" class="cls-42" d="M34.71,19.99s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-286" data-name="Axo Extrusion">
+                  <path id="Axo_panel-296" data-name="Axo panel" class="cls-25" d="M35.17,18.75c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-282" data-name="Axo base" class="cls-42" d="M35.17,18.75c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-287" data-name="Axo Extrusion">
+                  <path id="Axo_panel-297" data-name="Axo panel" class="cls-25" d="M34.71,18.54s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-283" data-name="Axo base" class="cls-42" d="M34.71,18.54s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-288" data-name="Axo Extrusion">
+                  <path id="Axo_panel-298" data-name="Axo panel" class="cls-25" d="M35.17,17.29c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-284" data-name="Axo base" class="cls-42" d="M35.17,17.29c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-289" data-name="Axo Extrusion">
+                  <path id="Axo_panel-299" data-name="Axo panel" class="cls-25" d="M34.71,17.08s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-285" data-name="Axo base" class="cls-42" d="M34.71,17.08s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-290" data-name="Axo Extrusion">
+                  <path id="Axo_panel-300" data-name="Axo panel" class="cls-25" d="M35.17,15.83c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-286" data-name="Axo base" class="cls-42" d="M35.17,15.83c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-291" data-name="Axo Extrusion">
+                  <path id="Axo_panel-301" data-name="Axo panel" class="cls-25" d="M34.71,15.62s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-287" data-name="Axo base" class="cls-42" d="M34.71,15.62s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-292" data-name="Axo Extrusion">
+                  <path id="Axo_panel-302" data-name="Axo panel" class="cls-25" d="M35.17,14.38c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-288" data-name="Axo base" class="cls-42" d="M35.17,14.38c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67s.42,.06,.58,.34,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-293" data-name="Axo Extrusion">
+                  <path id="Axo_panel-303" data-name="Axo panel" class="cls-25" d="M34.71,14.16s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-289" data-name="Axo base" class="cls-42" d="M34.71,14.16s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-294" data-name="Axo Extrusion">
+                  <path id="Axo_panel-304" data-name="Axo panel" class="cls-25" d="M35.17,12.92c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-290" data-name="Axo base" class="cls-42" d="M35.17,12.92c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-295" data-name="Axo Extrusion">
+                  <path id="Axo_panel-305" data-name="Axo panel" class="cls-25" d="M34.71,12.7s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-291" data-name="Axo base" class="cls-42" d="M34.71,12.7s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-296" data-name="Axo Extrusion">
+                  <path id="Axo_panel-306" data-name="Axo panel" class="cls-25" d="M35.17,11.46c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-292" data-name="Axo base" class="cls-42" d="M35.17,11.46c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-297" data-name="Axo Extrusion">
+                  <path id="Axo_panel-307" data-name="Axo panel" class="cls-25" d="M34.71,11.25s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-293" data-name="Axo base" class="cls-42" d="M34.71,11.25s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-298" data-name="Axo Extrusion">
+                <path id="Axo_panel-308" data-name="Axo panel" class="cls-43" d="M34.49,9.7s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V9.7Z"/>
+                <path id="Axo_base-294" data-name="Axo base" class="cls-43" d="M34.49,9.7s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g id="Axo_Extrusion-299" data-name="Axo Extrusion">
+                <path id="Axo_panel-309" data-name="Axo panel" class="cls-43" d="M37.6,9.69s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V9.69Z"/>
+                <path id="Axo_base-295" data-name="Axo base" class="cls-43" d="M37.6,9.69s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-300" data-name="Axo Extrusion">
+                  <path id="Axo_panel-310" data-name="Axo panel" class="cls-25" d="M36.72,22.56c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-296" data-name="Axo base" class="cls-42" d="M36.72,22.56c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-301" data-name="Axo Extrusion">
+                  <path id="Axo_panel-311" data-name="Axo panel" class="cls-25" d="M36.26,22.35s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-297" data-name="Axo base" class="cls-42" d="M36.26,22.35s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-302" data-name="Axo Extrusion">
+                  <path id="Axo_panel-312" data-name="Axo panel" class="cls-25" d="M36.72,21.1c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-298" data-name="Axo base" class="cls-42" d="M36.72,21.1c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-303" data-name="Axo Extrusion">
+                  <path id="Axo_panel-313" data-name="Axo panel" class="cls-25" d="M36.26,20.89s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-299" data-name="Axo base" class="cls-42" d="M36.26,20.89s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-304" data-name="Axo Extrusion">
+                  <path id="Axo_panel-314" data-name="Axo panel" class="cls-25" d="M36.72,19.64c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-300" data-name="Axo base" class="cls-42" d="M36.72,19.64c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-305" data-name="Axo Extrusion">
+                  <path id="Axo_panel-315" data-name="Axo panel" class="cls-25" d="M36.26,19.43s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-301" data-name="Axo base" class="cls-42" d="M36.26,19.43s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-306" data-name="Axo Extrusion">
+                  <path id="Axo_panel-316" data-name="Axo panel" class="cls-25" d="M36.72,18.19c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-302" data-name="Axo base" class="cls-42" d="M36.72,18.19c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-307" data-name="Axo Extrusion">
+                  <path id="Axo_panel-317" data-name="Axo panel" class="cls-25" d="M36.26,17.97s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-303" data-name="Axo base" class="cls-42" d="M36.26,17.97s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-308" data-name="Axo Extrusion">
+                  <path id="Axo_panel-318" data-name="Axo panel" class="cls-25" d="M36.72,16.73c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-304" data-name="Axo base" class="cls-42" d="M36.72,16.73c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-309" data-name="Axo Extrusion">
+                  <path id="Axo_panel-319" data-name="Axo panel" class="cls-25" d="M36.26,16.51s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-305" data-name="Axo base" class="cls-42" d="M36.26,16.51s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-310" data-name="Axo Extrusion">
+                  <path id="Axo_panel-320" data-name="Axo panel" class="cls-25" d="M36.72,15.27c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-306" data-name="Axo base" class="cls-42" d="M36.72,15.27c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-311" data-name="Axo Extrusion">
+                  <path id="Axo_panel-321" data-name="Axo panel" class="cls-25" d="M36.26,15.06s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-307" data-name="Axo base" class="cls-42" d="M36.26,15.06s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-312" data-name="Axo Extrusion">
+                  <path id="Axo_panel-322" data-name="Axo panel" class="cls-25" d="M36.72,13.81c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-308" data-name="Axo base" class="cls-42" d="M36.72,13.81c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-313" data-name="Axo Extrusion">
+                  <path id="Axo_panel-323" data-name="Axo panel" class="cls-25" d="M36.26,13.6s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-309" data-name="Axo base" class="cls-42" d="M36.26,13.6s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-314" data-name="Axo Extrusion">
+                  <path id="Axo_panel-324" data-name="Axo panel" class="cls-25" d="M36.72,12.35c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-310" data-name="Axo base" class="cls-42" d="M36.72,12.35c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-315" data-name="Axo Extrusion">
+                  <path id="Axo_panel-325" data-name="Axo panel" class="cls-25" d="M36.26,12.14s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-311" data-name="Axo base" class="cls-42" d="M36.26,12.14s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-316" data-name="Axo Extrusion">
+                <path id="Axo_panel-326" data-name="Axo panel" class="cls-43" d="M36.03,10.6s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V10.6Z"/>
+                <path id="Axo_base-312" data-name="Axo base" class="cls-43" d="M36.03,10.6s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-317" data-name="Axo Extrusion">
+                  <path id="Axo_panel-327" data-name="Axo panel" class="cls-9" d="M37.09,10.81c-.06-.03-.15,.02-.21,.12-.06,.1-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12l2.93,1.69Z"/>
+                  <path id="Axo_base-313" data-name="Axo base" class="cls-6" d="M37.09,10.81c.06,.03,.06,.14,0,.24-.06,.1-.15,.15-.21,.12s-.06-.14,0-.24c.06-.1,.15-.15,.21-.12Z"/>
+                </g>
+                <g id="Axo_Extrusion-318" data-name="Axo Extrusion">
+                  <path id="Axo_panel-328" data-name="Axo panel" class="cls-9" d="M38.65,9.92c-.06-.03-.15,.02-.21,.12s-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12l2.93,1.69Z"/>
+                  <path id="Axo_base-314" data-name="Axo base" class="cls-6" d="M38.65,9.92c.06,.03,.06,.14,0,.24-.06,.1-.15,.15-.21,.12s-.06-.14,0-.24,.15-.15,.21-.12Z"/>
+                </g>
+              </g>
+            </g>
+            <g>
+              <g id="Axo_Extrusion-319" data-name="Axo Extrusion">
+                <path id="Axo_panel-329" data-name="Axo panel" class="cls-8" d="M37.23,23.77c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-315" data-name="Axo base" class="cls-10" cx="37.44" cy="23.77" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-320" data-name="Axo Extrusion">
+                <path id="Axo_panel-330" data-name="Axo panel" class="cls-8" d="M38.77,22.88c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-316" data-name="Axo base" class="cls-10" cx="38.97" cy="22.88" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-321" data-name="Axo Extrusion">
+                <path id="Axo_panel-331" data-name="Axo panel" class="cls-8" d="M38.81,24.68c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-317" data-name="Axo base" class="cls-10" cx="39.01" cy="24.68" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-322" data-name="Axo Extrusion">
+                <path id="Axo_panel-332" data-name="Axo panel" class="cls-8" d="M40.34,23.79c0,.06,.09,.12,.2,.12s.2-.05,.2-.12v.67c0,.06-.09,.12-.2,.12s-.2-.05-.2-.12v-.67Z"/>
+                <ellipse id="Axo_base-318" data-name="Axo base" class="cls-10" cx="40.55" cy="23.79" rx=".2" ry=".12"/>
+              </g>
+              <g id="Axo_Extrusion-323" data-name="Axo Extrusion">
+                <path id="Axo_panel-333" data-name="Axo panel" class="cls-9" d="M39.88,24.9c-.06-.03-.15,.02-.21,.12-.06,.1-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12l2.93,1.69Z"/>
+                <path id="Axo_base-319" data-name="Axo base" class="cls-6" d="M39.88,24.9c.06,.03,.06,.14,0,.24s-.15,.15-.21,.12-.06-.14,0-.24c.06-.1,.15-.15,.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-324" data-name="Axo Extrusion">
+                <path id="Axo_panel-334" data-name="Axo panel" class="cls-9" d="M41.43,24.01c-.06-.03-.15,.02-.21,.12-.06,.1-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24s.15-.15,.21-.12l2.93,1.69Z"/>
+                <path id="Axo_base-320" data-name="Axo base" class="cls-6" d="M41.43,24.01c.06,.03,.06,.14,0,.24-.06,.1-.15,.15-.21,.12s-.06-.14,0-.24c.06-.1,.15-.15,.21-.12Z"/>
+              </g>
+              <g id="Axo_Extrusion-325" data-name="Axo Extrusion">
+                <path id="Axo_panel-335" data-name="Axo panel" class="cls-43" d="M38.83,10.4s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V10.4Z"/>
+                <path id="Axo_base-321" data-name="Axo base" class="cls-43" d="M38.83,10.4s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-326" data-name="Axo Extrusion">
+                  <path id="Axo_panel-336" data-name="Axo panel" class="cls-25" d="M37.95,23.27c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-322" data-name="Axo base" class="cls-42" d="M37.95,23.27c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67s.42,.06,.58,.34c.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-327" data-name="Axo Extrusion">
+                  <path id="Axo_panel-337" data-name="Axo panel" class="cls-25" d="M37.49,23.06s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-323" data-name="Axo base" class="cls-42" d="M37.49,23.06s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-328" data-name="Axo Extrusion">
+                  <path id="Axo_panel-338" data-name="Axo panel" class="cls-25" d="M37.95,21.82c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-324" data-name="Axo base" class="cls-42" d="M37.95,21.82c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-329" data-name="Axo Extrusion">
+                  <path id="Axo_panel-339" data-name="Axo panel" class="cls-25" d="M37.49,21.6s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-325" data-name="Axo base" class="cls-42" d="M37.49,21.6s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-330" data-name="Axo Extrusion">
+                  <path id="Axo_panel-340" data-name="Axo panel" class="cls-25" d="M37.95,20.36c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-326" data-name="Axo base" class="cls-42" d="M37.95,20.36c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-331" data-name="Axo Extrusion">
+                  <path id="Axo_panel-341" data-name="Axo panel" class="cls-25" d="M37.49,20.14s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-327" data-name="Axo base" class="cls-42" d="M37.49,20.14s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-332" data-name="Axo Extrusion">
+                  <path id="Axo_panel-342" data-name="Axo panel" class="cls-25" d="M37.95,18.9c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-328" data-name="Axo base" class="cls-42" d="M37.95,18.9c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-333" data-name="Axo Extrusion">
+                  <path id="Axo_panel-343" data-name="Axo panel" class="cls-25" d="M37.49,18.68s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-329" data-name="Axo base" class="cls-42" d="M37.49,18.68s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-334" data-name="Axo Extrusion">
+                  <path id="Axo_panel-344" data-name="Axo panel" class="cls-25" d="M37.95,17.44c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-330" data-name="Axo base" class="cls-42" d="M37.95,17.44c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-335" data-name="Axo Extrusion">
+                  <path id="Axo_panel-345" data-name="Axo panel" class="cls-25" d="M37.49,17.23s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-331" data-name="Axo base" class="cls-42" d="M37.49,17.23s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-336" data-name="Axo Extrusion">
+                  <path id="Axo_panel-346" data-name="Axo panel" class="cls-25" d="M37.95,15.98c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-332" data-name="Axo base" class="cls-42" d="M37.95,15.98c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-337" data-name="Axo Extrusion">
+                  <path id="Axo_panel-347" data-name="Axo panel" class="cls-25" d="M37.49,15.77s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-333" data-name="Axo base" class="cls-42" d="M37.49,15.77s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-338" data-name="Axo Extrusion">
+                  <path id="Axo_panel-348" data-name="Axo panel" class="cls-25" d="M37.95,14.53c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-334" data-name="Axo base" class="cls-42" d="M37.95,14.53c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-339" data-name="Axo Extrusion">
+                  <path id="Axo_panel-349" data-name="Axo panel" class="cls-25" d="M37.49,14.31s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-335" data-name="Axo base" class="cls-42" d="M37.49,14.31s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-340" data-name="Axo Extrusion">
+                  <path id="Axo_panel-350" data-name="Axo panel" class="cls-25" d="M37.95,13.07c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-336" data-name="Axo base" class="cls-42" d="M37.95,13.07c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67s.42,.06,.58,.34c.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-341" data-name="Axo Extrusion">
+                  <path id="Axo_panel-351" data-name="Axo panel" class="cls-25" d="M37.49,12.85s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-337" data-name="Axo base" class="cls-42" d="M37.49,12.85s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-342" data-name="Axo Extrusion">
+                <path id="Axo_panel-352" data-name="Axo panel" class="cls-43" d="M37.27,11.31s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V11.31Z"/>
+                <path id="Axo_base-338" data-name="Axo base" class="cls-43" d="M37.27,11.31s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g id="Axo_Extrusion-343" data-name="Axo Extrusion">
+                <path id="Axo_panel-353" data-name="Axo panel" class="cls-43" d="M40.38,11.3s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V11.3Z"/>
+                <path id="Axo_base-339" data-name="Axo base" class="cls-43" d="M40.38,11.3s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-344" data-name="Axo Extrusion">
+                  <path id="Axo_panel-354" data-name="Axo panel" class="cls-25" d="M39.5,24.17c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-340" data-name="Axo base" class="cls-42" d="M39.5,24.17c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-345" data-name="Axo Extrusion">
+                  <path id="Axo_panel-355" data-name="Axo panel" class="cls-25" d="M39.04,23.95s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-341" data-name="Axo base" class="cls-42" d="M39.04,23.95s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-346" data-name="Axo Extrusion">
+                  <path id="Axo_panel-356" data-name="Axo panel" class="cls-25" d="M39.5,22.71c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-342" data-name="Axo base" class="cls-42" d="M39.5,22.71c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-347" data-name="Axo Extrusion">
+                  <path id="Axo_panel-357" data-name="Axo panel" class="cls-25" d="M39.04,22.49s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-343" data-name="Axo base" class="cls-42" d="M39.04,22.49s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-348" data-name="Axo Extrusion">
+                  <path id="Axo_panel-358" data-name="Axo panel" class="cls-25" d="M39.5,21.25c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-344" data-name="Axo base" class="cls-42" d="M39.5,21.25c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-349" data-name="Axo Extrusion">
+                  <path id="Axo_panel-359" data-name="Axo panel" class="cls-25" d="M39.04,21.04s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-345" data-name="Axo base" class="cls-42" d="M39.04,21.04s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-350" data-name="Axo Extrusion">
+                  <path id="Axo_panel-360" data-name="Axo panel" class="cls-25" d="M39.5,19.79c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-346" data-name="Axo base" class="cls-42" d="M39.5,19.79c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-351" data-name="Axo Extrusion">
+                  <path id="Axo_panel-361" data-name="Axo panel" class="cls-25" d="M39.04,19.58s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-347" data-name="Axo base" class="cls-42" d="M39.04,19.58s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-352" data-name="Axo Extrusion">
+                  <path id="Axo_panel-362" data-name="Axo panel" class="cls-25" d="M39.5,18.34c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-348" data-name="Axo base" class="cls-42" d="M39.5,18.34c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67s.42,.06,.58,.34,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-353" data-name="Axo Extrusion">
+                  <path id="Axo_panel-363" data-name="Axo panel" class="cls-25" d="M39.04,18.12s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-349" data-name="Axo base" class="cls-42" d="M39.04,18.12s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-354" data-name="Axo Extrusion">
+                  <path id="Axo_panel-364" data-name="Axo panel" class="cls-25" d="M39.5,16.88c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-350" data-name="Axo base" class="cls-42" d="M39.5,16.88c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-355" data-name="Axo Extrusion">
+                  <path id="Axo_panel-365" data-name="Axo panel" class="cls-25" d="M39.04,16.66s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-351" data-name="Axo base" class="cls-42" d="M39.04,16.66s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-356" data-name="Axo Extrusion">
+                  <path id="Axo_panel-366" data-name="Axo panel" class="cls-25" d="M39.5,15.42c.16-.09,.16-.4,0-.67s-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-352" data-name="Axo base" class="cls-42" d="M39.5,15.42c-.16,.09-.42-.06-.58-.34s-.16-.58,0-.67c.16-.09,.42,.06,.58,.34s.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-357" data-name="Axo Extrusion">
+                  <path id="Axo_panel-367" data-name="Axo panel" class="cls-25" d="M39.04,15.2s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-353" data-name="Axo base" class="cls-42" d="M39.04,15.2s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-358" data-name="Axo Extrusion">
+                  <path id="Axo_panel-368" data-name="Axo panel" class="cls-25" d="M39.5,13.96c.16-.09,.16-.4,0-.67-.16-.28-.42-.43-.58-.34l1.04-.6c.16-.09,.42,.06,.58,.34s.16,.58,0,.67l-1.04,.6Z"/>
+                  <path id="Axo_base-354" data-name="Axo base" class="cls-42" d="M39.5,13.96c-.16,.09-.42-.06-.58-.34-.16-.28-.16-.58,0-.67,.16-.09,.42,.06,.58,.34,.16,.28,.16,.58,0,.67Z"/>
+                </g>
+                <g id="Axo_Extrusion-359" data-name="Axo Extrusion">
+                  <path id="Axo_panel-369" data-name="Axo panel" class="cls-25" d="M39.04,13.75s.04-.1,0-.17c-.04-.07-.11-.11-.15-.09l.24-.14s.11,.01,.15,.09c.04,.07,.04,.15,0,.17l-.24,.14Z"/>
+                  <path id="Axo_base-355" data-name="Axo base" class="cls-42" d="M39.04,13.75s-.11-.01-.15-.09c-.04-.07-.04-.15,0-.17,.04-.02,.11,.01,.15,.09,.04,.07,.04,.15,0,.17Z"/>
+                </g>
+              </g>
+              <g id="Axo_Extrusion-360" data-name="Axo Extrusion">
+                <path id="Axo_panel-370" data-name="Axo panel" class="cls-43" d="M38.82,12.2s.03,.07,.09,.08c.04,0,.08,0,.12,0,.06-.02,.09-.05,.09-.08v12.38s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08V12.2Z"/>
+                <path id="Axo_base-356" data-name="Axo base" class="cls-43" d="M38.82,12.2s.03-.07,.09-.08c.04,0,.08,0,.12,0,.06,.02,.09,.05,.09,.08s-.03,.07-.09,.08c-.04,0-.08,0-.12,0-.06-.02-.09-.05-.09-.08Z"/>
+              </g>
+              <g>
+                <g id="Axo_Extrusion-361" data-name="Axo Extrusion">
+                  <path id="Axo_panel-371" data-name="Axo panel" class="cls-9" d="M39.88,12.42c-.06-.03-.15,.02-.21,.12s-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24s.15-.15,.21-.12l2.93,1.69Z"/>
+                  <path id="Axo_base-357" data-name="Axo base" class="cls-6" d="M39.88,12.42c.06,.03,.06,.14,0,.24-.06,.1-.15,.15-.21,.12s-.06-.14,0-.24,.15-.15,.21-.12Z"/>
+                </g>
+                <g id="Axo_Extrusion-362" data-name="Axo Extrusion">
+                  <path id="Axo_panel-372" data-name="Axo panel" class="cls-9" d="M41.43,11.52c-.06-.03-.15,.02-.21,.12s-.06,.21,0,.24l-2.93-1.69c-.06-.03-.06-.14,0-.24,.06-.1,.15-.15,.21-.12l2.93,1.69Z"/>
+                  <path id="Axo_base-358" data-name="Axo base" class="cls-6" d="M41.43,11.52c.06,.03,.06,.14,0,.24s-.15,.15-.21,.12c-.06-.03-.06-.14,0-.24s.15-.15,.21-.12Z"/>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g id="Axo_Extrusion-363" data-name="Axo Extrusion">
+            <path class="cls-45" d="M24.2,7.04v6.76c-.15,0-.3,0-.45,0V7.04s.04,.09,.13,.12c.06,.02,.13,.02,.19,0,.08-.02,.13-.07,.13-.12Z"/>
+            <path id="Axo_base-359" data-name="Axo base" class="cls-15" d="M23.75,7s.04-.09,.13-.12c.06-.02,.13-.02,.19,0,.08,.02,.13,.07,.13,.12s-.04,.09-.13,.12c-.06,.02-.13,.02-.19,0-.08-.02-.13-.07-.13-.12Z"/>
+          </g>
+          <g>
+            <polygon class="cls-20" points="20.27 12.48 20.2 12.48 20.23 11.54 23.84 7.66 23.88 7.7 20.29 11.56 20.27 12.48"/>
+            <polygon class="cls-20" points="21.55 13.36 21.48 13.36 21.5 12.41 23.89 7.66 23.94 7.69 21.56 12.43 21.55 13.36"/>
+            <polygon class="cls-20" points="22.85 13.61 22.79 13.61 22.79 12.68 23.94 7.66 24 7.68 22.85 12.69 22.85 13.61"/>
+            <rect class="cls-20" x="23.99" y="7.67" width=".06" height="6.13"/>
+            <polygon class="cls-20" points="25.3 13.6 25.3 12.67 24.04 7.67 24.1 7.65 25.36 12.66 25.36 13.6 25.3 13.6"/>
+            <polygon class="cls-20" points="26.53 13.34 26.52 12.42 24.1 7.67 24.16 7.64 26.58 12.41 26.59 13.34 26.53 13.34"/>
+            <polygon class="cls-20" points="27.78 12.46 27.76 11.54 24.16 7.68 24.2 7.63 27.82 11.51 27.84 12.46 27.78 12.46"/>
+          </g>
+          <g id="Axo_Extrusion-364" data-name="Axo Extrusion">
+            <polygon id="Axo_panel-373" data-name="Axo panel" class="cls-35" points="18.28 7.27 18.28 2.76 19 2.34 19 6.85 18.28 7.27"/>
+            <g id="Axo_Surface_-6" data-name="Axo Surface*">
+              <polygon id="Axo_panel-374" data-name="Axo panel" class="cls-35" points="21.04 4.36 21.04 3.79 21.77 3.38 21.77 3.94 21.04 4.36"/>
+              <polygon id="Axo_panel-375" data-name="Axo panel" class="cls-20" points="21.04 3.79 17.79 1.92 18.52 1.5 21.77 3.38 21.04 3.79"/>
+            </g>
+            <polygon id="Axo_base-360" data-name="Axo base" class="cls-39" points="18.28 7.27 17.79 6.99 17.79 1.92 21.04 3.79 21.04 4.36 18.28 2.76 18.28 7.27"/>
+          </g>
+          <g id="Axo_Extrusion-365" data-name="Axo Extrusion">
+            <polygon id="Axo_panel-376" data-name="Axo panel" class="cls-35" points="29.4 6.68 29.4 2.17 28.68 1.75 28.68 6.26 29.4 6.68"/>
+            <g id="Axo_Surface_-7" data-name="Axo Surface*">
+              <polygon id="Axo_panel-377" data-name="Axo panel" class="cls-35" points="26.64 3.77 26.64 3.2 25.91 2.78 25.91 3.35 26.64 3.77"/>
+              <polygon id="Axo_panel-378" data-name="Axo panel" class="cls-20" points="26.64 3.2 29.89 1.32 29.17 .91 25.91 2.78 26.64 3.2"/>
+            </g>
+            <polygon id="Axo_base-361" data-name="Axo base" class="cls-39" points="29.4 6.68 29.89 6.4 29.89 1.32 26.64 3.2 26.64 3.77 29.4 2.17 29.4 6.68"/>
+          </g>
+        </g>
+        <g>
+          <path class="cls-44" d="M18.39,22.06l.04-.12s.12-.18,.23-.2c.11-.02,.39-.08,.39-.08,0,0,.28,.09,.34,.08,.06,0,.04,.06-.03,.09-.07,.03-.25,.02-.25,.02l-.03,.06s.22,.14,.24,.14,.3-.1,.29-.05c-.02,.05-.02,.1-.1,.15-.08,.04-.13,.02-.15,.08-.02,.07-.1,.15-.13,.15-.03,0-.09,.03-.09,.03,0,0,.07,.06-.11,.09-.18,.02-.56-.2-.56-.2l-.08-.25Z"/>
+          <g>
+            <g>
+              <path class="cls-37" d="M14.17,22.09l-.1,.06s.04,.37,.18,.56c.14,.19,.81,.8,.85,.83,.04,.03,.04,.17,.04,.17l.33-.2s-.48-.74-.56-.95c-.08-.21-.32-.43-.32-.43l-.43-.04Z"/>
+              <path class="cls-23" d="M15,20.35s-.22-.13-.48,.29c-.26,.42-.45,1.37-.47,1.5-.07,.45,.5,1.22,.71,1,.18-.18,.04-1.66,.19-1.85,.15-.18,.34-.85,.05-.95Z"/>
+            </g>
+            <g>
+              <g>
+                <path class="cls-30" d="M16.56,28.88c-.02,.16-.53,.46-.68,.46-.15,0-.19,.2-.47,.35-.28,.15-.43-.09-.49-.16-.06-.06,.06-.16,.06-.16,0-.06,0-.17,.02-.24,0-.02,.09-.31,.09-.31l.47-.16s.12,.03,.17,.05c.03,0,.13,0,.23,0,.11-.01,.23-.03,.3-.07,.14-.08,.32,.08,.29,.24Z"/>
+                <path class="cls-28" d="M14.89,23.19s-.38,.21-.37,.66c0,.46,.22,1.76,.19,1.96-.04,.2,.07,.33,0,.71-.07,.38-.18,.83-.07,1.18,.11,.35,.43,1.16,.43,1.16,0,0,.19,.21,.37,.12,.19-.1,.19-.33,.19-.33,0,0-.17-1.77-.03-2.25,.14-.48,.43-1.56,.43-1.61s.33-1.85-1.13-1.6Z"/>
+                <path class="cls-38" d="M16.56,28.88c-.02,.16-.53,.46-.68,.46-.15,0-.19,.2-.47,.35-.28,.15-.43-.09-.49-.16-.06-.06,.06-.18,.06-.21,0,0,.14,.32,.32,.18,.17-.13,.44-.27,.61-.32,.16-.05,.32-.14,.44-.21,.08-.05,.16-.16,.19-.22,.02,.04,.03,.08,.02,.12Z"/>
+                <g>
+                  <path class="cls-30" d="M17.86,29.68c-.03,.15-.6,.23-.76,.16-.16-.07-.21,.11-.53,.15-.31,.03-.48-.28-.54-.36-.06-.09,.07-.13,.07-.13,0-.08,.01-.18,.03-.22,0-.02,.11-.27,.11-.27l.52,.04s.13,.08,.18,.12c.08,.05,.45,.17,.59,.15,.16-.02,.35,.22,.32,.36Z"/>
+                  <path class="cls-38" d="M17.86,29.68c-.03,.15-.6,.23-.76,.16-.16-.07-.21,.11-.53,.15-.31,.03-.48-.28-.54-.36-.06-.09,.07-.15,.07-.18,0,0,.15,.37,.35,.32,.19-.06,.5-.08,.68-.06,.18,.02,.36,0,.49-.02,.1-.01,.18-.09,.22-.14,.02,.05,.03,.09,.02,.13Z"/>
+                </g>
+                <path class="cls-11" d="M15.22,23.41s-.3,.33-.2,.77c.11,.44,1.26,2.32,1.32,2.42s.07,.28-.05,.4c-.12,.12-.2,.55-.19,.86,.01,.31-.06,1.43-.06,1.43,0,0,.26,.34,.52,.25,.26-.08,.39-.38,.39-.38,0,0,.14-1.18,.16-1.49,.02-.31,.21-.95,.22-1.11,.01-.16,0-.27-.16-.79-.16-.52-.54-2.03-.61-2.08-.07-.04-.82-1.07-1.35-.29Z"/>
+                <path class="cls-12" d="M14.76,23.14s-.22,.31-.27,.56c-.05,.25,.22,2.55,.22,2.55,0,0-.25,.53-.19,1.06,.06,.58,.13,1.47,.36,1.77,.09,.11,.4,.09,.48,.09,.09,0,.39-.26,.34-.48-.23-.93,.11-2.83,.11-2.83,0,0-.38-2.27-.38-2.33s-.67-.4-.67-.4Z"/>
+                <path class="cls-11" d="M15.05,23.18s-.36,.7-.25,1.21c.11,.5,1.53,2.3,1.58,2.33,.05,.04,.14,.22,.5,.06s.44-.49,.44-.49c0,0-.63-2.73-.74-2.97-.11-.23-1.33-.74-1.53-.14Z"/>
+                <path class="cls-14" d="M14.88,20.33c-.09,.15-.38,.7-.31,1.14,.06,.44,.08,1.01,.06,1.15-.03,.14-.09,.9-.13,1.08s.98,.89,1.52,.82c.53-.07,.76-.34,.78-.44,.03-.11,0-.82,0-.84s0-.8,.04-1.03c.05-.23,.09-.28,0-.58-.09-.31-.38-.84-.77-1.02-.39-.18-.79-.28-.79-.28,.12,.06-.29-.16-.39,.01Z"/>
+                <path class="cls-44" d="M15.25,20.33s0-.02,.04-.14-.07-.34-.07-.34c0,0-.37-.59-.11-.89,.25-.31,.89-.35,1.07-.18s.23,.3,.23,.36v.15s.08,.1,.1,.11c.02,0,.02,.03,.01,.05,0,.02-.07,.1-.09,.11-.02,0-.03,0-.03,0,.04,.05,.01,.11,.01,.26,0,.02,.04,.15-.06,.2-.1,.05-.23,.12-.29,.15-.06,.04-.05,.06-.05,.06,0,.06,0,.37,.06,.4,0,0-.23-.02-.51-.1s-.32-.18-.32-.18Z"/>
+                <path class="cls-30" d="M16.01,18.47c.23,0,.57,.41,.3,.44-.15,.02-.09,.27-.03,.5,.02,.07-.17,.24-.15,.29,.02,.05-.14,.12-.15,.05,0-.07-.08-.17-.13-.04-.05,.13,.06,.23,.06,.23,0,0-.5,.14-.54,.12-.04-.02-.13-.12-.19-.23-.06-.11-.42-.72-.05-1.1,.22-.23,.63-.25,.89-.26Z"/>
+              </g>
+              <path class="cls-23" d="M16.12,20.91c-.09,.11-.27,.29-.18,.52,.09,.23,.53,1.29,.75,1.47s.63,.14,1.15-.05c.47-.17,.6-.12,.79-.43,.04-.06-.12-.51-.22-.52s-.25,.05-.41,.05-.72,.05-.72,.05c0,0-.62-1.75-1.15-1.09Z"/>
+            </g>
+          </g>
+        </g>
+        <g id="Axo_Extrusion-366" data-name="Axo Extrusion">
+          <polygon id="Axo_panel-379" data-name="Axo panel" class="cls-13" points="21.47 22.73 23.22 19.24 23.22 19.56 22.01 22.42 21.47 22.73"/>
+          <polygon id="Axo_base-362" data-name="Axo base" class="cls-1" points="19.89 21.82 22.59 18.98 23.22 19.24 21.47 22.73 19.89 21.82"/>
+        </g>
+      </g>
+      <g id="Axo_Extrusion-367" data-name="Axo Extrusion">
+        <g id="Axo_Surface_-8" data-name="Axo Surface*">
+          <polygon id="Axo_panel-380" data-name="Axo panel" class="cls-45" points="20.68 21.72 21.03 21.92 21.03 22.05 20.68 21.85 20.68 21.72"/>
+          <polygon id="Axo_panel-381" data-name="Axo panel" class="cls-33" points="21.03 21.92 21.33 21.57 21.33 21.7 21.03 22.05 21.03 21.92"/>
+        </g>
+        <polygon id="Axo_base-363" data-name="Axo base" class="cls-5" points="20.68 21.72 20.98 21.37 21.33 21.57 21.03 21.92 20.68 21.72"/>
+      </g>
+      <g id="Axo_Extrusion-368" data-name="Axo Extrusion">
+        <g id="Axo_Surface_-9" data-name="Axo Surface*">
+          <polygon id="Axo_panel-382" data-name="Axo panel" class="cls-26" points="21.23 21.09 21.58 21.29 21.58 21.42 21.23 21.22 21.23 21.09"/>
+          <polygon id="Axo_panel-383" data-name="Axo panel" class="cls-19" points="21.58 21.29 21.88 20.95 21.88 21.08 21.58 21.42 21.58 21.29"/>
+        </g>
+        <polygon id="Axo_base-364" data-name="Axo base" class="cls-3" points="21.23 21.09 21.53 20.75 21.88 20.95 21.58 21.29 21.23 21.09"/>
+      </g>
+      <g id="Axo_base-365" data-name="Axo base">
+        <path class="cls-41" d="M20.26,22.66s.05,0,.08,0l.72,.41c.06,.03,.11,.12,.11,.19v.45s-.01,.06-.03,.07c-.02,.01-.05,0-.08,0l-.72-.41c-.06-.03-.11-.12-.11-.19v-.45s.01-.06,.03-.07Z"/>
+        <path class="cls-2" d="M21.1,23.84s-.04,0-.07-.02l-.72-.41c-.07-.04-.13-.14-.13-.22v-.45s.02-.08,.05-.1c.03-.02,.07-.02,.11,0l.72,.41c.07,.04,.13,.14,.13,.22v.45s-.02,.08-.05,.1c-.01,0-.03,.01-.05,.01Zm-.81-1.15s0,0-.01,0c0,0-.01,.02-.01,.04v.45c0,.06,.04,.13,.09,.16l.72,.41s.03,.01,.04,0c0,0,.01-.02,.01-.04v-.45c0-.06-.04-.13-.09-.16l-.72-.41s-.02-.01-.03-.01Z"/>
+      </g>
+      <g id="Axo_base-366" data-name="Axo base">
+        <path class="cls-36" d="M22.59,23.27s.03,0,.05,0c.04,.02,.07,.08,.07,.12,0,.02,0,.04-.02,.05s-.03,0-.05,0c-.04-.02-.07-.08-.07-.12,0-.02,0-.04,.02-.05Z"/>
+        <path class="cls-2" d="M22.67,23.47s-.03,0-.04-.01c-.05-.03-.08-.09-.08-.14,0-.03,.01-.05,.03-.06,.02-.01,.04,0,.07,0,.05,.03,.08,.09,.08,.14,0,.03-.01,.05-.03,.06,0,0-.02,0-.03,0Zm-.06-.19s0,0,0,0c0,0-.01,.02-.01,.03,0,.04,.03,.09,.06,.11,.01,0,.02,0,.03,0,0,0,.01-.02,.01-.03,0-.04-.03-.09-.06-.11,0,0-.02,0-.02,0Z"/>
+      </g>
+      <g id="Axo_base-367" data-name="Axo base">
+        <path class="cls-36" d="M22.59,23.72s.03,0,.05,0c.04,.02,.07,.08,.07,.12,0,.02,0,.04-.02,.05s-.03,0-.05,0c-.04-.02-.07-.08-.07-.12,0-.02,0-.04,.02-.05Z"/>
+        <path class="cls-2" d="M22.67,23.92s-.03,0-.04-.01c-.05-.03-.08-.09-.08-.14,0-.03,.01-.05,.03-.06,.02-.01,.05,0,.07,0,.05,.03,.08,.09,.08,.14,0,.03-.01,.05-.03,.06,0,0-.02,0-.03,0Zm-.06-.19s0,0,0,0c0,0-.01,.01-.01,.03,0,.04,.03,.09,.06,.11,.01,0,.02,0,.03,0,0,0,.01-.02,.01-.03,0-.04-.03-.09-.06-.11,0,0-.02,0-.02,0Z"/>
+      </g>
+      <g id="Axo_base-368" data-name="Axo base">
+        <path class="cls-36" d="M22.59,24.16s.03,0,.05,0c.04,.02,.07,.08,.07,.12,0,.02,0,.04-.02,.05s-.03,0-.05,0c-.04-.02-.07-.08-.07-.12,0-.02,0-.04,.02-.05Z"/>
+        <path class="cls-2" d="M22.67,24.36s-.03,0-.04-.01c-.05-.03-.08-.09-.08-.14,0-.03,.01-.05,.03-.06,.02-.01,.04,0,.07,0,.05,.03,.08,.09,.08,.14,0,.03-.01,.05-.03,.06,0,0-.02,0-.03,0Zm-.06-.19s0,0,0,0c0,0-.01,.02-.01,.03,0,.04,.03,.09,.06,.11,.01,0,.02,0,.03,0,0,0,.01-.02,.01-.03,0-.04-.03-.09-.06-.11,0,0-.02,0-.02,0Z"/>
+      </g>
+      <g id="Axo_base-369" data-name="Axo base">
+        <path class="cls-36" d="M22.59,24.61s.03,0,.05,0c.04,.02,.07,.08,.07,.12,0,.02,0,.04-.02,.05s-.03,0-.05,0c-.04-.02-.07-.08-.07-.12,0-.02,0-.04,.02-.05Z"/>
+        <path class="cls-2" d="M22.67,24.81s-.03,0-.04-.01c-.05-.03-.08-.09-.08-.14,0-.03,.01-.05,.03-.06,.02-.01,.04,0,.07,0,.05,.03,.08,.09,.08,.14,0,.03-.01,.05-.03,.06,0,0-.02,0-.03,0Zm-.06-.19s0,0,0,0c0,0-.01,.02-.01,.03,0,.04,.03,.09,.06,.11,.01,0,.02,0,.03,0,0,0,.01-.02,.01-.03,0-.04-.03-.09-.06-.11,0,0-.02,0-.02,0Z"/>
+      </g>
+      <g id="Axo_base-370" data-name="Axo base">
+        <path class="cls-36" d="M22.59,25.05s.03,0,.05,0c.04,.02,.07,.08,.07,.12,0,.02,0,.04-.02,.05s-.03,0-.05,0c-.04-.02-.07-.08-.07-.12,0-.02,0-.04,.02-.05Z"/>
+        <path class="cls-2" d="M22.67,25.25s-.03,0-.04-.01c-.05-.03-.08-.09-.08-.14,0-.03,.01-.05,.03-.06,.02-.01,.05,0,.07,0,.05,.03,.08,.09,.08,.14,0,.03-.01,.05-.03,.06,0,0-.02,0-.03,0Zm-.07-.18s-.01,.02-.01,.03c0,.04,.03,.09,.06,.11,.01,0,.02,0,.03,0,0,0,.01-.02,.01-.03,0-.04-.03-.09-.06-.11-.01,0-.02,0-.03,0Z"/>
+      </g>
+      <g id="Axo_base-371" data-name="Axo base">
+        <path class="cls-36" d="M22.59,25.5s.03,0,.05,0c.04,.02,.07,.08,.07,.12,0,.02,0,.04-.02,.05s-.03,0-.05,0c-.04-.02-.07-.08-.07-.12,0-.02,0-.04,.02-.05Z"/>
+        <path class="cls-2" d="M22.67,25.7s-.03,0-.04-.01c-.05-.03-.08-.09-.08-.14,0-.03,.01-.05,.03-.06,.02-.01,.04,0,.07,0,.05,.03,.08,.09,.08,.14,0,.03-.01,.05-.03,.06,0,0-.02,0-.03,0Zm-.06-.19s0,0,0,0c0,0-.01,.02-.01,.03,0,.04,.03,.09,.06,.11,.01,0,.02,0,.03,0,0,0,.01-.02,.01-.03,0-.04-.03-.09-.06-.11,0,0-.02,0-.02,0Z"/>
+      </g>
+      <g id="Axo_base-372" data-name="Axo base">
+        <path class="cls-36" d="M22.59,25.94s.03,0,.05,0c.04,.02,.07,.08,.07,.12,0,.02,0,.04-.02,.05s-.03,0-.05,0c-.04-.02-.07-.08-.07-.12,0-.02,0-.04,.02-.05Z"/>
+        <path class="cls-2" d="M22.67,26.14s-.03,0-.04-.01c-.05-.03-.08-.09-.08-.14,0-.03,.01-.05,.03-.06,.02-.01,.04,0,.07,0,.05,.03,.08,.09,.08,.14,0,.03-.01,.05-.03,.06,0,0-.02,0-.03,0Zm-.06-.19s0,0,0,0c0,0-.01,.02-.01,.03,0,.04,.03,.09,.06,.11,.01,0,.02,0,.03,0,0,0,.01-.02,.01-.03,0-.04-.03-.09-.06-.11,0,0-.02,0-.02,0Z"/>
+      </g>
+      <g id="Axo_base-373" data-name="Axo base">
+        <path class="cls-36" d="M22.59,26.39s.03,0,.05,0c.04,.02,.07,.08,.07,.12,0,.02,0,.04-.02,.05s-.03,0-.05,0c-.04-.02-.07-.08-.07-.12,0-.02,0-.04,.02-.05Z"/>
+        <path class="cls-2" d="M22.67,26.59s-.03,0-.04-.01c-.05-.03-.08-.09-.08-.14,0-.03,.01-.05,.03-.06,.02-.01,.05,0,.07,0,.05,.03,.08,.09,.08,.14,0,.03-.01,.05-.03,.06,0,0-.02,0-.03,0Zm-.06-.19s0,0,0,0c0,0-.01,.02-.01,.03,0,.04,.03,.09,.06,.11,.01,0,.02,0,.03,0,0,0,.01-.02,.01-.03,0-.04-.03-.09-.06-.11,0,0-.02,0-.02,0Z"/>
+      </g>
+      <path class="cls-32" d="M14.16,22.79s.1-.19,.19-.11c.09,.08,.08,.31,.02,.32-.05,0-.19-.06-.19-.06l-.02-.16Z"/>
+    </g>
+  </g>
+</svg>

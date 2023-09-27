@@ -1,0 +1,467 @@
+/* Topmost ------------------------------------------------------------- */
+
+.main-banner {
+    background: #0a24b9;
+    height: 450px;
+}
+
+.price__form-section {
+
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #0c29d0;
+    border-radius: 10px;
+    color: white;
+    padding: 50px;
+    width: 100%; */
+
+    align-items: center;
+    padding-top: 230px;
+    text-align: center;
+}
+
+.price__form-text {
+    align-items: center;
+    text-align: center;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.price__form-button__items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 5px;
+}
+
+.price__form-button__item {
+    width: 222px;
+    border: 1px solid #E6EEFF;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.price__form-button__item a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+
+.price__form-button__item.btn_active {
+    background-color: white;
+}
+
+.price__form-button__item.btn_active a {
+    color: #0c29d0;
+}
+
+.style-title-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10%;
+}
+
+.border-color {
+    background-color: #D4E9FF;
+    border-radius: 20px;
+    padding: 6px 10px;
+}
+
+
+/* form ----------------------------------------------------------------------------------------------- */
+
+
+.price-form {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 50px;
+    margin-bottom: 40px;
+    padding-left: 10px;
+}
+
+.price__image-form {
+    width: 50%;
+    flex: 1;
+}
+
+.price__image-form img {
+    max-width: 90%;
+    height: auto;
+}
+
+.price__form-form {
+    width: 40%;
+    padding: 20px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    background-color: #e8efff;
+    margin-left: 20px;
+}
+
+/* .custom-form {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+} */
+
+.form-group {
+    position: relative;
+    margin-top: 10px;
+}
+
+.char-count__title, .char-count__description {
+    position: absolute;
+    right: 3%;
+    font-size: 13px;
+}
+
+.char-count__description {
+    top: 80%;
+}
+
+.char-count__title {
+    top: 10%;
+}
+
+
+.form-label {
+    display: flex;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #616161;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.image-form {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.reset-image {
+    position: absolute;
+    right: 5%;
+    border-radius: 24px;
+    border: 1px solid #232836;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.form-select {
+    cursor: pointer;
+}
+
+
+.form-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #0c29d0;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.form-button:hover {
+    background-color: #0c29d0;
+}
+
+/* Стили для выбранных опций */
+.form-select option:checked {
+    background-color: #007bff;
+    color: white;
+}
+
+/*...................................*/
+
+
+/* Стили для опций (options) */
+.form-select option {
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+}
+
+/*  listing-options ----------------------------------------------------------------------- */
+
+
+.listing-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Распределить элементы по всей ширине */
+    padding: 20px;
+    border-radius: 0;
+}
+
+.purchase-button {
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 38px;
+}
+
+.view-all-button a {
+    text-decoration: none;
+    color: #0c29d0;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.create-listing-button {
+    background-color: #0c29d0;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-left: auto; /* Переместить вправо */
+}
+
+.create-listing-button a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/* Cards buy----------------------------------------------------------------------- */
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card-row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.cards__sell-section,
+.cards__buy-section {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.card__sell,
+.card__buy {
+    width: calc(25% - 25px);
+    margin: 0 10px 20px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    height: 290px;
+    position: relative;
+}
+
+.card__buy-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.card__sell:hover,
+.card__buy:hover {
+    border: 1px solid #007bff;
+}
+
+.card__sell-content,
+.card__buy-content {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: space-between;*/
+    position: relative;
+    height: 94%;
+    padding: 10px;
+    text-align: left;
+}
+
+.category {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.subcategory {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 10px 0;
+    /*margin-bottom: 10px;*/
+    display: -webkit-box;
+    text-decoration: none;
+    color: black;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-wrap: break-word;
+
+}
+
+.description {
+    font-size: clamp(14px, 2.5vw, 12px);
+    color: #777;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Максимальное количество строк */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.flags {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.flags img {
+    width: 16px;
+    height: 16px;
+}
+
+.country {
+    font-size: 14px;
+    color: #333;
+}
+
+.product-data {
+    position: absolute;
+    bottom: 5%;
+    width: 93%;
+}
+
+.date {
+    font-size: 12px;
+    color: #999;
+    /*margin-bottom: 10px;*/
+    padding: 10px 0;
+}
+
+.full-date {
+    margin-right: auto;
+}
+
+.like-and-more {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 0;
+    justify-content: space-between;
+}
+
+.like-and-more a {
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+}
+
+.svg-icon-container {
+    display: flex;
+}
+
+.read-more {
+    color: #A1A1A1;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: auto;
+}
+
+.read-more:hover {
+    color: #0c29d0;
+}
+
+.category-info {
+    display: flex;
+    align-items: center;
+}
+
+.category-info a {
+    text-decoration: none;
+    color: #6f6f6f;
+    font-size: 15px;
+    font-weight: 400;
+    padding-left: 5px;
+
+}
+
+.product-cat__image {
+    width: 20px;
+    height: 20px;
+}
+
+.product-cat__image img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Cards ----------------------------------------------------------------------- */
+
+
+.card__sell-image {
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card__sell-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* test for color card -------------- */
+
+.card-color-pink {
+    background-color: #f4ecee; /* Бледно-розовый */
+}
+
+.card-color-yellow {
+    background-color: #f7f7f7; /* Бледно-желтый */
+}
+
+.card-color-green {
+    background-color: #e9f4ff; /* Бледно-зеленый */
+}
+
+.card-color-blue {
+    background-color: #f5f8fc; /* Бледно-голубой */
+}

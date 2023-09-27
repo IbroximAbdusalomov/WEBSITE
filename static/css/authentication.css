@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-header__logo {
+    position: absolute;
+    top: 30px;
+    left: 70px;
+}
+
+.main-header__logo a img {
+    width: 150px;
+}
+
+body {
+    background-color: #e8efff;
+}
+
+.authentication {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    gap: 20px;
+}
+
+.form {
+    width: 430px;
+    padding: 30px;
+    border-radius: 12px;
+    background: #FFF;
+    border: 1px solid #e3e3e3;
+}
+
+.form-text header {
+    font-size: 28px;
+    font-weight: 600;
+    color: #232836;
+    text-align: center;
+    position: relative;
+}
+
+.form-text p {
+    text-align: center;
+}
+
+/* form {
+    margin-top: 30px;
+} */
+
+.form .field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 35px;
+    border-radius: 6px;
+}
+
+.field input,
+.field button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 5px;
+}
+
+.field input {
+    outline: none;
+    padding: 0 15px;
+    border: 1px solid #CACACA;
+}
+
+.field input:focus {
+    border-bottom-width: 2px;
+}
+
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #8b8b8b;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.field button {
+    color: white;
+    background-color: #0050dc;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.field button:hover {
+    background-color: #00B0FF;
+}
+
+.form-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-link a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #232836;
+}
+
+.forgot-password {
+    text-decoration: none;
+    color: #0050dc;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+
+.line {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    margin: 36px 0;
+    background-color: #d4d4d4;
+}
+
+.line::before {
+    content: "Or";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    color: #232836;
+    padding: 0 15px;
+}
+
+.media-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    padding-top: 20px;
+}
+
+.signup {
+    height: 75px;
+    width: 430px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.signup-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.signup-logo {
+    padding-top: 10px;
+    width: 150px;
+    height: 100%;
+}
+
+.login-text {
+    position: absolute;
+}
+
+.signup-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding-left: 20px;
+    display: flex;
+}
+
+.signup-text a {
+    text-decoration: none;
+
+}
+
+/* REGISTER----------------------------------------------------------------------------- */
+
+.field.input-field {
+    position: relative;
+}
+
+.field.input-field input[type="email"] {
+    padding-right: 25px; /* Отступ справа для иконки */
+}
+
+.field.input-field i.fa-regular.fa-circle-check {
+    position: absolute;
+    top: 50%;
+    right: 15px; /* Располагаем иконку справа на небольшом расстоянии от поля ввода */
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #00f510; /* Цвет иконки (зеленый) */
+}
+
+
+

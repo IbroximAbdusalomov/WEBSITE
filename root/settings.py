@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     'accounts',
 
     'django_filters',
-    'modeltranslation',
     'django_countries'
 ]
 # Замените 'auth.User' на 'accounts.User'

@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator, MaxValueValidator
-from django.db.models import Model, CharField, SlugField, CASCADE, ForeignKey, TextField, DateTimeField, BooleanField, \
+from django.db.models import Model, CharField, SlugField, CASCADE, ForeignKey, DateTimeField, BooleanField, \
     PositiveBigIntegerField, ImageField, SET_NULL, FloatField, ManyToManyField, IntegerField
 from django.urls import reverse_lazy
 
@@ -92,8 +92,10 @@ class Films(Model):  # Модель
     ]
 
     title = CharField("Наименование", max_length=100)
-    description = TextField("Описание", null=True, blank=True)
+    description = CharField("Описание", max_length=800, null=True, blank=True)
+    image = ImageField(upload_to="product-images/", blank=True, null=True, default='product-images/image.png')
     telephone = CharField("Номер телефона", max_length=30)
+    telegram = CharField("Телеграмм номер", max_length=30)
     email = CharField("Емайл адрес", max_length=100)
     view_count = PositiveBigIntegerField("Количество просмотров", default=0)
     create_date = DateTimeField("Дата создания", auto_now_add=True)
@@ -108,6 +110,7 @@ class Films(Model):  # Модель
     type = CharField(max_length=50, choices=TYPE_CHOICES, default='buy')
     author = ForeignKey(get_user_model(), SET_NULL, blank=True, null=True)
     price = FloatField("Цена", blank=True, null=True)
+    in_favorites = BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -120,11 +123,6 @@ class Films(Model):  # Модель
     class Meta:
         verbose_name = "Запрос"
         verbose_name_plural = "Запросы"
-
-
-class Image(Model):
-    image = ImageField(upload_to="product-images/", blank=True, null=True)
-    product = ForeignKey(Films, on_delete=CASCADE)
 
 
 class Favorite(Model):

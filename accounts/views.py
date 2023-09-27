@@ -5,20 +5,20 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView, LogoutView
 from django.core.mail import send_mail
-from django.shortcuts import get_object_or_404
-from django.shortcuts import redirect, render
+from django.http import JsonResponse
+from django.shortcuts import redirect, render, get_object_or_404
 from django.shortcuts import reverse
+from django.utils.decorators import method_decorator
 from django.views import View
-from django.views.generic import UpdateView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
-from rest_framework.templatetags.rest_framework import form_for_link
+from django.views.generic.edit import CreateView, UpdateView
 
-from films.models import Films, Categories
-from .forms import UserLoginForm, ProfileForm
-from .forms import UserRegisterForm
+from films.forms import FilmsForm
+from films.models import Films
+from .forms import UserLoginForm, UserRegisterForm
 
 
 class AuthorizationView(View):
@@ -88,7 +88,7 @@ class VerifyCodeView(View):
                     user.save()
                     login(request, user)
                     messages.success(request,
-                                     "Ваша учетная запись была успешно активирована. Вы можете теперь войти в систему.")
+                                     "Ваша учетная запись была успешно активирована.")
                     return redirect('profile', request.user.pk)
                 else:
                     messages.error(request, "Неверный код подтверждения. Пожалуйста, попробуйте еще раз.")
@@ -133,6 +133,7 @@ class LogoutUserView(LogoutView):
         return super().get_next_page()
 
 
+@method_decorator(login_required, name='dispatch')
 class ProfileView(DetailView):
     model = get_user_model()
     template_name = "user/profile.html"
@@ -140,26 +141,41 @@ class ProfileView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["categories"] = Categories.objects.all()
         context["title"] = f"{self.object.first_name} {self.object.last_name}"
         context["user"] = self.model.objects.get(pk=self.kwargs['pk'])
-        context["user_films"] = Films.objects.filter(author_id=self.object.pk).order_by('-create_date')
+        context["products"] = Films.objects.filter(author_id=self.object.pk).order_by('-create_date')
         return context
 
 
-class EditProfileView(UpdateView):
-    model = get_user_model()
-    template_name = "accounts/edit_profile.html"
-    form_class = ProfileForm
+class ProductActionView(View):
+    @staticmethod
+    def post(request):
+        data = request.POST
+        action = data.get("action")
+        selected_product_ids = data.getlist("selected_products")
 
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.pk != kwargs["pk"]:
-            messages.error(request, "У вас недостаточно прав для редактирования этого профиля !")
-            return redirect("index")
-        return super().dispatch(request, args, kwargs)
+        if action == "delete":
+            Films.objects.filter(pk__in=selected_product_ids).delete()
+        elif action == "edit":
+            return redirect('index')
+            # return redirect('product-edit', pk=int(selected_product_ids[0]))
+        elif action == "activate":
+            Films.objects.filter(pk__in=selected_product_ids).update(is_published=True)
+        elif action == "deactivate":
+            Films.objects.filter(pk__in=selected_product_ids).update(is_published=False)
+        return JsonResponse({"message": "Действие успешно выполнено"})
+
+
+class EditProductsView(UpdateView):
+    model = Films
+    form_class = FilmsForm
+    template_name = 'edit-product.html'
+    context_object_name = 'form'
+
+    def get_queryset(self):
+        return get_object_or_404(Films, pk=self.kwargs['pk'])
 
     def form_valid(self, form):
-        messages.success(self.request, "Изменения были успешно сохранены !")
         return super().form_valid(form)
 
     def form_invalid(self, form):
@@ -170,34 +186,3 @@ class EditProfileView(UpdateView):
         return reverse("profile", kwargs={
             "pk": self.kwargs["pk"]
         })
-
-
-def delete_confirm(request, pk):
-    product = get_object_or_404(Films, pk=pk)
-    return render(request, 'accounts/delete.html', {'product': product})
-
-
-#
-def delete_film(request, pk):
-    product = get_object_or_404(Films, pk=pk)
-    product.delete()
-    return redirect('index')
-
-# def update_confirm(request, pk):
-#     product = get_object_or_404(Films, pk=pk)
-#     return render(request, 'accounts/update_confirm.html', {"product": product})
-#
-#
-# def update_film(request, pk):
-#     film = Films.objects.filter(id=pk).first()
-#     form = FilmsForm(request.POST, request.FILES, instance=film)
-#     context = {
-#         "form": form,
-#     }
-#     if form.is_valid():
-#         objMod = form.save(commit=False)
-#         objMod.save()
-#         instance = Films.objects.get(id=pk)
-#         instance.delete()
-#         return redirect("index")
-#     return render(request, "films/edit_film.html", context)

@@ -15,50 +15,58 @@
             </div>
 
             <div class="cards" id="card-container">
-
                 {% for buy in films_buy %}
-
                     <div class="card__buy card-color">
                         <div class="card__buy-content">
                             <div class="category-info">
                                 <div class="product-cat__image">
-                                    <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
+                                    {% if buy.category.pk == 1 %}
+                                        <img src="{% static 'images/categories/yangi-uskunalar-24px.png' %}"
+                                             alt="cat image">
+                                    {% elif buy.category.pk == 2 %}
+                                        <img src="{% static 'images/categories/ishlatilgan-uskunalar-24px.png' %}"
+                                             alt="cat image">
+                                    {% elif buy.category.pk == 3 %}
+                                        <img src="{% static 'images/categories/xomashyo-24px.png' %}"
+                                             alt="cat image">
+                                    {% elif buy.category.pk == 4 %}
+                                        <img src="{% static 'images/categories/4.svg' %}" alt="cat image">
+                                    {% endif %}
                                 </div>
-                                <a href="#">{{ buy.category }}</a>
+                                <a href="{% url "product-list" %}">{{ buy.category }} | {{ buy.sub_category }}</a>
                             </div>
-                            <h2 class="title"><a href="{% url 'index' %}" class="title">{{ buy.title }}</a></h2>
+                            <h2 class="title"><a href="{% url 'product-detail' buy.pk %}"
+                                                 class="title">{{ buy.title }}</a></h2>
                             <p class="description">{{ buy.description }}</p>
                             <div class="product-data">
                                 <div class="flags">
-                                    <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
+                                    {#                                    <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">#}
                                     <span class="country">{{ buy.country }}</span>
                                 </div>
                                 <div class="date">
                                     <span class="full-date">{{ buy.create_date }}</span>
                                 </div>
                                 <div class="like-and-more">
-                                    <a href="#" class="read-more">Подробнее</a>
+                                    <a href="{% url 'product-detail' buy.pk %}" class="read-more">Подробнее</a>
                                     <div class="svg-icon-container">
-                                        <svg class="svg-icon css-1caitfj" xmlns="http://www.w3.org/2000/svg"
-                                             viewBox="0 0 24 24" width="1em"
-                                             height="1em">
-                                            <path fill="currentColor" fill-rule="evenodd"
-                                                  d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
-                                        </svg>
+                                        {% if user.is_authenticated %}
+                                            <a href="#" class="favorite-link" data-product-pk="{{ buy.pk }}">
+                                                <i class="{% if buy.in_favorites %}fa-solid{% else %}fa-regular{% endif %} fa-heart"
+                                                   style="width: 20px; color: #605f5f;"></i>
+                                            </a>
+                                        {% endif %}
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 {% endfor %}
-
             </div>
 
             <div class="listing-options">
                 <div class="view-all-button">
-                    <a href="#">Все объявления</a>
+                    <a href="{% url 'product-list' %}">Все объявления</a>
                 </div>
                 <div class="create-listing-button">
                     <a href="#">Создать объявление</a>
@@ -87,27 +95,25 @@
                     <div class="card__sell card-color">
                         <div class="card__buy-content">
                             <div class="card__sell-image">
-                                <img src="#" alt="Product Image">
+                                <img src="{{ sell.image.url }}" alt="Product Image">
                             </div>
-                            <a href="#" class="title">{{ sell.title }}</a>
+                            <a href="{% url 'product-detail' sell.pk %}" class="title">{{ sell.title }}</a>
 
                             <div class="product-data">
                                 <div class="flags">
-                                    <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
                                     <span class="country">{{ sell.country }}</span>
                                 </div>
                                 <div class="date">
                                     <span class="full-date">{{ sell.create_date }}</span>
                                 </div>
                                 <div class="like-and-more">
-                                    <a href="#" class="read-more">Подробнее</a>
+                                    <a href="{% url "product-detail" sell.pk %}" class="read-more">Подробнее</a>
                                     <div class="svg-icon-container">
-                                        <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg"
-                                             viewBox="0 0 24 24"
-                                             width="1em" height="1em">
-                                            <path fill="currentColor" fill-rule="evenodd"
-                                                  d="M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"></path>
-                                        </svg>
+                                        {% if user.is_authenticated %}
+                                            <a href="#" class="favorite-link" data-product-pk="{{ sell.pk }}">
+                                                <i class="fa-regular fa-heart" style="width: 20px; color: #605f5f;"></i>
+                                            </a>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +126,7 @@
 
             <div class="listing-options">
                 <div class="view-all-button">
-                    <a href="#">Все объявления</a>
+                    <a href="{% url 'product-list' %}">Все объявления</a>
                 </div>
                 <div class="create-listing-button">
                     <a href="#">Создать объявление</a>
@@ -144,24 +150,36 @@
     </script>
 
     <!-- like button -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
-        // Выбираем все элементы с классом .svg-icon-container
-        const svgContainers = document.querySelectorAll('.svg-icon-container');
+        // Обработчик клика на значке "избранного"
+        $('.favorite-link').click(function (e) {
+            e.preventDefault();
 
-        // Добавляем обработчик клика к каждому элементу
-        svgContainers.forEach(svgContainer => {
-            svgContainer.addEventListener('click', function () {
-                const svgElement = svgContainer.querySelector('.svg-icon');
-                const currentPath = svgElement.querySelector('path').getAttribute('d');
-                let newPath = 'M20';
+            var productID = $(this).data('product-pk'); // Получаем идентификатор продукта из атрибута data-product-pk
+            var isFavorite = $(this).find('i').hasClass('fa-solid'); // Проверяем, является ли продукт избранным
 
-                if (currentPath === "M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6") { // Ваш текущий путь здесь
-                    newPath = "M17 2a6 6 0 0 0-5 2.686A6 6 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.233 3.633L10.709 22h2.583l8.5-10.399A5.942 5.942 0 0 0 23 8c0-3.309-2.691-6-6-6"; // Новый путь здесь
-                } else {
-                    newPath = "M20.219 10.367 12 20.419 3.806 10.4A3.96 3.96 0 0 1 3 8c0-2.206 1.795-4 4-4a4.004 4.004 0 0 1 3.868 3h2.264A4.003 4.003 0 0 1 17 4c2.206 0 4 1.794 4 4 0 .868-.279 1.698-.781 2.367M17 2a5.999 5.999 0 0 0-5 2.686A5.999 5.999 0 0 0 7 2C3.692 2 1 4.691 1 8a5.97 5.97 0 0 0 1.232 3.633L10.71 22h2.582l8.501-10.399A5.943 5.943 0 0 0 23 8c0-3.309-2.692-6-6-6"; // Ваш исходный путь здесь
+            // Формируем URL-адрес на основе идентификатора продукта
+            var url = isFavorite ? "{% url 'remove_from_favorite' 0 %}".replace("0", productID) : "{% url 'add_to_favorite' 0 %}".replace("0", productID);
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {pk: productID},
+                success: function (response) {
+                    // Обработка ответа от сервера
+                    if (response.is_favorite) {
+                        // Если продукт добавлен в избранное, обновляем значок
+                        $('.favorite-link[data-product-pk="' + productID + '"] i').removeClass('fa-regular').addClass('fa-solid');
+                    } else {
+                        // Если продукт удален из избранного, обновляем значок
+                        $('.favorite-link[data-product-pk="' + productID + '"] i').removeClass('fa-solid').addClass('fa-regular');
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
                 }
-
-                svgElement.querySelector('path').setAttribute('d', newPath);
             });
         });
     </script>

@@ -1,9 +1,6 @@
 import logging
-
 from aiogram import Bot, Dispatcher
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from django.forms import model_to_dict
-
 from root.settings import TOKEN, chat_id
 
 logging.basicConfig(level=logging.INFO)
@@ -16,7 +13,7 @@ dp = Dispatcher(bot)
 
 async def send_message_to_channel(message, image=None):
     tags = message.get('tags', [])
-
+    film_id = message['film_id']
     # Extract tag names as strings
     tag_names = [str(tag) for tag in tags]
     formatted_message = (
@@ -31,11 +28,12 @@ async def send_message_to_channel(message, image=None):
         f"📞 *Телефон*: {message['telephone']}\n"
         f"📋 *Тип*: {message['тип']}\n"  # Include the type field
     )
-    # inline_btn_1 = InlineKeyboardButton('👍', callback_data=f'button1_{film_id}')
-    # inline_btn_2 = InlineKeyboardButton('👎', callback_data=f'button2_{film_id}')
-    # inline_kb1 = InlineKeyboardMarkup().add(inline_btn_1, inline_btn_2)
-    # await bot.send_message(chat_id=chat_id, text=message, reply_markup=inline_kb1)
+    inline_btn_1 = InlineKeyboardButton('👍', callback_data=f'button1_{film_id}')
+    inline_btn_2 = InlineKeyboardButton('👎', callback_data=f'button2_{film_id}')
+    inline_kb1 = InlineKeyboardMarkup().add(inline_btn_1, inline_btn_2)
     if image:
-        await bot.send_photo(chat_id=chat_id, photo=image, caption=formatted_message, parse_mode="markdown")
+        with open(image, "rb") as image_file:
+            await bot.send_photo(chat_id=chat_id, photo=image_file, caption=formatted_message, reply_markup=inline_kb1,
+                                 parse_mode="markdown")
     else:
-        await bot.send_message(chat_id=chat_id, text=formatted_message, parse_mode="markdown")
+        await bot.send_message(chat_id=chat_id, text=formatted_message, reply_markup=inline_kb1, parse_mode="markdown")

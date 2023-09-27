@@ -1,0 +1,274 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" href="{% static "css/product-details.css" %}">
+    <title>Product Details</title>
+</head>
+<body>
+
+<!-- Header section -->
+{% include 'nav_bar.html' %}
+<!-- /Header section -->
+
+<section class="product-details">
+    <div class="container">
+        <div class="product-detail">
+            <div class="product-foto-and-info">
+                <div class="product-foto-description-contant">
+
+                    <div class="product-foto">
+                        <div class="slider-container">
+                            <div class="slider-track">
+                                {#                                {% for photo in product.photos.all %}#}
+                                <div class="slide">
+                                    <img src="{{ product.image.url }}" alt="Image {{ forloop.counter }}">
+                                </div>
+                                {#                                {% endfor %}#}
+                            </div>
+                        </div>
+
+                        {% if product.photos.count > 1 %}
+                            <div class="slider-controls">
+                                <button class="prev-button"><i class="fa-solid fa-angle-left"></i></button>
+                                <button class="next-button"><i class="fa-solid fa-angle-right"></i></button>
+                            </div>
+                        {% endif %}
+                    </div>
+
+
+                    <div class="product-description">
+
+                        <div class="product-tags">
+                            {% for tag in product.tags.all %}
+                                <span class="tag">{{ tag.name }}</span>
+                            {% endfor %}
+
+
+                        </div>
+                        <div class="product-title">
+                            <h1>{{ product.title }}</h1>
+                        </div>
+                        <h3>Описание товара</h3>
+                        <span>{{ product.description }}</span>
+                        <hr>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>id:{{ product.pk }}</span>
+                            <span>Просмотров: {{ product.view_count }}</span>
+                        </div>
+                    </div>
+                    <div class="contact-the-seller">
+                        <div class="author-info">
+                            <div class="author-foto">
+                                <img src="{% static "images/avatar.png" %}" alt="author avatar">
+                            </div>
+                            <div class="author-data">
+                                <a href="#" target="_blank">{{ product.author }}</a>
+                            </div>
+                        </div>
+                        <div class="author-buttons">
+
+
+                            <div class="messanger">
+                                <a href="https://t.me/{{ product.telegram }}" class="messanger-link">телеграм</a>
+                            </div>
+
+                            <div class="phone-number-block">
+                                <a href="#" class="show-phone-number">Посмотреть телефон номер</a>
+                                <a href="tel:{{ product.telephone }}"
+                                   class="phone-number hidden">{{ product.telephone }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="listing-info">
+                    <div class="product-info">
+                        <div class="publication-date">
+                            <span class="css-fscvqi er34gjf0">Опубликовано {{ product.create_date|date:"d F Y г." }}</span>
+                            <div class="svg-icon-container">
+                                {% if user.is_authenticated %}
+                                    <a href="#" class="favorite-link" data-product-pk="{{ buy.pk }}">
+                                        <i class="{% if product.in_favorites %}fa-solid{% else %}fa-regular{% endif %} fa-heart"
+                                           style="width: 20px; color: #605f5f;"></i>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="product-title">
+                            <h1>{{ product.title }}</h1>
+                        </div>
+                        <div class="product-buttons">
+                            <div class="messanger">
+                                <a href="#" class="messanger-link">Whatsup</a>
+                            </div>
+                            <div class="messanger">
+                                <a href="https://t.me/{{ product.telegram }}" class="messanger-link">телеграм</a>
+                            </div>
+                            <div class="phone-number-block">
+                                <a href="#" class="show-phone-number">Посмотреть телефон номер</a>
+                                <a href="tel:{{ product.telephone }}"
+                                   class="phone-number hidden">{{ product.telephone }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="author-info">
+                        <p>ПОЛЬЗОВАТЕЛЬ</p>
+                        <div class="author-row">
+                            <div class="author-foto">
+                                <img src="{% static 'images/avatar.png' %}" alt="author avatar">
+                            </div>
+                            <div class="author-data">
+                                <a href="#" target="_blank">{{ product.author }}</a>
+                                <span class="author-data-joined">в TECNOPROM с {{ product.author.date_joined|date:"F Y г." }}</span>
+                            </div>
+                        </div>
+                        <div class="button-all-announcements-this-author">
+                            <a href="#" target="_blank">Все объявления автора</a>
+                        </div>
+                    </div>
+                    <div class="product-location">
+                        <p>МЕСТОПОЛОЖЕНИЕ</p>
+                        <div class="location-row">
+                            <div class="location-icon">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </div>
+                            <div class="location-text">
+                                {{ product.country }}/{{ product.city }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- like button -->
+
+
+<!-- SLIDER photos -->
+<script>
+    const sliderContainer = document.querySelector('.slider-container');
+    const sliderTrack = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slide');
+    const slideWidth = slides[0].clientWidth;
+    let currentIndex = 0;
+    let touchStartX = 0;
+    let cursorStartX = 0;
+
+    function showSlide(index) {
+        if (index < 0) {
+            index = slides.length - 1;
+        } else if (index >= slides.length) {
+            index = 0;
+        }
+
+        const offset = (sliderContainer.clientWidth - slideWidth) / 2 - index * slideWidth;
+        sliderTrack.style.transform = `translateX(${offset}px)`;
+
+        slides.forEach((slide, idx) => {
+            slide.classList.remove('active');
+        });
+
+        slides[index].classList.add('active');
+
+        currentIndex = index;
+    }
+
+    // Начальный показ слайдов
+    showSlide(currentIndex);
+
+    // Переключение на следующий слайд
+    function nextSlide() {
+        showSlide(currentIndex + 1);
+    }
+
+    // Переключение на предыдущий слайд
+    function prevSlide() {
+        showSlide(currentIndex - 1);
+    }
+
+    // Обработчики событий для кнопок переключения
+    document.querySelector('.next-button').addEventListener('click', nextSlide);
+    document.querySelector('.prev-button').addEventListener('click', prevSlide);
+
+    // Обработчики событий для курсора
+    sliderContainer.addEventListener('mousedown', (e) => {
+        cursorStartX = e.clientX;
+    });
+
+    sliderContainer.addEventListener('mouseup', (e) => {
+        const cursorEndX = e.clientX;
+        const cursorDeltaX = cursorEndX - cursorStartX;
+
+        if (cursorDeltaX > 50) {
+            prevSlide(); // Переключение на предыдущий слайд
+        } else if (cursorDeltaX < -50) {
+            nextSlide(); // Переключение на следующий слайд
+        }
+    });
+
+    // Обработчики событий для сенсорных устройств
+    sliderContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    sliderContainer.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchDeltaX = touchEndX - touchStartX;
+
+        if (touchDeltaX > 50) {
+            prevSlide(); // Переключение на предыдущий слайд
+        } else if (touchDeltaX < -50) {
+            nextSlide(); // Переключение на следующий слайд
+        }
+    });
+
+</script>
+
+
+<!-- Phone number -->
+<script>
+
+    const showPhoneNumberButtons = document.querySelectorAll('.show-phone-number');
+    const phoneNumberLinks = document.querySelectorAll('.phone-number');
+
+    showPhoneNumberButtons.forEach((button, index) => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            button.classList.add('hidden');
+            phoneNumberLinks[index].classList.remove('hidden');
+        });
+    });
+
+</script>
+
+
+<!-- RANDOM COLORS FOR TAGS -->
+<script>
+    const tags = document.querySelectorAll('.tag');
+
+    tags.forEach(tag => {
+        const randomPastelColor = getRandomPastelColor();
+        tag.style.backgroundColor = randomPastelColor;
+    });
+
+    function getRandomPastelColor() {
+        const hue = Math.floor(Math.random() * 360);
+        const saturation = 25 + Math.floor(Math.random() * 50);
+        const lightness = 70 + Math.floor(Math.random() * 10);
+        return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    }
+
+</script>
+
+</body>
+</html>

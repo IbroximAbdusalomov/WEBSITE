@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 from django.utils.translation import gettext as _
 from django.contrib.auth import get_user_model
 
+from films.models import Films
+
 
 class UserRegisterForm(UserCreationForm):
     username = UsernameField(widget=forms.TextInput(attrs={

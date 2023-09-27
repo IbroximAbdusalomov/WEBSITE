@@ -1,234 +1,265 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/categories/yangi-uskunalar-24px.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin-panel.css' %}">
-    <title>Document</title>
+    <title>{{ request.user }}</title>
 </head>
 <body>
 
-<style>
-    .seller-profile-infos {
-        display: flex;
-        justify-content: space-between;
-        padding: 24px 24px;
-        background: #e8efff;
-        margin-bottom: 50px;
-    }
+<!-- Header section -->
+{% include "nav_bar.html" %}
+<!-- /Header section -->
 
-    .seller-profile-info {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .seller-profile-img img {
-        width: 74px;
-    }
-</style>
-
-{% include 'nav_bar.html' %}
-
+{% include "messages.html" %}
 
 <!-- ADMIN PANEL -->
 <section class="admin-panel">
-
-    <div class="container">
-        <div class="seller-profile-infos">
-            <div class="seller-profile-info">
-                <div class="seller-profile-img">
-                    <img src="{% static 'avatar-svgrepo-com.svg' %}" alt="">
-                </div>
-                <div class="seller-profile-username">
-                    <h1 class="to-uppercase">{{ user.username }}</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="container">
         <div class="row-1">
-            <a href="{% url 'logout' %}"></a>
             <div><h3 data-testid="header-title" class="css-6i2gxn er34gjf0">Ваши объявления</h3></div>
             <div class="admin-panel__buttons right-buttons">
                 <ul class="buttons">
                     <li class="login-button"><a href="#">Hisobni to'ldiring</a></li>
-                    <li class="price-button"><a href="#price-form">Tariflar</a></li>
+                    <li class="price-button"><a href="#">Tariflar</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="tab-list">
-            <button class="tab-button active" data-target="active-section">Faollar</button>
-            <button class="tab-button" data-target="waiting-section">Tekshiruvda</button>
-            <button class="tab-button" data-target="finished-section">Faol emaslar</button>
-            {#            <button class="tab-button" data-target="moderated-section">O'chirilganlar</button>#}
+            <button class="tab-button active" data-target="active-section">Активные</button>
+            <button class="tab-button" data-target="waiting-section">В модерации</button>
+            <button class="tab-button" data-target="finished-section">Не активные</button>
+            <button class="tab-button" data-target="favorites-section">Избранные</button>
             <div class="underline"></div>
         </div>
 
         <div class="sections">
             <div class="section active-section">
-                <div class="action-buttons">
-                    <button class="action-button delete-button" data-action="delete" disabled>Удалить</button>
-                    <button class="action-button edit-button" data-action="edit" disabled>Изменить</button>
-                    <button class="action-button activate-button" data-action="activate" disabled>Активировать</button>
-                </div>
-                <div class="cards">
-                    {% for user_film in user_films %}
-                        {% if user_film.is_active %}
-                            <div class="card__buy card-color">
-                                <div class="card__buy-content">
-                                    <label>
-                                        <input type="checkbox" class="card-checkbox">
-                                    </label>
-                                    <div class="category-info">
-                                        <div class="product-cat__image">
-                                            <img src="{{ user_film.image }}" alt="cat image">
+                <form action="{% url 'product-action' %}" method="post">
+                    {% csrf_token %}
+                    <div class="action-buttons">
+                        <button class="action-button delete-button" type="submit" name="action" value="delete" disabled>
+                            Удалить
+                        </button>
+                        <button class="action-button edit-button" type="submit" name="action" value="edit" disabled>
+                            Изменить
+                        </button>
+                        <button class="action-button deactivate-button" type="submit" name="action" value="deactivate"
+                                disabled>Деактивировать
+                        </button>
+                    </div>
+                    <div class="cards">
+                        {% for product in products %}
+                            {% if product.is_active and product.is_published %}
+                                {% if product.type == 'buy' %}
+                                    <div class="card__buy card-color">
+                                        <div class="card__buy-content">
+                                            <label>
+                                                <input type="checkbox" class="card-checkbox" name="selected_products"
+                                                       value="{{ product.pk }}">
+                                            </label>
+                                            <div class="category-info">
+                                                <div class="product-cat__image">
+                                                    <img src="{% static "images/categories/1.svg" %}" alt="cat image">
+                                                </div>
+                                                <a href="#">{{ product.category }}</a>
+                                            </div>
+                                            <h2 class="title"><a href="{% url "product-detail" product.pk %}"
+                                                                 class="title">{{ product.title }}</a>
+                                            </h2>
+                                            <p class="description">{{ product.description }}</p>
+                                            <div class="product-data">
+                                                <div class="flags">
+                                                    <span class="country">{{ product.country }}</span>
+                                                </div>
+                                                <div class="date">
+                                                    <span class="css-fscvqi er34gjf0">Опубликовано {{ product.create_date|date:"d F Y г." }}</span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <a href="#">{{ user_film.category }}</a>
                                     </div>
-                                    <h2 class="title"><a href="{% url 'product_detail' user_film.pk %}"
-                                                         class="title">{{ user_film.title }}</a>
-                                    </h2>
-                                    <p class="description">▪️ Холати:  ишлатилган
-                                        ▪️ каймок, сыр, катик, шоколод, кетчуп  хуллас куюк
-                                        махсулотларни хайдаш учун ишлатилади.
-                                        ▪️Зангламас металлдан нержевейкадан.
-                                        ————————
-                                        ▪️рабочый
-                                        ▪️ сметана, сыр, кефир, шоколод, кетчуп. Исползуеться для густые продукции.
-                                        ▪️Корпус нержевейще металл.
-
-                                        💰Келишилади.
-
-                                        📱+998909902448
-                                        📱+998999649003</p>
-                                    <div class="product-data">
-                                        <div class="flags">
-                                            <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
-                                            <span class="country">Страна</span>
-                                        </div>
-                                        <div class="date">
-                                            <span class="full-date">{{ user_film.create_date }}</span>
+                                {% else %}
+                                    <div class="card__sell card-color">
+                                        <div class="card__sell-content">
+                                            <label>
+                                                <input type="checkbox" class="card-checkbox" name="selected_products"
+                                                       value="{{ product.pk }}">
+                                            </label>
+                                            <div class="card__sell-image">
+                                                <img src="{{ product.image.url }}" alt="Product Image">
+                                            </div>
+                                            <h2 class="title">{{ product.title }}</h2>
+                                            <div class="product-data">
+                                                <div class="flags">
+                                                    <span class="country">{{ product.country }}</span>
+                                                </div>
+                                                <div class="date">
+                                                    <span class="css-fscvqi er34gjf0">Опубликовано {{ product.create_date|date:"d F Y г." }}</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </form>
             </div>
             <div class="section waiting-section">
-                <div class="action-buttons">
-                    <button class="action-button delete-button" data-action="delete" disabled>Удалить</button>
-                    <button class="action-button edit-button" data-action="edit" disabled>Изменить</button>
-                    <button class="action-button activate-button" data-action="activate" disabled>Активировать</button>
-                </div>
-                <div class="cards">
-                    {% for user_film in user_films %}
-                        {% if not user_film.is_active %}
-                            <div class="card__buy card-color">
-                                <div class="card__buy-content">
-                                    <label>
-                                        <input type="checkbox" class="card-checkbox">
-                                    </label>
-                                    <div class="category-info">
-                                        <div class="product-cat__image">
-                                            <img src="{{ user_film.image }}" alt="cat image">
-                                        </div>
-                                        <a href="#">{{ user_film.category }}</a>
-                                    </div>
-                                    <h2 class="title"><a href="{% url 'product_detail' user_film.pk %}"
-                                                         class="title">{{ user_film.title }}</a>
-                                    </h2>
-                                    <p class="description">▪️ Холати:  ишлатилган
-                                        ▪️ каймок, сыр, катик, шоколод, кетчуп  хуллас куюк
-                                        махсулотларни хайдаш учун ишлатилади.
-                                        ▪️Зангламас металлдан нержевейкадан.
-                                        ————————
-                                        ▪️рабочый
-                                        ▪️ сметана, сыр, кефир, шоколод, кетчуп. Исползуеться для густые продукции.
-                                        ▪️Корпус нержевейще металл.
-
-                                        💰Келишилади.
-
-                                        📱+998909902448
-                                        📱+998999649003</p>
-                                    <div class="product-data">
-                                        <div class="flags">
-                                            <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
-                                            <span class="country">Страна</span>
-                                        </div>
-                                        <div class="date">
-                                            <span class="full-date">{{ user_film.create_date }}</span>
+                <form action="{% url 'product-action' %}" method="post">
+                    {% csrf_token %}
+                    <div class="action-buttons">
+                        <button class="action-button delete-button" type="submit" name="action" value="delete" disabled>
+                            Удалить
+                        </button>
+                    </div>
+                    <div class="cards">
+                        {% for product in products %}
+                            {% if not product.is_active %}
+                                {% if product.type == 'buy' %}
+                                    <div class="card__buy card-color">
+                                        <div class="card__buy-content">
+                                            <label>
+                                                <input type="checkbox" class="card-checkbox" name="selected_products"
+                                                       value="{{ product.pk }}">
+                                            </label>
+                                            <div class="category-info">
+                                                <div class="product-cat__image">
+                                                    <img src="{% static "images/categories/1.svg" %}" alt="cat image">
+                                                </div>
+                                                <a href="#">{{ product.category }}</a>
+                                            </div>
+                                            <h2 class="title"><a href="{% url "product-detail" product.pk %}"
+                                                                 class="title">{{ product.title }}</a>
+                                            </h2>
+                                            <p class="description">{{ product.description }}</p>
+                                            <div class="product-data">
+                                                <div class="flags">
+                                                    <span class="country">{{ product.country }}</span>
+                                                </div>
+                                                <div class="date">
+                                                    <span class="css-fscvqi er34gjf0">Опубликовано {{ product.create_date|date:"d F Y г." }}</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-
-                </div>
+                                {% else %}
+                                    <div class="card__sell card-color">
+                                        <div class="card__sell-content">
+                                            <label>
+                                                <input type="checkbox" class="card-checkbox" name="selected_products"
+                                                       value="{{ product.pk }}">
+                                            </label>
+                                            <div class="card__sell-image">
+                                                <img src="{{ product.image.url }}" alt="Product Image">
+                                            </div>
+                                            <h2 class="title">{{ product.title }}</h2>
+                                            <div class="product-data">
+                                                <div class="flags">
+                                                    <span class="country">{{ product.country }}</span>
+                                                </div>
+                                                <div class="date">
+                                                    <span class="css-fscvqi er34gjf0">Опубликовано {{ product.create_date|date:"d F Y г." }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </form>
             </div>
             <div class="section finished-section">
-                <div class="cards">
-                    {% for user_film in user_films %}
-                        {% if not user_film.is_published %}
-                            <div class="card__buy card-color">
-                                <div class="card__buy-content">
-                                    <label>
-                                        <input type="checkbox" class="card-checkbox">
-                                    </label>
-                                    <div class="category-info">
-                                        <div class="product-cat__image">
-                                            <img src="{{ user_film.image }}" alt="cat image">
+                <form action="{% url 'product-action' %}" method="post">
+                    {% csrf_token %}
+                    <div class="action-buttons">
+                        <button class="action-button delete-button" type="submit" name="action" value="delete" disabled>
+                            Удалить
+                        </button>
+                        <button class="action-button edit-button" type="submit" name="action" value="edit" disabled>
+                            Изменить
+                        </button>
+                        <button class="action-button deactivate-button" type="submit" name="action" value="deactivate"
+                                disabled>Деактивировать
+                        </button>
+                    </div>
+                    <div class="cards">
+                        {% for product in products %}
+                            {% if not product.is_published %}
+                                {% if product.type == 'buy' %}
+                                    <div class="card__buy card-color">
+                                        <div class="card__buy-content">
+                                            <label>
+                                                <input type="checkbox" class="card-checkbox" name="selected_products"
+                                                       value="{{ product.pk }}">
+                                            </label>
+                                            <div class="category-info">
+                                                <div class="product-cat__image">
+                                                    <img src="{% static "images/categories/1.svg" %}" alt="cat image">
+                                                </div>
+                                                <a href="#">{{ product.category }}</a>
+                                            </div>
+                                            <h2 class="title"><a href="{% url "product-detail" product.pk %}"
+                                                                 class="title">{{ product.title }}</a>
+                                            </h2>
+                                            <p class="description">{{ product.description }}</p>
+                                            <div class="product-data">
+                                                <div class="flags">
+                                                    {#                                            <img src="./images/Flag_of_Uzbekistan.svg" alt="Флаг страны">#}
+                                                    <span class="country">{{ product.country }}</span>
+                                                </div>
+                                                <div class="date">
+                                                    <span class="css-fscvqi er34gjf0">Опубликовано {{ product.create_date|date:"d F Y г." }}</span>
+
+                                                    {#                                            <span class="full-date">{{ product.create_date }}</span>#}
+                                                </div>
+                                            </div>
                                         </div>
-                                        <a href="#">{{ user_film.category }}</a>
                                     </div>
-                                    <h2 class="title"><a href="{% url 'product_detail' user_film.pk %}"
-                                                         class="title">{{ user_film.title }}</a>
-                                    </h2>
-                                    <p class="description">▪️ Холати:  ишлатилган
-                                        ▪️ каймок, сыр, катик, шоколод, кетчуп  хуллас куюк
-                                        махсулотларни хайдаш учун ишлатилади.
-                                        ▪️Зангламас металлдан нержевейкадан.
-                                        ————————
-                                        ▪️рабочый
-                                        ▪️ сметана, сыр, кефир, шоколод, кетчуп. Исползуеться для густые продукции.
-                                        ▪️Корпус нержевейще металл.
-
-                                        💰Келишилади.
-
-                                        📱+998909902448
-                                        📱+998999649003</p>
-                                    <div class="product-data">
-                                        <div class="flags">
-                                            <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">
-                                            <span class="country">Страна</span>
-                                        </div>
-                                        <div class="date">
-                                            <span class="full-date">{{ user_film.create_date }}</span>
+                                {% else %}
+                                    <div class="card__sell card-color">
+                                        <div class="card__sell-content">
+                                            <label>
+                                                <input type="checkbox" class="card-checkbox" name="selected_products"
+                                                       value="{{ product.pk }}">
+                                            </label>
+                                            <div class="card__sell-image">
+                                                <img src="{{ product.image.url }}" alt="Product Image">
+                                            </div>
+                                            <h2 class="title">{{ product.title }}</h2>
+                                            <div class="product-data">
+                                                <div class="flags">
+                                                    <span class="country">{{ product.country }}</span>
+                                                </div>
+                                                <div class="date">
+                                                    <span class="css-fscvqi er34gjf0">Опубликовано {{ product.create_date|date:"d F Y г." }}</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </form>
 
-                </div>
             </div>
-            {#            <div class="section moderated-section">Содержимое раздела "Отклоненные"</div>#}
+            <div class="section favorites-section">
+                favorites
+            </div>
         </div>
 
 
     </div>
 </section>
-
 <!-- ADMIN PANEL -->
 
 <script>
@@ -257,7 +288,6 @@
         });
     });
 </script>
-
 
 <script>
     // Get all the tag placeholders
@@ -303,8 +333,56 @@
             checkbox.addEventListener('change', updateButtonsState);
         });
     });
-
-
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const actionButtons = document.querySelectorAll(".action-button");
+        const selectedProducts = document.querySelectorAll(".card-checkbox");
+
+        // Обработчик события для кнопок действий
+        actionButtons.forEach((button) => {
+            button.addEventListener("click", function () {
+                const action = button.getAttribute("data-action");
+                const selectedProductIds = [];
+
+                // Находим выбранные продукты
+                selectedProducts.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        selectedProductIds.push(checkbox.value);
+                    }
+                });
+
+                // Отправляем POST-запрос на сервер в зависимости от выбранного действия
+                if (selectedProductIds.length > 0) {
+                    const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+                    fetch("{% url 'product-action' %}", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRFToken": csrfToken,
+                        },
+                        body: JSON.stringify({
+                            action: action,
+                            selected_products: selectedProductIds,
+                        }),
+                    })
+                        .then((response) => {
+                            if (response.ok) {
+                                // Обновляем страницу после успешного выполнения действия
+                                window.location.reload();
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("Ошибка при выполнении действия:", error);
+                        });
+                } else {
+                    alert("Выберите продукты для выполнения действия.");
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

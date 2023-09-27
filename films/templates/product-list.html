@@ -39,20 +39,48 @@
     <section id="cards__buy-section" class="cards__buy-section">
         <div class="filter-container">
             <form class="filter-form" action="#">
-                <div class="filter-item">
-                    {{ form.category }}
-                </div>
-                <div class="filter-item" id="subcategory-group">
-                    {{ form.subcategory }}
-                </div>
-                <div class="filter-item" id="country-group">
-                    {{ form.country }}
-                </div>
-                <div class="filter-item" id="city-group">
-                    {{ form.city }}
+                <div class="filter-item" id="type-group" style="width: 140px;">
+                    <label for="type-group" class="form-label">Что вам нужно ?</label>
+                    {{ form.type }}
                 </div>
 
-                <button id="submit-filter">Отправить</button>
+                <div style="width: 50%">
+                    <div style="display: flex">
+                        <div class="filter-item">
+                            <label for="type-group" class="form-label">Что вам нужно ?</label>
+
+                            {{ form.category }}
+                        </div>
+                        <div class="filter-item" id="subcategory-group">
+                            <label for="type-group" class="form-label">Что вам нужно ?</label>
+
+                            {{ form.sub_category }}
+                        </div>
+                    </div>
+                    <div class="form-group" id="tags-group" style="display: block">
+                        {#                        <label for="subcategory" class="form-label">Теги:</label>#}
+                        <div id="tags-checkboxes">
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex;">
+                    <div>
+                        <div class="filter-item" id="country-group">
+                            <label for="type-group" class="form-label">Страны</label>
+
+                            {{ form.country }}
+                        </div>
+                        <div class="filter-item" id="city-group">
+                            <label for="type-group" class="form-label">Города:</label>
+                            {{ form.city }}
+                        </div>
+
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-end;">
+                    <button id="submit-filter">Фильтровать</button>
+
+                </div>
 
             </form>
         </div>
@@ -64,11 +92,9 @@
                     <div class="card__sell card-color">
                         <div class="card__buy-content">
                             <div class="card__sell-image">
-                                {% for image in film.image_set.all %}
-                                    <img src="{{ image.image.url }}" alt="Product Image">
-                                {% endfor %}
+                                <img src="{{ film.image.url }}" alt="Product Image">
                             </div>
-                            <a href="#" class="title">{{ film.title }}</a>
+                            <a href="{% url 'product-detail' film.pk %}" class="title">{{ film.title }}</a>
 
                             <div class="product-data">
                                 <div class="flags">
@@ -101,7 +127,8 @@
                                 </div>
                                 <a href="#">{{ film.category }}</a>
                             </div>
-                            <h2 class="title"><a href="{% url 'index' %}" class="title">{{ film.title }}</a></h2>
+                            <h2 class="title"><a href="{% url 'product-detail' film.pk %}"
+                                                 class="title">{{ film.title }}</a></h2>
                             <p class="description">{{ film.description }}</p>
                             <div class="product-data">
                                 <div class="flags">
@@ -127,44 +154,35 @@
                     </div>
 
                 {% endif %}
+            {% empty %}
+                <h1>Пока что нет таких объявлений.</h1>
             {% endfor %}
-
         </div>
 
     </section>
 </div>
 <!-- /Cards buy section -->
 
-<div class="pagination">
-    <button class="pagination__prev">Previous</button>
-    <div class="pagination__pages">
-        <button class="pagination__page">1</button>
-        <button class="pagination__page">2</button>
-        <!-- Добавьте другие кнопки страниц здесь -->
-    </div>
-    <button class="pagination__next">Next</button>
-</div>
-
 
 <!-- Footer section -->
 {% include 'footer.html' %}
 <!-- /Footer section -->
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
-        const categorySelect = $('#id_category'); // Выбор элемента категории
-        const subcategoryGroup = $('#subcategory-group'); // Группа элементов субкатегории
-        const subcategorySelect = $('#id_subcategory'); // Выбор элемента субкатегории
-
-        // Скрываем группу субкатегорий при загрузке страницы
-        subcategoryGroup.hide();
+        const categorySelect = $('#id_category');
+        const subcategorySelect = $('#id_sub_category');
+        const tagsGroup = $('#tags-group'); // Добавляем элемент для тегов
+        const tagsSelect = $('#id_tags'); // Замените на соответствующий id поля тегов
 
         // Функция для загрузки субкатегорий
         function loadSubcategories() {
             const selectedCategoryId = categorySelect.val();
 
             // Очищаем предыдущие опции и добавляем "Выберите субкатегорию"
-            subcategorySelect.empty().append($('<option></option>').attr('value', '').text('Выберите субкатегорию'));
+            subcategorySelect.empty().append($('<option></option>').attr('value', '').text('Сначала выберите категорию'));
+            tagsGroup.hide(); // Скрываем поле выбора тегов
 
             if (selectedCategoryId) {
                 // Запрос на сервер для получения субкатегорий по выбранной категории
@@ -173,25 +191,102 @@
                     dataType: 'json',
                     success: function (data) {
                         console.log(data.subcategories); // Здесь data определена и содержит данные
+                        subcategorySelect.empty();
+                        subcategorySelect.append($('<option></option>').attr('value', '').text('Выберите субкатегорию')); // Добавляем опцию по умолчанию
                         $.each(data.subcategories, function (key, value) {
                             subcategorySelect.append($('<option></option>').attr('value', key).text(value));
                         });
-                        subcategoryGroup.show(); // Показываем поле выбора субкатегории
+                        tagsGroup.show(); // Показываем поле выбора субкатегории
                     }
                 });
             } else {
-                subcategoryGroup.hide(); // Скрываем поле выбора субкатегории, если категория не выбрана
+                tagsGroup.show(); // Показываем поле выбора субкатегории, даже если категория не выбрана
             }
         }
 
-        // Отслеживаем изменения в поле выбора категории
         categorySelect.change(loadSubcategories);
 
-        // Вызываем функцию загрузки субкатегорий при инициализации страницы
         loadSubcategories();
+
+        // Функция для загрузки тегов
+        function loadTags() {
+            const selectedSubcategoryId = subcategorySelect.val();
+
+            // Очищаем предыдущие чекбоксы
+            $('#tags-checkboxes').empty();
+
+            if (selectedSubcategoryId) {
+                // Запрос на сервер для получения тегов по выбранной субкатегории
+                $.ajax({
+                    url: `/related_to_it/?subcategory_id=${selectedSubcategoryId}`,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data.tags); // Здесь data определена и содержит данные
+                        $.each(data.tags, function (key, value) {
+                            // Создаем div контейнер для каждого чекбокса и его лейбла
+                            const checkboxContainer = $('<div>')
+                                .addClass('cat')
+                                .addClass('action');
+
+                            // Создаем лейбл для каждого тега
+                            const label = $('<label>');
+
+                            // Создаем чекбокс для каждого тега и добавляем его внутрь лейбла
+                            const checkbox = $('<input type="checkbox">')
+                                .attr('id', `tag-${key}`)
+                                .attr('name', 'tags')
+                                .attr('value', key)
+                                .appendTo(label);
+
+                            // Добавляем текст тега внутрь лейбла
+                            label.append($('<span>').text(value));
+
+                            // Добавляем лейбл в контейнер
+                            checkboxContainer.append(label);
+
+                            // Добавляем контейнер в блок с чекбоксами
+                            $('#tags-checkboxes').append(checkboxContainer);
+                        });
+                        tagsGroup.show(); // Показываем блок с чекбоксами для тегов
+                    }
+                });
+            } else {
+                tagsGroup.hide(); // Скрываем блок с чекбоксами для тегов, если субкатегория не выбрана
+            }
+        }
+
+        // Отслеживаем изменения в поле выбора субкатегории
+        subcategorySelect.change(loadTags);
+
+        // Вызываем функцию загрузки тегов при инициализации страницы
+        loadTags();
     });
+
 </script>
 
+<script>
+    $(document).ready(function () {
+        // Функция, которая будет вызываться при изменении поля "Страна"
+        $("#id_country").change(function () {
+            // Получаем значение выбранной страны
+            var selectedCountry = $(this).val();
+
+            // Если выбран Узбекистан, показываем поле "Город", иначе скрываем его
+            if (selectedCountry === "1") {
+                $("#city-group").show();
+            } else {
+                $("#city-group").hide();
+            }
+        });
+
+        // Инициализация состояния поля "Город" при загрузке страницы
+        if ($("#country").val() === "1") {
+            $("#city-group").show();
+        } else {
+            $("#city-group").hide();
+        }
+    });
+</script>
 
 </body>
 </html>

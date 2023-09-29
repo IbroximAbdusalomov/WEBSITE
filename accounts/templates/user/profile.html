@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="icon" href="{% static 'images/categories/yangi-uskunalar-24px.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -253,7 +256,90 @@
 
             </div>
             <div class="section favorites-section">
-                favorites
+                <div class="cards">
+                    {% for product in favorite_products %}
+                        {% if product.type == 'buy' %}
+                            <div class="card__buy card-color">
+                                <div class="card__buy-content">
+                                    <div class="category-info">
+                                        <div class="product-cat__image">
+                                            {% if product.category.pk == 1 %}
+                                                <img src="{% static 'images/categories/yangi-uskunalar-24px.png' %}"
+                                                     alt="cat image">
+                                            {% elif product.category.pk == 2 %}
+                                                <img src="{% static 'images/categories/ishlatilgan-uskunalar-24px.png' %}"
+                                                     alt="cat image">
+                                            {% elif product.category.pk == 3 %}
+                                                <img src="{% static 'images/categories/xomashyo-24px.png' %}"
+                                                     alt="cat image">
+                                            {% elif product.category.pk == 4 %}
+                                                <img src="{% static 'images/categories/4.svg' %}" alt="cat image">
+                                            {% endif %}
+                                        </div>
+                                        <a href="{% url "product-list" %}">{{ product.category }}
+                                            | {{ product.sub_category }}</a>
+                                    </div>
+                                    <h2 class="title"><a href="{% url 'product-detail' product.pk %}"
+                                                         class="title">{{ product.title }}</a></h2>
+                                    <p class="description">{{ product.description }}</p>
+                                    <div class="product-data">
+                                        <div class="flags">
+                                            <span class="country">{{ product.country }}</span>
+                                        </div>
+                                        <div class="date">
+                                            <span class="full-date">{{ product.create_date }}</span>
+                                        </div>
+                                        <div class="like-and-more">
+                                            <a href="{% url 'product-detail' product.pk %}"
+                                               class="read-more">Подробнее</a>
+                                            <div class="svg-icon-container">
+                                                {% if user.is_authenticated %}
+                                                    <span class="add-to-favorites" data-product-id="{{ product.pk }}"
+                                                          data-url="{% url 'add_to_favorites' product.pk %}">
+                                                <i class="fa-{% if in_favorite %}solid{% else %}regular{% endif %} fa-heart"
+                                                   style="cursor: pointer; width: 24px"></i>
+                                            </span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="card__sell card-color">
+                                <div class="card__buy-content">
+                                    <div class="card__sell-image">
+                                        <img src="{{ product.image.url }}" alt="Product Image">
+                                    </div>
+                                    <a href="{% url 'product-detail' product.pk %}"
+                                       class="title">{{ product.title }}</a>
+
+                                    <div class="product-data">
+                                        <div class="flags">
+                                            <span class="country">{{ product.country }}</span>
+                                        </div>
+                                        <div class="date">
+                                            <span class="full-date">{{ product.create_date }}</span>
+                                        </div>
+                                        <div class="like-and-more">
+                                            <a href="{% url "product-detail" product.pk %}"
+                                               class="read-more">Подробнее</a>
+                                            <div class="svg-icon-container">
+                                                {% if user.is_authenticated %}
+                                                    <span class="add-to-favorites" data-product-id="{{ product.pk }}"
+                                                          data-url="{% url 'add_to_favorites' product.pk %}">
+                                                <i class="fa-{% if in_favorite %}solid{% else %}regular{% endif %} fa-heart"
+                                                   style="cursor: pointer; width: 24px"></i>
+                                            </span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
@@ -384,5 +470,37 @@
     });
 </script>
 
+
+<!-- like button -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".add-to-favorites").click(function () {
+            var span = $(this);
+            var productId = span.data("product-id");
+
+            // Отправляем AJAX-запрос к add_to_favorites
+            $.ajax({
+                url: "{% url 'add_to_favorites' 0 %}".replace('0', productId),
+                type: "POST",
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function (data) {
+                    if (data.added) {
+                        // Продукт был добавлен в избранное, меняем иконку на fa-solid
+                        span.find('i').removeClass('fa-regular').addClass('fa-solid');
+                    } else {
+                        // Продукт был удален из избранного, меняем иконку на fa-regular
+                        span.find('i').removeClass('fa-solid').addClass('fa-regular');
+                    }
+                },
+                error: function () {
+                    alert("Произошла ошибка при обновлении избранного.");
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>

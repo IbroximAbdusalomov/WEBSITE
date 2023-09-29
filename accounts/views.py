@@ -17,20 +17,8 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
 
 from films.forms import FilmsForm
-from films.models import Films
+from films.models import Films, Favorite
 from .forms import UserLoginForm, UserRegisterForm
-
-
-class AuthorizationView(View):
-    """Показать формы: Авторизации и Регистрации"""
-
-    @staticmethod
-    def get(request):
-        return render(request, "user/login.html", {
-            "register_form": UserRegisterForm(),
-            "login_form": UserLoginForm(),
-            "title": "Авторизация"
-        })
 
 
 def generate_verification_code():
@@ -39,6 +27,12 @@ def generate_verification_code():
 
 class RegisterUserView(CreateView):
     form_class = UserRegisterForm
+    template_name = 'user/register.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['register_form'] = self.form_class
+        return context
 
     def form_valid(self, form):
         user = form.save(commit=False)
@@ -53,18 +47,16 @@ class RegisterUserView(CreateView):
         try:
             send_mail(subject, message, from_email, to)
         except:
-            messages.error(self.request, f"Problem sending email to {to}, check if you typed it correctly.")
-            return redirect('register')
+            messages.error(self.request,
+                           f"Проблема с отправкой электронного письма на адрес {to}. Проверьте, правильно ли вы его ввели.")
+            return render(self.request, self.template_name, {'register_form': form})
         self.request.session['verification_code'] = code
         self.request.session['user_id'] = user.pk
         return redirect('verify_code')
 
     def form_invalid(self, form):
-        messages.error(self.request, form.errors)
-        return super().form_invalid(form)
-
-    def render_to_response(self, context, **response_kwargs):
-        return redirect("auth")
+        errors = form.errors
+        return render(self.request, self.template_name, {'register_form': form})
 
 
 class VerifyCodeView(View):
@@ -89,10 +81,10 @@ class VerifyCodeView(View):
                     login(request, user)
                     messages.success(request,
                                      "Ваша учетная запись была успешно активирована.")
-                    return redirect('profile', request.user.pk)
+                    # return redirect('profile', request.user.pk)
+                    return redirect('index')
                 else:
                     messages.error(request, "Неверный код подтверждения. Пожалуйста, попробуйте еще раз.")
-                    return redirect('register')
             except Exception as e:
                 messages.error(request, "Произошла ошибка при активации учетной записи.")
                 return redirect('register')  # Можно перенаправить на страницу регистрации или на другую страницу
@@ -103,25 +95,24 @@ class VerifyCodeView(View):
 
 
 class LoginUserView(LoginView):
-    # form_class = UserLoginForm
-    # template_name = 'user/login.html'
+    form_class = UserLoginForm
+    template_name = 'user/login.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['login_form'] = self.form_class
+        return context
 
     def form_valid(self, form):
         user = form.get_user()
-        # if test.is_active == True:
         login(self.request, user)
         messages.success(self.request, "Вы успешно вошли в систему !")
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        # messages.error(self.request, form.errors['__all__'][0])
-        messages.error(self.request, "Имя пользоватея или пароль на верный")
-        return super().form_invalid(form)
-
-    # отправка ощибки
-
-    def render_to_response(self, context, **response_kwargs):
-        return redirect("auth")
+        messages.error(self.request, form.errors)
+        # Возвращаем страницу регистрации с заполненными данными пользователя
+        return render(self.request, self.template_name, {'login_form': form})
 
     def get_success_url(self):
         return reverse("index")
@@ -144,6 +135,14 @@ class ProfileView(DetailView):
         context["title"] = f"{self.object.first_name} {self.object.last_name}"
         context["user"] = self.model.objects.get(pk=self.kwargs['pk'])
         context["products"] = Films.objects.filter(author_id=self.object.pk).order_by('-create_date')
+        favorite_product_ids = Favorite.objects.filter(user=self.request.user).values_list('product_id', flat=True)
+        if self.request.user.is_authenticated:
+            in_favorite = list(favorite_product_ids)
+        else:
+            in_favorite = []
+        context['in_favorite'] = in_favorite
+        # Получите все продукты, которые есть в списке избранных
+        context["favorite_products"] = Films.objects.filter(id__in=favorite_product_ids).order_by('-create_date')
         return context
 
 

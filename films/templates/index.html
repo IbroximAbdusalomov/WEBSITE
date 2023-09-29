@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-    {#    <link rel="stylesheet" href="{% static '/css/main.css' %}">#}
 
     <!-- Cards buy section -->
     <div class="container">
@@ -40,7 +39,6 @@
                             <p class="description">{{ buy.description }}</p>
                             <div class="product-data">
                                 <div class="flags">
-                                    {#                                    <img src="{% static 'images/Flag_of_Uzbekistan.svg' %}" alt="Флаг страны">#}
                                     <span class="country">{{ buy.country }}</span>
                                 </div>
                                 <div class="date">
@@ -50,12 +48,15 @@
                                     <a href="{% url 'product-detail' buy.pk %}" class="read-more">Подробнее</a>
                                     <div class="svg-icon-container">
                                         {% if user.is_authenticated %}
-                                            <a href="#" class="favorite-link" data-product-pk="{{ buy.pk }}">
-                                                <i class="{% if buy.in_favorites %}fa-solid{% else %}fa-regular{% endif %} fa-heart"
-                                                   style="width: 20px; color: #605f5f;"></i>
-                                            </a>
+                                            <span class="add-to-favorites" data-product-id="{{ buy.pk }}"
+                                                  style="cursor: pointer">
+                                                {% if sell.pk in in_favorite %}
+                                                    <i class="fa-solid fa-heart"></i>
+                                                {% else %}
+                                                    <i class="fa-regular fa-heart"></i>
+                                                {% endif %}
+                                            </span>
                                         {% endif %}
-
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +70,7 @@
                     <a href="{% url 'product-list' %}">Все объявления</a>
                 </div>
                 <div class="create-listing-button">
-                    <a href="#">Создать объявление</a>
+                    <a href="{% url 'add_film' %}">Создать объявление</a>
                 </div>
             </div>
 
@@ -110,9 +111,11 @@
                                     <a href="{% url "product-detail" sell.pk %}" class="read-more">Подробнее</a>
                                     <div class="svg-icon-container">
                                         {% if user.is_authenticated %}
-                                            <a href="#" class="favorite-link" data-product-pk="{{ sell.pk }}">
-                                                <i class="fa-regular fa-heart" style="width: 20px; color: #605f5f;"></i>
-                                            </a>
+                                            <span class="add-to-favorites" data-product-id="{{ sell.pk }}"
+                                                  data-url="{% url 'add_to_favorites' sell.pk %}">
+                                                <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart"
+                                                   style="cursor: pointer; width: 24px"></i>
+                                            </span>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -129,7 +132,7 @@
                     <a href="{% url 'product-list' %}">Все объявления</a>
                 </div>
                 <div class="create-listing-button">
-                    <a href="#">Создать объявление</a>
+                    <a href="{% url 'add_film' %}">Создать объявление</a>
                 </div>
             </div>
 
@@ -151,37 +154,33 @@
 
     <!-- like button -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <script>
-        // Обработчик клика на значке "избранного"
-        $('.favorite-link').click(function (e) {
-            e.preventDefault();
+        $(document).ready(function () {
+            $(".add-to-favorites").click(function () {
+                var span = $(this);
+                var productId = span.data("product-id");
 
-            var productID = $(this).data('product-pk'); // Получаем идентификатор продукта из атрибута data-product-pk
-            var isFavorite = $(this).find('i').hasClass('fa-solid'); // Проверяем, является ли продукт избранным
-
-            // Формируем URL-адрес на основе идентификатора продукта
-            var url = isFavorite ? "{% url 'remove_from_favorite' 0 %}".replace("0", productID) : "{% url 'add_to_favorite' 0 %}".replace("0", productID);
-
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: {pk: productID},
-                success: function (response) {
-                    // Обработка ответа от сервера
-                    if (response.is_favorite) {
-                        // Если продукт добавлен в избранное, обновляем значок
-                        $('.favorite-link[data-product-pk="' + productID + '"] i').removeClass('fa-regular').addClass('fa-solid');
-                    } else {
-                        // Если продукт удален из избранного, обновляем значок
-                        $('.favorite-link[data-product-pk="' + productID + '"] i').removeClass('fa-solid').addClass('fa-regular');
+                // Отправляем AJAX-запрос к add_to_favorites
+                $.ajax({
+                    url: "{% url 'add_to_favorites' 0 %}".replace('0', productId),
+                    type: "POST",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function (data) {
+                        if (data.added) {
+                            // Продукт был добавлен в избранное, меняем иконку на fa-solid
+                            span.find('i').removeClass('fa-regular').addClass('fa-solid');
+                        } else {
+                            // Продукт был удален из избранного, меняем иконку на fa-regular
+                            span.find('i').removeClass('fa-solid').addClass('fa-regular');
+                        }
+                    },
+                    error: function () {
+                        alert("Произошла ошибка при обновлении избранного.");
                     }
-                },
-                error: function (error) {
-                    console.log(error);
-                }
+                });
             });
         });
     </script>
-
 {% endblock %}

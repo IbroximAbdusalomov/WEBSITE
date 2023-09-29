@@ -4,9 +4,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.http import JsonResponse
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect, render
 from django.views.generic import ListView, CreateView, DetailView
-
 from .forms import FilmsForm, ProductFilterForm
 from .models import Films, SubCategories, Favorite, Tag
 from .utils import send_message_to_channel
@@ -27,12 +26,11 @@ class IndexView(ListView):
             '-create_date')[:7]
         context["title"] = "Запросы: "
         context["form"] = FilmsForm()
-
-        user = self.request.user
-        if user.is_authenticated:
-            favorite_products = Favorite.objects.filter(user=user).values_list('product_id', flat=True)
-            context['favorite_products'] = list(favorite_products)
-
+        if self.request.user.is_authenticated:
+            in_favorite = list(Favorite.objects.filter(user=self.request.user).values_list('product_id', flat=True))
+        else:
+            in_favorite = []
+        context['in_favorite'] = in_favorite
         return context
 
     @staticmethod
@@ -57,8 +55,8 @@ class IndexView(ListView):
             messages.success(request, 'Отправлено на модерацию')
             return redirect('index')
         else:
-            messages.error(request, list(form.errors.values())[0][0])
-            return redirect('index')
+            errors = form.errors
+            return render(request, 'index.html', {'form': form, 'errors': errors})
 
 
 class ProductDetailView(DetailView):
@@ -125,13 +123,11 @@ class ProductSaveView(CreateView):
         asyncio.run(send_message_to_channel(message, film.image.path))
 
         messages.success(self.request, "Вы успешно отправили запрос !")
-        return super().form_valid(form)
+        return redirect('index')
 
     def form_invalid(self, form):
-        error_message = list(form.errors.values())[0][0]
-        messages.error(self.request, error_message)
-        # messages.error(self.request, form.errors)
-        return redirect("add_film")
+        errors = form.errors
+        return render(self.request, self.template_name, {'form': form, 'errors': errors})
 
 
 class FilmsListView(ListView):
@@ -177,6 +173,11 @@ class FilmsListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = ProductFilterForm(self.request.GET)  # Используйте GET параметры для формы
+        if self.request.user.is_authenticated:
+            in_favorite = list(Favorite.objects.filter(user=self.request.user).values_list('product_id', flat=True))
+        else:
+            in_favorite = []
+        context['in_favorite'] = in_favorite
         return context
 
 
@@ -212,25 +213,19 @@ def related_to_it(request):
 #     return redirect('profile', request.user.id)
 
 @login_required
-def add_to_favorite(request, pk):
-    product = get_object_or_404(Films, pk=pk)
-    favorite, created = Favorite.objects.get_or_create(user=request.user, product_id=product)
-
-    if created:
-        product.in_favorites = True
-        product.save()
-
-    return JsonResponse({"is_favorite": True})
-
-
-@login_required
-def remove_from_favorite(request, pk):
-    product = get_object_or_404(Films, pk=pk)
-    favorite = Favorite.objects.filter(user=request.user, product_id=product).first()
-
-    if favorite:
+def add_to_favorites(request, pk):
+    product = Films.objects.get(pk=pk)
+    try:
+        favorite = Favorite.objects.get(user=request.user, product_id=product)
         favorite.delete()
-        product.in_favorites = False
-        product.save()
+        response_data = {'added': False}
+    except Favorite.DoesNotExist:
+        Favorite.objects.create(user=request.user, product_id=product)
+        response_data = {'added': True}
 
-    return JsonResponse({"is_favorite": False})
+    return JsonResponse(response_data)
+
+
+def favorite_list(request):
+    favorites = {"favorites": Favorite.objects.filter(user=request.user)}
+    return JsonResponse(favorites)

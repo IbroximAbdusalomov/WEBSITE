@@ -16,11 +16,11 @@
         justify-content: center;
     }
 </style>
-
+{% include 'nav_bar.html' %}
 {% include 'messages.html' %}
 
 <div id="price-form" class="container">
-    <section class="price-form" style="display: flex; align-items: flex-start">
+    <section class="price-form" style="display: flex; align-items: flex-start; padding-top: 100px;">
         <div class="price__image-form">
             <img style="" id="bannerImage" src="{% static 'images/banners/banner-yangi-uskuna.svg' %}"
                  alt="">
@@ -44,46 +44,64 @@
                 {% csrf_token %}
                 <input type="hidden" name="form-name" id="form-name" value="buy">
                 <div class="form-group" style="position: relative">
-                    <label for="name" class="form-label">Название:</label>
+                    <label for="name" class="form-label">Название:{% for error in form.title.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.title }}
                     <div id="char-count title" class="char-count__title">0 / 100
                     </div>
                 </div>
                 <div class="form-group" style="position: relative">
-                    <label for="description" class="form-label">Описание:</label>
+                    <label for="description" class="form-label">Описание:{% for error in form.description.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.description }}
                     <div id="char-count description" class="char-count__description">0 / 800</div>
                 </div>
                 <div class="form-group">
-                    <label for="category" class="form-label">Категория:</label>
+                    <label for="category" class="form-label">Категория:{% for error in form.category.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.category }}
                 </div>
                 <div class="form-group" id="subcategory-group">
-                    <label for="subcategory" class="form-label">Субкатегория:</label>
+                    <label for="subcategory" class="form-label">Субкатегория:{% for error in form.sub_category.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.sub_category }}
                 </div>
                 <div class="form-group" id="tags-group" style="display: block">
-                    <label for="subcategory" class="form-label">Теги:</label>
+                    <label for="tags" class="form-label">Теги:{% for error in form.tags.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     <div id="tags-checkboxes">
-{#                        {{ form.tags }}#}
+                        {#                        {{ form.tags }}#}
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="phone" class="form-label">Телефон:</label>
+                    <label for="phone" class="form-label">Телефон номер:{% for error in form.telephone.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.telephone }}
+                </div>
+                <div class="form-group">
+                    <label for="telegram" class="form-label">Телеграмм номер:{% for error in form.telegram.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
+                    {{ form.telegram }}
                 </div>
 
                 <div class="form-group" id="country-group">
-                    <label for="id_country" class="form-label">Страна</label>
-                    <select class="form-select" id="id_country" name="country">
-                        {% for value, label in form.country.field.choices %}
-                            <option value="{{ value }}" data-thumbnail="{{ label.flag_url }}">{{ label }}</option>
-                        {% endfor %}
-                    </select>
+                    <label for="id_country" class="form-label">Страна: {% for error in form.country.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
+                    {{ form.country }}
                 </div>
 
                 <div class="form-group" id="city-group">
-                    <label for="city" class="form-label">Город</label>
+                    <label for="city" class="form-label">Город: {% for error in form.city.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.city }}
                 </div>
 

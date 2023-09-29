@@ -4,7 +4,7 @@ from . import views
 # app_name = 'main'  # -> 'main:app_name'
 
 urlpatterns = [
-    path("auth/", views.AuthorizationView.as_view(), name="auth"),
+    # path("auth/", views.AuthorizationView.as_view(), name="auth"),
     path("register/", views.RegisterUserView.as_view(), name="register"),
     path('verify-code/', views.VerifyCodeView.as_view(), name='verify_code'),
     path("login/", views.LoginUserView.as_view(), name="login"),

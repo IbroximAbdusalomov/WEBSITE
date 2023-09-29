@@ -62,9 +62,9 @@
             </nav>
 
 
-            <nav class="main-navigation">
-                <a href="{% url 'product-list' %}" class="main-navigation__button">Product list</a>
-            </nav>
+            {#            <nav class="main-navigation">#}
+            {#                <a href="{% url 'product-list' %}" class="main-navigation__button">Product list</a>#}
+            {#            </nav>#}
         </div>
 
         <div class="right-buttons">
@@ -73,7 +73,7 @@
                     <li class="planos-button"><a href="{% url 'logout' %}">logout</a></li>
                 {% endif %}
                 {% if user.is_authenticated %}
-                    <li class="login-button"><a href="{% url 'profile' user.pk %}">Profile</a></li>
+                    <li class="login-button"><a href="{% url 'profile' user.pk %}">{{ user.username }}</a></li>
                 {% else %}
                     <li class="login-button"><a href="{% url 'login' %}">Login</a></li>
                 {% endif %}

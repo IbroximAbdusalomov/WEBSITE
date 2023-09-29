@@ -71,43 +71,79 @@
         <div class="price__form-form">
             <form class="custom-form" method="post">
                 {% csrf_token %}
-                <div class="form-group">
-                    <label for="name" class="form-label">Название:</label>
+                <div class="form-group" style="position: relative">
+                    <label for="name" class="form-label">Название:{% for error in form.title.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.title }}
+                    <div id="char-count title" class="char-count__title">0 / 100</div>
                 </div>
                 <div class="form-group">
-                    <label for="description" class="form-label">Описание:</label>
+                    <label for="description" class="form-label">Описание:{% for error in form.description.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.description }}
+                    <div id="char-count description" class="char-count__description">0 / 800</div>
+
                 </div>
                 <div class="form-group">
-                    <label for="category" class="form-label">Категория:</label>
+                    <label for="category" class="form-label">Категория:{% for error in form.category.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.category }}
                 </div>
                 <div class="form-group" id="subcategory-group">
-                    <label for="subcategory" class="form-label">Субкатегория:</label>
+                    <label for="subcategory" class="form-label">Субкатегория:
+                        {% for error in form.sub_category.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
                     {{ form.sub_category }}
                 </div>
                 <div class="form-group" id="tags-group" style="display: block">
-                    <label for="subcategory" class="form-label">Теги:</label>
+                    <label for="subcategory" class="form-label">Теги:{% for error in form.tags.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     <div id="tags-checkboxes">
                         {{ tags_form }}
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="phone" class="form-label">Телефон:</label>
+                    <label for="phone" class="form-label">Телефон:{% for error in form.telephone.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.telephone }}
                 </div>
+                <div class="form-group">
+                    <label for="telegram" class="form-label">Телеграм:{% for error in form.telegram.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
+                    {{ form.telegram }}
+                </div>
                 <div class="form-group" id="country-group">
-                    <label for="country" class="form-label">Страна</label>
+                    <label for="country" class="form-label">Страна{% for error in form.country.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.country }}
                 </div>
                 <div class="form-group" id="city-group">
-                    <label for="city" class="form-label">Город</label>
+                    <label for="city" class="form-label">Город{% for error in form.city.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.city }}
                 </div>
+                {#                {% if errors %}#}
+                {#                    <div class="error-message">#}
+                {#                        {% for field, error_msgs in errors.items %}#}
+                {#                            <div>{{ field }}:#}
+                {#                                {% for error_msg in error_msgs %}#}
+                {#                                    <span>{{ error_msg }}</span>#}
+                {#                                {% endfor %}#}
+                {#                            </div>#}
+                {#                        {% endfor %}#}
+                {#                    </div>#}
+                {#                {% endif %}#}
                 <button class="form-button">Отправить</button>
             </form>
-
         </div>
     </section>
 </div>
@@ -302,6 +338,47 @@
 
             reader.readAsDataURL(input.files[0]);
         }
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const descriptionField = document.getElementById('id_description');
+        const charCount = document.getElementById('char-count description');
+
+        descriptionField.addEventListener('input', function () {
+            const currentLength = descriptionField.value.length;
+            charCount.textContent = currentLength + ' / 800';
+
+            // Если текст приближается к лимиту (например, 750 символов),
+            // можно изменить цвет на красный
+            if (currentLength >= 750) {
+                charCount.style.color = 'red';
+            } else {
+                charCount.style.color = ''; // Сбросить цвет, если не приближается к лимиту
+            }
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const titleField = document.getElementById('{{ form.title.id_for_label }}');
+        const charCount = document.getElementById('char-count title');
+
+        titleField.addEventListener('input', function () {
+            const currentLength = titleField.value.length;
+            charCount.textContent = currentLength + ' / 100';
+
+            // Если текст приближается к лимиту (например, 90 символов),
+            // можно изменить цвет на красный
+            if (currentLength >= 90) {
+                charCount.style.color = 'red';
+            } else {
+                charCount.style.color = ''; // Сбросить цвет, если не приближается к лимиту
+            }
+        });
     });
 </script>
 

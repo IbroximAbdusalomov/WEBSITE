@@ -26,6 +26,7 @@ async def send_message_to_channel(message, image=None):
         f"🌆 *Город*: {message['city']}\n"
         f"🏷️ *Теги*: {', '.join(tag_names)}\n"
         f"📞 *Телефон*: {message['telephone']}\n"
+        f"📞 *Телеграм*: {message['telegram']}\n"
         f"📋 *Тип*: {message['тип']}\n"  # Include the type field
     )
     inline_btn_1 = InlineKeyboardButton('👍', callback_data=f'button1_{film_id}')

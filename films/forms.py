@@ -1,14 +1,17 @@
+import re
+import phonenumbers
 from django import forms
-from django.core.validators import RegexValidator
-from django.utils.html import format_html
 from django.utils.translation import gettext as _
+from django.core.validators import RegexValidator
+from django.core.exceptions import ValidationError
+from phonenumbers.phonenumberutil import NumberParseException
 from .models import Films, City, Country, Categories, SubCategories, Tag
 
 
 class FilmsForm(forms.ModelForm):
     class Meta:
         model = Films
-        fields = ['title', 'description', 'category', 'sub_category', 'tags', 'telegram', 'telephone', 'country',
+        fields = ['title', 'description', 'category', 'sub_category', 'tags', 'telephone', 'telegram', 'country',
                   'city', 'image']
 
     title = forms.CharField(label='Название', widget=forms.TextInput(attrs={'class': 'form-input'}), max_length=100, )
@@ -48,14 +51,45 @@ class FilmsForm(forms.ModelForm):
         )]
     )
 
+    def clean_telephone(self):
+        telephone = self.cleaned_data.get('telephone')
+
+        try:
+            parsed_telephone = phonenumbers.parse(telephone, None)
+            if phonenumbers.is_valid_number(parsed_telephone):
+                formatted_telephone = phonenumbers.format_number(parsed_telephone, phonenumbers.PhoneNumberFormat.E164)
+                return formatted_telephone
+        except NumberParseException:
+            pass
+
+        raise ValidationError(_('Пожалуйста, введите правильный номер телефона.'))
+
     telegram = forms.CharField(
         widget=forms.TextInput(
-            attrs={'class': 'form-input', 'placeholder': _('+998 66 666 66 66 или @имя пользователя')}),
-        validators=[RegexValidator(
-            regex=r'^(\+\d{3} \d{2} \d{3} \d{2} \d{2}|@\w+)$',
-            message=_('Введите номер телефона в формате: "+998 66 666 66 66" или имя пользователя, начинающееся с @'),
-        )]
+            attrs={'class': 'form-input', 'placeholder': _('+998 66 666 66 66 или @имя пользователя')}
+        ),
+        error_messages={
+            'required': _('Это поле обязательно для заполнения.'),
+            'invalid': _('Пожалуйста, введите правильный номер телефона или имя пользователя в Telegram.')
+        }
     )
+
+    def clean_telegram(self):
+        telegram = self.cleaned_data.get('telegram')
+
+        try:
+            parsed_telegram = phonenumbers.parse(telegram, None)
+            if phonenumbers.is_valid_number(parsed_telegram):
+                return telegram
+        except NumberParseException:
+            pass
+
+        # Проверяем, является ли введенное значение именем пользователя в Telegram (начинается с @)
+        if telegram.startswith('@'):
+            return telegram
+
+        # Если ни одно из условий не выполняется, выдаем ошибку
+        raise ValidationError(_('Пожалуйста, введите правильный номер телефона или имя пользователя в Telegram.'))
 
     country = forms.ModelChoiceField(
         label='',
@@ -71,6 +105,7 @@ class FilmsForm(forms.ModelForm):
         empty_label="Выберите город",
         to_field_name="id",
         widget=forms.Select(attrs={'class': 'form-select', "id": "id_city", "name": "city", }),
+        required=False
     )
 
     image = forms.ImageField(

@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .views import (IndexView, ProductSaveView, FilmsListView, ProductDetailView,
-                    related_to_it, add_to_favorite, remove_from_favorite)
+                    related_to_it, add_to_favorites, favorite_list)
 
 urlpatterns = [
     path("", IndexView.as_view(), name="index"),
@@ -14,6 +14,7 @@ urlpatterns = [
     # up to recommendation
     # path('up-to-recommendation/<int:pk>', up_to_recommendation, name='up_to_recommendations'),
 
-    path('add/<int:pk>/', add_to_favorite, name='add_to_favorite'),
-    path('remove/<int:pk>/', remove_from_favorite, name='remove_from_favorite'),
+    # add del read favorites
+    path('add/<int:pk>/', add_to_favorites, name='add_to_favorites'),
+    path('favorite_list/', favorite_list, name='favorite_list'),
 ]

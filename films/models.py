@@ -92,7 +92,7 @@ class Films(Model):  # Модель
     ]
 
     title = CharField("Наименование", max_length=100)
-    description = CharField("Описание", max_length=800, null=True, blank=True)
+    description = CharField("Описание", max_length=900, null=True, blank=True)
     image = ImageField(upload_to="product-images/", blank=True, null=True, default='product-images/image.png')
     telephone = CharField("Номер телефона", max_length=30)
     telegram = CharField("Телеграмм номер", max_length=30)
@@ -110,7 +110,6 @@ class Films(Model):  # Модель
     type = CharField(max_length=50, choices=TYPE_CHOICES, default='buy')
     author = ForeignKey(get_user_model(), SET_NULL, blank=True, null=True)
     price = FloatField("Цена", blank=True, null=True)
-    in_favorites = BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -134,7 +133,7 @@ class Favorite(Model):
         unique_together = ('user', 'product_id')
 
     def __str__(self):
-        return f"{self.user} - Product ID: {self.product_id}"
+        return f"{self.user}, {self.product_id_id}"
 
 
 class Rating(Model):

@@ -1,6 +1,6 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'css/messages.css' %}">
+<link rel="stylesheet" href="{% static 'css/product/messages.css' %}">
 
 {% if messages %}
     {% for message in messages %}
@@ -40,15 +40,14 @@
         for (i = 0; i < messages.length; i++) {
             var message = messages[i];
 
-            // Задержка в миллисекундах перед скрытием сообщения (в данном случае, 5000 мс = 5 секунд)
-            var delay = 6000;
+            var delay = 4000;
 
             setTimeout(function () {
                 message.style.opacity = "0";
 
                 setTimeout(function () {
                     message.style.display = "none";
-                }, 3000); // Задержка перед скрытием сообщения после анимации
+                }, 2000); // Задержка перед скрытием сообщения после анимации
             }, delay);
         }
     }

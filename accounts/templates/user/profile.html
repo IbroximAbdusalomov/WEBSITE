@@ -9,9 +9,11 @@
           integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="icon" href="{% static 'images/categories/yangi-uskunalar-24px.png' %}" type="image/png">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/admin-panel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product/style.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/admin-panel.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/Tecnopromlinkedin.css' %}">
+
     <title>{{ request.user }}</title>
 </head>
 <body>
@@ -21,6 +23,46 @@
 <!-- /Header section -->
 
 {% include "messages.html" %}
+
+
+<div class="container">
+    <section class="user-info">
+        <div class="user-profile">
+            <div class="user-photos">
+                <div class="user-banner">
+                    <img src="{% static "user/image/banner.png" %}" alt="banner">
+                </div>
+                <div class="user-profile__foto">
+                    <img src="{% static 'images/avatar.png' %}" alt="profile foto">
+                </div>
+            </div>
+            <div class="profile-info">
+                <div class="block-1">
+                    <h1 class="profile-info__title">
+                        {{ user.username }}
+                    </h1>
+                    <div class="profile-description">
+                        <p>Media about industrial informations and advanced technology especially in Agriculture,
+                            Textile and Plast Industries</p>
+                    </div>
+                </div>
+                <div class="block-2">
+                    <div class="profile-buttons">
+                        <a class="dont-text-decoration" href="#"><span
+                                class="following text-medium-weight border-for-buttons"><i
+                                class="fa-solid fa-check"></i> Отслеживаете</span></a>
+                        <a class="dont-text-decoration" href="#"><span
+                                class="connect-with-us text-medium-weight border-for-buttons disabled">Связаться с нами<i
+                                class="fa-solid fa-arrow-up-right-from-square"
+                                style="font-size: 12px; padding-left: 5px"></i></span></a>
+                        <a class="dont-text-decoration" href="#"><span
+                                class="more text-medium-weight border-for-buttons">Еще</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 <!-- ADMIN PANEL -->
 <section class="admin-panel">

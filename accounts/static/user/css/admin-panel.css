@@ -1,10 +1,15 @@
+
+body {
+    background-color: #f4f2ee;
+}
+
 .row-1 {
     display: flex;
     justify-content: space-between;
 }
 
 .admin-panel {
-    padding-top: 200px;
+    padding-top: 30px;
 }
 
 .admin-panel__buttons {
@@ -12,7 +17,6 @@
     align-items: center;
     gap: 40px;
 }
-
 
 .buy-pakkage a,
 .up-wallet a {
@@ -54,7 +58,6 @@
     font-size: 14px;
     color: rgb(0, 47, 52);
 }
-
 
 .tab-button.active {
     border-bottom: 2px solid rgb(0, 47, 52);
@@ -134,22 +137,3 @@
     background-color: lightgray;
     cursor: not-allowed;
 }
-
-
-/*@keyframes gradientChange {*/
-/*    0% {*/
-/*        background: linear-gradient(180deg, #555, #e8efff);*/
-/*        background-size: 100% 200%;*/
-/*        background-position: 0% 0;*/
-/*    }*/
-/*    100% {*/
-/*        background: linear-gradient(180deg, #555, #e8efff);*/
-/*        background-size: 100% 200%;*/
-/*        background-position: 0% -100%;*/
-/*    }*/
-/*}*/
-
-/*.gradient-change {*/
-/*    animation: gradientChange .5s ease-in;*/
-/*}*/
-

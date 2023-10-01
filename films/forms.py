@@ -161,6 +161,7 @@ class ProductFilterForm(forms.ModelForm):
         ('all', 'Все'),
         ('buy', 'Купить'),
         ('sell', 'Продать'),
+        ('company', 'Компании'),
     )
 
     type = forms.ChoiceField(

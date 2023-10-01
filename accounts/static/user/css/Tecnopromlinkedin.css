@@ -1,0 +1,94 @@
+
+.user-info {
+    width: 800px;
+    margin-top: 100px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.user-profile {
+    border: 1px solid #cecece;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.user-photos {
+    position: relative;
+    width: 100%;
+}
+
+.user-banner {
+    height: 130px;
+}
+
+.user-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.user-profile__foto {
+    width: 120px;
+    position: absolute;
+    top: 40%;
+    margin: 24px;
+}
+
+.user-profile__foto img {
+    width: 100%;
+}
+
+.profile-info {
+    padding-top: 50px;
+}
+
+.block-1,
+.block-2 {
+    padding: 24px;
+}
+
+.profile-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.dont-text-decoration {
+    text-decoration: none;
+}
+
+.text-medium-weight {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.border-for-buttons {
+    border-radius: 22px;
+    padding: 6px 10px;
+    border: 1px solid #0a24b9;
+}
+
+.disabled {
+    background-color: #0a24b9;
+    color: white;
+}
+
+.following:hover {
+    border: 2px solid #0a24b9;
+    padding: 5px 9px;
+}
+
+.connect-with-us:hover {
+    background-color: #071572;
+}
+
+.more {
+    color: #605f5f;
+    border: 1px solid #605f5f;
+}
+
+.more:hover {
+    padding: 5px 9px;
+    border: 2px solid #605f5f;
+}

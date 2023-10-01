@@ -146,12 +146,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
           integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/authentication.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product/style.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/authentication.css' %}">
 </head>
 <body>
 
-<section class="authentication">
+{% include 'messages.html' %}
+
+<section class="authentication login">
     <div class="main-header__logo">
         <a href="../..">
             <img src="{% static 'images/TECNOPROM-LOGO.png' %}" alt="logo">
@@ -163,14 +165,17 @@
                 <header>
                     Войти
                 </header>
+                {#                <div class="error-message">{{  }}</div>#}
             </div>
             <form action="{% url 'login' %}" method="post">
                 {% csrf_token %}
                 <div class="field input-field">
+                    {#                    <label type="text" for="username">Имя пользователя</label>#}
                     {{ login_form.username }}
                 </div>
 
                 <div class="field input-field">
+                    {#                    <label type="text" for="username">Пароль</label>#}
                     {{ login_form.password }}
                     <i class="fa-regular fa-eye-slash eye-icon"></i>
                 </div>
@@ -186,15 +191,19 @@
         </div>
     </div>
 
-    <div class="signup" id="for-singup-page">
-        <div class="signup-content">
-            <img src="{% static 'images/banners/banner-ishlatilgan-uskuna.svg' %}" alt="logo" class="signup-logo">
-            <div class="signup-text">
-                <p>Don't have an account?</p>
-                <a href="{% url 'register' %}" id="toggleRegisterLink">Signup</a>
+    <div class="signup-banner">
+        <div class="signup" id="for-singup-page">
+            <div class="signup-content">
+                <img src="{% static 'images/banners/banner-ishlatilgan-uskuna.svg' %}" alt="logo" class="signup-logo">
+                <div class="signup-text">
+                    <p>Don't have an account?</p>
+                    <a href="{% url 'register' %}" id="toggleRegisterLink">Signup</a>
+                </div>
             </div>
         </div>
+
     </div>
+
 </section>
 
 <!-- Display error messages here -->

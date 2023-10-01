@@ -10,7 +10,7 @@
           integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/authentication.css' %}">
+    <link rel="stylesheet" href="{% static 'css/user/authentication.css' %}">
 </head>
 <body>
 
@@ -22,7 +22,8 @@
 {#        color: red;#}
 {#    }#}
 {#</style>#}
-<section class="authentication">
+<section class="authentication register">
+    {#    <div class="container">#}
     <div class="main-header__logo">
         <a href="../..">
             <img src="{% static 'images/TECNOPROM-LOGO.png' %}" alt="logo">
@@ -39,8 +40,7 @@
             <form id="registrationForm" method="post" action="{% url 'register' %}">
                 {% csrf_token %}
                 <div class="field">
-                    <label type="text" for="username">Имя пользователя
-                    </label>
+                    <label type="text" for="username">Имя пользователя</label>
                     {{ register_form.username }}
                 </div>
 
@@ -73,19 +73,32 @@
         </div>
     </div>
     <div class="form-errors">
+        {#                <div class="error-field">#}
+        {#                    <div class="error-message">test text for errors test text for errors test text for errors</div>#}
+        {#                </div>#}
+        {#                <div class="error-field">#}
+        {#                    <div class="error-message">test text for errors</div>#}
+        {#                </div>#}
+        {#                <div class="error-field">#}
+        {#                    <div class="error-message">test text for errors</div>#}
+        {#                </div>#}
+        {#                <div class="error-field">#}
+        {#                    <div class="error-message">test text for errors</div>#}
+        {#                </div>#}
         <div class="error-field">{% for error in register_form.username.errors %}
             <div class="error-message">{{ error }}</div>
         {% endfor %}</div>
         <div class="error-field">{% for error in register_form.email.errors %}
-            <div class="error-message">{{ error }}</div>
+            <div class="error-message">test text for errors{{ error }}</div>
         {% endfor %}</div>
         <div class="error-field">{% for error in register_form.telegram.errors %}
-            <div class="error-message">{{ error }}</div>
+            <div class="error-message">test text for errors{{ error }}</div>
         {% endfor %}</div>
         <div class="error-field">{% for error in register_form.password1.errors %}
-            <div class="error-message">{{ error }}</div>
+            <div class="error-message">test text for errors{{ error }}</div>
         {% endfor %}</div>
     </div>
+    {#        </div>#}
 </section>
 
 <!-- Display error messages here -->

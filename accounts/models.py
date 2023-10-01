@@ -1,88 +1,25 @@
 from django.contrib.auth.models import AbstractUser
-from django.db.models import EmailField, IntegerField, CharField, BooleanField
-from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db.models import Model, CharField, ImageField, EmailField, TextField, BooleanField
 
 
 class User(AbstractUser):
-    telephone = CharField(max_length=50)
+    telephone = CharField(max_length=50, null=True, blank=True)
     email = EmailField(unique=True)
-    score = IntegerField(default=50, validators=[
-        # MaxValueValidator(50),
-        MinValueValidator(0)
-    ])
-
     trust = BooleanField(default=False)
 
-    # stars
+    # Остальные поля пользователя, которые ранее были в модели Company
+    description = TextField(blank=True, null=True)  # Описание компании
+    banner = ImageField(upload_to='company_banners/', blank=True)
+    logo = ImageField(upload_to='company_logos/', default='static/default-logo.svg')
+    category = CharField(max_length=100, blank=True)  # Замените на поле, которое представляет категорию
+    subcategory = CharField(max_length=100, blank=True)  # Замените на поле, которое представляет подкатегорию
+    telegram = CharField(max_length=100, blank=True)
+    whatsapp = CharField(max_length=100, blank=True)
+    country = CharField(max_length=100, blank=True)  # Добавлено поле для страны
+    is_business_account = BooleanField(default=False)
 
-    # USERNAME_FIELD = 'email'
-    # REQUIRED_FIELDS = []
+    def __str__(self):
+        return self.username
 
     class Meta(AbstractUser.Meta):
         swappable = 'AUTH_USER_MODEL'
-
-
-'''
-uskuna_hammasi - Hammasi
-uskuna_umumiy
-uskuna_plastmassa
-uskuna_tekstil
-uskuna_agro
-uskuna_metall
-uskuna_qadoqlash
-uskuna_sanoat
-uskuna_ombor
-uskuna_oziq
-uskuna_kimyoviy
-uskuna_energiya
-uskuna_xizmat
-uskuna_qurilish
-uskuna_yogoch
-uskuna_yordamchi
-uskuna_mashinasozlik
-
-
-xomashyo_plastmassa
-xomashyo_tekstil
-xomashyo_mineral
-xomashyo_metall
-xomashyo_oziq
-xomashyo_kosmetika
-xomashyo_sanoat
-xomashyo_xojalik
-xomashyo_boshqa
-
-xizmat_umumiy
-xizmat_plastmassa
-xizmat_tekstil
-xizmat_agro
-xizmat_metall
-xizmat_qadoqlash
-xizmat_sanoat
-xizmat_ombor
-xizmat_oziq
-xizmat_kimyoviy
-xizmat_energiya
-xizmat_xizmat
-xizmat_qurilish
-xizmat_yogoch
-xizmat_yordamchi
-xizmat_mashinasozlik
-
-texnolog_umumiy
-texnolog_plastmassa
-texnolog_tekstil
-texnolog_agro
-texnolog_metall
-texnolog_qadoqlash
-texnolog_sanoat
-texnolog_ombor
-texnolog_oziq
-texnolog_kimyoviy
-texnolog_energiya
-texnolog_xizmat
-texnolog_qurilish
-texnolog_yogoch
-texnolog_yordamchi
-texnolog_mashinasozlik
-'''

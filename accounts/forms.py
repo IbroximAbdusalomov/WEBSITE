@@ -1,18 +1,33 @@
 import phonenumbers
 from django import forms
+from django.contrib.auth import authenticate
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import (
     UserCreationForm,
-    AuthenticationForm,
     UsernameField,
 )
-from django.core.validators import MinLengthValidator
 from django.core.exceptions import ValidationError
+from django.core.validators import MinLengthValidator
 from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from phonenumbers.phonenumberutil import NumberParseException
 
 
 class UserRegisterForm(UserCreationForm):
+    class Meta:
+        model = get_user_model()
+        fields = (
+            "username",
+            "email",
+            "telephone"
+        )
+        widgets = {
+            "username": forms.TextInput(attrs={"class": "input"}),
+            "email": forms.EmailInput(attrs={"class": "input"}),
+            "telephone": forms.TextInput(attrs={"class": "form-control"}),
+        }
+
     username = UsernameField(widget=forms.TextInput(attrs={
         "class": "input",
         "placeholder": "ism_familiya",
@@ -36,32 +51,24 @@ class UserRegisterForm(UserCreationForm):
 
         return username
 
-    email = forms.EmailField(
-        widget=forms.TextInput(attrs={
-            "class": "input",
-            "type": "email",
-            "placeholder": "user@gmail.com",
-            "autocomplete": "email",
-        })
-    )
+    email = forms.EmailField(widget=forms.TextInput(attrs={
+        "class": "input",
+        "type": "email",
+        "placeholder": "user@gmail.com",
+        "autocomplete": "email",
+    }))
 
-    telephone = forms.CharField(
-        widget=forms.TextInput(attrs={
-            "class": "input",
-            "placeholder": "телефон номер или @имя пользователя",
-        })
-    )
+    telephone = forms.CharField(widget=forms.TextInput(attrs={
+        "class": "input",
+        "placeholder": "телефон номер или @имя пользователя",
+    }))
 
-    password1 = forms.CharField(
-        label=_("Password"),
-        strip=True,
-        widget=forms.PasswordInput(attrs={
-            "autocomplete": "new-password",
-            "class": "input",
-            "placeholder": "Пароль",
-        }),
-        validators=[MinLengthValidator(limit_value=8, message="Пароль должен содержать минимум 8 символов.")],
-    )
+    password1 = forms.CharField(label=_("Password"), strip=True, widget=forms.PasswordInput(attrs={
+        "autocomplete": "new-password",
+        "class": "input",
+        "placeholder": "Пароль", }),
+                                validators=[MinLengthValidator(limit_value=8,
+                                                               message="Пароль должен содержать минимум 8 символов.")], )
 
     def clean_telephone(self):
         telephone = self.cleaned_data.get('telephone')
@@ -85,33 +92,6 @@ class UserRegisterForm(UserCreationForm):
 
         return email
 
-    def clean(self):
-        cleaned_data = super().clean()
-        password1 = cleaned_data.get('password1')
-        password2 = cleaned_data.get('password2')
-
-        if password1 != password2:
-            raise ValidationError(_("Пароли не совпадают. Пожалуйста, введите одинаковые пароли."))
-
-        return cleaned_data
-
-    class Meta:
-        model = get_user_model()
-        fields = (
-            "username",
-            # "first_name",
-            # "last_name",
-            "email",
-            "telephone"
-        )
-        widgets = {
-            "username": forms.TextInput(attrs={"class": "input"}),
-            # "first_name": forms.TextInput(attrs={"class": "form-control"}),
-            # "last_name": forms.TextInput(attrs={"class": "form-control"}),
-            "email": forms.EmailInput(attrs={"class": "input"}),
-            "telephone": forms.TextInput(attrs={"class": "form-control"}),
-        }
-
 
 class UserLoginForm(AuthenticationForm):
     username = UsernameField(widget=forms.TextInput(attrs={
@@ -129,21 +109,23 @@ class UserLoginForm(AuthenticationForm):
             "placeholder": "Пароль",
             "type": "password",
         }),
+        error_messages={
+            'required': _('Поле "Пароль" обязательно для заполнения.'),
+            'invalid': _('Неверный формат пароля.'),
+        },
     )
 
 
-class ProfileForm(forms.ModelForm):
+class BusinessAccountForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
-        fields = (
-            "username",
-            "first_name",
-            "last_name",
-            "email"
-        )
-        widgets = {
-            "username": forms.TextInput(attrs={"class": "form-control"}),
-            "first_name": forms.TextInput(attrs={"class": "form-control"}),
-            "last_name": forms.TextInput(attrs={"class": "form-control"}),
-            "email": forms.EmailInput(attrs={"class": "form-control"}),
-        }
+        fields = [
+            'description',
+            'logo',
+            'banner',
+            'category',
+            'subcategory',
+            'telegram',
+            'whatsapp',
+            'country',
+        ]

@@ -1,6 +1,6 @@
 import random
 import string
-
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import get_user_model
@@ -8,17 +8,16 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView, LogoutView
 from django.core.mail import send_mail
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
 from django.shortcuts import redirect, render, get_object_or_404
 from django.shortcuts import reverse
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
-
 from films.forms import FilmsForm
 from films.models import Films, Favorite
-from .forms import UserLoginForm, UserRegisterForm
+from .forms import UserLoginForm, UserRegisterForm, BusinessAccountForm
 
 
 def generate_verification_code():
@@ -55,7 +54,6 @@ class RegisterUserView(CreateView):
         return redirect('verify_code')
 
     def form_invalid(self, form):
-        errors = form.errors
         return render(self.request, self.template_name, {'register_form': form})
 
 
@@ -110,9 +108,8 @@ class LoginUserView(LoginView):
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, form.errors)
-        # Возвращаем страницу регистрации с заполненными данными пользователя
-        return render(self.request, self.template_name, {'login_form': form})
+        messages.error(self.request, "Имя пользователя или пароль неверные. Пожалуйста, попробуйте снова.")
+        return super().form_invalid(form)
 
     def get_success_url(self):
         return reverse("index")
@@ -124,16 +121,19 @@ class LogoutUserView(LogoutView):
         return super().get_next_page()
 
 
-@method_decorator(login_required, name='dispatch')
-class ProfileView(DetailView):
+class MyAccountRedirectView(DetailView):
     model = get_user_model()
     template_name = "user/profile.html"
     context_object_name = "profile"
 
+    def get_object(self, queryset=None):
+        # Получаем профиль текущего пользователя
+        return self.request.user
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = f"{self.object.first_name} {self.object.last_name}"
-        context["user"] = self.model.objects.get(pk=self.kwargs['pk'])
+        context["user"] = self.model.objects.get(pk=self.request.user.pk)
         context["products"] = Films.objects.filter(author_id=self.object.pk).order_by('-create_date')
         favorite_product_ids = Favorite.objects.filter(user=self.request.user).values_list('product_id', flat=True)
         if self.request.user.is_authenticated:
@@ -141,7 +141,6 @@ class ProfileView(DetailView):
         else:
             in_favorite = []
         context['in_favorite'] = in_favorite
-        # Получите все продукты, которые есть в списке избранных
         context["favorite_products"] = Films.objects.filter(id__in=favorite_product_ids).order_by('-create_date')
         return context
 
@@ -168,7 +167,7 @@ class ProductActionView(View):
 class EditProductsView(UpdateView):
     model = Films
     form_class = FilmsForm
-    template_name = 'edit-product.html'
+    template_name = 'user/edit-product.html'
     context_object_name = 'form'
 
     def get_queryset(self):
@@ -182,6 +181,36 @@ class EditProductsView(UpdateView):
         return super().form_invalid(form)
 
     def get_success_url(self):
-        return reverse("profile", kwargs={
+        return reverse("myaccount", kwargs={
             "pk": self.kwargs["pk"]
         })
+
+
+@method_decorator(login_required, name='dispatch')
+class CreateCompanyView(CreateView):
+    template_name = "user/create_company.html"
+    form_class = BusinessAccountForm
+
+    def form_valid(self, form):
+        company = form.save(commit=False)
+        company.save()
+        return redirect('myaccount', self.request.user)
+
+
+class ProfileView(DetailView):
+    model = get_user_model()  # Указываем модель пользователя
+    template_name = "user/company-profile.html"  # Замените на ваш шаблон
+    context_object_name = "profile"  # Название объекта, через которое можно обращаться к пользователю в шаблоне
+    pk_url_kwarg = 'pk'  # Укажите название ключа, по которому будет получен идентификатор пользователя из kwargs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Получите пользователя из контекста
+        user = context['profile']
+
+        # Получите продукты пользователя и добавьте их в контекст
+        products = Films.objects.filter(author=user)
+        context['products'] = products
+
+        return context

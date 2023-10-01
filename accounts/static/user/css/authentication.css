@@ -26,11 +26,12 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: absolute;
+    position: relative;
     gap: 20px;
 }
 
 .form {
+    /*position: absolute;*/
     width: 430px;
     padding: 30px;
     border-radius: 12px;
@@ -213,4 +214,18 @@ body {
 }
 
 
+/*register errors--------------------------------------------------------*/
+.form-errors {
+    z-index: 1;
+    position: absolute;
+    padding-top: 120px;
+    /*padding-left: 550px;*/
+    margin-left: 550px;
+}
+
+.error-field {
+    padding-bottom: 68px;
+    font-size: 14px;
+    color: red;
+}
 

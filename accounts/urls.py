@@ -14,5 +14,6 @@ urlpatterns = [
     path("product-action/", views.ProductActionView.as_view(), name="product-action"),
 
     path("product-edit/<int:pk>", views.EditProductsView.as_view(), name="product-edit"),
+    path("add-company/", views.CreateCompanyWizard.as_view(), name="create-company"),
 
 ]

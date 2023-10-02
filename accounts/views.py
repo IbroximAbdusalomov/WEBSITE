@@ -1,23 +1,24 @@
+import os
 import random
 import string
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.conf import settings
-from django.contrib import messages
-from django.contrib.auth import get_user_model
-from django.contrib.auth import login
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import LoginView, LogoutView
-from django.core.mail import send_mail
-from django.http import JsonResponse, Http404
-from django.shortcuts import redirect, render, get_object_or_404
-from django.shortcuts import reverse
-from django.utils.decorators import method_decorator
 from django.views import View
-from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.conf import settings
 from films.forms import FilmsForm
+from django.contrib import messages
+from django.http import JsonResponse
+from django.shortcuts import reverse
+from django.contrib.auth import login
+from django.core.mail import send_mail
 from films.models import Films, Favorite
-from .forms import UserLoginForm, UserRegisterForm, BusinessAccountForm
+from django.contrib.auth import get_user_model
+from django.views.generic.detail import DetailView
+from formtools.wizard.views import SessionWizardView
+from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.views import LoginView, LogoutView
+from django.views.generic.edit import CreateView, UpdateView
+from django.shortcuts import redirect, render, get_object_or_404
+from .forms import UserLoginForm, UserRegisterForm, CompanyForm1, CompanyForm2, CompanyForm3, CompanyForm4
+from .models import User
 
 
 def generate_verification_code():
@@ -186,15 +187,23 @@ class EditProductsView(UpdateView):
         })
 
 
-@method_decorator(login_required, name='dispatch')
-class CreateCompanyView(CreateView):
-    template_name = "user/create_company.html"
-    form_class = BusinessAccountForm
+class CreateCompanyWizard(SessionWizardView):
+    template_name = "user/create_company.html"  # Создайте шаблон для визарда
+    form_list = [CompanyForm1, CompanyForm2, CompanyForm3, CompanyForm4]
+    file_storage = FileSystemStorage(location=os.path.join(settings.MEDIA_ROOT, 'tmp'))
 
-    def form_valid(self, form):
-        company = form.save(commit=False)
+    def done(self, form_list, **kwargs):
+        company_data = {}
+
+        for form in form_list:
+            company_data.update(form.cleaned_data)
+
+        # Создайте объект компании и сохраните его
+        company = User(**company_data)
+        company.owner = self.request.user
         company.save()
-        return redirect('myaccount', self.request.user)
+
+        return redirect('myaccount')
 
 
 class ProfileView(DetailView):

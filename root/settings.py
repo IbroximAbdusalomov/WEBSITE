@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'accounts',
 
     'django_filters',
-    'django_countries'
+    'django_countries',
+    'formtools',
 ]
 # Замените 'auth.User' на 'accounts.User'
 AUTH_USER_MODEL = 'accounts.User'

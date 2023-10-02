@@ -1,6 +1,6 @@
 import phonenumbers
 from django import forms
-from django.contrib.auth import authenticate
+from films.models import Categories, SubCategories, Tag
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import (
@@ -116,16 +116,56 @@ class UserLoginForm(AuthenticationForm):
     )
 
 
-class BusinessAccountForm(forms.ModelForm):
-    class Meta:
-        model = get_user_model()
-        fields = [
-            'description',
-            'logo',
-            'banner',
-            'category',
-            'subcategory',
-            'telegram',
-            'whatsapp',
-            'country',
-        ]
+class CompanyForm1(forms.Form):
+    name = forms.CharField(
+        label='Название компании',
+        widget=forms.TextInput(attrs={'class': 'company-input'})
+    )
+    category = forms.ModelChoiceField(
+        queryset=Categories.objects.all(),
+        empty_label='Выберите категорию',
+        required=True,
+        label='Категория',
+        widget=forms.Select(attrs={'class': 'company-select', 'id': 'id_category'})
+    )
+    sub_category = forms.ChoiceField(
+        # choices=[('', 'Выберите подкатегорию')] + [],
+        required=True,
+        label='Подкатегория',
+        widget=forms.Select(attrs={'class': 'company-select', 'id': 'id_sub_category'})
+    )
+
+    tags = forms.ModelMultipleChoiceField(
+        label='',
+        queryset=Tag.objects.all(),
+        widget=forms.CheckboxSelectMultiple(attrs={'id': 'id_tags'}),
+    )
+
+
+class CompanyForm2(forms.Form):
+    telegram = forms.CharField(max_length=100, required=True, label='Telegram',
+                               widget=forms.TextInput(attrs={'class': 'company-input'})
+                               )
+    whatsapp = forms.CharField(max_length=100, required=True, label='WhatsApp',
+                               widget=forms.TextInput(attrs={'class': 'company-input'})
+                               )
+    website = forms.CharField(max_length=100, required=True, label='Website',
+                              widget=forms.TextInput(attrs={'class': 'company-input'})
+                              )
+    url_maps = forms.CharField(max_length=200, required=True, label='Выведите урл Яндекс карты или Гугл карты',
+                               widget=forms.TextInput(attrs={'class': 'company-input url-maps-class'})
+                               )
+
+
+class CompanyForm3(forms.Form):
+    logo = forms.ImageField(required=True, label='Добавить логотип',
+                            widget=forms.FileInput(attrs={'class': 'company-input', 'id': 'file-input__logo'}))
+    banner = forms.ImageField(required=True, label='Баннер',
+                              widget=forms.FileInput(attrs={'class': 'company-input', 'id': 'file-input__banner'}))
+
+
+class CompanyForm4(forms.Form):
+    description = forms.CharField(widget=forms.Textarea(attrs={'class': 'company-input'}), required=True,
+                                  label='Описание компании')
+    country = forms.CharField(max_length=100, required=True, label='Страна',
+                              widget=forms.TextInput(attrs={'class': 'company-input'}))

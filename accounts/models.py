@@ -8,7 +8,8 @@ class User(AbstractUser):
     trust = BooleanField(default=False)
 
     # Остальные поля пользователя, которые ранее были в модели Company
-    description = TextField(blank=True, null=True)  # Описание компании
+    name = CharField(max_length=100, blank=True)
+    description = CharField(max_length=100, blank=True, null=True)  # Описание компании
     banner = ImageField(upload_to='company_banners/', blank=True)
     logo = ImageField(upload_to='company_logos/', default='static/default-logo.svg')
     category = CharField(max_length=100, blank=True)  # Замените на поле, которое представляет категорию

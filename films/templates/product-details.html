@@ -1,4 +1,6 @@
+{% load i18n %}
 {% load static %}
+{% load social_share %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,43 +49,50 @@
 
 
                     <div class="product-description">
-
+                        <div class="path_to_product" style="padding-bottom: 10px;">
+                            <a href="1">{{ product.country }}/</a>
+                            <a href="2">{% if product.city %}{{ product.city }}/{% endif %}</a>
+                            <a href="3">{{ product.category }}/</a>
+                            <a href="4">{{ product.sub_category }}/</a>
+                        </div>
                         <div class="product-tags">
                             {% for tag in product.tags.all %}
                                 <span class="tag">{{ tag.name }}</span>
                             {% endfor %}
-
-
                         </div>
                         <div class="product-title">
                             <h1>{{ product.title }}</h1>
                         </div>
-                        <h3>Описание товара</h3>
+                        <h3>{% translate "Описание товара" %}</h3>
                         <span>{{ product.description }}</span>
                         <hr>
                         <div style="display: flex; justify-content: space-between;">
-                            <span>id:{{ product.pk }}</span>
-                            <span>Просмотров: {{ product.view_count }}</span>
+                            <span>{% translate "id" %}:{{ product.pk }}</span>
+                            <span>{% translate "Просмотров" %}: {{ product.view_count }}</span>
                         </div>
                     </div>
                     <div class="contact-the-seller">
-                        <div class="author-info">
+                        {#                        {% if product.author_id %}#}
+                        <div class="author-info2">
                             <div class="author-foto">
                                 <img src="{% static "images/avatar.png" %}" alt="author avatar">
                             </div>
                             <div class="author-data">
-                                <a href="#" target="_blank">{{ product.author }}</a>
+                                <a href=""
+                                   target="_blank">{{ product.author }}</a>
                             </div>
                         </div>
+                        {#                        {% endif %}#}
                         <div class="author-buttons">
 
 
                             <div class="messanger">
-                                <a href="https://t.me/{{ product.telegram }}" class="messanger-link">телеграм</a>
+                                <a href="https://t.me/{{ product.telegram }}"
+                                   class="messanger-link">{% translate "телеграм" %}</a>
                             </div>
 
                             <div class="phone-number-block">
-                                <a href="#" class="show-phone-number">Посмотреть телефон номер</a>
+                                <a href="#" class="show-phone-number">{% translate "Посмотреть телефон номер" %}</a>
                                 <a href="tel:{{ product.telephone }}"
                                    class="phone-number hidden">{{ product.telephone }}</a>
                             </div>
@@ -93,7 +102,7 @@
                 <div class="listing-info">
                     <div class="product-info">
                         <div class="publication-date">
-                            <span class="css-fscvqi er34gjf0">Опубликовано {{ product.create_date|date:"d F Y г." }}</span>
+                            <span class="css-fscvqi er34gjf0">{% translate 'Опубликовано' %} {{ product.create_date|date:"d F Y г." }}</span>
                             <div class="svg-icon-container">
                                 {% if user.is_authenticated %}
                                     <span class="add-to-favorites" data-product-id="{{ product.id }}"
@@ -107,40 +116,74 @@
                         <div class="product-title">
                             <h1>{{ product.title }}</h1>
                         </div>
+                        <div class="product-title">
+                            {% if product.price %}
+                                <h1>{{ product.price }}</h1>
+                            {% else %}
+                                <h1>Договорный</h1>
+                            {% endif %}
+                        </div>
+
                         <div class="product-buttons">
-                            <div class="messanger">
-                                <a href="#" class="messanger-link">Whatsup</a>
+                            <div class="share-buttons">
+                                <div class="share_to-telegram">
+                                    {% post_to_telegram object_or_url '' "<i class='fa-brands fa-telegram'></i>" %}
+                                    {#                                    <i class="fa-brands fa-telegram"></i>#}
+                                </div>
+{#                                <div class="share_to-telegram">#}
+                                {#                                    <i class="fa-brands fa-instagram"></i>#}
+                                {#                                </div>#}
+
+                                {#                                {% post_to_telegram "New Song: {{object.title}}" '1' '2' %}#}
+
+                                {#                                <div class="share_to-telegram">#}
+                                {#                                    <i class="fa-brands fa-twitch"></i>#}
+                                {#                                </div>#}
+                                <!-- Ваша кнопка "Поделиться в Telegram" с локальной иконкой -->
+                                {#                                <a href="{% url 'share_to_telegram' object.id %}" class="share_to_telegram">#}
+                                {#                                    <i class="fa-brands fa-telegram"></i>#}
+                                {#                                </a>#}
+
+                                {#                                {% post_to_telegram "New Song: {{object.title}}" '' '' %}#}
+                                {#                                {% post_to_telegram object_or_url '.' '.' %}#}
+                                {#                                <div class="share_to-facebook">#}
+                                {#                                    <i class="fa-brands fa-facebook"></i>#}
+                                {#                                </div>#}
                             </div>
                             <div class="messanger">
-                                <a href="https://t.me/{{ product.telegram }}" class="messanger-link">телеграм</a>
+                                <a href="https://t.me/{{ product.telegram }}"
+                                   class="messanger-link">{% translate "телеграм" %}</a>
                             </div>
                             <div class="phone-number-block">
-                                <a href="#" class="show-phone-number">Посмотреть телефон номер</a>
+                                <a href="#" class="show-phone-number">{% translate "Посмотреть телефон номер" %}</a>
                                 <a href="tel:{{ product.telephone }}"
                                    class="phone-number hidden">{{ product.telephone }}</a>
                             </div>
                         </div>
                     </div>
-                    <div class="author-info">
-                        <p>ПОЛЬЗОВАТЕЛЬ</p>
-                        <div class="author-row">
-                            <div class="author-foto">
-                                <img src="{% static 'images/avatar.png' %}" alt="author avatar">
+                    {% if product.author %}
+                        <div class="author-info">
+                            <p>{% translate "ПОЛЬЗОВАТЕЛЬ" %}</p>
+                            <div class="author-row">
+                                <div class="author-foto">
+                                    <img src="{% static 'images/avatar.png' %}" alt="author avatar">
+                                </div>
+                                <div class="author-data">
+                                    <a href="{% url 'profile' product.author_id %}"
+                                       target="_blank">{{ product.author }}</a>
+                                    <span class="author-data-joined">{% translate "в TECNOPROM с" %} {{ product.author.date_joined|date:"F Y г." }}</span>
+                                </div>
                             </div>
-                            <div class="author-data">
-                                <a href="{% url 'profile' product.author_id %}" target="_blank">{{ product.author }}</a>
-                                <span class="author-data-joined">в TECNOPROM с {{ product.author.date_joined|date:"F Y г." }}</span>
+                            <div class="button-all-announcements-this-author">
+                                <a href="#" target="_blank">{% translate "Все объявления автора" %}</a>
                             </div>
                         </div>
-                        <div class="button-all-announcements-this-author">
-                            <a href="#" target="_blank">Все объявления автора</a>
-                        </div>
-                    </div>
+                    {% endif %}
                     <div class="product-location">
-                        <p>МЕСТОПОЛОЖЕНИЕ</p>
+                        <p>{% translate "МЕСТОПОЛОЖЕНИЕ" %}</p>
                         <div class="location-row">
                             <div class="location-icon">
-                                <i class="fa-regular fa-bookmark"></i>
+                                <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div class="location-text">
                                 {{ product.country }}
@@ -270,24 +313,80 @@
 </script>
 
 <!-- Phone number -->
-<script>
+{#<script>#}
+{#    const showPhoneNumberButtons = document.querySelectorAll('.show-phone-number');#}
+{#    const phoneNumberLinks = document.querySelectorAll('.phone-number');#}
+{#    const productId = {{ product.id }};  // Make sure to use the correct product ID#}
+{##}
+{#    showPhoneNumberButtons.forEach((button, index) => {#}
+{#        button.addEventListener('click', (event) => {#}
+{#            event.preventDefault();#}
+{##}
+{#            button.classList.add('hidden');#}
+{#            phoneNumberLinks[index].classList.remove('hidden');#}
+{##}
+{#            fetch('{% url 'product_phone_view_count' %}', {#}
+{#                method: 'POST',#}
+{#                headers: {#}
+{#                    'Content-Type': 'application/json',#}
+{#                },#}
+{#                body: JSON.stringify({product_id: productId}),#}
+{#            })#}
+{#                .then(response => response.json())#}
+{#                .then(data => {#}
+{#                    if (data.status === 'success') {#}
+{#                        // Handle success, e.g., update the view count in the UI#}
+{#                    } else {#}
+{#                        // Handle any errors#}
+{#                    }#}
+{#                });#}
+{#        });#}
+{#    });#}
+{#</script>#}
 
-    const showPhoneNumberButtons = document.querySelectorAll('.show-phone-number');
-    const phoneNumberLinks = document.querySelectorAll('.phone-number');
+<script>const showPhoneNumberButtons = $('.show-phone-number');
+const phoneNumberLinks = $('.phone-number');
+const productId = {{ product.pk }};  // Make sure to use the correct product ID
+const csrfToken = '{{ csrf_token|escapejs }}';  // Include the CSRF token
 
-    showPhoneNumberButtons.forEach((button, index) => {
-        button.addEventListener('click', (event) => {
-            event.preventDefault();
+showPhoneNumberButtons.click(function (event) {
+    event.preventDefault();
+    const button = $(this);
+    const index = showPhoneNumberButtons.index(button);
 
-            button.classList.add('hidden');
-            phoneNumberLinks[index].classList.remove('hidden');
-        });
+    button.addClass('hidden');
+    phoneNumberLinks.eq(index).removeClass('hidden');
+    console.log('productId:', productId);
+
+    const requestData = {
+        product_id: productId
+    };
+
+    $.ajax({
+        url: '{% url 'product_phone_view_count' %}',
+        type: 'POST',
+        dataType: 'json',
+        headers: {
+            'X-CSRFToken': csrfToken,
+        },
+        data: requestData,
+        {#contentType: 'application/json',#}
+        success: function (data) {
+            if (data.status === 'success') {
+                // Handle success, e.g., update the view count in the UI
+            } else {
+                // Handle any errors
+            }
+        },
+        error: function (error) {
+            console.error('Ошибка при выполнении действия:', error);
+        }
     });
-
+});
 </script>
 
 
-<!-- RANDOM COLORS FOR TAGS -->
+<!-- share buttons -->
 
 </body>
 </html>

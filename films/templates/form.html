@@ -7,25 +7,20 @@
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'css/product/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/product/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product/form.css' %}">
 </head>
 <body>
 
-<style>
-    .price-form {
-        display: flex;
-        justify-content: center;
-    }
-</style>
 {% include 'nav_bar.html' %}
 {% include 'messages.html' %}
 
-<div id="price-form" class="container">
-    <section class="price-form" style="display: flex; align-items: flex-start; padding-top: 100px;">
-        <div class="price__image-form">
+<div class="container">
+    <section class="price-form">
+        <div class="price__image-form2">
             <img style="" id="bannerImage" src="{% static 'images/banners/banner-yangi-uskuna.svg' %}"
                  alt="">
         </div>
-        <div class="price__form-form" style="width: 50%">
+        <div class="price__form-form">
             <div class="form-group">
                 <label class="form-label">Выберите действие:</label>
                 <div class="buttons-for-choice-type">
@@ -43,7 +38,7 @@
             <form class="custom-form" method="post" action="{% url 'add_film' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="hidden" name="form-name" id="form-name" value="buy">
-                <div class="form-group" style="position: relative">
+                <div class="form-group">
                     <label for="name" class="form-label">Название:{% for error in form.title.errors %}
                         <div class="error-message">{{ error }}</div>
                     {% endfor %}</label>
@@ -51,12 +46,12 @@
                     <div id="char-count title" class="char-count__title">0 / 100
                     </div>
                 </div>
-                <div class="form-group" style="position: relative">
+                <div class="form-group">
                     <label for="description" class="form-label">Описание:{% for error in form.description.errors %}
                         <div class="error-message">{{ error }}</div>
                     {% endfor %}</label>
                     {{ form.description }}
-                    <div id="char-count description" class="char-count__description">0 / 800</div>
+                    <div id="char-count description" class="char-count__description">0 / 700</div>
                 </div>
                 <div class="form-group">
                     <label for="category" class="form-label">Категория:{% for error in form.category.errors %}
@@ -116,11 +111,17 @@
                     {#                    <input type="file" name="image" class="form-input" id="id_image">#}
                     <div class="image-form">
                         {{ form.image }}
-                        <button type="button" id="reset-image" class="reset-image">Сбросить фото</button>
-
                     </div>
+                    {#                    <button type="button" id="reset-image" class="reset-image">Сбросить фото</button>#}
                 </div>
-
+                <div class="form-group" id="price-group">
+                    <label class="form-label">Цена:</label>
+                    {{ form.price }}
+                </div>
+                <div class="form-group" id="is_price_negotiable-group">
+                    <label class="form-label">Договорная:</label>
+                    {{ form.is_price_negotiable }}
+                </div>
                 <button type="submit" class="form-button">Отправить</button>
             </form>
 
@@ -285,16 +286,20 @@
             if (!sellButton.classList.contains("active")) {
 
                 const isAuthenticated = sellButton.getAttribute('data-authenticated');
+                const userBall = {{ request.user.ball|default:0 }};
 
-                if (isAuthenticated === "True") {
+                if (isAuthenticated === "True" && userBall >= 10) {
                     sellButton.classList.add("active");
                     buyButton.classList.remove("active");
                     formNameInput.value = "sell";
+                } else if (isAuthenticated === "True" && userBall < 10) {
+                    const messageData = "You need at least 10 balls to perform the 'sell' action";
+                    alert(messageData)
+                    window.location.href = "{% url 'myaccount' %}";
                 } else {
-                    // Перенаправляем на страницу аутентификации
+
                     window.location.href = "{% url 'login' %}";
                 }
-
             }
         });
     });
@@ -326,11 +331,11 @@
 
         descriptionField.addEventListener('input', function () {
             const currentLength = descriptionField.value.length;
-            charCount.textContent = currentLength + ' / 800';
+            charCount.textContent = currentLength + ' / 700';
 
             // Если текст приближается к лимиту (например, 750 символов),
             // можно изменить цвет на красный
-            if (currentLength >= 750) {
+            if (currentLength >= 700) {
                 charCount.style.color = 'red';
             } else {
                 charCount.style.color = ''; // Сбросить цвет, если не приближается к лимиту
@@ -359,5 +364,45 @@
     });
 </script>
 
+<script>
+    $(document).ready(function () {
+        // При загрузке страницы скрываем сначала все элементы
+        $('#image-group, #price-group, #is_price_negotiable-group').hide();
+
+        // При клике на кнопку "Купить"
+        $('#buy-button').click(function () {
+            $('#price-group').hide();
+            $('#is_price_negotiable-group').hide();
+            $('#image-group').hide();
+        });
+
+        // При клике на кнопку "Продать"
+        $('#sell-button').click(function () {
+            $('#image-group').show();
+            $('#price-group').show();
+            $('#is_price_negotiable-group').show();
+
+            {#$('#id_is_price_negotiable').show();#}
+            // Проверяем состояние "Договорной" и настроек поля "Цена" при переключении
+            {#togglePriceField($('#id_is_price_negotiable').is(':checked'));#}
+        });
+
+        // Обработка изменения состояния "Договорной"
+        $('#id_is_price_negotiable').change(function () {
+            togglePriceField(this.checked);
+        });
+
+        // Функция для скрытия/показа поля "Цена" в зависимости от состояния "Договорной"
+        function togglePriceField(isPriceNegotiable) {
+            if (isPriceNegotiable) {
+                // Если "Договорная" выбрана, выключаем поле "Цена" и очищаем его
+                $('#id_price').prop('disabled', true).val('');
+            } else {
+                // Если "Договорная" не выбрана, включаем поле "Цена"
+                $('#id_price').prop('disabled', false);
+            }
+        }
+    });
+</script>
 
 </html>

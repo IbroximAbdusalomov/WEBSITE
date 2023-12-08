@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product/style.css' %}">
 </head>
 <body>
 
@@ -15,93 +15,133 @@
         display: flex;
         justify-content: center;
     }
-</style>
 
+    #image-clear_id {
+        display: none;
+    }
+</style>
+{% include 'nav_bar.html' %}
 {% include 'messages.html' %}
 
 <div id="price-form" class="container">
-    <section class="price-form" style="display: flex; align-items: flex-start">
+    <section class="price-form" style="display: flex; align-items: flex-start; padding-top: 100px;">
         <div class="price__image-form">
             <img style="" id="bannerImage" src="{% static 'images/banners/banner-yangi-uskuna.svg' %}"
                  alt="">
         </div>
         <div class="price__form-form" style="width: 50%">
-            <div class="form-group">
-                <label class="form-label">Выберите действие:</label>
-                <div class="buttons-for-choice-type">
-                    <div class="form-check form-check-active">
-                        <button type="button" id="buy-button" class="btn btn-primary active">Купить</button>
-                    </div>
-                    <div class="form-check">
-                        <button type="button" id="sell-button" class="btn btn-primary"
-                                data-authenticated="{{ request.user.is_authenticated }}">Продать
-                        </button>
-                    </div>
-                </div>
-            </div>
+            {#            <div class="form-group">#}
+            {#                <label class="form-label">Выберите действие:</label>#}
+            {#                <div class="buttons-for-choice-type">#}
+            {#                    <div class="form-check form-check-active">#}
+            {#                        <button type="button" id="buy-button" class="btn btn-primary active">Купить</button>#}
+            {#                    </div>#}
+            {#                    <div class="form-check">#}
+            {#                        <button type="button" id="sell-button" class="btn btn-primary"#}
+            {#                                data-authenticated="{{ request.user.is_authenticated }}">Продать#}
+            {#                        </button>#}
+            {#                    </div>#}
+            {#                </div>#}
+            {#            </div>#}
 
-            <form class="custom-form" method="post" action="{% url 'add_film' %}" enctype="multipart/form-data">
+            <form class="custom-form" method="post" action="{% url 'product-edit' pk=form.instance.pk %}"
+                  enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="hidden" name="form-name" id="form-name" value="buy">
                 <div class="form-group" style="position: relative">
-                    <label for="name" class="form-label">Название:</label>
+                    <label for="name" class="form-label">Название:{% for error in form.title.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.title }}
                     <div id="char-count title" class="char-count__title">0 / 100
                     </div>
                 </div>
                 <div class="form-group" style="position: relative">
-                    <label for="description" class="form-label">Описание:</label>
+                    <label for="description" class="form-label">Описание:{% for error in form.description.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.description }}
                     <div id="char-count description" class="char-count__description">0 / 800</div>
                 </div>
                 <div class="form-group">
-                    <label for="category" class="form-label">Категория:</label>
+                    <label for="category" class="form-label">Категория:{% for error in form.category.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.category }}
                 </div>
                 <div class="form-group" id="subcategory-group">
-                    <label for="subcategory" class="form-label">Субкатегория:</label>
+                    <label for="subcategory" class="form-label">Субкатегория:{% for error in form.sub_category.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.sub_category }}
                 </div>
                 <div class="form-group" id="tags-group" style="display: block">
-                    <label for="subcategory" class="form-label">Теги:</label>
+                    <label for="tags" class="form-label">Теги:{% for error in form.tags.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     <div id="tags-checkboxes">
                         {#                        {{ form.tags }}#}
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="phone" class="form-label">Телефон:</label>
+                    <label for="phone" class="form-label">Телефон номер:{% for error in form.telephone.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.telephone }}
+                </div>
+                <div class="form-group">
+                    <label for="telegram" class="form-label">Телеграмм номер:{% for error in form.telegram.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
+                    {{ form.telegram }}
                 </div>
 
                 <div class="form-group" id="country-group">
-                    <label for="id_country" class="form-label">Страна</label>
-                    <select class="form-select" id="id_country" name="country">
-                        {% for value, label in form.country.field.choices %}
-                            <option value="{{ value }}" data-thumbnail="{{ label.flag_url }}">{{ label }}</option>
-                        {% endfor %}
-                    </select>
+                    <label for="id_country" class="form-label">Страна: {% for error in form.country.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
+                    {{ form.country }}
                 </div>
 
                 <div class="form-group" id="city-group">
-                    <label for="city" class="form-label">Город</label>
+                    <label for="city" class="form-label">Город: {% for error in form.city.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}</label>
                     {{ form.city }}
                 </div>
 
-                <div class="form-group" id="image-group">
-                    <div class="image-form">
-                        <label class="form-label">Фотографии</label>
-                        <label class="form-label" style="font-size: 16px; padding-left: 15px"> (Eng optimal product
-                            rasmini
-                            tanlang)</label>
-                        {#                        <p class="form-label"></p>#}
-                    </div>
-                    {#                    <input type="file" name="image" class="form-input" id="id_image">#}
-                    <div class="image-form">
-                        {{ form.image }}
-                        <button type="button" id="reset-image" class="reset-image">Сбросить фото</button>
+                {% if object.type == 'sell' %}
+                    <div class="form-group" id="image-group">
+                        <div class="image-form">
+                            <label class="form-label">Фотографии</label>
+                            <label class="form-label" style="font-size: 16px; padding-left: 15px"> (Eng optimal product
+                                rasmini
+                                tanlang)</label>
+                            {#                        <p class="form-label"></p>#}
+                        </div>
+                        {#                    <input type="file" name="image" class="form-input" id="id_image">#}
 
+                        <div class="image-form">
+                            {{ form.image }}
+                            <button type="button" id="reset-image" class="reset-image">Сбросить фото</button>
+
+                        </div>
                     </div>
-                </div>
+
+                    <div class="form-group" id="city-group">
+                        <label for="city" class="form-label">цена: {% for error in form.city.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
+                        {{ form.price }}
+                    </div>
+
+                    <div class="form-group" id="city-group">
+                        <label for="city" class="form-label">договорный: {% for error in form.city.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
+                        {{ form.is_price_negotiable }}
+                    </div>
+                {% endif %}
 
                 <button type="submit" class="form-button">Отправить</button>
             </form>
@@ -267,16 +307,20 @@
             if (!sellButton.classList.contains("active")) {
 
                 const isAuthenticated = sellButton.getAttribute('data-authenticated');
+                const userBall = {{ request.user.ball|default:0 }};
 
-                if (isAuthenticated === "True") {
+                if (isAuthenticated === "True" && userBall >= 10) {
                     sellButton.classList.add("active");
                     buyButton.classList.remove("active");
                     formNameInput.value = "sell";
+                } else if (isAuthenticated === "True" && userBall < 10) {
+                    const messageData = "You need at least 10 balls to perform the 'sell' action";
+                    alert(messageData)
+                    window.location.href = "{% url 'myaccount' %}";
                 } else {
-                    // Перенаправляем на страницу аутентификации
+
                     window.location.href = "{% url 'login' %}";
                 }
-
             }
         });
     });
@@ -342,4 +386,21 @@
 </script>
 
 
+<script>
+    // Обработка изменения состояния "Договорной"
+    $('#id_is_price_negotiable').change(function () {
+        togglePriceField(this.checked);
+    });
+
+    // Функция для скрытия/показа поля "Цена" в зависимости от состояния "Договорной"
+    function togglePriceField(isPriceNegotiable) {
+        if (isPriceNegotiable) {
+            // Если "Договорная" выбрана, выключаем поле "Цена" и очищаем его
+            $('#id_price').prop('disabled', true).val('');
+        } else {
+            // Если "Договорная" не выбрана, включаем поле "Цена"
+            $('#id_price').prop('disabled', false);
+        }
+    }
+</script>
 </html>

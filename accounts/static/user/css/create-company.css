@@ -1,4 +1,3 @@
-
 body {
     background-color: #dadada;
     font-family: Roboto, 'sans-serif';
@@ -7,17 +6,19 @@ body {
 .form-steps {
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 80px;
     position: relative;
     padding-top: 20px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .form-step::before {
     content: ""; /* Пустое содержимое для псевдоэлемента */
     position: absolute;
     top: 49%; /* Размещаем псевдоэлемент по вертикали в середине */
-    left: 128px;
-    width: 63%;
+    left: 20%;
+    width: 60%;
     height: 2px; /* Толщина линии */
     background-color: #707070;
     z-index: 0;
@@ -42,14 +43,15 @@ body {
 .create-company-section {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    padding-top: 100px;
 }
 
 .create-company {
-    width: 700px;
+    width: 70%;
+    height: 100%;
     padding: 20px;
     background-color: white;
+    border-radius: 24px;
 }
 
 .company-form {
@@ -59,11 +61,13 @@ body {
 }
 
 .form {
+    width: 100%;
     padding: 20px;
+    /*margin: 50px;*/
 }
 
 .form-group {
-    width: 450px;
+    width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;;
@@ -71,12 +75,17 @@ body {
 
 
 .company-input,
+.form-textarea,
 .company-select {
-    padding: 10px;
+    padding: 8px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 18px;
+    font-size: 15px;
+}
+
+.form-buttons {
+    padding-top: 10px;
 }
 
 .form-buttons button {
@@ -84,7 +93,7 @@ body {
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 18px;
     cursor: pointer;
 }
 
@@ -106,4 +115,77 @@ body {
 #id_tags {
     display: flex;
     flex-wrap: wrap;
+}
+
+.hero {
+    width: 100%;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#drop-area {
+    width: 100%;
+    height: 100%;
+    /*padding: 30px;*/
+    background: #fff;
+    text-align: center;
+    border-radius: 20px;
+}
+
+#img-view {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 2px dashed #bbb5ff;
+    background-color: #f7f8ff;
+    background-position: center;
+    background-size: cover;
+}
+
+#img-view img {
+    width: 100px;
+    margin-top: 75px;
+}
+
+.img-view-text {
+    padding-top: 50px;
+}
+
+#img-view span {
+    display: block;
+    font-size: 12px;
+    color: #777;
+    margin: 15px 0 5px 0;
+}
+
+
+@media only screen and (max-width: 490px) {
+
+    .create-company {
+        width: 80%;
+    }
+
+    .form-steps {
+        gap: 6%;
+    }
+
+    .step-text {
+        font-size: 14px;
+    }
+
+    .form-step::before {
+        top: 51%;
+        left: 10%;
+        width: 80%;
+    }
+
+    .form {
+        width: 100%;
+    }
+
+    .form-group {
+        width: 100%;
+    }
 }

@@ -1,85 +1,521 @@
+{% load i18n %}
 {% load static %}
 
 <!-- Header section -->
-<header class="main-header">
-    <div class="container">
-        <div class="main-header__logo">
-            <a href="{% url 'index' %}">
-                <img class="main-header__logo" src="{% static 'images/TECNOPROM-LOGO.png' %}" alt="logo">
-            </a>
-        </div>
-        <div class="main-navigations">
-            <nav class="main-navigation">
-                <a href="#" class="main-navigation__button">
-                    sanoat
-                    <img src="{% static 'images/at.png' %}" class="img__categories" alt="img for categories">
+{#<header class="main-header">#}
+{#    <div class="container">#}
+{#        <div class="main-header__logo">#}
+{#            <a href="{% url 'index' %}">#}
+{#                <img class="main-header__logo" src="{% static 'images/TECNOPROM-LOGO.png' %}" alt="logo">#}
+{#            </a>#}
+{#        </div>#}
+{#        <div class="main-navigations">#}
+{#            <nav class="main-navigation">#}
+{#                <a href="#" class="main-navigation__button">#}
+{#                    {% translate "sanoat" %}#}
+{#                    <img src="{% static 'images/at.png' %}" class="img__categories" alt="img for categories">#}
+{#                </a>#}
+{##}
+{#                <ul class="main-navigation__items">#}
+{#                    <li class="main-navigation__item"><a href="#">{% translate "Plastmassa" %}</a></li>#}
+{#                    <li class="main-navigation__item"><a href="#">{% translate "Qadoqlash" %}</a></li>#}
+{#                    <li class="main-navigation__item"><a href="#">{% translate "Tekstil" %}</a></li>#}
+{#                    <li class="main-navigation__item"><a href="#">{% translate "Oziq-ovqat" %}</a></li>#}
+{#                    <li class="main-navigation__item"><a href="#">{% translate "Agro" %}</a></li>#}
+{#                    <li class="main-navigation__item"><a href="#">{% translate "Metall" %}</a></li>#}
+{#                </ul>#}
+{#            </nav>#}
+{##}
+{#            <nav class="main-navigation">#}
+{#                <a href="#" class="main-navigation__button">{% translate "yo'nalishlar" %}</a>#}
+{#                <ul class="main-navigation__items">#}
+{#                    <li class="main-navigation__item">#}
+{#                        <a href="#">#}
+{#                            <img src="{% static 'images/categories/yangi-uskunalar-24px.png' %}" alt="">#}
+{#                            {% translate "Yangi uskunalar" %}#}
+{#                        </a>#}
+{#                    </li>#}
+{#                    <li class="main-navigation__item">#}
+{#                        <a href="#">#}
+{#                            <img src="{% static 'images/categories/ishlatilgan-uskunalar-24px.png' %}" alt="">#}
+{#                            {% translate "Ishlatilgan uskunalar" %}#}
+{#                        </a>#}
+{#                    </li>#}
+{#                    <li class="main-navigation__item">#}
+{#                        <a href="#">#}
+{#                            <img src="{% static 'images/categories/xomashyo-24px.png' %}" alt="">#}
+{#                            {% translate "Xom ashyo" %}#}
+{#                        </a>#}
+{#                    </li>#}
+{#                    <li class="main-navigation__item">#}
+{#                        <a href="#">#}
+{#                            <img src="{% static 'images/categories/sanoat-xomashyo-24px.png' %}" alt="">#}
+{#                            {% translate "Xizmat ko'rsatish" %}#}
+{#                        </a>#}
+{#                    </li>#}
+{#                    <li class="main-navigation__item">#}
+{#                        <a href="#">#}
+{#                            <img src="{% static 'images/categories/texnologlar-24px.png' %}" alt="">#}
+{#                            {% translate "Texnolog" %}#}
+{#                        </a>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </nav>#}
+{#        </div>#}
+{##}
+{#        <div class="right-buttons">#}
+{##}
+{#            <ul class="buttons">#}
+{##}
+{#                {% if user.is_authenticated %}#}
+{#                    <li class="login-button"><a href="{% url 'myaccount' %}">{{ user.username }}</a></li>#}
+{#                {% else %}#}
+{#                    <li class="login-button"><a href="{% url 'login' %}">{% translate "Sing in" %}</a></li>#}
+{#                {% endif %}#}
+{#                <li class="price-button"><a href="{% url 'add_film' %}">{% translate "buyurtma berish" %}</a></li>#}
+{#            </ul>#}
+{#        </div>#}
+{##}
+{#        <div class="languages">#}
+{#            <span>#}
+{#                <img class="icon-global" src="{% static 'user/image/flags/global.svg' %}"#}
+{#                     alt="global">#}
+{#            </span>#}
+{##}
+{#            <ul class="language-menu">#}
+{#                {% get_current_language as LANGUAGE_CODE %}#}
+{#                {% get_available_languages as LANGUAGES %}#}
+{#                {% get_language_info_list for LANGUAGES as languages %}#}
+{##}
+{#                {% for lang in languages %}#}
+{#                    <li class="language">#}
+{#                        <a href="/{{ lang.code }}/">{{ lang.code|upper }}</a>#}
+{#                    </li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
+{#        </div>#}
+{##}
+{#        <div class="bars">#}
+{#            <i class="fa-solid fa-bars" id="barsIcon"></i>#}
+{#            <div class="buttons-for-choice-section" id="ButtonsForChoiceSection">#}
+{#                <div class="MuinBox-root">#}
+{#                    <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button"#}
+{#                         aria-expanded="false">#}
+{#                        <div class="button-for-choice-section">#}
+{#                            <div class="MuiBox-root">{% translate 'sanoat' %}<!-- --></div>#}
+{#                            <div class="MuiAccordionSummary-expandIconWrapper">#}
+{#                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down"#}
+{#                                     class="svg-inline--fa fa-chevron-down " role="img"#}
+{#                                     xmlns="http://www.w3.org/2000/svg"#}
+{#                                     viewBox="0 0 448 512">#}
+{#                                    <path fill="currentColor"#}
+{#                                          d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>#}
+{#                                </svg>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <div class="buttons-for-section profile">#}
+{#                            <a class="button-for-section dont-text-decoration"#}
+{#                               href="{% url 'product-list' %}">{% translate "Plastmassa" %}</a>#}
+{#                            <a class="button-for-section dont-text-decoration"#}
+{#                               href="{% url 'product-list' %}">{% translate "Qadoqlash" %}</a>#}
+{#                            <a class="button-for-section dont-text-decoration"#}
+{#                               href="{% url 'product-list' %}">{% translate "Tekstil" %}</a>#}
+{#                            <a class="button-for-section dont-text-decoration"#}
+{#                               href="{% url 'product-list' %}">{% translate "Oziq-ovqat" %}</a>#}
+{#                            <a class="button-for-section dont-text-decoration"#}
+{#                               href="{% url 'product-list' %}">{% translate "Agro" %}</a>#}
+{#                            <a class="button-for-section dont-text-decoration"#}
+{#                               href="{% url 'product-list' %}">{% translate "Metall" %}</a>#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{#                    <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button"#}
+{#                         aria-expanded="false">#}
+{#                        <div class="button-for-choice-section">#}
+{#                            <div class="MuiBox-root">{% translate "yo'nalishlar" %}<!-- --></div>#}
+{#                            <div class="MuiAccordionSummary-expandIconWrapper">#}
+{#                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down"#}
+{#                                     class="svg-inline--fa fa-chevron-down " role="img"#}
+{#                                     xmlns="http://www.w3.org/2000/svg"#}
+{#                                     viewBox="0 0 448 512">#}
+{#                                    <path fill="currentColor"#}
+{#                                          d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>#}
+{#                                </svg>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <div class="buttons-for-section industry">#}
+{#                            <a class="button-for-section dont-text-decoration"#}
+{#                               href="{% url 'product-list' %}">{% translate "Yangi uskuna" %}</a>#}
+{#                            <a class="button-for-section dont-text-decoration"#}
+{#                               href="{% url 'product-list' %}">{% translate "Ishlatilgan uskuna" %}</a>#}
+{#                            <a class="button-for-section dont-text-decoration"#}
+{#                               href="{% url 'product-list' %}">{% translate "Xom ashyo" %}</a>#}
+{#                            <a class="button-for-section dont-text-decoration"#}
+{#                               href="{% url 'product-list' %}">{% translate "Xizmat ko'rsatish" %}</a>#}
+{#                            >#}
+{##}
+{#                        </div>#}
+{#                        <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button"#}
+{#                             aria-expanded="false">#}
+{#                            <div class="button-for-choice-section">#}
+{#                                <div class="MuiBox-root">til<!-- --></div>#}
+{#                                <div class="MuiAccordionSummary-expandIconWrapper">#}
+{#                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down"#}
+{#                                         class="svg-inline--fa fa-chevron-down " role="img"#}
+{#                                         xmlns="http://www.w3.org/2000/svg"#}
+{#                                         viewBox="0 0 448 512">#}
+{#                                        <path fill="currentColor"#}
+{#                                              d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>#}
+{#                                    </svg>#}
+{#                                </div>#}
+{#                            </div>#}
+{##}
+{##}
+{#                            <div class="buttons-for-section industry">#}
+{#                                {% get_current_language as LANGUAGE_CODE %}#}
+{#                                {% get_available_languages as LANGUAGES %}#}
+{#                                {% get_language_info_list for LANGUAGES as languages %}#}
+{#                                {% for lang in languages %}#}
+{#                                    <a class="button-for-section dont-text-decoration"#}
+{#                                       href="/{{ lang.code }}/">{{ lang.code|upper }}</a>#}
+{#                                {% endfor %}#}
+{#                            </div>#}
+{##}
+{#                        </div>#}
+{##}
+{#                        {% if request.user.is_anonymous is not True %}#}
+{#                            <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button"#}
+{#                                 aria-expanded="false">#}
+{#                                <div class="button-for-choice-section">#}
+{#                                    <div class="MuiBox-root">{% translate "profile" %}<!-- --></div>#}
+{#                                    <div class="MuiAccordionSummary-expandIconWrapper">#}
+{#                                        <svg aria-hidden="true" focusable="false" data-prefix="fas"#}
+{#                                             data-icon="chevron-down"#}
+{#                                             class="svg-inline--fa fa-chevron-down " role="img"#}
+{#                                             xmlns="http://www.w3.org/2000/svg"#}
+{#                                             viewBox="0 0 448 512">#}
+{#                                            <path fill="currentColor"#}
+{#                                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>#}
+{#                                        </svg>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="buttons-for-section direction">#}
+{#                                    <a class="button-for-section dont-text-decoration"#}
+{#                                       href="{% url 'myaccount' %}">{% translate "Profile" %}</a>#}
+{#                                    <a class="button-for-section dont-text-decoration"#}
+{#                                       href="{% url 'create-company' %}">{% translate "Create company" %}</a>#}
+{#                                </div>#}
+{##}
+{#                            </div>#}
+{##}
+{#                        {% endif %}#}
+{##}
+{#                        <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" aria-expanded="false">#}
+{#                            <div class="button-for-choice-section">#}
+{#                                <a class="MuiBox-root dont-text-decoration"#}
+{#                                   href="{% url 'product-list' %}">{% translate "product list" %}</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{##}
+{#                    <div class="button-for-logout">#}
+{#                        <a href="{% url 'add_film' %}">{% translate "buyurtma berish" %}</a>#}
+{#                        {% if request.user.is_anonymous is not True %}#}
+{#                            <a class="" href="{% url 'logout' %}">Выйти</a>#}
+{#                        {% else %}#}
+{#                            <a class="" href="{% url 'login' %}">Войти</a>#}
+{#                        {% endif %}#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</header>#}
+
+<div class="container">
+    <header class="main-header">
+        <div class="main-headers">
+            <div class="main-header__logo">
+                <a href="{% url 'index' %}">
+                    <img class="main-header__logo" src="{% static 'images/TECNOPROM-LOGO.png' %}" alt="logo">
                 </a>
+            </div>
+            <div class="main-navigations">
+                <nav class="main-navigation">
+                    <a href="#" class="main-navigation__button">
+                        {% translate "sanoat" %}
+                        <img src="{% static 'images/at.png' %}" class="img__categories" alt="img for categories">
+                    </a>
 
-                <ul class="main-navigation__items">
-                    <li class="main-navigation__item"><a href="#">Plastmassa</a></li>
-                    <li class="main-navigation__item"><a href="#">Qadoqlash</a></li>
-                    <li class="main-navigation__item"><a href="#">Tekstil</a></li>
-                    <li class="main-navigation__item"><a href="#">Oziq-ovqat</a></li>
-                    <li class="main-navigation__item"><a href="#">Agro</a></li>
-                    <li class="main-navigation__item"><a href="#">Metall</a></li>
+                    <ul class="main-navigation__items">
+                        <li class="main-navigation__item"><a href="#">{% translate "Plastmassa" %}</a></li>
+                        <li class="main-navigation__item"><a href="#">{% translate "Qadoqlash" %}</a></li>
+                        <li class="main-navigation__item"><a href="#">{% translate "Tekstil" %}</a></li>
+                        <li class="main-navigation__item"><a href="#">{% translate "Oziq-ovqat" %}</a></li>
+                        <li class="main-navigation__item"><a href="#">{% translate "Agro" %}</a></li>
+                        <li class="main-navigation__item"><a href="#">{% translate "Metall" %}</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="main-navigation">
+                    <a href="#" class="main-navigation__button">{% translate "yo'nalishlar" %}</a>
+                    <ul class="main-navigation__items">
+                        <li class="main-navigation__item">
+                            <a href="#">
+                                <img src="{% static 'images/categories/yangi-uskunalar-24px.png' %}" alt="">
+                                {% translate "Yangi uskunalar" %}
+                            </a>
+                        </li>
+                        <li class="main-navigation__item">
+                            <a href="#">
+                                <img src="{% static 'images/categories/ishlatilgan-uskunalar-24px.png' %}" alt="">
+                                {% translate "Ishlatilgan uskunalar" %}
+                            </a>
+                        </li>
+                        <li class="main-navigation__item">
+                            <a href="#">
+                                <img src="{% static 'images/categories/xomashyo-24px.png' %}" alt="">
+                                {% translate "Xom ashyo" %}
+                            </a>
+                        </li>
+                        <li class="main-navigation__item">
+                            <a href="#">
+                                <img src="{% static 'images/categories/sanoat-xomashyo-24px.png' %}" alt="">
+                                {% translate "Xizmat ko'rsatish" %}
+                            </a>
+                        </li>
+                        <li class="main-navigation__item">
+                            <a href="#">
+                                <img src="{% static 'images/categories/texnologlar-24px.png' %}" alt="">
+                                {% translate "Texnolog" %}
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="right-buttons">
+
+                <ul class="buttons">
+
+                    {% if user.is_authenticated %}
+                        <li class="login-button"><a href="{% url 'myaccount' %}">{{ user.username }}</a></li>
+                    {% else %}
+                        <li class="login-button"><a href="{% url 'login' %}">{% translate "Sing in" %}</a></li>
+                    {% endif %}
+                    <li class="price-button"><a href="{% url 'add_film' %}">{% translate "buyurtma berish" %}</a></li>
                 </ul>
-            </nav>
+            </div>
+            <div class="languages">
+            <span>
+                <img class="icon-global" src="{% static 'user/image/flags/global.svg' %}"
+                     alt="global">
+            </span>
 
-            <nav class="main-navigation">
-                <a href="#" class="main-navigation__button">yo'nalishlar</a>
-                <ul class="main-navigation__items">
-                    <li class="main-navigation__item">
-                        <a href="#">
-                            <img src="{% static 'images/categories/yangi-uskunalar-24px.png' %}" alt="">
-                            Yangi uskunalar
-                        </a>
-                    </li>
-                    <li class="main-navigation__item">
-                        <a href="#">
-                            <img src="{% static 'images/categories/ishlatilgan-uskunalar-24px.png' %}" alt="">
-                            Ishlatilgan uskunalar
-                        </a>
-                    </li>
-                    <li class="main-navigation__item">
-                        <a href="#">
-                            <img src="{% static 'images/categories/xomashyo-24px.png' %}" alt="">
-                            Xom ashyo
-                        </a>
-                    </li>
-                    <li class="main-navigation__item">
-                        <a href="#">
-                            <img src="{% static 'images/categories/sanoat-xomashyo-24px.png' %}" alt="">
-                            Xizmat ko'rsatish
-                        </a>
-                    </li>
-                    <li class="main-navigation__item">
-                        <a href="#">
-                            <img src="{% static 'images/categories/texnologlar-24px.png' %}" alt="">
-                            Texnologlar
-                        </a>
-                    </li>
+                <ul class="language-menu">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+
+                    {% for lang in languages %}
+                        <li class="language">
+                            <a href="/{{ lang.code }}/">{{ lang.code|upper }}</a>
+                        </li>
+                    {% endfor %}
                 </ul>
-            </nav>
+            </div>
+            <div class="bars">
+                <i class="fa-solid fa-bars" id="barsIcon"></i>
+                <div class="buttons-for-choice-section" id="ButtonsForChoiceSection">
+                    <div class="MuinBox-root">
+                        <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button"
+                             aria-expanded="false">
+                            <div class="button-for-choice-section">
+                                <div class="MuiBox-root">{% translate 'sanoat' %}<!-- --></div>
+                                <div class="MuiAccordionSummary-expandIconWrapper">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down"
+                                         class="svg-inline--fa fa-chevron-down " role="img"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 448 512">
+                                        <path fill="currentColor"
+                                              d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="buttons-for-section profile">
+                                <a class="button-for-section dont-text-decoration"
+                                   href="{% url 'product-list' %}">{% translate "Plastmassa" %}</a>
+                                <a class="button-for-section dont-text-decoration"
+                                   href="{% url 'product-list' %}">{% translate "Qadoqlash" %}</a>
+                                <a class="button-for-section dont-text-decoration"
+                                   href="{% url 'product-list' %}">{% translate "Tekstil" %}</a>
+                                <a class="button-for-section dont-text-decoration"
+                                   href="{% url 'product-list' %}">{% translate "Oziq-ovqat" %}</a>
+                                <a class="button-for-section dont-text-decoration"
+                                   href="{% url 'product-list' %}">{% translate "Agro" %}</a>
+                                <a class="button-for-section dont-text-decoration"
+                                   href="{% url 'product-list' %}">{% translate "Metall" %}</a>
+                            </div>
+
+                        </div>
+                        <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button"
+                             aria-expanded="false">
+                            <div class="button-for-choice-section">
+                                <div class="MuiBox-root">{% translate "yo'nalishlar" %}<!-- --></div>
+                                <div class="MuiAccordionSummary-expandIconWrapper">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down"
+                                         class="svg-inline--fa fa-chevron-down " role="img"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 448 512">
+                                        <path fill="currentColor"
+                                              d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="buttons-for-section industry">
+                                <a class="button-for-section dont-text-decoration"
+                                   href="{% url 'product-list' %}">{% translate "Yangi uskuna" %}</a>
+                                <a class="button-for-section dont-text-decoration"
+                                   href="{% url 'product-list' %}">{% translate "Ishlatilgan uskuna" %}</a>
+                                <a class="button-for-section dont-text-decoration"
+                                   href="{% url 'product-list' %}">{% translate "Xom ashyo" %}</a>
+                                <a class="button-for-section dont-text-decoration"
+                                   href="{% url 'product-list' %}">{% translate "Xizmat ko'rsatish" %}</a>
 
 
-            {#            <nav class="main-navigation">#}
-            {#                <a href="{% url 'product-list' %}" class="main-navigation__button">Product list</a>#}
-            {#            </nav>#}
+                            </div>
+                            <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button"
+                                 aria-expanded="false">
+                                <div class="button-for-choice-section">
+                                    <div class="MuiBox-root">til<!-- --></div>
+                                    <div class="MuiAccordionSummary-expandIconWrapper">
+                                        <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                             data-icon="chevron-down"
+                                             class="svg-inline--fa fa-chevron-down " role="img"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 448 512">
+                                            <path fill="currentColor"
+                                                  d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+
+
+                                <div class="buttons-for-section industry">
+                                    {% get_current_language as LANGUAGE_CODE %}
+                                    {% get_available_languages as LANGUAGES %}
+                                    {% get_language_info_list for LANGUAGES as languages %}
+                                    {% for lang in languages %}
+                                        <a class="button-for-section dont-text-decoration"
+                                           href="/{{ lang.code }}/">{{ lang.code|upper }}</a>
+                                    {% endfor %}
+                                </div>
+
+                            </div>
+
+                            {% if request.user.is_anonymous is not True %}
+                                <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button"
+                                     aria-expanded="false">
+                                    <div class="button-for-choice-section">
+                                        <div class="MuiBox-root">{% translate "profile" %}<!-- --></div>
+                                        <div class="MuiAccordionSummary-expandIconWrapper">
+                                            <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                 data-icon="chevron-down"
+                                                 class="svg-inline--fa fa-chevron-down " role="img"
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 viewBox="0 0 448 512">
+                                                <path fill="currentColor"
+                                                      d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="buttons-for-section direction">
+                                        <a class="button-for-section dont-text-decoration"
+                                           href="{% url 'myaccount' %}">{% translate "Profile" %}</a>
+                                        <a class="button-for-section dont-text-decoration"
+                                           href="{% url 'create-company' %}">{% translate "Create company" %}</a>
+                                        <a class="button-for-section dont-text-decoration"
+                                           href="{% url 'update_profile' %}">{% translate "Update profile" %}</a>
+                                    </div>
+
+                                </div>
+
+                            {% endif %}
+
+                            <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" aria-expanded="false">
+                                <div class="button-for-choice-section">
+                                    <a class="MuiBox-root dont-text-decoration"
+                                       href="{% url 'product-list' %}">{% translate "product list" %}</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="button-for-logout">
+                            <a href="{% url 'add_film' %}">{% translate "buyurtma berish" %}</a>
+                            {% if request.user.is_anonymous is not True %}
+                                <a class="" href="{% url 'logout' %}">Выйти</a>
+                            {% else %}
+                                <a class="" href="{% url 'login' %}">Войти</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="right-buttons">
-            <ul class="buttons">
-                {% if user.is_authenticated %}
-                    <li class="planos-button"><a href="{% url 'logout' %}">logout</a></li>
-                {% endif %}
-                {% if user.is_authenticated %}
-                    <li class="login-button"><a href="{% url 'myaccount' %}">{{ user.username }}</a></li>
-                {% else %}
-                    <li class="login-button"><a href="{% url 'login' %}">Login</a></li>
-                {% endif %}
-                <li class="price-button"><a href="{% url 'add_film' %}">buyurtma berish</a></li>
-            </ul>
-        </div>
-    </div>
-</header>
+    </header>
+</div>
 <!-- /Header section -->
+
+<script>
+    // Get the bars icon and main header elements by their IDs
+    var barsIcon = document.getElementById('barsIcon');
+    var mainHeader = document.getElementById('ButtonsForChoiceSection');
+
+    // Add a click event listener to the bars icon
+    barsIcon.addEventListener('click', function () {
+        // Toggle the "active" class on the main header
+        mainHeader.classList.toggle('active');
+    });
+
+
+    const buttonForChoiceSections = document.querySelectorAll('.button-for-choice-section');
+    const profileSections = document.querySelectorAll('.buttons-for-section');
+
+    let activeButtonIndex = null;
+
+    buttonForChoiceSections.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            if (activeButtonIndex === index) {
+                profileSections[index].classList.remove('active');
+                buttonForChoiceSections[activeButtonIndex].classList.remove('active');
+                activeButtonIndex = null;
+            } else {
+                profileSections.forEach((section) => {
+                    section.classList.remove('active');
+                });
+                buttonForChoiceSections.forEach((section) => {
+                    section.classList.remove('active');
+                });
+                profileSections[index].classList.add('active');
+                buttonForChoiceSections[index].classList.add('active');
+                activeButtonIndex = index;
+            }
+        });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var languageMenu = document.getElementById("languageMenu");
+
+        document.querySelector('.languages').addEventListener("click", function () {
+            // Toggle the display property on click
+            languageMenu.style.display = (languageMenu.style.display === "none" || languageMenu.style.display === "") ? "flex" : "none";
+        });
+    });
+
+</script>

@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/product/style.css' %}">
     <link rel="stylesheet" href="{% static 'user/css/admin-panel.css' %}">
     <link rel="stylesheet" href="{% static 'user/css/Tecnopromlinkedin.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/Tecnopromlinkedin_1.css' %}">
 
     <title>{{ request.user }}</title>
 </head>
@@ -26,271 +28,215 @@
 
 
 <style>
-    .cards {
-        width: 846px;
-    }
-
-    .card__sell,
-    .card__buy {
-        width: calc(32% - 20px); /* Изменено на 33.33% */
+    .user-info {
+        width: 97%;
     }
 </style>
 
 <div class="container">
-    <div style="display: flex">
+    <div class="gdsgogsf">
         <div style="display: flex; flex-direction: column">
             <section class="user-info">
                 <div class="user-profile">
                     <div class="user-photos">
                         <div class="user-banner">
-                            <img src="{% static "user/image/banner.png" %}" alt="banner">
+                            <img src="{{ profile.banner.url }}" alt="banner">
                         </div>
                         <div class="user-profile__foto">
-                            <img src="{% static 'images/avatar.png' %}" alt="profile foto">
+                            <img src="{{ profile.logo.url }}" alt="profile foto">
                         </div>
                     </div>
                     <div class="profile-info">
                         <div class="block-1">
                             <h1 class="profile-info__title">
-                                {{ profile.username }}
+                                {{ profile.company_name }}
                             </h1>
                             <div class="profile-description">
-                                <p>Media about industrial informations and advanced technology especially in
-                                    Agriculture,
-                                    Textile and Plast Industries</p>
+                                <p>{{ profile.description }}</p>
                             </div>
                         </div>
+
                         <div class="block-2">
                             <div class="profile-buttons">
                                 <a class="dont-text-decoration" href="#"><span
                                         class="following text-medium-weight border-for-buttons"><i
-                                        class="fa-solid fa-check"></i> Отслеживаете</span></a>
+                                        class="fa-solid fa-check"></i>{% translate 'Отслеживаете' %}</span></a>
                                 <a class="dont-text-decoration" href="#"><span
-                                        class="connect-with-us text-medium-weight border-for-buttons disabled">Связаться с нами<i
+                                        class="connect-with-us text-medium-weight border-for-buttons disabled">{% translate 'Связаться с нами' %}<i
                                         class="fa-solid fa-arrow-up-right-from-square"
                                         style="font-size: 12px; padding-left: 5px"></i></span></a>
                                 <a class="dont-text-decoration" href="#"><span
-                                        class="more text-medium-weight border-for-buttons">Еще</span></a>
+                                        class="more text-medium-weight border-for-buttons">{% translate "Еще" %}</span></a>
                             </div>
+                            {% if not request.user.is_anonymous %}
+                                <form action="">
+                                    {% csrf_token %}
+
+                                    {% if has_rated %}
+                                        <span id="average-rating">{% translate "рейтинг" %}: {{ average_rating }}</span>
+                                    {% else %}
+                                        <div class="rating-area">
+                                            <input type="radio" id="star-5" name="rating" value="5">
+                                            <label for="star-5" title="Оценка «5»"></label>
+                                            <input type="radio" id="star-4" name="rating" value="4">
+                                            <label for="star-4" title="Оценка «4»"></label>
+                                            <input type="radio" id="star-3" name="rating" value="3">
+                                            <label for="star-3" title="Оценка «3»"></label>
+                                            <input type="radio" id="star-2" name="rating" value="2">
+                                            <label for="star-2" title="Оценка «2»"></label>
+                                            <input type="radio" id="star-1" name="rating" value="1">
+                                            <label for="star-1" title="Оценка «1»"></label>
+                                        </div>
+                                        <span id="average-rating"
+                                              style="display: none;">{% translate "рейтинг" %}: {{ average_rating }}</span>
+                                    {% endif %}
+                                </form>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-            </section>
-            <section id="cards-section" class="cards__buy-section">
-                <div class="cards" id="card-container">
-                    {% for product in products %}
-                        {% if product.type == 'sell' %}
-                            <div class="card__sell card-color">
-                                <div class="card__buy-content">
-                                    <div class="card__sell-image">
-                                        <img src="{{ product.image.url }}" alt="Product Image">
+                <div id="cards-section" class="cards__buy-section">
+                    <div class="cards" id="card-container">
+                        {% for product in products %}
+                            {% if product.type == 'sell' %}
+                                <div class="card__sell card-color">
+                                    <div class="card__buy-content">
+                                        <div class="card__sell-image">
+                                            <img src="{{ product.image.url }}" alt="Product Image">
+                                        </div>
+                                        <a href="{% url 'product-detail' product.pk %}"
+                                           class="title">{{ product.title }}</a>
+                                        <div class="product-data">
+                                            <div class="category-info">
+                                                <div class="product-cat__image">
+                                                    <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
+                                                </div>
+                                                <a href="#">{{ product.category }}</a>
+                                            </div>
+
+                                            <div class="flags">
+                                                <span class="country">{{ product.country }}</span>
+                                            </div>
+                                            <div class="date">
+                                                <span class="full-date">{{ product.create_date }}</span>
+                                            </div>
+                                            <div class="like-and-more">
+                                                <a href="{% url "product-detail" product.pk %}"
+                                                   class="read-more">{% translate "Подробнее" %}</a>
+                                                <div class="svg-icon-container">
+                                                    {% if user.is_authenticated %}
+                                                        <span class="add-to-favorites"
+                                                              data-product-id="{{ product.id }}"
+                                                              data-url="{% url 'add_to_favorites' product.id %}">
+                                            <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart"
+                                               style="font-size: 15px"></i>
+                                            </span>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <a href="{% url 'product-detail' product.pk %}"
-                                       class="title">{{ product.title }}</a>
-                                    <div class="product-data">
+                                </div>
+                            {% elif product.type == 'buy' %}
+                                <div class="card__buy card-color">
+                                    <div class="card__buy-content">
                                         <div class="category-info">
                                             <div class="product-cat__image">
                                                 <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
                                             </div>
                                             <a href="#">{{ product.category }}</a>
                                         </div>
-
-                                        <div class="flags">
-                                            <span class="country">{{ product.country }}</span>
-                                        </div>
-                                        <div class="date">
-                                            <span class="full-date">{{ product.create_date }}</span>
-                                        </div>
-                                        <div class="like-and-more">
-                                            <a href="{% url "product-detail" product.pk %}"
-                                               class="read-more">Подробнее</a>
-                                            <div class="svg-icon-container">
-                                                {% if user.is_authenticated %}
-                                                    <span class="add-to-favorites" data-product-id="{{ product.id }}"
-                                                          data-url="{% url 'add_to_favorites' product.id %}">
-                                            <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart"
-                                               style="font-size: 15px"></i>
-                                            </span>
-                                                {% endif %}
+                                        {#<div class="card__sell-image">#}
+                                        {#  <img src="{{ product.image.url }}" alt="Product Image">#}
+                                        {#</div>#}
+                                        <h2 class="title"><a href="{% url 'product-detail' product.pk %}"
+                                                             class="title">{{ product.title }}</a></h2>
+                                        <p class="description">{{ product.description }}</p>
+                                        <div class="product-data">
+                                            <div class="flags">
+                                                <span class="country">{{ product.country }}</span>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {% elif product.type == 'buy' %}
-                            <div class="card__buy card-color">
-                                <div class="card__buy-content">
-                                    <div class="category-info">
-                                        <div class="product-cat__image">
-                                            <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
-                                        </div>
-                                        <a href="#">{{ product.category }}</a>
-                                    </div>
-                                    {#<div class="card__sell-image">#}
-                                    {#  <img src="{{ product.image.url }}" alt="Product Image">#}
-                                    {#</div>#}
-                                    <h2 class="title"><a href="{% url 'product-detail' product.pk %}"
-                                                         class="title">{{ product.title }}</a></h2>
-                                    <p class="description">{{ product.description }}</p>
-                                    <div class="product-data">
-                                        <div class="flags">
-                                            <span class="country">{{ product.country }}</span>
-                                        </div>
-                                        <div class="date">
-                                            <span class="full-date">{{ product.create_date }}</span>
-                                        </div>
-                                        <div class="like-and-more">
-                                            <a href="{% url 'product-detail' product.pk %}"
-                                               class="read-more">Подробнее</a>
-                                            <div class="svg-icon-container">
-                                                {% if user.is_authenticated %}
-                                                    <span class="add-to-favorites" data-product-id="{{ product.id }}"
-                                                          data-url="{% url 'add_to_favorites' product.id %}">
+                                            <div class="date">
+                                                <span class="full-date">{{ product.create_date }}</span>
+                                            </div>
+                                            <div class="like-and-more">
+                                                <a href="{% url 'product-detail' product.pk %}"
+                                                   class="read-more">{% translate "Подробнее" %}</a>
+                                                <div class="svg-icon-container">
+                                                    {% if user.is_authenticated %}
+                                                        <span class="add-to-favorites"
+                                                              data-product-id="{{ product.id }}"
+                                                              data-url="{% url 'add_to_favorites' product.id %}">
                                             <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart fa-lg"
                                                style="font-size: 15px"></i>
                                         </span>
-                                                {% endif %}
+                                                    {% endif %}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                        {% endif %}
-                    {% empty %}
-                        <h1>Пока что нет таких объявлений.</h1>
-                    {% endfor %}
+                            {% endif %}
+                        {% empty %}
+                            <h1>{% translate "Пока что нет таких объявлений." %}</h1>
+                        {% endfor %}
+                    </div>
                 </div>
             </section>
+
         </div>
 
         <div>
-            <div class="benner-for-reklam" style="padding-top: 110px;">
+            <div class="benner-for-reklam">
                 <div class="banner" style="margin: 0 11px; ">
                     <img src="{% static 'images/image.png' %}" alt="banner" style="width: 245px;">
                 </div>
             </div>
-            <div class="company-cards" style="padding-top: 20px; display: flex; flex-direction: column">
-                <div class="card__sell card-color" style="width: 240px;">
-                    <div class="card__company-content">
-                        <div class="card__sell-image">
-                            <a href="#"><img src="{% static 'images/banner.png' %}" alt=""></a>
-                        </div>
-                        <div class="card__company-image">
-                            <img src="{% static 'images/image.png' %}" alt="Product Image">
-                        </div>
+            <div class="company-cards">
+                {% for company in companies %}
+                    <div class="card__sell card-color">
+                        <div class="card__company-content">
+                            <div class="card__sell-image">
+                                <a href="#"><img src="{{ company.banner.url }}" alt=""></a>
+                            </div>
+                            <div class="card__company-image">
+                                <img src="{{ company.logo.url }}" alt="Product Image">
+                            </div>
 
-                        <a href="#" class="title">Tecnoprom</a>
-                        <div class="product-data">
-                            <div class="company-categories">
+                            <a href="#" class="title">{{ company.company_name }}</a>
+                            <div class="product-data">
+                                <div class="company-categories">
 
-                                <div class="company-category" style="font-size: 12px;">
-                                    <a class="dont-text-decoration color-for-mini-text"
-                                       href="#">Yangi uskunalar</a>
+                                    <div class="company-category" style="font-size: 12px;">
+                                        <a class="dont-text-decoration color-for-mini-text"
+                                           href="#">{{ company.category }}</a>
+                                    </div>
+                                    <div class="company-sub_category" style="font-size: 12px"><a
+                                            class="dont-text-decoration color-for-mini-text" href="#">Agro</a></div>
                                 </div>
-                                <div class="company-sub_category" style="font-size: 12px"><a
-                                        class="dont-text-decoration color-for-mini-text" href="#">Agro</a></div>
-                            </div>
 
-                            <div class="flags">
-                                <span class="country">🇩🇪 Германия</span>
-                            </div>
-                            <div class="like-and-more">
-                                <a href="#" class="read-more">Подробнее</a>
-                                <div class="svg-icon-container">
-                                    {% if user.is_authenticated %}
-                                        <span class="add-to-favorites">
-                                        <i class="fa-solid fa-heart" style="font-size: 15px"></i>
-                                    </span>
-                                    {% endif %}
+                                <div class="flags">
+                                    <span class="country">{{ company.country }}</span>
+                                </div>
+                                <div class="like-and-more">
+                                    <a href="{% url 'profile' company.pk %}" class="read-more">Подробнее</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card__sell card-color" style="width: 240px;">
-                    <div class="card__company-content">
-                        <div class="card__sell-image">
-                            <a href="#"><img src="{% static 'images/banner.png' %}" alt=""></a>
-                        </div>
-                        <div class="card__company-image">
-                            <img src="{% static 'images/image.png' %}" alt="Product Image">
-                        </div>
+                {% endfor %}
 
-                        <a href="#" class="title">Tecnoprom</a>
-                        <div class="product-data">
-                            <div class="company-categories">
+                {#                {% for company in companies %}#}
+                {#                    <div class="company-card" style="width: 240px;">#}
+                {#                        <div class="company-logo">{{ company.logo.url }}</div>#}
+                {#                        <div class="company-name">{{ company.name }}</div>#}
+                {#                        <div class="company-category">{{ company.category }}</div>#}
+                {#                        <div class="company-sub_category">{{ company.subcategory }}</div>#}
+                {#                        <div class="company-country">{{ company.country }}</div>#}
+                {#                    </div>#}
+                {#                {% endfor %}#}
 
-                                <div class="company-category" style="font-size: 12px;">
-                                    <a class="dont-text-decoration color-for-mini-text"
-                                       href="#">Yangi uskunalar</a>
-                                </div>
-                                <div class="company-sub_category" style="font-size: 12px"><a
-                                        class="dont-text-decoration color-for-mini-text" href="#">Agro</a></div>
-                            </div>
-
-                            <div class="flags">
-                                <span class="country">🇩🇪 Германия</span>
-                            </div>
-                            <div class="like-and-more">
-                                <a href="#" class="read-more">Подробнее</a>
-                                <div class="svg-icon-container">
-                                    {% if user.is_authenticated %}
-                                        <span class="add-to-favorites">
-                                        <i class="fa-solid fa-heart" style="font-size: 15px"></i>
-                                    </span>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card__sell card-color" style="width: 240px;">
-                    <div class="card__company-content">
-                        <div class="card__sell-image">
-                            <a href="#"><img src="{% static 'images/banner.png' %}" alt=""></a>
-                        </div>
-                        <div class="card__company-image">
-                            <img src="{% static 'images/image.png' %}" alt="Product Image">
-                        </div>
-
-                        <a href="#" class="title">Tecnoprom</a>
-                        <div class="product-data">
-                            <div class="company-categories">
-
-                                <div class="company-category" style="font-size: 12px;">
-                                    <a class="dont-text-decoration color-for-mini-text"
-                                       href="#">Yangi uskunalar</a>
-                                </div>
-                                <div class="company-sub_category" style="font-size: 12px"><a
-                                        class="dont-text-decoration color-for-mini-text" href="#">Agro</a></div>
-                            </div>
-
-                            <div class="flags">
-                                <span class="country">🇩🇪 Германия</span>
-                            </div>
-                            <div class="like-and-more">
-                                <a href="#" class="read-more">Подробнее</a>
-                                <div class="svg-icon-container">
-                                    {% if user.is_authenticated %}
-                                        <span class="add-to-favorites">
-                                        <i class="fa-solid fa-heart" style="font-size: 15px"></i>
-                                    </span>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="company-card" style="width: 240px;">
-                    <div class="company-logo"></div>
-                    <div class="company-name"></div>
-                    <div class="company-category"></div>
-                    <div class="company-sub_category"></div>
-                    <div class="company-country"></div>
-                </div>
             </div>
         </div>
     </div>
@@ -341,83 +287,6 @@
 
 </script>
 
-<script>
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const checkboxes = document.querySelectorAll('.card-checkbox');
-        const actionButtons = document.querySelectorAll('.action-button');
-
-        function updateButtonsState() {
-            const checkedCheckboxes = document.querySelectorAll('.card-checkbox:checked');
-            const isAnyCheckboxChecked = checkedCheckboxes.length > 0;
-
-            actionButtons.forEach(button => {
-                if (!isAnyCheckboxChecked) {
-                    button.disabled = true;
-                } else {
-                    button.disabled = false;
-                    if (button.classList.contains('edit-button')) {
-                        button.disabled = checkedCheckboxes.length > 1;
-                    }
-                }
-            });
-        }
-
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', updateButtonsState);
-        });
-    });
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const actionButtons = document.querySelectorAll(".action-button");
-        const selectedProducts = document.querySelectorAll(".card-checkbox");
-
-        // Обработчик события для кнопок действий
-        actionButtons.forEach((button) => {
-            button.addEventListener("click", function () {
-                const action = button.getAttribute("data-action");
-                const selectedProductIds = [];
-
-                // Находим выбранные продукты
-                selectedProducts.forEach((checkbox) => {
-                    if (checkbox.checked) {
-                        selectedProductIds.push(checkbox.value);
-                    }
-                });
-
-                // Отправляем POST-запрос на сервер в зависимости от выбранного действия
-                if (selectedProductIds.length > 0) {
-                    const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
-                    fetch("{% url 'product-action' %}", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "X-CSRFToken": csrfToken,
-                        },
-                        body: JSON.stringify({
-                            action: action,
-                            selected_products: selectedProductIds,
-                        }),
-                    })
-                        .then((response) => {
-                            if (response.ok) {
-                                // Обновляем страницу после успешного выполнения действия
-                                window.location.reload();
-                            }
-                        })
-                        .catch((error) => {
-                            console.error("Ошибка при выполнении действия:", error);
-                        });
-                } else {
-                    alert("Выберите продукты для выполнения действия.");
-                }
-            });
-        });
-    });
-</script>
-
 <!-- like button -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -449,5 +318,33 @@
         });
     });
 </script>
+
+<script>
+    $(document).ready(function () {
+        $('.rating-area input[type="radio"]').on('change', function () {
+            var rating = $(this).val();
+            var evaluatorId = {{ request.user.id }};
+            var ratedUserId = {{ profile.id }};  // Получите идентификатор оцениваемого пользователя
+            var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+
+            $.ajax({
+                type: 'POST',
+                url: `/users/rate/${evaluatorId}/${ratedUserId}/${rating}/`,
+                data: {
+                    csrfmiddlewaretoken: csrfToken,
+                },
+                success: function (data) {
+                    console.log(data.message);
+                    window.location.reload()
+                    $('.rating-area').hide();
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.error('Ошибка при отправке запроса:', errorThrown);
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

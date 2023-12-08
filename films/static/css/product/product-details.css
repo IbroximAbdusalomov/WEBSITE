@@ -1,3 +1,4 @@
+
 body {
     /*background-color: #F2F4F5;*/
     background-color: #f3f6fb;
@@ -59,32 +60,22 @@ body {
 .author-info,
 .product-info {
     background-color: #cbe2ff45;
-
     height: max-content;
     width: 270px;
     padding: 10px;
     border-radius: 22px;
-    /*background-color: white;*/
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 
-/*.product-info {*/
-/*    background-color: rgba(212, 233, 255, .5);*/
-/*}*/
-/**/
-/*.product-location {*/
-/*    background-color: #cbe2ff45;*/
-/*}*/
-
 .publication-date {
     display: flex;
     line-height: 16px;
     font-size: 12px;
-    color: #002F34;
-    font-size: 12px;
-    color: #406367;
+    /*color: #002F34;*/
+    /*font-size: 12px;*/
+    /*color: #406367;*/
     align-items: center;
     justify-content: space-between;
 }
@@ -177,10 +168,11 @@ body {
 .author-info {
     padding: 10px;
     border-radius: 10px;
-    background-color: white;
+    /*background-color: white;*/
     display: flex;
     flex-direction: column;
     overflow: hidden;
+
 }
 
 .author-info p {
@@ -305,6 +297,7 @@ body {
     justify-content: space-between;
     margin-top: 20px;
 }
+
 
 .author-info {
     background-color: #cbe2ff45;
@@ -432,13 +425,12 @@ body {
 } */
 
 .slider-controls {
+    display: flex;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    display: flex;
     align-items: center;
     width: 100%;
-    display: flex;
     justify-content: space-between;
     padding: 10px;
     box-sizing: border-box;
@@ -471,4 +463,59 @@ body {
 .product-buttons .hidden,
 .author-buttons .hidden {
     display: none;
+}
+
+/*Share buttons--------------------------------------*/
+
+.share-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.share-buttons .share_to-telegram,
+.share-buttons .share_to-facebook,
+.share-buttons .share_to-instagram {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.fa-telegram {
+    color: #3691ec;
+}
+
+.fa-facebook {
+    color: #4867aa;
+}
+
+.share_to-instagram .fa-instagram {
+    background: linear-gradient(45deg, #fdf497, #fd5949, #d6249f, #285aeb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+.share-buttons div i {
+    font-size: 24px;
+}
+
+
+@media only screen and (max-width: 480px) {
+    .product-detail {
+        flex-direction: column;
+    }
+
+    .product-foto-description-contant {
+        width: 100%;
+    }
+
+    .listing-info {
+        width: 100%;
+    }
+
+    .product-location, .author-info, .product-info {
+        width: auto;
+    }
+
 }

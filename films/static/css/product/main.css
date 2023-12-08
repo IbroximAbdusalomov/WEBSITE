@@ -1,6 +1,7 @@
 /* Topmost ------------------------------------------------------------- */
 
 .main-banner {
+    /*width: 1180px;*/
     background: #0a24b9;
     height: 450px;
 }
@@ -51,21 +52,20 @@
     border: 1px solid #E6EEFF;
     border-radius: 10px;
     padding: 10px;
+    color: white;
+    cursor: pointer;
 }
 
-.price__form-button__item a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-}
+/*.price__form-button__item a {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    color: white;*/
+/*    text-decoration: none;*/
+/*}*/
 
 .price__form-button__item.btn_active {
     background-color: white;
-}
-
-.price__form-button__item.btn_active a {
     color: #0c29d0;
 }
 
@@ -75,6 +75,10 @@
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 10%;
+}
+
+.style-title-home:active {
+
 }
 
 .border-color {
@@ -88,7 +92,7 @@
 
 .price-form {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: space-between;
     width: 100%;
     padding-top: 50px;
@@ -246,7 +250,6 @@
     text-align: center;
     padding: 10px 20px;
     display: inline-block;
-    margin-left: auto; /* Переместить вправо */
 }
 
 .create-listing-button a {
@@ -337,30 +340,16 @@
     color: #777;
     margin-bottom: 15px;
     display: -webkit-box;
-    -webkit-line-clamp: 4; /* Максимальное количество строк */
+    -webkit-line-clamp: 7; /* Максимальное количество строк */
     -webkit-box-orient: vertical;
     overflow: hidden;
     word-wrap: break-word;
 }
 
-.flags {
-    display: flex;
-    align-items: center;
-    padding-top: 5px;
-    font-size: 12px;
-}
-
 .product-data {
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     width: 93%;
-}
-
-.date {
-    font-size: 12px;
-    color: #999;
-    /*margin-bottom: 10px;*/
-    padding: 6px 0;
 }
 
 .full-date {
@@ -369,16 +358,18 @@
 
 .like-and-more {
     display: flex;
-    flex-direction: row;
+    /*flex-direction: row;*/
     align-items: center;
-    margin-top: auto;
-    margin-bottom: 0;
+    /*margin-top: auto;*/
+    margin-top: 5px;
+    /*margin-bottom: 20px;*/
     justify-content: space-between;
+    /*height: 20px;*/
 }
 
 .like-and-more a {
     text-decoration: none;
-    font-size: 15px;
+    /*font-size: 15px;*/
     color: black;
 }
 
@@ -391,6 +382,10 @@
     text-decoration: none;
     font-weight: 500;
     margin-top: auto;
+}
+
+.like-and-more a {
+    font-weight: 500;
 }
 
 .read-more:hover {
@@ -468,4 +463,94 @@
 
 .card-color-blue {
     background-color: #f5f8fc; /* Бледно-голубой */
+}
+
+
+.country,
+.full-date {
+    font-size: 11px;
+    color: #406367;
+}
+
+.dont-text-decoration {
+    text-decoration: none;
+}
+
+
+.add-to-favorites i {
+    cursor: pointer;
+    /*width: 24px;*/
+}
+
+@media screen and (max-width: 480px) {
+
+    .price__form-text span {
+        font-size: 24px;
+    }
+
+    .card__sell, .card__buy {
+        width: calc(100% - 22px);
+        height: 320px;
+    }
+
+    .description {
+        font-size: 14px;
+        -webkit-line-clamp: 5; /* Максимальное количество строк */
+    }
+
+    .category-info a {
+        font-size: 12px;
+    }
+
+    .country, .full-date {
+        font-size: 12px;
+    }
+
+    .like-and-more a,
+    .title, .read-more {
+        font-size: 16px;
+    }
+
+    .fa-heart {
+        font-size: 20px;
+    }
+
+    .create-listing-button a,
+    .view-all-button a {
+        font-size: 12px;
+    }
+
+    .create-listing-button {
+        border-radius: 24px;
+        padding: 8px 12px;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+        font-size: 12px;
+    }
+
+    .form-label {
+        font-size: 14px;
+    }
+
+    .form-button {
+        font-size: 14px;
+        border-radius: 24px;
+        padding: 10px 20px;
+        margin-top: 25px;
+    }
+
+    .purchase-button {
+        font-size: 30px;
+        margin-right: 0;
+        padding: 10px 0;
+    }
+
+    .flags {
+        padding-top: 5px;
+    }
+
+
 }

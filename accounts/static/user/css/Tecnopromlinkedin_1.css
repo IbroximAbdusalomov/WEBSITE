@@ -1,0 +1,46 @@
+.company-cards {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column
+}
+
+.company-cards .card__sell {
+    width: 240px;
+}
+
+.card__sell, .card__buy {
+    width: calc(30%);
+}
+
+@media only screen and (max-width: 600px) {
+    .block-2 {
+        /*flex-wrap: wrap;*/
+    }
+
+    .block-2 form {
+        /*width: 100%;*/
+        display: flex;
+        justify-content: flex-end;
+        /*padding-top: 15px;*/
+    }
+
+    .rating-area {
+        margin: 0;
+    }
+
+    .gdsgogsf {
+        flex-direction: column;
+    }
+
+    .company-cards {
+        width: 98%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .benner-for-reklam {
+        display: flex;
+        justify-content: center;
+    }
+}

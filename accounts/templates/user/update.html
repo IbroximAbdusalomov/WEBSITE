@@ -1,0 +1,46 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <link rel="stylesheet" href="{% static 'css/product/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product/update.css' %}">
+</head>
+<body>
+
+{% include 'nav_bar.html' %}
+
+<section>
+    <div class="container">
+        <form action="#" class="custom-form">
+            {% csrf_token %}
+            <div class="form-group"><label for="id_username">Username:</label>
+                {{ form.username }}
+                <br></div>
+            <div class="form-group"><label for="id_company_name">Company name:</label>
+                {{ form.company_name }}</div>
+            <div class="form-group"><label for="id_description">Description:</label>
+                {{ form.description }}</div>
+            <div class="form-group"><label for="id_category">Category:</label>
+                {{ form.category }}</div>
+            <div class="form-group"><label for="id_sub_category">Sub category:</label>
+                {{ form.sub_category }}</div>
+            <div class="form-group"><label>Tags:</label>
+                {{ form.tags }}</div>
+
+
+            <button type="submit">submit</button>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>

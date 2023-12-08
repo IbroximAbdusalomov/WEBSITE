@@ -7,8 +7,8 @@
 
 .main-header__logo {
     position: absolute;
-    top: 30px;
-    left: 70px;
+    top: 15px;
+    left: 30px;
 }
 
 .main-header__logo a img {
@@ -32,7 +32,7 @@ body {
 
 .form {
     /*position: absolute;*/
-    width: 430px;
+    width: 370px;
     padding: 30px;
     border-radius: 12px;
     background: #FFF;
@@ -155,7 +155,7 @@ body {
 
 .signup {
     height: 75px;
-    width: 430px;
+    width: 370px;
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -187,10 +187,12 @@ body {
     color: #333;
     padding-left: 20px;
     display: flex;
+    align-items: center;
 }
 
 .signup-text a {
     text-decoration: none;
+    padding-right: 15px;
 
 }
 
@@ -229,3 +231,20 @@ body {
     color: red;
 }
 
+/*social media ------------------------------------------------------------*/
+
+.social-media {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.social-media a img {
+    width: 10%;
+}
+
+
+@media screen and (max-width: 490px) {
+    .input-field input {
+
+    }
+}

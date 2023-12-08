@@ -1,58 +1,166 @@
 {% load static %}
-
 <link rel="stylesheet" href="{% static 'css/product/messages.css' %}">
-
+{##}
+{#{% if messages %}#}
+{#    {% for message in messages %}#}
+{#        {% if message.tags == 'error' %}#}
+{#            <div class="message">#}
+{#                <div class="alert">#}
+{#                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>#}
+{#                    {{ message }}#}
+{#                </div>#}
+{#            </div>#}
+{#        {% else %}#}
+{#            <div class="message">#}
+{#                <div class="alert alert-{{ message.tags }}">#}
+{#                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>#}
+{#                    {{ message }}#}
+{#                </div>#}
+{#            </div>#}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+{##}
+{#{% endif %}#}
+{##}
+{##}
+{#<style>#}
+{#    .alert {#}
+{#        opacity: 1;#}
+{#        transition: opacity 0.5s;#}
+{#    }#}
+{#</style>#}
+{##}
+{#<script>#}
+{#    // Функция для автоматического скрытия сообщений через заданное время (например, 5 секунд)#}
+{#    function autoHideMessages() {#}
+{#        var messages = document.getElementsByClassName("message");#}
+{#        var i;#}
+{##}
+{#        for (i = 0; i < messages.length; i++) {#}
+{#            var message = messages[i];#}
+{##}
+{#            var delay = 4000;#}
+{##}
+{#            setTimeout(function () {#}
+{#                message.style.opacity = "0";#}
+{##}
+{#                setTimeout(function () {#}
+{#                    message.style.display = "none";#}
+{#                }, 2000); // Задержка перед скрытием сообщения после анимации#}
+{#            }, delay);#}
+{#        }#}
+{#    }#}
+{##}
+{#    // Вызов функции автоматического скрытия сообщений после загрузки страницы#}
+{#    window.onload = autoHideMessages;#}
+{##}
+{#</script>#}
 {% if messages %}
-    {% for message in messages %}
-        {% if message.tags == 'error' %}
-            <div class="message">
-                <div class="alert">
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                    {{ message }}
-                </div>
-            </div>
-        {% else %}
-            <div class="message">
-                <div class="alert alert-{{ message.tags }}">
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                    {{ message }}
-                </div>
-            </div>
-        {% endif %}
-    {% endfor %}
+    <div class="messages">
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div class="notification">
+                    <div class="notification-container">
 
+                        <div class="notification-media">
+                            <i class="fa-solid fa-xmark" style="color: red;"></i>
+                        </div>
+
+
+                        <div class=" notification-content">
+
+                            <p class="notification-text font-size-16">{{ message }}</p>
+
+                        </div>
+
+                        <div class="notification-header">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                        <span class="notification-status"></span>
+                    </div>
+                    <div class="notification-button-and-time">
+                        <div class="notification-learn-more">
+
+                            <button>
+                                <a class="font-size-16" href="{% url 'notification' %}">Learn more</a>
+                            </button>
+
+                        </div>
+                        <div class="notification-time">
+                            <span class="font-size-16">{% now "Y m d" %}</span>
+                        </div>
+                    </div>
+                </div>
+
+            {% else %}
+                <div class="notification">
+                    <div class="notification-container">
+
+                        <div class="notification-media">
+                            <li-icon aria-hidden="true" type="success-pebble-icon"
+                                     class="artdeco-toast-item__icon artdeco-toast-item__icon--success">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24"
+                                     fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                                    <path d="M12 2a10 10 0 1010 10A10 10 0 0012 2zm-1.25 15L7 13.25l1.41-1.41L10.59 14l4.84-6H18z"></path>
+                                </svg>
+                            </li-icon>
+                        </div>
+
+
+                        <div class="notification-content">
+
+                            <p class="notification-text font-size-16">{{ message }}</p>
+
+                        </div>
+
+                        <div class="notification-header">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                        <span class="notification-status"></span>
+                    </div>
+                    <div class="notification-button-and-time">
+                        <div class="notification-learn-more ">
+
+                            <button>
+                                <a class="font-size-16" href="{% url 'notification' %}">Learn more</a>
+                            </button>
+
+                        </div>
+                        <div class="notification-time">
+                            <span class="font-size-16">{% now "Y m d" %}</span>
+                        </div>
+                    </div>
+                </div>
+
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endif %}
 
 
-<style>
-    .alert {
-        opacity: 1;
-        transition: opacity 0.5s;
-    }
-</style>
 
 <script>
-    // Функция для автоматического скрытия сообщений через заданное время (например, 5 секунд)
     function autoHideMessages() {
-        var messages = document.getElementsByClassName("message");
-        var i;
+        var messages = document.querySelectorAll(".notification");
 
-        for (i = 0; i < messages.length; i++) {
-            var message = messages[i];
-
-            var delay = 4000;
+        messages.forEach(function (message) {
+            var delay = 10000; // Задержка в миллисекундах (здесь 5 секунд)
 
             setTimeout(function () {
                 message.style.opacity = "0";
 
                 setTimeout(function () {
                     message.style.display = "none";
-                }, 2000); // Задержка перед скрытием сообщения после анимации
+                }, 3000); // Задержка перед скрытием сообщения после анимации
             }, delay);
-        }
+
+            // Обработчик события для иконки закрытия
+            var closeIcon = message.querySelector(".fa-xmark");
+            closeIcon.addEventListener("click", function () {
+                message.style.display = "none";
+            });
+        });
     }
 
-    // Вызов функции автоматического скрытия сообщений после загрузки страницы
     window.onload = autoHideMessages;
-
 </script>

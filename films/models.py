@@ -1,13 +1,14 @@
 from django.contrib.auth import get_user_model
-from django.core.validators import MinValueValidator, MaxValueValidator
+# from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models import Model, CharField, SlugField, CASCADE, ForeignKey, DateTimeField, BooleanField, \
-    PositiveBigIntegerField, ImageField, SET_NULL, FloatField, ManyToManyField, IntegerField
+    PositiveBigIntegerField, ImageField, SET_NULL, ManyToManyField, PositiveIntegerField, FloatField
 from django.urls import reverse_lazy
 
 
 class Categories(Model):
     slug = SlugField(unique=True)
     name = CharField("Категория", max_length=50)
+    is_linked = BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -84,7 +85,7 @@ class Tag(Model):
         return self.name
 
 
-class Films(Model):  # Модель
+class Products(Model):  # Модель
 
     TYPE_CHOICES = [
         ('buy', 'Buy'),
@@ -95,6 +96,7 @@ class Films(Model):  # Модель
     description = CharField("Описание", max_length=900, null=True, blank=True)
     image = ImageField(upload_to="product-images/", blank=True, null=True, default='product-images/image.png')
     telephone = CharField("Номер телефона", max_length=30)
+    telephone_view_count = PositiveBigIntegerField("Количество просмотров номер телефона", default=0)
     telegram = CharField("Телеграмм номер", max_length=30)
     email = CharField("Емайл адрес", max_length=100)
     view_count = PositiveBigIntegerField("Количество просмотров", default=0)
@@ -109,7 +111,19 @@ class Films(Model):  # Модель
     is_active = BooleanField(default=False)
     type = CharField(max_length=50, choices=TYPE_CHOICES, default='buy')
     author = ForeignKey(get_user_model(), SET_NULL, blank=True, null=True)
+    # price = DecimalField("Цена", max_digits=10, decimal_places=2, blank=True, null=True)
     price = FloatField("Цена", blank=True, null=True)
+    is_price_negotiable = BooleanField("Договорная цена", default=False)
+    is_top_film = BooleanField(default=False)
+    top_duration = PositiveIntegerField("Продолжительность в топе (в днях)", default=0)
+    create_date_changed = BooleanField(default=False, editable=False)
+
+    def save(self, *args, **kwargs):
+        if self.top_duration > 0:
+            self.is_top_film = True
+        else:
+            self.is_top_film = False
+        super(Products, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -126,7 +140,7 @@ class Films(Model):  # Модель
 
 class Favorite(Model):
     user = ForeignKey(get_user_model(), CASCADE)
-    product_id = ForeignKey(Films, CASCADE)
+    product_id = ForeignKey(Products, CASCADE)
     created_at = DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -134,15 +148,3 @@ class Favorite(Model):
 
     def __str__(self):
         return f"{self.user}, {self.product_id_id}"
-
-
-class Rating(Model):
-    user = ForeignKey(get_user_model(), on_delete=CASCADE)
-    product = ForeignKey(Films, on_delete=CASCADE, default=None)
-    stars = IntegerField("Оценка", default=0, validators=[MinValueValidator(1), MaxValueValidator(5)])
-
-    class Meta:
-        unique_together = ('user', 'product')
-
-    def __str__(self):
-        return f"{self.user} - Product: {self.product} - Stars: {self.stars}"

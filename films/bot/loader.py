@@ -1,11 +1,11 @@
 import logging
-from aiogram import Bot, types
-from root.settings import TOKEN
+
+from aiogram import Bot
 from aiogram.dispatcher import Dispatcher
 
-# Configure logging
+from root.settings import TOKEN
+
 logging.basicConfig(level=logging.INFO)
 
-# Initialize bot and dispatcher
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)

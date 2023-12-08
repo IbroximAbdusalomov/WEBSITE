@@ -1,158 +1,223 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
           integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="{% static 'user/css/create-company.css' %}">
     <link rel="stylesheet" href="{% static 'css/product/style.css' %}">
+    <link rel="stylesheet" href="{% static 'user/js/script.js' %}">
 </head>
 <body>
 
-<section class="create-company-section">
-    <div class="create-company">
-        <div class="form-steps">
-            <div class="form-step {% if wizard.steps.current == '0' %}active{% endif %}">
-                <div class="step-circle">
-                    <i class="fa-solid fa-circle"></i>
-                </div>
-                <div class="step-text">
-                    step-1
-                </div>
-            </div>
+{% include 'messages.html' %}
+{% include 'nav_bar.html' %}
 
-            <div class="form-step {% if wizard.steps.current == '1' %}active{% endif %}">
-                <div class="step-circle">
-                    <i class="fa-solid fa-circle"></i>
+<div class="container">
+    <section class="create-company-section">
+        <div class="create-company">
+            <div class="form-steps">
+                <div class="form-step {% if step == 0 %}active{% endif %}">
+                    <div class="step-circle">
+                        <i class="fa-solid fa-circle"></i>
+                    </div>
+                    <div class="step-text">
+                        step-1
+                    </div>
                 </div>
-                <div class="step-text">
-                    step-2
+                <div class="form-step {% if step == 1 %}active{% endif %}">
+                    <div class="step-circle">
+                        <i class="fa-solid fa-circle"></i>
+                    </div>
+                    <div class="step-text">
+                        step-2
+                    </div>
+                </div>
+                <div class="form-step {% if step == 2 %}active{% endif %}">
+                    <div class="step-circle">
+                        <i class="fa-solid fa-circle"></i>
+                    </div>
+                    <div class="step-text">
+                        step-3
+                    </div>
+                </div>
+                <div class="form-step {% if step == 3 %}active{% endif %}">
+                    <div class="step-circle">
+                        <i class="fa-solid fa-circle"></i>
+                    </div>
+                    <div class="step-text">
+                        step-4
+                    </div>
+                </div>
+                <div class="form-step {% if step == 4 %}active{% endif %}">
+                    <div class="step-circle">
+                        <i class="fa-solid fa-circle"></i>
+                    </div>
+                    <div class="step-text">
+                        step-5
+                    </div>
                 </div>
             </div>
-            <div class="form-step {% if wizard.steps.current == '2' %}active{% endif %}">
-                <div class="step-circle">
-                    <i class="fa-solid fa-circle"></i>
-                </div>
-                <div class="step-text">
-                    step-3
-                </div>
-            </div>
-            <div class="form-step {% if wizard.steps.current == '3' %}active{% endif %}">
-                <div class="step-circle">
-                    <i class="fa-solid fa-circle"></i>
-                </div>
-                <div class="step-text">
-                    step-4
-                </div>
+            <div class="company-form">
+                <form class="form" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ forms.step.as_hidden }}
+                    <div class="error-messages">
+                        <ul>
+                            {% for field, errors in form.errors.items %}
+                                {% for error in errors %}
+                                    <li>{{ field }}: {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+
+                    {% if step == 0 %}
+                        <input type="hidden" name="step" value="0">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Выведите название компании: </label>
+                            {{ forms.0.company_name }}
+                        </div>
+
+                        <div class="form-group" id="category-group">
+                            <label for="name" class="form-label">Категория: </label>
+                            {{ forms.0.category }}
+                        </div>
+
+                        <div class="form-group" id="subcategory-group">
+                            <label for="name" class="form-label">Субкатегория: </label>
+                            {{ forms.0.sub_category }}
+                        </div>
+
+                        <div class="form-group" id="tags-group">
+                            <label for="name" class="form-label">Теги: </label>
+                            <div id="tags-checkboxes">
+                                {{ forms.0.tags }}
+                            </div>
+                        </div>
+
+                    {% endif %}
+
+                    {% if step == 1 %}
+                        <input type="hidden" name="step" value="1">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Выведите номер телеграмма: </label>
+                            {{ forms.1.telegram }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="form-label">Выведите номер ватсапа: </label>
+                            {{ forms.1.whatsapp }}
+                            {{ wizard.form.whatsapp }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="form-label">Выведите ссылку вашего сайта: </label>
+                            {{ forms.1.website }}
+                            {{ wizard.form.website }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="form-label">Выведите ссылку локации вашего компании: </label>
+                            {{ forms.1.url_maps }}
+                        </div>
+                    {% endif %}
+
+                    {% if step == 2 %}
+                        <input type="hidden" name="step" value="2">
+
+                        <div class="form-group">
+                            <div class="hero">
+                                <label for="input-file" id="drop-area">
+                                    {{ forms.2.logo }}
+                                    <div id="img-view">
+                                        <img src="{% static 'user/image/upload-icon.png' %}" alt="upload image">
+                                        <div class="img-view-text">
+                                            <p>Drag and drop or click here <br>to upload image</p>
+                                            <span>Upload any image from desktop</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                    {% endif %}
+
+                    {% if step == 3 %}
+                        <div class="form-group">
+
+                            <div class="hero">
+                                <label for="input-file" id="drop-area">
+                                    {{ forms.3.banner }}
+                                    <div id="img-view">
+                                        <img src="{% static 'user/image/upload-icon.png' %}" alt="upload image">
+                                        <div class="img-view-text">
+                                            <p>Drag and drop or click here <br>to upload image</p>
+                                            <span>Upload any image from desktop</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                    {% endif %}
+
+                    {% if step == 4 %}
+                        <div class="form-group">
+                            <label for="name" class="form-label">Выведите описание вашего компании: </label>
+                            {{ forms.4.description }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="form-label">Страна: </label>
+                            {{ forms.4.country }}
+                        </div>
+
+                    {% endif %}
+
+                    <div class="form-buttons">
+                        {% if step > 0 %}
+                            <button type="submit" name="step" value="{{ step }}" class="btn btn-secondary">Назад
+                            </button>
+                        {% endif %}
+
+                        {% if step < forms|length|add:"-1" %}
+                            <button type="submit" name="step" value="{{ step }}" class="btn btn-primary">Следующий
+                            </button>
+                        {% endif %}
+
+                        {% if step == forms|length|add:"-1" %}
+                            <button type="submit" name="step" value="{{ step }}" class="btn btn-success">Создать
+                                компанию
+                            </button>
+                        {% endif %}
+                        {#                    {% if step > 0 %}#}
+                        {#                        <button type="submit" name="step" value="{{ step|add:"-1" }}" class="btn btn-secondary">Назад#}
+                        {#                        </button>#}
+                        {#                    {% endif %}#}
+                        {##}
+                        {#                    {% if step < forms|length|add:"-1" %}#}
+                        {#                        <button type="submit" name="step" value="{{ step|add:"1" }}" class="btn btn-primary">Следующий#}
+                        {#                        </button>#}
+                        {#                    {% endif %}#}
+                        {##}
+                        {#                    {% if step == forms|length|add:"-1" %}#}
+                        {#                        <button type="submit" name="step" value="{{ step }}" class="btn btn-success">Создать компанию#}
+                        {#                        </button>#}
+                        {#                    {% endif %}#}
+                    </div>
+
+                </form>
             </div>
         </div>
-        <div class="company-form">
-            <form class="form" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="form-group">
-                    {{ wizard.form }}
-                </div>
-
-                {#                {% if wizard.steps.current == '0' %}#}
-                {#                    <div class="form-group">#}
-                {#                        <label for="name" class="form-label">{{ wizard.form.base_fields.name.label }}</label>#}
-                {#                        {{ wizard.form.name }}#}
-                {#                    </div>#}
-                {##}
-                {#                    <div class="form-group" id="category-group">#}
-                {#                        <label for="name" class="form-label">{{ wizard.form.base_fields.category.label }}</label>#}
-                {#                        {{ wizard.form.category }}#}
-                {#                    </div>#}
-                {##}
-                {#                    <div class="form-group" id="subcategory-group">#}
-                {#                        <label for="name" class="form-label">{{ wizard.form.base_fields.sub_category.label }}</label>#}
-                {#                    </div>#}
-                {##}
-                {#                    <div class="form-group" id="tags-group">#}
-                {#                        <label for="name" class="form-label">{{ wizard.form.base_fields.tags.label }}</label>#}
-                {#                        <div id="tags-checkboxes">#}
-                {#                        </div>#}
-                {#                    </div>#}
-                {##}
-                {#                {% endif %}#}
-                {##}
-                {#                {% if wizard.steps.current == '1' %}#}
-                {#                    <div class="form-group">#}
-                {#                        <label for="name" class="form-label">{{ wizard.form.base_fields.telegram.label }}</label>#}
-                {#                        {{ wizard.form.telegram }}#}
-                {#                    </div>#}
-                {##}
-                {#                    <div class="form-group">#}
-                {#                        <label for="name" class="form-label">{{ wizard.form.base_fields.whatsapp.label }}</label>#}
-                {#                        {{ wizard.form.whatsapp }}#}
-                {#                    </div>#}
-                {##}
-                {#                    <div class="form-group">#}
-                {#                        <label for="name" class="form-label">{{ wizard.form.base_fields.website.label }}</label>#}
-                {#                        {{ wizard.form.website }}#}
-                {#                    </div>#}
-                {#                {% endif %}#}
-                {##}
-                {#                {% if wizard.steps.current == '2' %}#}
-                {#                    <div class="form-group">#}
-                {#                        {{ wizard.form.logo }}#}
-                {#                        <label for="file-input__logo" id="file-input-label" class="company-input">Добавить#}
-                {#                            логотип</label>#}
-                {#                    </div>#}
-                {##}
-                {#                    <div class="form-group">#}
-                {#                        <input type="file" name="2-banner" class="company-input" id="file-input__banner" required="">#}
-                {#                        <label for="file-input__banner" id="file-input-label" class="company-input">Добавить#}
-                {#                            баннер</label>#}
-                {#                    </div>#}
-                {##}
-                {#                    <div class="form-group">#}
-                {#                        <label for="name" class="form-label">{{ wizard.form.base_fields.subcategory.label }}</label>#}
-                {#                        {{ wizard.form.subcategory }}#}
-                {#                    </div>#}
-                {##}
-                {#                    <div class="form-group">#}
-                {#                        <label for="name" class="form-label">{{ wizard.form.base_fields.tags.label }}</label>#}
-                {#                        <div id="tags-checkboxes">#}
-                {#                            {{ wizard.form.tags }}#}
-                {#                        </div>#}
-                {##}
-                {#                    </div>#}
-                {##}
-                {#                {% endif %}#}
-                {##}
-                {#                {% if wizard.steps.current == '3' %}#}
-                {#                    <div class="form-group">#}
-                {#                        <label for="name" class="form-label">{{ wizard.form.base_fields.description.label }}</label>#}
-                {#                        {{ wizard.form.description }}#}
-                {#                    </div>#}
-                {##}
-                {#                    <div class="form-group">#}
-                {#                        <label for="name" class="form-label">{{ wizard.form.base_fields.country.label }}</label>#}
-                {#                        {{ wizard.form.country }}#}
-                {#                    </div>#}
-                {#                {% endif %}#}
-
-                <div class="form-buttons">
-                    {% if wizard.steps.prev %}
-                        <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">Назад</button>
-                    {% endif %}
-
-                    {% if wizard.steps.current != wizard.steps.last %}
-                        <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.next }}">Далее</button>
-                    {% endif %}
-
-                    {% if wizard.steps.current == wizard.steps.last %}
-                        <button type="submit">Создать компанию</button>
-                    {% endif %}
-                </div>
-            </form>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -252,6 +317,10 @@
     });
 </script>
 
+<script src="{% static 'user/js/script.js' %}"></script>
 
 </body>
 </html>
+
+
+

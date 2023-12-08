@@ -1,10 +1,12 @@
 
 .user-info {
-    width: 800px;
+    /*width: 800px;*/
+    /*width: 100%;*/
     margin-top: 100px;
     border-radius: 10px;
     padding: 10px;
 }
+
 
 .user-profile {
     border: 1px solid #cecece;
@@ -43,18 +45,25 @@
     padding-top: 50px;
 }
 
+.profile-description {
+    word-wrap: break-word;
+}
+
 .block-1,
 .block-2 {
     padding: 24px;
 }
 
+.block-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
 .profile-buttons {
     display: flex;
     gap: 10px;
-}
-
-.dont-text-decoration {
-    text-decoration: none;
 }
 
 .text-medium-weight {
@@ -74,6 +83,10 @@
     color: white;
 }
 
+.following {
+    color: #0a24b9;
+}
+
 .following:hover {
     border: 2px solid #0a24b9;
     padding: 5px 9px;
@@ -91,4 +104,141 @@
 .more:hover {
     padding: 5px 9px;
     border: 2px solid #605f5f;
+}
+
+
+/*raiting----------------------------------*/
+
+.rating-area {
+    overflow: hidden;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.rating-area:not(:checked) > input {
+    display: none;
+}
+
+.rating-area:not(:checked) > label {
+    float: right;
+    width: 42px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 28px;
+    line-height: 28px;
+    color: lightgrey;
+    text-shadow: 1px 1px #bbb;
+}
+
+.rating-area:not(:checked) > label:before {
+    content: '★';
+}
+
+.rating-area > input:checked ~ label {
+    color: gold;
+    text-shadow: 1px 1px #c60;
+}
+
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+    color: gold;
+    text-shadow: 1px 1px goldenrod;
+}
+
+.rate-area > label:active {
+    position: relative;
+}
+
+
+.user-profile__user {
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    padding: 20px;
+    background: #6f6f6f;
+    position: relative;
+    height: 140px;
+}
+
+.user-profile__logo img {
+    width: 60%;
+    border-radius: 90px;
+}
+
+
+.update-profile-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+.update-profile-button a {
+    color: black;
+}
+
+.test-view {
+    display: flex;
+    gap: 15px;
+    height: 100%;
+    align-items: flex-end;
+    padding-left: 50px;
+}
+
+
+.notification-info {
+    display: flex;
+    gap: 100px;
+}
+
+.notification-info a img {
+    width: 20px;
+}
+
+
+.add-to-favorites i {
+    font-size: 15px;
+}
+
+.gdsgogsf {
+    display: flex;
+}
+
+
+.benner-for-reklam {
+    padding-top: 110px;
+}
+
+@media screen and (max-width: 480px) {
+    .test-view {
+        padding-left: 0;
+    }
+
+    .update-profile-btn {
+        display: none;
+    }
+
+    .notification-info {
+        width: 100%;
+        gap: 90px;
+        justify-content: space-between;
+    }
+
+    .block-2 {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .action-buttons {
+        flex-wrap: wrap;
+    }
 }

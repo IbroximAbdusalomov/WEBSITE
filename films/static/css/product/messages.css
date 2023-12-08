@@ -1,38 +1,121 @@
-/* The alert message box */
-.message {
+/*.message {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    width: 100%;*/
+/*    position: absolute;*/
+/*    top: 20px;*/
+/*    z-index: 11;*/
+/*}*/
+
+/*.alert {*/
+/*    width: 95%;*/
+/*    padding: 20px;*/
+/*    background-color: #f44336; !* Red *!*/
+/*    color: white;*/
+/*    border-radius: 6px;*/
+/*}*/
+
+/*!* The close button *!*/
+/*.closebtn {*/
+/*    margin-left: 15px;*/
+/*    color: white;*/
+/*    font-weight: bold;*/
+/*    float: right;*/
+/*    font-size: 22px;*/
+/*    line-height: 20px;*/
+/*    cursor: pointer;*/
+/*    transition: 0.3s;*/
+/*}*/
+
+/*.alert-success {*/
+/*    background-color: green;*/
+/*}*/
+
+/*!* When moving the mouse over the close button *!*/
+/*.closebtn:hover {*/
+/*    color: black;*/
+/*}*/
+
+
+/*---------------------------------------------------------------------------*/
+
+strong {
+    font-weight: 600;
+}
+
+.notification-container {
     display: flex;
-    justify-content: center;
-    width: 100%;
+    position: relative;
+}
+
+.notification-header {
     position: absolute;
-    top: 20px;
-    z-index: 11;
-}
-
-.alert {
-    width: 95%;
-    padding: 20px;
-    background-color: #f44336; /* Red */
-    color: white;
-    border-radius: 6px;
-}
-
-/* The close button */
-.closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
+    right: 0;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-.alert-success {
-    background-color: green;
+.notification-media {
+    color: green;
+    /*padding-left: 5px;*/
+    padding-top: 15px;
+    /*padding-right: 10px;*/
 }
 
-/* When moving the mouse over the close button */
-.closebtn:hover {
-    color: black;
+.notification {
+    border: solid 1px rgb(184, 184, 184);
+    width: 25%;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    position: fixed;
+    bottom: -100px; /* начальная позиция снизу за пределами видимой области */
+    left: 15px;
+    animation: slideIn 0.6s ease-out forwards; /* добавляем анимацию slideIn */
+    box-shadow: 0 3px 16px 0 rgb(0, 0, 0, .2);
+    z-index: 3;
+}
+
+.notification-text {
+    margin: 15px;
+}
+
+.notification-button-and-time {
+    display: flex;
+    justify-content: right;
+}
+
+.notification-learn-more {
+    display: flex;
+    justify-content: right;
+    padding-right: 10px;
+}
+
+.notification-learn-more button {
+    border: 0;
+    background: none;
+}
+
+.notification-learn-more button a {
+    text-decoration: none;
+}
+
+.font-size-14 {
+    font-size: 14px;
+}
+
+.font-size-15 {
+    font-size: 15px;
+}
+
+.font-size-16 {
+    font-size: 16px;
+}
+
+@keyframes slideIn {
+    0% {
+        bottom: -100px; /* начальная позиция */
+    }
+    100% {
+        bottom: 15px; /* конечная позиция */
+    }
 }

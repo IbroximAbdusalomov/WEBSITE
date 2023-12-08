@@ -1,0 +1,53 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/product/style.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/authentication.css' %}">
+</head>
+<body>
+
+{% include 'messages.html' %}
+
+<section class="authentication login">
+    <div class="main-header__logo">
+        <div style="display: flex; flex-direction: column">
+            <a href="../..">
+                <img src="{% static 'images/TECNOPROM-LOGO.png' %}" alt="logo">
+            </a>
+
+            <a href="{% url 'myaccount' %}" style="padding-top: 20px;">{% translate 'Назад' %}</a>
+
+        </div>
+
+    </div>
+    <div class="form login">
+        <div class="form-content">
+            <div class="form-text">
+                <header>
+                    Обновить
+                </header>
+                {#                <div class="error-message">{{  }}</div>#}
+            </div>
+            <form action="{% url 'update_profile' %}" method="post">
+                {% csrf_token %}
+                <div class="field input-field">
+                    {% if message %}
+                        <div style="color: red;">{{ error_message }}</div>
+                    {% endif %}
+                    {{ form.username }}
+                </div>
+
+                <div class="field button-field">
+                    <button>Change username</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

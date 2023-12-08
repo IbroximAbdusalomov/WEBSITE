@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Categories, Films, SubCategories, Country, City, Tag
+from .models import Categories, Products, SubCategories, Country, City, Tag
 
 
 @admin.register(Country)
@@ -28,7 +28,7 @@ class CategoriesAdmin(admin.ModelAdmin):
     list_display = ("name", "slug")
 
 
-@admin.register(Films)
+@admin.register(Products)
 class FilmsAdmin(admin.ModelAdmin):
     list_display = ("title", "image", "create_date", "update_date", "is_published")
     list_filter = ("is_published",)

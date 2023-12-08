@@ -1,10 +1,12 @@
+{% load i18n %}
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial=scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Tecnoprom</title>
     <link rel="icon" href="{% static 'images/categories/yangi-uskunalar-24px.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'css/product/main.css' %}">
@@ -26,30 +28,38 @@
     <div class="container">
         <section id="price__form-section" class="price__form-section">
             <div class="price__form-text">
-                Ishlab chiqarish uchun hammasini <br> bir joyda toping va taklif eting!
+                <span>{% translate 'Ishlab chiqarish uchun hammasini' %}</span>
+                <br>
+                <span>{% translate 'bir joyda toping va taklif eting!' %}</span>
             </div>
             <div class="price__form-buttons">
                 <ul class="price__form-button__items">
-                    <li class="price__form-button__item btn_active" data-image="banner-yangi-uskuna.svg"
-                        data-title="Soluções que || o dia a dia de qualquer negócio" data-span-text="facilitam">
-                        <a href="#">yangi uskunalar</a>
+
+                    <li class="price__form-button__item btn_active" data-image="banner-xizmat-korsatish.svg"
+                        data-category-id="10">
+                        {% translate "Vtorichniy siryo" %}
+                    </li>
+                    <li class="price__form-button__item" data-image="banner-yangi-uskuna.svg"
+                        data-category-id="1">
+                        {% translate "Yangi uskunalar" %}
                     </li>
                     <li class="price__form-button__item" data-image="banner-ishlatilgan-uskuna.svg"
-                        data-title="Diferenciais que || sua operação" data-span-text="otimizam">
-                        <a href="#">ishlatilgan uskunalar</a>
+                        data-category-id="2">
+                        {% translate "Ishlatilgan uskunalar" %}
                     </li>
                     <li class="price__form-button__item" data-image="banner-xom-ashyo.svg"
-                        data-title="Histórias de quem || a operação com o Tiny" data-span-text="transformou">
-                        <a href="#">xom ashyo</a>
+                        data-category-id="3">
+                        {% translate "Xom ashyo" %}
                     </li>
                     <li class="price__form-button__item" data-image="banner-xizmat-korsatish.svg"
-                        data-title="Aproveite || que se conectam com seu negócio" data-span-text="conteúdos">
-                        <a href="#">xizmat ko'rsatish</a>
+                        data-category-id="8">
+                        {% translate "Xizmat ko'rsatish" %}
                     </li>
                     <li class="price__form-button__item" data-image="banner-texnolog.svg"
-                        data-title="Emissão de notas || como você nunca viu" data-span-text="fiscais">
-                        <a href="#">texnolog</a>
+                        data-category-id="9">
+                        {% translate "Texnolog" %}
                     </li>
+
                 </ul>
             </div>
         </section>
@@ -61,46 +71,64 @@
 <div id="price-form" class="container">
     <section class="price-form">
         <div class="price__image-form">
-            <h2 class="style-title-home">Soluções que <span class="border-color"
-                                                            style="background-color: #D4E9FF; border-radius: 20px; padding: 6px 10px;">facilitam </span>
-                o dia a dia de qualquer negócio</h2>
-
-            <img id="bannerImage" src="{% static 'images/banners/banner-yangi-uskuna.svg' %}" alt="">
+            <div class="price__image-form-titles">
+                <h2 class="style-title-home">{% translate "O'zingizga kerakli" %}<span class="border-color"
+                                                                                       style="background-color: #D4E9FF; border-radius: 20px; padding: 6px 10px;">{% translate "xom ashyo" %} </span>
+                    {% translate "toping yoki qayta ishlash uchun taklif eting!" %}</h2>
+                <h2 class="style-title-home">{% translate "Soluções que 2" %}<span class="border-color"
+                                                                                   style="background-color: #D4E9FF; border-radius: 20px; padding: 6px 10px;">{% translate "facilitam" %} </span>
+                    {% translate "o dia a dia de qualquer negócio" %}</h2>
+                <h2 class="style-title-home">{% translate "Diferenciais que" %}<span class="border-color"
+                                                                                     style="background-color: #D4E9FF; border-radius: 20px; padding: 6px 10px;">{% translate "otimizam" %} </span>
+                    {% translate "sua operação" %}</h2>
+                <h2 class="style-title-home">{% translate "Histórias de quem" %}<span class="border-color"
+                                                                                      style="background-color: #D4E9FF; border-radius: 20px; padding: 6px 10px;">{% translate "transformou" %} </span>
+                    {% translate "a operação com o Tiny" %}</h2>
+                <h2 class="style-title-home">{% translate "Aproveite" %}<span class="border-color"
+                                                                              style="background-color: #D4E9FF; border-radius: 20px; padding: 6px 10px;">{% translate "conteúdos" %} </span>
+                    {% translate "que se conectam com seu negócio" %}</h2>
+                <h2 class="style-title-home">{% translate "Emissão de notas" %}<span class="border-color"
+                                                                                     style="background-color: #D4E9FF; border-radius: 20px; padding: 6px 10px;">{% translate "fiscais" %} </span>
+                    {% translate "como você nunca viu" %}</h2>
+            </div>
+            <img id="bannerImage" src="{% static 'images/banners/vtorichniy-siryo.svg' %}" alt="">
         </div>
 
         <div class="price__form-form">
             <form class="custom-form" method="post">
                 {% csrf_token %}
                 <div class="form-group" style="position: relative">
-                    <label for="name" class="form-label">Название:{% for error in form.title.errors %}
+                    <label for="name" class="form-label">{% translate "Название" %}:{% for error in form.title.errors %}
                         <div class="error-message">{{ error }}</div>
                     {% endfor %}</label>
                     {{ form.title }}
                     <div id="char-count title" class="char-count__title">0 / 100</div>
                 </div>
                 <div class="form-group">
-                    <label for="description" class="form-label">Описание:{% for error in form.description.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}</label>
+                    <label for="description" class="form-label">{% translate "Описание" %}:
+                        {% for error in form.description.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
                     {{ form.description }}
                     <div id="char-count description" class="char-count__description">0 / 800</div>
 
                 </div>
                 <div class="form-group">
-                    <label for="category" class="form-label">Категория:{% for error in form.category.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}</label>
+                    <label for="category" class="form-label">{% translate "Категория" %}:
+                        {% for error in form.category.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
                     {{ form.category }}
                 </div>
                 <div class="form-group" id="subcategory-group">
-                    <label for="subcategory" class="form-label">Субкатегория:
+                    <label for="subcategory" class="form-label">{% translate "Субкатегория" %}:
                         {% for error in form.sub_category.errors %}
                             <div class="error-message">{{ error }}</div>
                         {% endfor %}</label>
                     {{ form.sub_category }}
                 </div>
                 <div class="form-group" id="tags-group" style="display: block">
-                    <label for="subcategory" class="form-label">Теги:{% for error in form.tags.errors %}
+                    <label for="tags" class="form-label">{% translate "Теги" %}:{% for error in form.tags.errors %}
                         <div class="error-message">{{ error }}</div>
                     {% endfor %}</label>
                     <div id="tags-checkboxes">
@@ -108,49 +136,44 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="phone" class="form-label">Телефон:{% for error in form.telephone.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}</label>
+                    <label for="phone" class="form-label">{% translate "Телефон" %}:
+                        {% for error in form.telephone.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
                     {{ form.telephone }}
                 </div>
                 <div class="form-group">
-                    <label for="telegram" class="form-label">Телеграм:{% for error in form.telegram.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}</label>
+                    <label for="telegram" class="form-label">{% translate "Телеграм" %}:
+                        {% for error in form.telegram.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
                     {{ form.telegram }}
                 </div>
                 <div class="form-group" id="country-group">
-                    <label for="country" class="form-label">Страна{% for error in form.country.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}</label>
+                    <label for="country" class="form-label">
+                        {% translate "Страна" %}{% for error in form.country.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
                     {{ form.country }}
                 </div>
                 <div class="form-group" id="city-group">
-                    <label for="city" class="form-label">Город{% for error in form.city.errors %}
+                    <label for="city" class="form-label">{% translate "Город" %}{% for error in form.city.errors %}
                         <div class="error-message">{{ error }}</div>
                     {% endfor %}</label>
                     {{ form.city }}
                 </div>
-                {#                {% if errors %}#}
-                {#                    <div class="error-message">#}
-                {#                        {% for field, error_msgs in errors.items %}#}
-                {#                            <div>{{ field }}:#}
-                {#                                {% for error_msg in error_msgs %}#}
-                {#                                    <span>{{ error_msg }}</span>#}
-                {#                                {% endfor %}#}
-                {#                            </div>#}
-                {#                        {% endfor %}#}
-                {#                    </div>#}
-                {#                {% endif %}#}
-                <button class="form-button">Отправить</button>
+                <div class="form-group__button">
+                    <button class="form-button">{% translate "Отправить" %}</button>
+
+                </div>
             </form>
         </div>
     </section>
 </div>
 <!-- /Form and image section -->
 
-<div class="horizontal_line"></div>
-
+{#<div class="horizontal_line"></div>#}
+<hr>
 {% block content %}
 
 {% endblock content %}
@@ -158,32 +181,6 @@
 
 {% include 'footer.html' %}
 
-
-<script>
-    const categorySelect = document.getElementById('category');
-    const buttons = document.querySelectorAll('.price__form-button__item');
-    const bannerImage = document.getElementById('bannerImage');
-    const titleH2 = document.querySelector('.style-title-home');
-    const span = document.querySelector('.border-color');
-
-    buttons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            event.preventDefault();
-            buttons.forEach(btn => btn.classList.remove('btn_active'));
-            button.classList.add('btn_active');
-            const imageName = button.getAttribute('data-image');
-            bannerImage.src = `../static/images/banners/${imageName}`;
-            const titleParts = button.getAttribute('data-title').split('||');
-            const spanText = button.getAttribute('data-span-text');
-            titleH2.innerHTML = `${titleParts[0]} <span class="border-color">${spanText}</span> ${titleParts[1]}`;
-            const categoryText = button.querySelector('a').innerText;
-            const categoryOption = categorySelect.querySelector(`[value="${categoryText}"]`);
-            if (categoryOption) {
-                categoryOption.selected = true;
-            }
-        });
-    });
-</script>
 
 <script>
     $(document).ready(function () {
@@ -216,6 +213,7 @@
             tagsGroup.hide(); // Скрываем поле выбора тегов
 
             if (selectedCategoryId) {
+                subcategoryGroup.show(); // Показываем поле выбора субкатегории
                 // Запрос на сервер для получения субкатегорий по выбранной категории
                 $.ajax({
                     url: `/related_to_it/?category_id=${selectedCategoryId}`,
@@ -223,11 +221,16 @@
                     success: function (data) {
                         console.log(data.subcategories); // Здесь data определена и содержит данные
                         subcategorySelect.empty();
-                        subcategorySelect.append($('<option></option>').attr('value', '').text('Выберите субкатегорию')); // Добавляем опцию поумолчанию
+                        subcategorySelect.append($('<option></option>').attr('value', '').text('Выберите субкатегорию')); // Добавляем опцию по умолчанию
                         $.each(data.subcategories, function (key, value) {
                             subcategorySelect.append($('<option></option>').attr('value', key).text(value));
                         });
-                        subcategoryGroup.show(); // Показываем поле выбора субкатегории
+
+                        // Теперь устанавливаем значение для subcategorySelect
+                        const buttonText = $('.price__form-button__item.btn_active a').text();
+                        if (buttonText === 'Vtorichniy siryo') {
+                            subcategorySelect.val('15');
+                        }
                     }
                 });
             } else {
@@ -257,7 +260,6 @@
                             // Создаем div контейнер для каждого чекбокса и его лейбла
                             const checkboxContainer = $('<div>')
                                 .addClass('cat')
-                                {#.addClass(`action`)#}
                                 .addClass('action');
 
                             // Создаем лейбл для каждого тега
@@ -279,21 +281,76 @@
                             // Добавляем контейнер в блок с чекбоксами
                             $('#tags-checkboxes').append(checkboxContainer);
                         });
-                        $('#tags-group').show(); // Показываем блок с чекбоксами для тегов
+                        tagsGroup.show(); // Показываем блок с чекбоксами для тегов
                     }
                 });
             } else {
-                $('#tags-group').hide(); // Скрываем блок с чекбоксами для тегов, если субкатегория не выбрана
+                tagsGroup.hide(); // Скрываем блок с чекбоксами для тегов, если субкатегория не выбрана
             }
         }
 
-
-// Отслеживаем изменения в поле выбора субкатегории
+        // Отслеживаем изменения в поле выбора субкатегории
         subcategorySelect.change(loadTags);
 
-// Вызываем функцию загрузки тегов при инициализации страницы
+        // Вызываем функцию загрузки тегов при инициализации страницы
         loadTags();
 
+    });
+
+</script>
+
+<script>
+    const categorySelect = document.getElementById('id_category');
+    const subcategorySelect = document.getElementById('id_sub_category');
+    const buttons = document.querySelectorAll('.price__form-button__item');
+    const bannerImage = document.getElementById('bannerImage');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            buttons.forEach(btn => btn.classList.remove('btn_active'));
+            button.classList.add('btn_active');
+
+            const categoryID = button.getAttribute('data-category-id');
+            const categoryOption = Array.from(categorySelect.options).find(option => option.value === categoryID);
+
+            if (categoryOption) {
+                categorySelect.value = categoryOption.value;
+            }
+
+            // Вручную вызываем обработчики событий change
+            categorySelect.dispatchEvent(new Event('change'));
+
+            const imageName = button.getAttribute('data-image');
+            bannerImage.src = `../static/images/banners/${imageName}`;
+
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll('.price__form-button__item');
+        const titles = document.querySelectorAll('.style-title-home');
+
+        // Hide all titles except the first one
+        for (let i = 1; i < titles.length; i++) {
+            titles[i].style.display = 'none';
+        }
+
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                // Hide all titles
+                titles.forEach(title => {
+                    title.style.display = 'none';
+                });
+
+                // Show the corresponding title
+                titles[index].style.display = 'flex';
+            });
+        });
     });
 </script>
 
@@ -341,7 +398,6 @@
     });
 </script>
 
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const descriptionField = document.getElementById('id_description');
@@ -381,6 +437,7 @@
         });
     });
 </script>
+
 
 </body>
 </html>

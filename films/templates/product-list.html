@@ -1,4 +1,7 @@
+{% load i18n %}
 {% load static %}
+{% load humanize %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,119 +24,111 @@
 <!-- /Header section -->
 
 <!-- Topmost section -->
-<div class="main-banner">
+<section class="main-search-bar">
     <div class="container">
-        <div class="banner-row">
-            <div class="banner">
-                <img src="" alt="Баннер 1">
-            </div>
-            <div class="banner">
-                <img src="" alt="Баннер 2">
-            </div>
+        <div class="search-bar">
+            <form class="search-form" action="{% url 'product-list' %}">
+                {% csrf_token %}
+                {{ search.query }}
+                <div class="btn btn_common">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="search-reset">
+                    {#                    <a href="{% url 'product-list' %}">{% translate "reset" %}</a>#}
+                    <a href="{% url 'product-list' %}"><i class="fa-solid fa-rotate-right"></i></a>
+                </div>
+
+            </form>
         </div>
+        <div id="suggestions-container" class="suggestions-container" style="position: absolute;
+    width: 20%;
+    padding: 5px;
+    display: flex;
+    gap: 6px;
+    flex-direction: column;"></div>
+
     </div>
-</div>
+</section>
+
 
 <!-- Cards buy section -->
-<div class="container">
-    <section id="cards__buy-section" class="cards__buy-section">
+<section id="cards__buy-section" class="cards__buy-section">
+    <div class="container">
         <div class="filter-container">
             <form class="filter-form" action="#">
-                <div class="filter-item" id="type-group" style="width: 140px;">
-                    <label for="type-group" class="form-label">Что вам нужно ?</label>
+                <div class="filter-item" id="type-group">
+                    <label for="type-group" class="form-label">{% translate "Товары" %}: </label>
                     {{ form.type }}
                 </div>
 
-                <div style="width: 50%">
-                    <div style="display: flex">
+                <div>
+                    <div class="filter-form__category-subcategory">
                         <div class="filter-item">
-                            <label for="type-group" class="form-label">Что вам нужно ?</label>
-
-                            {{ form.category }}
+                            <label for="type-group" class="form-label">{% translate "Категории" %}: </label>
+                            <div class="for-post" id="for-post-category">
+                                {{ form.category }}
+                            </div>
+                            <div class="for-company-category" id="for-company-category">
+                                {{ form.company_category }}
+                            </div>
                         </div>
                         <div class="filter-item" id="subcategory-group">
-                            <label for="type-group" class="form-label">Что вам нужно ?</label>
-
-                            {{ form.sub_category }}
+                            <label for="type-group" class="form-label">{% translate "Суб категории" %}: </label>
+                            <div class="for-post" id="for-post-subcategory">
+                                {{ form.sub_category }}
+                            </div>
+                            <div class="for-company-subcategory" id="for-company-subcategory">
+                                {{ form.company_sub_category }}
+                            </div>
                         </div>
                     </div>
                     <div class="form-group" id="tags-group" style="display: block">
-                        {#                        <label for="subcategory" class="form-label">Теги:</label>#}
+                        {#                            <label for="subcategory" class="form-label">Теги:</label>#}
                         <div id="tags-checkboxes">
                         </div>
                     </div>
                 </div>
+
                 <div style="display: flex;">
-                    <div>
+                    <div class="filter-items">
                         <div class="filter-item" id="country-group">
-                            <label for="type-group" class="form-label">Страны</label>
+                            <label for="type-group" class="form-label">{% translate "Страны" %}</label>
 
                             {{ form.country }}
                         </div>
                         <div class="filter-item" id="city-group">
-                            <label for="type-group" class="form-label">Города:</label>
+                            <label for="type-group" class="form-label">{% translate "Города" %}:</label>
                             {{ form.city }}
                         </div>
 
                     </div>
                 </div>
-                <div style="display: flex; align-items: flex-end;">
-                    <button id="submit-filter">Фильтровать</button>
+                <div class="submit-button">
+                    <button id="submit-filter">{% translate "Фильтровать" %}</button>
 
                 </div>
 
             </form>
         </div>
+    </div>
+</section>
 
-
+<section id="cards__buy-section" class="cards__buy-section">
+    <div class="container">
         <div class="cards" id="card-container">
-            <div class="card__sell card-color">
-                <div class="card__company-content">
-                    <div class="card__sell-image">
-                        <a href="#"><img src="{% static 'images/banner.png' %}" alt=""></a>
-                    </div>
-                    <div class="card__company-image">
-                        <img src="{% static 'images/image.png' %}" alt="Product Image">
-                    </div>
-
-                    <a href="#" class="title">Tecnoprom</a>
-                    <div class="product-data">
-                        <div class="category-info">
-                            <div class="product-cat__image">
-                                <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
-                            </div>
-                            <a href="#">Yangi uskunalar / </a><a href="#">Agro</a>
-                        </div>
-
-                        <div class="flags">
-                            <span class="country">🇩🇪 Германия</span>
-                        </div>
-                        <div class="date">
-                            <span class="full-date">29 сентября 2023 г. 19:07</span>
-                        </div>
-                        <div class="like-and-more">
-                            <a href="#" class="read-more">Подробнее</a>
-                            <div class="svg-icon-container">
-                                {% if user.is_authenticated %}
-                                    <span class="add-to-favorites">
-                                        <i class="fa-solid fa-heart" style="font-size: 15px"></i>
-                                    </span>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             {% for product in films %}
                 {% if product.type == 'sell' %}
                     <div class="card__sell card-color">
                         <div class="card__buy-content">
-                            <div class="card__sell-image">
-                                <img src="{{ product.image.url }}" alt="Product Image">
-                            </div>
-                            <a href="{% url 'product-detail' product.pk %}" class="title">{{ product.title }}</a>
+                            <a class="dont-text-decoration" href="{% url 'product-detail' product.pk %}">
+                                <div class="card__sell-image">
+                                    <img src="{{ product.image.url }}" alt="Product Image">
+                                </div>
+                                <div class="title">{{ product.title }}</div>
+                            </a>
+
                             <div class="product-data">
+
                                 <div class="category-info">
                                     <div class="product-cat__image">
                                         <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
@@ -141,20 +136,39 @@
                                     <a href="#">{{ product.category }}</a>
                                 </div>
 
+                                {% if product.is_top_film %}
+                                    <span style="padding: 3px 10px; font-size: 12px; background-color: #4ac1f7; border-radius: 5px;">top</span>
+                                {% endif %}
+
                                 <div class="flags">
-                                    <span class="country">{{ product.country }}</span>
+                                    <a style="text-decoration: none; color: black;"
+                                       href="{% url 'product-detail' product.pk %}">
+                                        <span class="country">{{ product.country }}</span>
+                                    </a>
                                 </div>
                                 <div class="date">
-                                    <span class="full-date">{{ product.create_date }}</span>
+                                    <a style="text-decoration: none; color: black;"
+                                       href="{% url 'product-detail' product.pk %}">
+                                        <span class="full-date">{{ product.create_date }}</span>
+                                    </a>
                                 </div>
                                 <div class="like-and-more">
-                                    <a href="{% url "product-detail" product.pk %}" class="read-more">Подробнее</a>
+                                    {% if product.price %}
+                                        <a href="{% url 'product-detail' product.pk %}">
+                                            {{ product.price|floatformat:0|intcomma }}
+                                            сум
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url 'product-detail' product.pk %}">
+                                            Договорный
+                                        </a>
+                                    {% endif %}
+
                                     <div class="svg-icon-container">
                                         {% if user.is_authenticated %}
-                                            <span class="add-to-favorites" data-product-id="{{ product.id }}"
-                                                  data-url="{% url 'add_to_favorites' product.id %}">
-                                            <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart"
-                                               style="font-size: 15px"></i>
+                                            <span class="add-to-favorites" data-product-id="{{ product.pk }}"
+                                                  data-url="{% url 'add_to_favorites' product.pk %}">
+                                                <i class="fa-{% if product.pk in in_favorite %}solid{% else %}regular{% endif %} fa-heart"></i>
                                             </span>
                                         {% endif %}
                                     </div>
@@ -185,14 +199,14 @@
                                     <span class="full-date">{{ product.create_date }}</span>
                                 </div>
                                 <div class="like-and-more">
-                                    <a href="{% url 'product-detail' product.pk %}" class="read-more">Подробнее</a>
+                                    <a href="{% url 'product-detail' product.pk %}"
+                                       class="read-more">{% translate "Подробнее" %}</a>
                                     <div class="svg-icon-container">
                                         {% if user.is_authenticated %}
-                                            <span class="add-to-favorites" data-product-id="{{ product.id }}"
-                                                  data-url="{% url 'add_to_favorites' product.id %}">
-                                            <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart fa-lg"
-                                               style="font-size: 15px"></i>
-                                        </span>
+                                            <span class="add-to-favorites" data-product-id="{{ product.pk }}"
+                                                  data-url="{% url 'add_to_favorites' product.pk %}">
+                                                <i class="fa-{% if product.pk in in_favorite %}solid{% else %}regular{% endif %} fa-heart"></i>
+                                            </span>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -202,19 +216,17 @@
 
                 {% endif %}
             {% empty %}
-                <h1>Пока что нет таких объявлений.</h1>
+                <h1>{% translate "Пока что нет таких объявлений." %}</h1>
             {% endfor %}
         </div>
-
-    </section>
-</div>
+    </div>
+</section>
 <!-- /Cards buy section -->
 
 
 <!-- Footer section -->
 {% include 'footer.html' %}
 <!-- /Footer section -->
-
 
 <!-- like button -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -248,10 +260,133 @@
     });
 </script>
 
+
+<script>
+    document.getElementById('for-company-category').style.display = 'none';
+    document.getElementById('for-company-subcategory').style.display = 'none';
+
+    const typeSelect = document.getElementById('id_type');
+
+    function handleTypeChange() {
+        if (typeSelect.value === 'company') {
+            document.getElementById('for-company-category').style.display = 'block';
+            document.getElementById('for-company-subcategory').style.display = 'block';
+            document.getElementById('for-post-category').style.display = 'none';
+            document.getElementById('for-post-subcategory').style.display = 'none';
+        } else {
+            document.getElementById('for-company-category').style.display = 'none';
+            document.getElementById('for-company-subcategory').style.display = 'none';
+            document.getElementById('for-post-category').style.display = 'block';
+            document.getElementById('for-post-subcategory').style.display = 'block';
+        }
+    }
+
+    // Добавляем обработчик события на изменение типа
+    typeSelect.addEventListener('change', handleTypeChange);
+
+    // Вызываем функцию при загрузке страницы для установки начальной видимости
+    handleTypeChange();
+</script>
+
 <script>
     $(document).ready(function () {
         const categorySelect = $('#id_category');
         const subcategorySelect = $('#id_sub_category');
+        const tagsGroup = $('#tags-group'); // Добавляем элемент для тегов
+        const tagsSelect = $('#id_tags'); // Замените на соответствующий id поля тегов
+
+        // Функция для загрузки субкатегорий
+        function loadSubcategories() {
+            const selectedCategoryId = categorySelect.val();
+
+            // Очищаем предыдущие опции и добавляем "Выберите субкатегорию"
+            subcategorySelect.empty().append($('<option></option>').attr('value', '').text('Сначала выберите категорию'));
+            tagsGroup.hide(); // Скрываем поле выбора тегов
+
+            if (selectedCategoryId) {
+                // Запрос на сервер для получения субкатегорий по выбранной категории
+                $.ajax({
+                    url: `/related_to_it/?category_id=${selectedCategoryId}`,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data.subcategories); // Здесь data определена и содержит данные
+                        subcategorySelect.empty();
+                        subcategorySelect.append($('<option></option>').attr('value', '').text('Выберите субкатегорию')); // Добавляем опцию по умолчанию
+                        $.each(data.subcategories, function (key, value) {
+                            subcategorySelect.append($('<option></option>').attr('value', key).text(value));
+                        });
+                        tagsGroup.show(); // Показываем поле выбора субкатегории
+                    }
+                });
+            } else {
+                tagsGroup.show(); // Показываем поле выбора субкатегории, даже если категория не выбрана
+            }
+        }
+
+        categorySelect.change(loadSubcategories);
+
+        loadSubcategories();
+
+        // Функция для загрузки тегов
+        function loadTags() {
+            const selectedSubcategoryId = subcategorySelect.val();
+
+            // Очищаем предыдущие чекбоксы
+            $('#tags-checkboxes').empty();
+
+            if (selectedSubcategoryId) {
+                // Запрос на сервер для получения тегов по выбранной субкатегории
+                $.ajax({
+                    url: `/related_to_it/?subcategory_id=${selectedSubcategoryId}`,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data.tags); // Здесь data определена и содержит данные
+                        $.each(data.tags, function (key, value) {
+                            // Создаем div контейнер для каждого чекбокса и его лейбла
+                            const checkboxContainer = $('<div>')
+                                .addClass('cat')
+                                .addClass('action');
+
+                            // Создаем лейбл для каждого тега
+                            const label = $('<label>');
+
+                            // Создаем чекбокс для каждого тега и добавляем его внутрь лейбла
+                            const checkbox = $('<input type="checkbox">')
+                                .attr('id', `tag-${key}`)
+                                .attr('name', 'tags')
+                                .attr('value', key)
+                                .appendTo(label);
+
+                            // Добавляем текст тега внутрь лейбла
+                            label.append($('<span>').text(value));
+
+                            // Добавляем лейбл в контейнер
+                            checkboxContainer.append(label);
+
+                            // Добавляем контейнер в блок с чекбоксами
+                            $('#tags-checkboxes').append(checkboxContainer);
+                        });
+                        tagsGroup.show(); // Показываем блок с чекбоксами для тегов
+                    }
+                });
+            } else {
+                tagsGroup.hide(); // Скрываем блок с чекбоксами для тегов, если субкатегория не выбрана
+            }
+        }
+
+        // Отслеживаем изменения в поле выбора субкатегории
+        subcategorySelect.change(loadTags);
+
+        // Вызываем функцию загрузки тегов при инициализации страницы
+        loadTags();
+    });
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        const categorySelect = $('#id_company_category');
+        const subcategorySelect = $('#id_company_sub_category');
         const tagsGroup = $('#tags-group'); // Добавляем элемент для тегов
         const tagsSelect = $('#id_tags'); // Замените на соответствующий id поля тегов
 
@@ -367,5 +502,94 @@
     });
 </script>
 
+<script>
+    $(function () {
+        var suggestionsContainer = $("#suggestions-container");
+
+        $("#id_query").on("input", function () {
+            var userQuery = $(this).val();
+            if (userQuery.length >= 1) { // Минимальная длина запроса для выполнения поиска
+                $.ajax({
+                    url: '/get_suggestions/', // URL вашего представления Django
+                    dataType: 'json',
+                    data: {
+                        term: userQuery
+                    },
+                    success: function (data) {
+                        // Очищаем предыдущие подсказки
+                        suggestionsContainer.empty();
+
+                        // Проверяем, есть ли подсказки
+                        if (data.length > 0) {
+                            // Добавляем каждую подсказку в контейнер
+                            data.forEach(function (suggestion) {
+                                var suggestionItem = $("<div class='suggestion-item'>" + suggestion + "</div>");
+                                suggestionItem.on("click", function () {
+                                    // При клике на подсказку, заполняем поле ввода
+                                    $("#id_query").val(suggestion);
+                                    // Скрываем контейнер с подсказками
+                                    suggestionsContainer.hide();
+                                });
+                                suggestionsContainer.append(suggestionItem);
+                            });
+
+                            // Показываем контейнер с подсказками
+                            suggestionsContainer.show();
+                        } else {
+                            // Если нет подсказок, скрываем контейнер
+                            suggestionsContainer.hide();
+                        }
+                    }
+                });
+            } else {
+                // Если длина запроса меньше 2 символов, скрываем контейнер
+                suggestionsContainer.hide();
+            }
+        });
+
+        // Закрываем контейнер с подсказками при клике вне него
+        $(document).on("click", function (event) {
+            if (!$(event.target).closest(suggestionsContainer).length) {
+                suggestionsContainer.hide();
+            }
+        });
+    });
+
+</script>
+
+{#<script>#}
+{#    $(function () {#}
+{#        var inputField = $("#id_query");#}
+{##}
+{#        // Инициализация jQuery UI Autocomplete#}
+{#        inputField.autocomplete({#}
+{#            source: function (request, response) {#}
+{#                $.ajax({#}
+{#                    url: '/get_suggestions/',#}
+{#                    dataType: 'json',#}
+{#                    data: {#}
+{#                        term: request.term#}
+{#                    },#}
+{#                    success: function (data) {#}
+{#                        response(data);#}
+{#                    }#}
+{#                });#}
+{#            },#}
+{#            minLength: 1, // Минимальная длина запроса для выполнения поиска#}
+{#            select: function (event, ui) {#}
+{#                // При выборе подсказки, заполняем поле ввода#}
+{#                inputField.val(ui.item.label);#}
+{#                return false;#}
+{#            }#}
+{#        });#}
+{##}
+{#        // Закрываем всплывающее окно при клике вне него#}
+{#        $(document).on("click", function (event) {#}
+{#            if (!$(event.target).closest(".ui-autocomplete").length) {#}
+{#                inputField.autocomplete("close");#}
+{#            }#}
+{#        });#}
+{#    });#}
+{#</script>#}
 </body>
 </html>

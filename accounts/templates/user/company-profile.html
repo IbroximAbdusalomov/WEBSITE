@@ -4,7 +4,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
           integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -54,44 +53,91 @@
                             <div class="profile-description">
                                 <p>{{ profile.description }}</p>
                             </div>
+
+                            <div class="company-data">
+                                <div class="profile-country">
+                                    <p>{{ profile.country }}</p>
+                                </div>
+                                •
+                                <div class="profile-category">
+                                    <p>{{ profile.category }}</p>
+                                </div>
+                                •
+                                <div class="profile-sub_category">
+                                    <p>{{ profile.sub_category }}</p>
+                                </div>
+                            </div>
+                            {% if profile.tags.all %}
+                                <div class="profile-tags">
+                                    {% for tag in profile.tags.all %}
+                                        <p>{{ tag }}</p>
+                                    {% endfor %}
+
+                                </div>
+                            {% endif %}
+
                         </div>
 
                         <div class="block-2">
                             <div class="profile-buttons">
-                                <a class="dont-text-decoration" href="#"><span
-                                        class="following text-medium-weight border-for-buttons"><i
-                                        class="fa-solid fa-check"></i>{% translate 'Отслеживаете' %}</span></a>
-                                <a class="dont-text-decoration" href="#"><span
-                                        class="connect-with-us text-medium-weight border-for-buttons disabled">{% translate 'Связаться с нами' %}<i
-                                        class="fa-solid fa-arrow-up-right-from-square"
-                                        style="font-size: 12px; padding-left: 5px"></i></span></a>
-                                <a class="dont-text-decoration" href="#"><span
-                                        class="more text-medium-weight border-for-buttons">{% translate "Еще" %}</span></a>
+                                <!-- profile.html -->
+                                <a class="dont-text-decoration" href="{% url 'subscribe' profile.pk %}">
+                                    <span class="following text-medium-weight border-for-buttons">
+                                        {% if user != profile %}
+                                            {% if profile_subscription %}
+                                                <i class="fa-solid fa-minus"></i>
+                                                {% translate 'Отписаться' %}
+                                            {% else %}
+                                                <i class="fa-solid fa-plus"></i>
+                                                {% translate 'Подписаться' %}
+                                            {% endif %}
+                                        {% endif %}
+                                    </span>
+                                </a>
+                                <a class="dont-text-decoration" href="{{ profile.website }}">
+                                    <span class="web-site text-medium-weight border-for-buttons">
+                                        <i class="fa-solid fa-globe"></i>
+                                        {% translate 'Веб сайт' %}
+                                    </span>
+                                </a>
+                                <a class="dont-text-decoration"
+                                   href="https://t.me/{{ profile.telegram }}">
+                                    <span class="connect-with-us text-medium-weight border-for-buttons disabled">
+                                        <i class="fa-brands fa-telegram" style="color: white;"></i>
+                                    {% translate 'Телеграм' %}
+                                    </span>
+                                </a>
+                                <a class="dont-text-decoration" href="#">
+                                    <span class="more text-medium-weight border-for-buttons">
+                                        {% translate "Еще" %}
+                                    </span>
+                                </a>
                             </div>
-                            {% if not request.user.is_anonymous %}
-                                <form action="">
-                                    {% csrf_token %}
+                            {#                            {% if not request.user.is_anonymous %}#}
+                            <form action="">
+                                {% csrf_token %}
 
-                                    {% if has_rated %}
-                                        <span id="average-rating">{% translate "рейтинг" %}: {{ average_rating }}</span>
-                                    {% else %}
-                                        <div class="rating-area">
-                                            <input type="radio" id="star-5" name="rating" value="5">
-                                            <label for="star-5" title="Оценка «5»"></label>
-                                            <input type="radio" id="star-4" name="rating" value="4">
-                                            <label for="star-4" title="Оценка «4»"></label>
-                                            <input type="radio" id="star-3" name="rating" value="3">
-                                            <label for="star-3" title="Оценка «3»"></label>
-                                            <input type="radio" id="star-2" name="rating" value="2">
-                                            <label for="star-2" title="Оценка «2»"></label>
-                                            <input type="radio" id="star-1" name="rating" value="1">
-                                            <label for="star-1" title="Оценка «1»"></label>
-                                        </div>
-                                        <span id="average-rating"
-                                              style="display: none;">{% translate "рейтинг" %}: {{ average_rating }}</span>
-                                    {% endif %}
-                                </form>
-                            {% endif %}
+                                {% if has_rated %}
+                                    <span id="average-rating">{% translate "рейтинг" %}: {{ average_rating }}</span>
+                                {% else %}
+                                    <div class="rating-area">
+                                        <input type="radio" id="star-5" name="rating" value="5">
+                                        <label for="star-5" title="Оценка «5»"></label>
+                                        <input type="radio" id="star-4" name="rating" value="4">
+                                        <label for="star-4" title="Оценка «4»"></label>
+                                        <input type="radio" id="star-3" name="rating" value="3">
+                                        <label for="star-3" title="Оценка «3»"></label>
+                                        <input type="radio" id="star-2" name="rating" value="2">
+                                        <label for="star-2" title="Оценка «2»"></label>
+                                        <input type="radio" id="star-1" name="rating" value="1">
+                                        <label for="star-1" title="Оценка «1»"></label>
+                                    </div>
+                                    <span id="average-rating"
+                                          style="display: none;">{% translate "рейтинг" %}: {{ average_rating }}</span>
+                                {% endif %}
+                            </form>
+
+                            {#                            {% endif %}#}
                         </div>
                     </div>
                 </div>
@@ -189,7 +235,8 @@
 
         <div>
             <div class="benner-for-reklam">
-                <div class="banner" style="margin: 0 11px; ">
+                {#                <div class="banner" style="margin: 0 11px; ">#}
+                <div class="banner">
                     <img src="{% static 'images/image.png' %}" alt="banner" style="width: 245px;">
                 </div>
             </div>
@@ -322,29 +369,36 @@
 <script>
     $(document).ready(function () {
         $('.rating-area input[type="radio"]').on('change', function () {
-            var rating = $(this).val();
-            var evaluatorId = {{ request.user.id }};
-            var ratedUserId = {{ profile.id }};  // Получите идентификатор оцениваемого пользователя
-            var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+            {% if user.is_authenticated %}
+                var rating = $(this).val();
+                var evaluatorId = {{ request.user.id }};
+                var ratedUserId = {{ profile.id }};  // Получите идентификатор оцениваемого пользователя
+                var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
 
-            $.ajax({
-                type: 'POST',
-                url: `/users/rate/${evaluatorId}/${ratedUserId}/${rating}/`,
-                data: {
-                    csrfmiddlewaretoken: csrfToken,
-                },
-                success: function (data) {
-                    console.log(data.message);
-                    window.location.reload()
-                    $('.rating-area').hide();
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    console.error('Ошибка при отправке запроса:', errorThrown);
-                }
-            });
+                // Проверка, аутентифицирован ли пользователь
+                $.ajax({
+                    type: 'POST',
+                    url: `/users/rate/${evaluatorId}/${ratedUserId}/${rating}/`,
+                    data: {
+                        csrfmiddlewaretoken: csrfToken,
+                    },
+                    success: function (data) {
+                        console.log(data.message);
+                        window.location.reload()
+                        $('.rating-area').hide();
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.error('Ошибка при отправке запроса:', errorThrown);
+                    }
+                });
+            {% else %}
+                // Перенаправление на страницу логина
+                window.location.href = "{% url 'login' %}";
+            {% endif %}
         });
     });
 </script>
+
 
 </body>
 </html>

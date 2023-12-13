@@ -14,6 +14,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.core.mail import send_mail
 from django.db import transaction
 from django.db.models import Avg, Sum
+from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
@@ -28,7 +29,7 @@ from films.forms import FilmsForm
 from films.models import Products, Favorite
 from .forms import UserLoginForm, UserRegisterForm, CompanyInfoForm, ContactInfoForm, DescriptionCountryForm, \
     NotificationForm, LogoForm, BannerForm, UserProfileUpdateForm
-from .models import UserRating, Message
+from .models import UserRating, Message, UserSubscription
 from .utils import send_message_to_channel, true_account_status
 
 
@@ -180,7 +181,6 @@ class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = get_user_model()
     template_name = 'user/update.html'
     form_class = UserProfileUpdateForm
-    success_url = reverse_lazy('myaccount')  # Замените 'profile' на ваш URL-путь к профилю
 
     def get_object(self, queryset=None):
         return self.request.user
@@ -192,6 +192,9 @@ class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
     def form_invalid(self, form):
         messages.error(self.request, 'Пожалуйста, исправьте ошибки в форме.')
         return super().form_invalid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('myaccount')
 
 
 class LogoutUserView(LogoutView):
@@ -504,14 +507,13 @@ class ProfileView(DetailView):
         context = super().get_context_data(**kwargs)
 
         user = context['profile']
-        products = Products.objects.filter(author=user, is_published=True, is_active=True)
-        context['products'] = products
+        context['products'] = Products.objects.filter(author=user, is_published=True, is_active=True)
         context['average_rating'] = user.calculate_average_rating()
-        has_rated = UserRating.objects.filter(rater=self.request.user,
-                                              rated_user=user).exists() if not self.request.user.is_anonymous else None
-        context['has_rated'] = has_rated
-        companies = self.model.objects.filter(is_business_account=True).order_by('-date_joined')[:3]
-        context['companies'] = companies
+        context['has_rated'] = UserRating.objects.filter(rater=self.request.user,
+                                                         rated_user=user).exists() if not self.request.user.is_anonymous else None
+        context['companies'] = self.model.objects.filter(is_business_account=True).order_by('-date_joined')[:3]
+        context['profile_subscription'] = UserSubscription.objects.filter(subscriber=self.request.user,
+                                                                          target_user=self.object).first()
 
         return context
 
@@ -669,3 +671,37 @@ Client ID: 1064949093248-47olpbv7o9ruglkk9g46ojcqhp1b12ev.apps.googleusercontent
 Client secret: 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
 
 '''
+
+
+# @login_required
+# def subscribe(request, user_id):
+#     target_user = get_object_or_404(get_user_model(), pk=user_id)
+#
+#     # Проверка, чтобы пользователь не мог подписаться на самого себя
+#     if request.user == target_user:
+#         return JsonResponse({'error': 'Вы не можете подписаться на себя.'}, status=400)
+#
+#     subscription, created = UserSubscription.objects.get_or_create(subscriber=request.user, target_user=target_user)
+#
+#     if not created:
+#         # Если уже подписаны, отписываемся
+#         subscription.delete()
+#
+#     return JsonResponse({'subscribed': created})
+
+# Добавьте URL-паттерн в ваш urls.py
+# path('subscribe/<int:user_id>/', views.subscribe, name='subscribe')
+
+
+@login_required
+def subscribe(request, user_id):
+    target_user = get_object_or_404(get_user_model(), pk=user_id)
+    if request.user == target_user:
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+    subscription, created = UserSubscription.objects.get_or_create(subscriber=request.user, target_user=target_user)
+
+    if not created:
+        subscription.delete()
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))

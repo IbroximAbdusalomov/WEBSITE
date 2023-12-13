@@ -68,9 +68,9 @@ class FilmsForm(forms.ModelForm):
         try:
             phone_number = phonenumbers.parse(telephone, None)
             if not phonenumbers.is_valid_number(phone_number):
-                raise ValidationError(_('Invalid phone number'))
+                raise ValidationError(_('Некорректный номер телефона'))
         except phonenumbers.NumberParseException:
-            raise ValidationError(_('Invalid phone number'))
+            raise ValidationError(_('Некорректный номер телефона'))
         return telephone
 
     telegram = forms.CharField(
@@ -84,20 +84,20 @@ class FilmsForm(forms.ModelForm):
         required=False
     )
 
-    # def clean_telegram(self):
-    #     telegram = self.cleaned_data.get('telegram')
-    #
-    #     try:
-    #         phone_number = phonenumbers.parse(telegram, None)
-    #         if phonenumbers.is_valid_number(phone_number):
-    #             return telegram
-    #     except phonenumbers.NumberParseException:
-    #         pass
-    #
-    #     if telegram.startswith('@') and len(telegram) > 1:
-    #         return telegram
-    #
-    #     raise ValidationError(_('Invalid phone number or Telegram username'))
+    def clean_telegram(self):
+        telegram = self.cleaned_data.get('telegram')
+
+        try:
+            phone_number = phonenumbers.parse(telegram, None)
+            if phonenumbers.is_valid_number(phone_number):
+                return telegram
+        except phonenumbers.NumberParseException:
+            pass
+
+        if telegram.startswith('@') and len(telegram) > 1:
+            return telegram
+
+        raise ValidationError(_('Неверный номер телефона или имя пользователя в Telegram'))
 
     image = forms.ImageField(
         widget=forms.FileInput(attrs={'class': 'form-input', 'accept': 'image/*'}),

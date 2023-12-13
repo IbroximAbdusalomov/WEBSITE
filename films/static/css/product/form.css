@@ -28,5 +28,8 @@
     .price__image-form2 {
         display: none;
     }
-    
+
+    .price__form-form {
+        width: 100%;
+    }
 }

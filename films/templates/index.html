@@ -56,12 +56,12 @@
                                        class="read-more">{% translate 'Подробнее' %}</a>
 
                                     <div class="svg-icon-container">
-                                        {% if user.is_authenticated %}
-                                            <span class="add-to-favorites" data-product-id="{{ buy.pk }}"
-                                                  data-url="{% url 'add_to_favorites' buy.pk %}">
+                                        {#                                        {% if user.is_authenticated %}#}
+                                        <span class="add-to-favorites" data-product-id="{{ buy.pk }}"
+                                              data-url="{% url 'add_to_favorites' buy.pk %}">
                                                 <i class="fa-{% if buy.pk in in_favorite %}solid{% else %}regular{% endif %} fa-heart"></i>
                                             </span>
-                                        {% endif %}
+                                        {#                                        {% endif %}#}
                                     </div>
                                 </div>
                             </div>
@@ -144,12 +144,12 @@
                                     {% endif %}
 
                                     <div class="svg-icon-container">
-                                        {% if user.is_authenticated %}
-                                            <span class="add-to-favorites" data-product-id="{{ sell.pk }}"
-                                                  data-url="{% url 'add_to_favorites' sell.pk %}">
+                                        {#                                        {% if user.is_authenticated %}#}
+                                        <span class="add-to-favorites" data-product-id="{{ sell.pk }}"
+                                              data-url="{% url 'add_to_favorites' sell.pk %}">
                                                 <i class="fa-{% if sell.pk in in_favorite %}solid{% else %}regular{% endif %} fa-heart"></i>
                                             </span>
-                                        {% endif %}
+                                        {#                                        {% endif %}#}
                                     </div>
                                 </div>
                             </div>
@@ -244,25 +244,30 @@
                 var productId = span.data("product-id");
 
                 // Отправляем AJAX-запрос к add_to_favorites
-                $.ajax({
-                    url: "{% url 'add_to_favorites' 0 %}".replace('0', productId),
-                    type: "POST",
-                    data: {
-                        csrfmiddlewaretoken: '{{ csrf_token }}'
-                    },
-                    success: function (data) {
-                        if (data.added) {
-                            // Продукт был добавлен в избранное, меняем иконку на fa-solid
-                            span.find('i').removeClass('fa-regular').addClass('fa-solid');
-                        } else {
-                            // Продукт был удален из избранного, меняем иконку на fa-regular
-                            span.find('i').removeClass('fa-solid').addClass('fa-regular');
+                {% if user.is_authenticated %}
+                    $.ajax({
+                        url: "{% url 'add_to_favorites' 0 %}".replace('0', productId),
+                        type: "POST",
+                        data: {
+                            csrfmiddlewaretoken: '{{ csrf_token }}'
+                        },
+                        success: function (data) {
+                            if (data.added) {
+                                // Продукт был добавлен в избранное, меняем иконку на fa-solid
+                                span.find('i').removeClass('fa-regular').addClass('fa-solid');
+                            } else {
+                                // Продукт был удален из избранного, меняем иконку на fa-regular
+                                span.find('i').removeClass('fa-solid').addClass('fa-regular');
+                            }
+                        },
+                        error: function () {
+                            alert("Произошла ошибка при обновлении избранного.");
                         }
-                    },
-                    error: function () {
-                        alert("Произошла ошибка при обновлении избранного.");
-                    }
-                });
+                    });
+
+                {% else %}
+                    window.location.href = "{% url 'login' %}"
+                {% endif %}
             });
         });
     </script>

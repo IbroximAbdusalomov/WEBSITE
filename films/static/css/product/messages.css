@@ -119,3 +119,10 @@ strong {
         bottom: 15px; /* конечная позиция */
     }
 }
+
+@media only screen and (max-width: 480px) {
+    .notification {
+        width: 70%;
+    }
+
+}

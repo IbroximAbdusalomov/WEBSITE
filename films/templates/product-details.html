@@ -108,7 +108,7 @@
                                     <span class="add-to-favorites" data-product-id="{{ product.id }}"
                                           data-url="{% url 'add_to_favorites' product.id %}">
                                             <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart fa-lg"
-                                               style="cursor: pointer; width: 24px"></i>
+                                               style="cursor: pointer;"></i>
                                     </span>
                                 {% endif %}
                             </div>
@@ -130,7 +130,7 @@
                                     {% post_to_telegram object_or_url '' "<i class='fa-brands fa-telegram'></i>" %}
                                     {#                                    <i class="fa-brands fa-telegram"></i>#}
                                 </div>
-{#                                <div class="share_to-telegram">#}
+                                {#                                <div class="share_to-telegram">#}
                                 {#                                    <i class="fa-brands fa-instagram"></i>#}
                                 {#                                </div>#}
 

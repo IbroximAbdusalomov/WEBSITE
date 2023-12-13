@@ -20,7 +20,7 @@
 
 <section>
     <div class="container">
-        <form action="#" class="custom-form">
+        <form action="{% url 'update_profile' %}" method="post" class="custom-form">
             {% csrf_token %}
             <div class="form-group"><label for="id_username">Username:</label>
                 {{ form.username }}

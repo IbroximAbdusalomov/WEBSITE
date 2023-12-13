@@ -165,7 +165,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = "/users/auth"
+LOGIN_URL = "login"
 # LOGOUT_REDIRECT_URL = "/users/auth"
 
 TOKEN = '6083532425:AAFXvM5mbcbp4DxK0LX12ej1Q5M40lvA2Jo'

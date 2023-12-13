@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser
 from django.db.models import Avg, PositiveIntegerField
 from django.db.models import Model, CharField, ImageField, EmailField, BooleanField, ForeignKey, SET_NULL, \
@@ -58,3 +59,15 @@ class UserRating(Model):
 
     def __str__(self):
         return f"Rating from {self.rater} to {self.rated_user}: {self.rating}"
+
+
+class UserSubscription(Model):
+    subscriber = ForeignKey(get_user_model(), on_delete=CASCADE, related_name='subscriptions')
+    target_user = ForeignKey(get_user_model(), on_delete=CASCADE, related_name='subscribers')
+    created_at = DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('subscriber', 'target_user')
+
+    def __str__(self):
+        return f"{self.subscriber} подписан на {self.target_user}"

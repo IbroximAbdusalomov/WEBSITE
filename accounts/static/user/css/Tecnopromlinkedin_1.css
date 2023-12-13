@@ -1,46 +1,49 @@
 .company-cards {
-    padding-top: 20px;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    gap: 20px;
 }
+
 
 .company-cards .card__sell {
-    width: 240px;
+    width: 100%;
+    height: 320px;
 }
 
-.card__sell, .card__buy {
-    width: calc(30%);
+.profile-tags p {
+    border: 1px solid #6f6f6f;
+    border-radius: 24px;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    padding: 8px 10px;
 }
 
-@media only screen and (max-width: 600px) {
-    .block-2 {
-        /*flex-wrap: wrap;*/
+
+.company-data {
+    display: flex;
+    gap: 5px;
+    color: #00000099;
+}
+
+.company-data div p {
+    font-size: 14px;
+    margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+
+    .profile-buttons {
+        flex-wrap: wrap;
+        gap: 20px;
     }
 
-    .block-2 form {
-        /*width: 100%;*/
-        display: flex;
-        justify-content: flex-end;
-        /*padding-top: 15px;*/
-    }
 
-    .rating-area {
-        margin: 0;
+    .company-cards .card__sell, .card__buy {
+        width: calc(100% - 22px);
     }
 
     .gdsgogsf {
-        flex-direction: column;
-    }
-
-    .company-cards {
-        width: 98%;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .benner-for-reklam {
-        display: flex;
-        justify-content: center;
+        display: block;
     }
 }

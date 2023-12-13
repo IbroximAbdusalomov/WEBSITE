@@ -40,6 +40,14 @@ class IndexView(ListView):
 
     @staticmethod
     def post(request):
+        context = {
+            "films_buy": Products.objects.filter(type='buy', is_active=True, is_published=True).order_by(
+                '-create_date')[:8],
+            "films_sell": Products.objects.filter(type='sell', is_active=True, is_published=True).order_by(
+                '-create_date')[:8],
+            "title": "Запросы: ",
+            # "form": FilmsForm(),
+        }
         form = FilmsForm(request.POST)
         selected_tags = request.POST.getlist('tags')
         if form.is_valid():
@@ -55,14 +63,12 @@ class IndexView(ListView):
                 message[field_name] = field_value
             message['тип'] = 'Купить'
 
-            # Проверка, является ли price числом
             try:
                 price = float(
-                    form.cleaned_data.get('price', 0))  # Преобразование во float, по умолчанию 0, если значение пусто
+                    form.cleaned_data.get('price', 0))
                 film.price = price
             except ValueError:
-                film.price = None  # Устанавливаем цену в None, если она не является числом
-
+                film.price = None
             film.save()
             film.tags.set(selected_tags)
             message['film_id'] = film.id
@@ -70,8 +76,9 @@ class IndexView(ListView):
             messages.success(request, 'Отправлено на модерацию')
             return redirect('index')
         else:
-            errors = form.errors
-            return render(request, 'index.html', {'form': form, 'errors': errors})
+            context['form'] = form
+            context['errors'] = form.errors
+            return render(request, 'index.html', context=context)
 
 
 class ProductDetailView(DetailView):
@@ -159,7 +166,9 @@ class ProductSaveView(CreateView):
 
     def form_invalid(self, form):
         errors = form.errors
-        messages.error(self.request, f'{errors}')
+        for error in errors:
+            messages.error(self.request, f"{errors[f'{error}'][0]}")
+        # messages.error(self.request, f'{errors}')
         return render(self.request, self.template_name, {'form': form, 'errors': errors})
 
 
@@ -313,21 +322,25 @@ def related_to_it(request):
     return JsonResponse({'subcategories': sub_categories, 'tags': tags})
 
 
-@login_required
+@login_required()
 def add_to_favorites(request, pk):
+    # if request.user.Ё:
     product = Products.objects.get(pk=pk)
     try:
         favorite = Favorite.objects.get(user=request.user, product_id=product)
         favorite.delete()
         response_data = {'added': False}
-        # messages.success(request, 'Вы удалили этот продукт из избранных!')
     except Favorite.DoesNotExist:
         Favorite.objects.create(user=request.user, product_id=product)
         response_data = {'added': True}
-        # messages.success(request, 'Вы добавили этот продукт в избранные!')
     return JsonResponse(response_data)
 
 
+# else:
+#     return redirect('login')
+
+
+# @login_required
 def favorite_list(request):
     favorites = {"favorites": Favorite.objects.filter(user=request.user)}
     return JsonResponse(favorites)

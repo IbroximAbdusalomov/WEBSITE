@@ -104,13 +104,13 @@
                         <div class="publication-date">
                             <span class="css-fscvqi er34gjf0">{% translate 'Опубликовано' %} {{ product.create_date|date:"d F Y г." }}</span>
                             <div class="svg-icon-container">
-                                {% if user.is_authenticated %}
-                                    <span class="add-to-favorites" data-product-id="{{ product.id }}"
-                                          data-url="{% url 'add_to_favorites' product.id %}">
+                                {#                                {% if user.is_authenticated %}#}
+                                <span class="add-to-favorites" data-product-id="{{ product.id }}"
+                                      data-url="{% url 'add_to_favorites' product.id %}">
                                             <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart fa-lg"
                                                style="cursor: pointer;"></i>
                                     </span>
-                                {% endif %}
+                                {#                                {% endif %}#}
                             </div>
                         </div>
                         <div class="product-title">
@@ -174,8 +174,10 @@
                                     <span class="author-data-joined">{% translate "в TECNOPROM с" %} {{ product.author.date_joined|date:"F Y г." }}</span>
                                 </div>
                             </div>
+                            
                             <div class="button-all-announcements-this-author">
-                                <a href="#" target="_blank">{% translate "Все объявления автора" %}</a>
+                                <a href="{% url 'profile' product.author_id %}"
+                                   target="_blank">{% translate "Все объявления автора" %}</a>
                             </div>
                         </div>
                     {% endif %}
@@ -209,29 +211,33 @@
             var productId = span.data("product-id");
 
             // Отправляем AJAX-запрос к add_to_favorites
-            $.ajax({
-                url: "{% url 'add_to_favorites' 0 %}".replace('0', productId),
-                type: "POST",
-                data: {
-                    csrfmiddlewaretoken: '{{ csrf_token }}'
-                },
-                success: function (data) {
-                    if (data.added) {
-                        // Продукт был добавлен в избранное, меняем иконку на fa-solid
-                        span.find('i').removeClass('fa-regular').addClass('fa-solid');
-                    } else {
-                        // Продукт был удален из избранного, меняем иконку на fa-regular
-                        span.find('i').removeClass('fa-solid').addClass('fa-regular');
+            {% if user.is_authenticated %}
+                $.ajax({
+                    url: "{% url 'add_to_favorites' 0 %}".replace('0', productId),
+                    type: "POST",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function (data) {
+                        if (data.added) {
+                            // Продукт был добавлен в избранное, меняем иконку на fa-solid
+                            span.find('i').removeClass('fa-regular').addClass('fa-solid');
+                        } else {
+                            // Продукт был удален из избранного, меняем иконку на fa-regular
+                            span.find('i').removeClass('fa-solid').addClass('fa-regular');
+                        }
+                    },
+                    error: function () {
+                        alert("Произошла ошибка при обновлении избранного.");
                     }
-                },
-                error: function () {
-                    alert("Произошла ошибка при обновлении избранного.");
-                }
-            });
+                });
+
+            {% else %}
+                window.location.href = "{% url 'login' %}"
+            {% endif %}
         });
     });
 </script>
-
 <!-- SLIDER photos -->
 <script>
     const sliderContainer = document.querySelector('.slider-container');

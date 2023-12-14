@@ -31,6 +31,18 @@
     margin: 0;
 }
 
+.cards {
+    gap: 20px;
+}
+
+#card-container .card__buy, .card__sell {
+    margin: 0;
+}
+
+.card__sell, .card__buy {
+    width: calc(35% - 32px);
+}
+
 @media screen and (max-width: 480px) {
 
     .profile-buttons {

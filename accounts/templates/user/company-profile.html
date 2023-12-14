@@ -66,24 +66,33 @@
                                 <div class="profile-sub_category">
                                     <p>{{ profile.sub_category }}</p>
                                 </div>
+                                •
+                                <div class="profile-followers">
+                                    <p><i class="fa-solid fa-user"></i> {{ followers }}-followers</p>
+                                </div>
+                                •
+                                <div class="profile-verified" style="color: #0a24b9">
+                                    {% if verified %}
+                                        <p>Tecnoprom verified <i class="fa-solid fa-circle-check"></i></p>
+                                    {% else %}
+                                        <p>Tecnoprom verified <i class="fa-solid fa-circle-check"></i></p>
+                                    {% endif %}
+                                </div>
                             </div>
                             {% if profile.tags.all %}
                                 <div class="profile-tags">
                                     {% for tag in profile.tags.all %}
                                         <p>{{ tag }}</p>
                                     {% endfor %}
-
                                 </div>
                             {% endif %}
-
                         </div>
 
                         <div class="block-2">
                             <div class="profile-buttons">
-                                <!-- profile.html -->
-                                <a class="dont-text-decoration" href="{% url 'subscribe' profile.pk %}">
+                                {% if user != profile %}
+                                    <a class="dont-text-decoration" href="{% url 'subscribe' profile.pk %}">
                                     <span class="following text-medium-weight border-for-buttons">
-                                        {% if user != profile %}
                                             {% if profile_subscription %}
                                                 <i class="fa-solid fa-minus"></i>
                                                 {% translate 'Отписаться' %}
@@ -91,9 +100,9 @@
                                                 <i class="fa-solid fa-plus"></i>
                                                 {% translate 'Подписаться' %}
                                             {% endif %}
-                                        {% endif %}
                                     </span>
-                                </a>
+                                    </a>
+                                {% endif %}
                                 <a class="dont-text-decoration" href="{{ profile.website }}">
                                     <span class="web-site text-medium-weight border-for-buttons">
                                         <i class="fa-solid fa-globe"></i>
@@ -113,7 +122,6 @@
                                     </span>
                                 </a>
                             </div>
-                            {#                            {% if not request.user.is_anonymous %}#}
                             <form action="">
                                 {% csrf_token %}
 
@@ -136,8 +144,6 @@
                                           style="display: none;">{% translate "рейтинг" %}: {{ average_rating }}</span>
                                 {% endif %}
                             </form>
-
-                            {#                            {% endif %}#}
                         </div>
                     </div>
                 </div>
@@ -170,14 +176,14 @@
                                                 <a href="{% url "product-detail" product.pk %}"
                                                    class="read-more">{% translate "Подробнее" %}</a>
                                                 <div class="svg-icon-container">
-                                                    {% if user.is_authenticated %}
-                                                        <span class="add-to-favorites"
-                                                              data-product-id="{{ product.id }}"
-                                                              data-url="{% url 'add_to_favorites' product.id %}">
+                                                    {#                                                    {% if user.is_authenticated %}#}
+                                                    <span class="add-to-favorites"
+                                                          data-product-id="{{ product.id }}"
+                                                          data-url="{% url 'add_to_favorites' product.id %}">
                                             <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart"
                                                style="font-size: 15px"></i>
                                             </span>
-                                                    {% endif %}
+                                                    {#                                                    {% endif %}#}
                                                 </div>
                                             </div>
                                         </div>
@@ -192,9 +198,6 @@
                                             </div>
                                             <a href="#">{{ product.category }}</a>
                                         </div>
-                                        {#<div class="card__sell-image">#}
-                                        {#  <img src="{{ product.image.url }}" alt="Product Image">#}
-                                        {#</div>#}
                                         <h2 class="title"><a href="{% url 'product-detail' product.pk %}"
                                                              class="title">{{ product.title }}</a></h2>
                                         <p class="description">{{ product.description }}</p>
@@ -235,7 +238,6 @@
 
         <div>
             <div class="benner-for-reklam">
-                {#                <div class="banner" style="margin: 0 11px; ">#}
                 <div class="banner">
                     <img src="{% static 'images/image.png' %}" alt="banner" style="width: 245px;">
                 </div>
@@ -336,6 +338,35 @@
 
 <!-- like button -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{#<script>#}
+{#    $(document).ready(function () {#}
+{#        $(".add-to-favorites").click(function () {#}
+{#            var span = $(this);#}
+{#            var productId = span.data("product-id");#}
+{##}
+{#            // Отправляем AJAX-запрос к add_to_favorites#}
+{#            $.ajax({#}
+{#                url: "{% url 'add_to_favorites' 0 %}".replace('0', productId),#}
+{#                type: "POST",#}
+{#                data: {#}
+{#                    csrfmiddlewaretoken: '{{ csrf_token }}'#}
+{#                },#}
+{#                success: function (data) {#}
+{#                    if (data.added) {#}
+{#                        // Продукт был добавлен в избранное, меняем иконку на fa-solid#}
+{#                        span.find('i').removeClass('fa-regular').addClass('fa-solid');#}
+{#                    } else {#}
+{#                        // Продукт был удален из избранного, меняем иконку на fa-regular#}
+{#                        span.find('i').removeClass('fa-solid').addClass('fa-regular');#}
+{#                    }#}
+{#                },#}
+{#                error: function () {#}
+{#                    alert("Произошла ошибка при обновлении избранного.");#}
+{#                }#}
+{#            });#}
+{#        });#}
+{#    });#}
+{#</script>#}
 <script>
     $(document).ready(function () {
         $(".add-to-favorites").click(function () {
@@ -343,29 +374,33 @@
             var productId = span.data("product-id");
 
             // Отправляем AJAX-запрос к add_to_favorites
-            $.ajax({
-                url: "{% url 'add_to_favorites' 0 %}".replace('0', productId),
-                type: "POST",
-                data: {
-                    csrfmiddlewaretoken: '{{ csrf_token }}'
-                },
-                success: function (data) {
-                    if (data.added) {
-                        // Продукт был добавлен в избранное, меняем иконку на fa-solid
-                        span.find('i').removeClass('fa-regular').addClass('fa-solid');
-                    } else {
-                        // Продукт был удален из избранного, меняем иконку на fa-regular
-                        span.find('i').removeClass('fa-solid').addClass('fa-regular');
+            {% if user.is_authenticated %}
+                $.ajax({
+                    url: "{% url 'add_to_favorites' 0 %}".replace('0', productId),
+                    type: "POST",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function (data) {
+                        if (data.added) {
+                            // Продукт был добавлен в избранное, меняем иконку на fa-solid
+                            span.find('i').removeClass('fa-regular').addClass('fa-solid');
+                        } else {
+                            // Продукт был удален из избранного, меняем иконку на fa-regular
+                            span.find('i').removeClass('fa-solid').addClass('fa-regular');
+                        }
+                    },
+                    error: function () {
+                        alert("Произошла ошибка при обновлении избранного.");
                     }
-                },
-                error: function () {
-                    alert("Произошла ошибка при обновлении избранного.");
-                }
-            });
+                });
+
+            {% else %}
+                window.location.href = "{% url 'login' %}"
+            {% endif %}
         });
     });
 </script>
-
 <script>
     $(document).ready(function () {
         $('.rating-area input[type="radio"]').on('change', function () {
@@ -395,6 +430,22 @@
                 // Перенаправление на страницу логина
                 window.location.href = "{% url 'login' %}";
             {% endif %}
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var tags = document.querySelectorAll('.profile-tags p');
+        var colors = ['#d9edff', '#c6feff', '#ffddea'];
+
+        tags.forEach(function (tag) {
+            // Выбор случайного цвета из массива
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+            tag.style.backgroundColor = randomColor;
+            tag.style.padding = '8px';
+            tag.style.marginRight = '8px';
+            tag.style.color = '#000'; // Цвет текста
         });
     });
 </script>

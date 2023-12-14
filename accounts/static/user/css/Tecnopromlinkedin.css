@@ -219,6 +219,19 @@
     padding-top: 110px;
 }
 
+.update-profile-btn {
+    margin-left: 15px;
+}
+
+.update-profile-btn i {
+    font-size: 18px;
+}
+
+.logout-profile-btn a i {
+    font-size: 18px;
+    color: black;
+}
+
 @media screen and (max-width: 480px) {
     .test-view {
         padding-left: 0;

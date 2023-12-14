@@ -43,6 +43,10 @@
                     <div class="block-1">
                         <h1 class="profile-info__title">
                             {{ user.company_name }}
+                            <a class="update-profile-btn dont-text-decoration" href="{% url 'update_profile' %}"
+                               style="color: black">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
                         </h1>
                         <div class="profile-description">
                             <p>{{ user.description }}</p>
@@ -94,10 +98,9 @@
                                 {% endif %}
                             </a>
 
-                            <div class="update-profile-btn">
-                                <a class="dont-text-decoration" href="{% url 'update_profile' %}"
-                                   style="color: black">
-                                    <i class="fa-solid fa-pen"></i>
+                            <div class="logout-profile-btn">
+                                <a href="{% url 'logout' %}" class="dont-text-decoration">
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                 </a>
                             </div>
                         </div>

@@ -71,8 +71,9 @@
             <div class="signup-content">
                 <img src="{% static 'images/banners/banner-ishlatilgan-uskuna.svg' %}" alt="logo" class="signup-logo">
                 <div class="signup-text">
-                    <p>{% translate "Don't have an account" %}?</p>
-                    <a href="{% url 'register' %}" id="toggleRegisterLink">{% translate "Signup" %}</a>
+                    <p>{% translate "Don't have an account" %}?
+                        <a href="{% url 'register' %}" id="toggleRegisterLink">{% translate "Signup" %}</a></p>
+
                 </div>
             </div>
 

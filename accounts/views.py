@@ -512,8 +512,14 @@ class ProfileView(DetailView):
         context['has_rated'] = UserRating.objects.filter(rater=self.request.user,
                                                          rated_user=user).exists() if not self.request.user.is_anonymous else None
         context['companies'] = self.model.objects.filter(is_business_account=True).order_by('-date_joined')[:3]
-        context['profile_subscription'] = UserSubscription.objects.filter(subscriber=self.request.user,
-                                                                          target_user=self.object).first()
+        context['profile_subscription'] = None
+        if self.request.user.is_authenticated:
+            context['profile_subscription'] = UserSubscription.objects.filter(
+                subscriber=self.request.user,
+                target_user=self.object
+            ).first()
+        context['followers'] = UserSubscription.objects.filter(target_user=self.object).count()
+        context['verified'] = True
 
         return context
 

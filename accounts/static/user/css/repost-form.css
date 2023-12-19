@@ -1,0 +1,55 @@
+.section__repost-form {
+    position: absolute;
+    z-index: 999;
+}
+
+.repost-form {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 730px;
+    width: 100%;
+    text-align: center;
+}
+
+.repost-form label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+}
+
+.repost-form p {
+    margin: 15px 0;
+}
+
+.repost-form button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.repost-form button:hover {
+    background-color: #2a80b9;
+}
+
+.complaint-radio-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.complaint-radio-input {
+    margin-right: 5px;
+}
+
+
+#id_complaint_type {
+    display: flex;
+    flex-wrap: wrap;
+}

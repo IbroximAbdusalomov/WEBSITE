@@ -36,6 +36,7 @@ class IndexView(ListView):
         else:
             in_favorite = []
         context['in_favorite'] = in_favorite
+        context['jobs'] = Products.objects.filter(is_active=True, is_published=True, category__slug='texnolog')
         return context
 
     @staticmethod
@@ -324,7 +325,6 @@ def related_to_it(request):
 
 @login_required()
 def add_to_favorites(request, pk):
-    # if request.user.Ё:
     product = Products.objects.get(pk=pk)
     try:
         favorite = Favorite.objects.get(user=request.user, product_id=product)

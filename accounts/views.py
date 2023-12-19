@@ -28,7 +28,7 @@ from django.views.generic.edit import CreateView, UpdateView
 from films.forms import FilmsForm
 from films.models import Products, Favorite
 from .forms import UserLoginForm, UserRegisterForm, CompanyInfoForm, ContactInfoForm, DescriptionCountryForm, \
-    NotificationForm, LogoForm, BannerForm, UserProfileUpdateForm
+    NotificationForm, LogoForm, BannerForm, UserProfileUpdateForm, ComplaintForm
 from .models import UserRating, Message, UserSubscription
 from .utils import send_message_to_channel, true_account_status
 
@@ -510,7 +510,8 @@ class ProfileView(DetailView):
         context['products'] = Products.objects.filter(author=user, is_published=True, is_active=True)
         context['average_rating'] = user.calculate_average_rating()
         context['has_rated'] = UserRating.objects.filter(rater=self.request.user,
-                                                         rated_user=user).exists() if not self.request.user.is_anonymous else None
+                                                         rated_user=user).exists() \
+            if not self.request.user.is_anonymous else None
         context['companies'] = self.model.objects.filter(is_business_account=True).order_by('-date_joined')[:3]
         context['profile_subscription'] = None
         if self.request.user.is_authenticated:
@@ -520,6 +521,7 @@ class ProfileView(DetailView):
             ).first()
         context['followers'] = UserSubscription.objects.filter(target_user=self.object).count()
         context['verified'] = True
+        context['form'] = ComplaintForm()
 
         return context
 
@@ -711,3 +713,14 @@ def subscribe(request, user_id):
         subscription.delete()
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+
+def complaint_view(request):
+    if request.method == 'POST':
+        form = ComplaintForm(request.POST)
+        if form.is_valid():
+            return redirect('success_page')
+    else:
+        form = ComplaintForm()
+
+    return render(request, 'complaint_template.html', {'form': form})

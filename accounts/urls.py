@@ -26,4 +26,5 @@ urlpatterns = [
     path('update-password/', views.update_password, name='update-password'),
 
     path('subscribe/<int:user_id>/', views.subscribe, name='subscribe'),
+    path('complaint_view', views.complaint_view, name='complaint_view')
 ]

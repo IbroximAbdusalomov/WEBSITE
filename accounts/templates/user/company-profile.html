@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static 'user/css/admin-panel.css' %}">
     <link rel="stylesheet" href="{% static 'user/css/Tecnopromlinkedin.css' %}">
     <link rel="stylesheet" href="{% static 'user/css/Tecnopromlinkedin_1.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/repost-form.css' %}">
 
     <title>{{ request.user }}</title>
 </head>
@@ -116,11 +117,36 @@
                                     {% translate 'Телеграм' %}
                                     </span>
                                 </a>
-                                <a class="dont-text-decoration" href="#">
-                                    <span class="more text-medium-weight border-for-buttons">
-                                        {% translate "Еще" %}
-                                    </span>
-                                </a>
+                                {#                                <a class="dont-text-decoration" href="#">#}
+                                <div class="more-section">
+                                    <span class="more text-medium-weight border-for-buttons">...</span>
+                                    <div class="more-data">
+                                        <div class="more-data_2">
+                                            {% if profile.phone %}
+                                                <a href="" class="more-section_button">{{ profile.phone }}</a>
+                                            {% endif %}
+                                            {% if profile.whatsapp %}
+                                                <a href="" class="more-section_button">{{ profile.whatsapp }}</a>
+                                            {% endif %}
+                                            {% if profile.url_maps %}
+                                                <a href="{{ profile.url_maps }}" class="more-section_button"><i
+                                                        class="fa-solid fa-map"></i> Url map</a>
+                                            {% endif %}
+                                            <a href="{% url 'complaint_view' %}" class="more-section_button"><i
+                                                    class="fa-solid fa-flag"></i>
+                                                Report abuse</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <section class="section__repost-form">
+                                    <form class="repost-form">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+                                        <button class="repost-form__button" type="submit">Submit</button>
+                                    </form>
+                                </section>
+
+                                {#                                </a>#}
                             </div>
                             <form action="">
                                 {% csrf_token %}

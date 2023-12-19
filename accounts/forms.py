@@ -324,3 +324,18 @@ class UserProfileUpdateForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
             field.required = False
+
+
+class ComplaintForm(forms.Form):
+    COMPLAINT_CHOICES = [
+        ('spam', 'Спам'),
+        ('inappropriate_content', 'Неуместный контент'),
+        ('harassment', 'Домогательство'),
+        # Добавьте другие варианты по вашему усмотрению
+    ]
+
+    complaint_type = forms.ChoiceField(
+        choices=COMPLAINT_CHOICES,
+        widget=forms.RadioSelect,
+        label='Тип жалобы'
+    )

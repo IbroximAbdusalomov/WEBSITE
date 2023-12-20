@@ -337,5 +337,12 @@ class ComplaintForm(forms.Form):
     complaint_type = forms.ChoiceField(
         choices=COMPLAINT_CHOICES,
         widget=forms.RadioSelect,
-        label='Тип жалобы'
+        label='Тип жалобы',
+        # help_text='Выберите тип жалобы из списка.'
+    )
+
+    description = forms.CharField(
+        label='Описание проблемы',
+        widget=forms.Textarea(attrs={'rows': 5, 'style': 'resize: none'}),
+        # help_text='Уточните вашу проблему.'
     )

@@ -132,19 +132,33 @@
                                                 <a href="{{ profile.url_maps }}" class="more-section_button"><i
                                                         class="fa-solid fa-map"></i> Url map</a>
                                             {% endif %}
+
                                             <a href="{% url 'complaint_view' %}" class="more-section_button"><i
                                                     class="fa-solid fa-flag"></i>
                                                 Report abuse</a>
+                                            <section class="section__repost-form">
+                                                <form class="repost-form">
+                                                    {% csrf_token %}
+                                                    <label>Тип жалобы:</label>
+                                                    <div class="form__complaint_type">
+                                                        {{ form.complaint_type }}
+                                                    </div>
+                                                    <label>
+                                                        {{ form.description.label }}
+                                                    </label>
+
+                                                    <div class="form__description">
+                                                        {{ form.description }}
+                                                    </div>
+                                                    <div class="form__button">
+                                                        <button class="repost-form__button" type="submit">Submit
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </section>
                                         </div>
                                     </div>
                                 </div>
-                                <section class="section__repost-form">
-                                    <form class="repost-form">
-                                        {% csrf_token %}
-                                        {{ form.as_p }}
-                                        <button class="repost-form__button" type="submit">Submit</button>
-                                    </form>
-                                </section>
 
                                 {#                                </a>#}
                             </div>
@@ -259,7 +273,6 @@
                     </div>
                 </div>
             </section>
-
         </div>
 
         <div>

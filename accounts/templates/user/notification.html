@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +30,7 @@
 {% if notifications %}
     <section class="notification-section">
         <div class="notifications">
-            <a href="{{ request.META.HTTP_REFERER }}" class="go-back-button">Go Back</a>
+            <a href="{{ request.META.HTTP_REFERER }}" class="go-back-button">{% translate 'Назад' %}</a>
             {% for notification in notifications %}
                 <div class="notification">
                     <div class="notification-text">

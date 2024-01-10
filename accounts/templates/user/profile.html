@@ -94,9 +94,9 @@
 
                         <div class="notification-info">
 
-                            <div class="balls">
-                                <i class="fa-solid fa-wallet"></i>: {{ user.ball }}
-                            </div>
+                            {#                            <div class="balls">#}
+                            {#                                : {{ user.ball }}#}
+                            {#                            </div>#}
 
                             <a href="{% url 'notification' %}">
                                 {% if notification %}
@@ -114,7 +114,6 @@
                         </div>
                         {#                        <div class="notification-info" style="display: flex; gap: 100px">#}
                         {#                        </div>#}
-
                         {#                        <div class="update-profile-button">#}
                         {#                            <a class="dont-text-decoration" href="{% url 'update_profile' %}">#}
                         {#                                <i class="fa-solid fa-pen"></i>#}
@@ -126,25 +125,22 @@
             </div>
         {% else %}
             <div class="user-profile__user">
-                <div class="user-profile__logo">
-                    <img src="{% static 'images/avatar.png' %}" alt="profile foto">
+                <div class="user-photos">
+                    <img src="{% static "images/avatar.png" %}" alt="avatar">
                 </div>
-                <span>{{ user.username }}</span>
+                <h1>
+                    {{ user.username }}
+                </h1>
                 <div class="test-view">
                     <div class="all_views-product">
-                        <span>seen:{{ count_all_views_product }}</span>
+                        <span>{% translate "seen" %}:{{ count_all_views_product }}</span>
                     </div>
                     <div class="all_views-likes">
-                        <span>open number: {{ count_all_favorite_product }}</span>
+                        <span>{% translate "open number" %}: {{ count_all_favorite_product }}</span>
                     </div>
                     <div class="all_views-open-number">
-                        <span>like: {{ count_all_view_telephone_product }}</span>
+                        <span>{% translate "like" %}: {{ count_all_view_telephone_product }}</span>
                     </div>
-                </div>
-                <div class="update-profile-button">
-                    <a class="dont-text-decoration" href="{% url 'update_profile' %}">
-                        <i class="fa-solid fa-pen"></i>
-                    </a>
                 </div>
             </div>
         {% endif %}
@@ -158,13 +154,19 @@
             <div><h3 data-testid="header-title" class="css-6i2gxn er34gjf0">{% translate "Ваши объявления" %}</h3></div>
             <div class="admin-panel__buttons right-buttons">
                 <ul class="buttons">
-                    <li class="login-button"><a href="#">{% translate "Hisobni to'ldiring" %}</a></li>
-                    <li class="price-button"><a href="#">{% translate "Tariflar" %}</a></li>
+                    <li class="price-button"><a href="#"><i class="fa-solid fa-wallet"></i>: {{ user.ball }}</a></li>
+                    <li class="login-button"><a href="#">{% translate "Пополнить счет" %}</a></li>
+                    <li class="price-button"><a href="#">{% translate "Тарифы" %}</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="tab-list">
+            <div style="position:absolute; left: 0;">
+                <span><a
+                        style="background: #0a24b9; color: white; padding: 8px 24px; border-radius: 18px; text-decoration: none"
+                        href="{% url 'add_film' %}">{% translate "размещение заказа" %}</a></span>
+            </div>
             <button class="tab-button active" data-target="active-section">{% translate "Активные" %}</button>
             <button class="tab-button" data-target="waiting-section">{% translate "В модерации" %}</button>
             <button class="tab-button" data-target="finished-section">{% translate "Не активные" %}</button>
@@ -191,7 +193,7 @@
                         <div class="open-action-buttons up_to_recommendation-button"
                              data-action="up_to_recommendation"
                              disabled>
-                            {% translate "Поднять в топ" %}
+                            {% translate "Поднять в топ 1" %}
                             <div class="options">
                                 <button class="action-button up_to_recommendation-button"
                                         id="up_to_recommendation-button" type="submit"
@@ -215,16 +217,16 @@
                         </div>
                         <button class="action-button up_to_top-button" type="submit" name="action"
                                 value="up_to_top"
-                                disabled>{% translate "up_to_top" %}
+                                disabled>{% translate "up_to_top 2" %}
                         </button>
                     </div>
 
                     <div class="cd-popup" role="alert">
                         <div class="cd-popup-container">
-                            <p>{% translate "Are you sure you want to perform this action?" %}</p>
+                            <p>{% translate "Вы уверены, что хотите выполнить это действие?" %}</p>
                             <div class="cd-buttons">
-                                <button class="confirm-yes">{% translate "Yes" %}</button>
-                                <button class="confirm-no">{% translate "No" %}</button>
+                                <button class="confirm-yes">{% translate "Да" %}</button>
+                                <button class="confirm-no">{% translate "Нет" %}</button>
                             </div>
                             <a href="{% url 'myaccount' %}" class="cd-popup-close img-replace"></a>
                         </div>
@@ -313,7 +315,7 @@
                                                 <div class="like-and-more">
                                                     <a href="{% url 'product-detail' product.pk %}">
                                                         {{ product.price|floatformat:0|intcomma }}
-                                                        сум
+                                                        {% translate "сум" %}
                                                     </a>
                                                     <div class="svg-icon-container">
                                                         {% if user.is_authenticated %}
@@ -523,10 +525,10 @@
                             <p>{% translate 'Are you sure you want to perform this action?' %}</p>
                             <ul class="cd-buttons">
                                 <li>
-                                    <button class="confirm-yes">{% translate 'Yes' %}</button>
+                                    <button class="confirm-yes">{% translate 'Да' %}</button>
                                 </li>
                                 <li>
-                                    <button class="confirm-no">{% translate 'No' %}</button>
+                                    <button class="confirm-no">{% translate 'Нет' %}</button>
                                 </li>
                             </ul>
                             <a href="" class="cd-popup-close img-replace"></a>

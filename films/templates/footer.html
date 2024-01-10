@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <!-- Footer section -->
 <footer class="footer">
@@ -5,40 +6,47 @@
         <section class="footer-widgets">
             <div class="column-1">
                 <img src="{% static 'images/TECNOPROM-LOGO.png' %}" alt="Lego">
-                <p>Av. Cândido Hartmann, 590 <br>
-                    Mercês, Curitiba – PR <br>
-                    80730-440.
+                <p>{% translate "Яккасарой 11. Ташкент. Узбекистан." %}
+                    <br>
+                    {% translate "© 2023 Технопром. Все права защищены." %}
+                    <br>
                 </p>
 
-                <p>
-                    consulte nossos termos de uso, política <br>de privacidade, política de cookies,<br> código de
-                    conduta e ética , canal de <br> denúncias e encarregado pelo <br>tratamento de dados pessoais.
+                <p>{% translate "Вторичный сирьё" %}<br>{% translate "Новое оборудование" %}<br>{% translate "Б/у оборудование" %}<br>{% translate "Сырье" %}<br>{% translate "Услуга" %}<br>{% translate "Технолог" %}
                 </p>
 
             </div>
 
             <div class="column-2">
-                <h5>Footer 2</h5>
+                <h5>{% translate "Телеграм каналы" %}</h5>
                 <ul class="footer-navigation-items-2">
-                    <li class="footer-navigation-item"><a href="#">1</a></li>
-                    <li class="footer-navigation-item"><a href="#">2</a></li>
-                    <li class="footer-navigation-item"><a href="#">3</a></li>
+                    <li class="footer-navigation-item"><a
+                            href="https://t.me/Lemachineuz">{% translate "LeMachine.uz" %}</a></li>
+                    <li class="footer-navigation-item"><a
+                            href="https://t.me/sanoatxomashyo">{% translate "Сырье" %}</a></li>
+                    <li class="footer-navigation-item"><a href="#"></a></li>
                 </ul>
             </div>
             <div class="column-3">
-                <h5>Footer 3</h5>
+                <h5>{% translate "Телеграм группы" %}</h5>
                 <ul class="footer-navigation-items-2">
-                    <li class="footer-navigation-item"><a href="#">1</a></li>
-                    <li class="footer-navigation-item"><a href="#">2</a></li>
-                    <li class="footer-navigation-item"><a href="#">3</a></li>
+                    <li class="footer-navigation-item"><a href="#">{% translate "Новое оборудование" %}</a></li>
+                    <li class="footer-navigation-item"><a href="#">{% translate "Сырье" %}</a></li>
+                    <li class="footer-navigation-item"><a href="https://t.me/texnologuzb">{% translate "Технолог" %}</a>
+                    </li>
                 </ul>
             </div>
             <div class="column-4">
-                <h5>Footer 4</h5>
+                <h5>{% translate "Социальные сети" %}</h5>
                 <ul class="footer-navigation-items-4">
-                    <li class="footer-navigation-item"><a href="#">1</a></li>
-                    <li class="footer-navigation-item"><a href="#">2</a></li>
-                    <li class="footer-navigation-item"><a href="#">3</a></li>
+                    <li class="footer-navigation-item"><a
+                            href="https://www.instagram.com/lemachineuz?igsh=MXN0YXI5eHJ0NTVmeA=="><i
+                            class="fa-brands fa-instagram"></i>Instagram</a></li>
+                    <li class="footer-navigation-item"><a href="https://www.youtube.com/@technopromuz"><i
+                            class="fa-brands fa-youtube"></i>YouTube</a></li>
+                    <li class="footer-navigation-item"><a href=""><i class="fa-brands fa-linkedin"></i>Linkedin</a></li>
+                    <li class="footer-navigation-item"><a href="#"><i class="fa-brands fa-facebook"></i>Facebook</a>
+                    </li>
                 </ul>
             </div>
         </section>

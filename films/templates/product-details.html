@@ -71,19 +71,26 @@
                             <span>{% translate "Просмотров" %}: {{ product.view_count }}</span>
                         </div>
                     </div>
+                    
                     <div class="contact-the-seller">
+                        
                         {#                        {% if product.author_id %}#}
                         <div class="author-info2">
+                        
                             <div class="author-foto">
                                 <img src="{% static "images/avatar.png" %}" alt="author avatar">
                             </div>
+                        
                             <div class="author-data">
                                 <a href="{% url 'profile' product.author_id %}"
                                    target="_blank">{{ product.author }}</a>
                             </div>
+                        
                         </div>
                         {#                        {% endif %}#}
+                        
                         <div class="author-buttons">
+                            
                             <div class="messanger">
                                 <a href="https://t.me/{{ product.telegram }}"
                                    class="messanger-link">{% translate "телеграм" %}</a>
@@ -94,13 +101,21 @@
                                 <a href="tel:{{ product.telephone }}"
                                    class="phone-number hidden">{{ product.telephone }}</a>
                             </div>
+                
                         </div>
+                
                     </div>
+                
                 </div>
+                
                 <div class="listing-info">
+                    
                     <div class="product-info">
+                    
                         <div class="publication-date">
+                    
                             <span class="css-fscvqi er34gjf0">{% translate 'Опубликовано' %} {{ product.create_date|date:"d F Y г." }}</span>
+                    
                             <div class="svg-icon-container">
                                 {#                                {% if user.is_authenticated %}#}
                                 <span class="add-to-favorites" data-product-id="{{ product.id }}"
@@ -111,9 +126,11 @@
                                 {#                                {% endif %}#}
                             </div>
                         </div>
+                    
                         <div class="product-title">
                             <h1>{{ product.title }}</h1>
                         </div>
+                    
                         <div class="product-title">
                             {% if product.price %}
                                 <h1>{{ product.price }}</h1>
@@ -123,41 +140,26 @@
                         </div>
 
                         <div class="product-buttons">
+                            
                             <div class="share-buttons">
                                 <div class="share_to-telegram">
-                                    {% post_to_telegram object_or_url '' "<i class='fa-brands fa-telegram'></i>" %}
-                                    {#                                    <i class="fa-brands fa-telegram"></i>#}
+                                    {% post_to_telegram object_or_url '' "<i class='fa-brands fa-telegram'></i>" 'fdsfasdf' %}
                                 </div>
-                                {#                                <div class="share_to-telegram">#}
-                                {#                                    <i class="fa-brands fa-instagram"></i>#}
-                                {#                                </div>#}
-
-                                {#                                {% post_to_telegram "New Song: {{object.title}}" '1' '2' %}#}
-
-                                {#                                <div class="share_to-telegram">#}
-                                {#                                    <i class="fa-brands fa-twitch"></i>#}
-                                {#                                </div>#}
-                                <!-- Ваша кнопка "Поделиться в Telegram" с локальной иконкой -->
-                                {#                                <a href="{% url 'share_to_telegram' object.id %}" class="share_to_telegram">#}
-                                {#                                    <i class="fa-brands fa-telegram"></i>#}
-                                {#                                </a>#}
-
-                                {#                                {% post_to_telegram "New Song: {{object.title}}" '' '' %}#}
-                                {#                                {% post_to_telegram object_or_url '.' '.' %}#}
-                                {#                                <div class="share_to-facebook">#}
-                                {#                                    <i class="fa-brands fa-facebook"></i>#}
-                                {#                                </div>#}
                             </div>
+
                             <div class="messanger">
                                 <a href="https://t.me/{{ product.telegram }}"
                                    class="messanger-link">{% translate "телеграм" %}</a>
                             </div>
+                            
                             <div class="phone-number-block">
                                 <a href="#" class="show-phone-number">{% translate "Посмотреть телефон номер" %}</a>
                                 <a href="tel:{{ product.telephone }}"
                                    class="phone-number hidden">{{ product.telephone }}</a>
                             </div>
+                        
                         </div>
+                    
                     </div>
                     {% if product.author %}
                         <div class="author-info">

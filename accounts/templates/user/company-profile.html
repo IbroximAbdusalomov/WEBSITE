@@ -19,7 +19,7 @@
     <title>{{ request.user }}</title>
 </head>
 <body>
-
+{#sleep in your superpower#}
 <!-- Header section -->
 {% include "nav_bar.html" %}
 <!-- /Header section -->
@@ -35,64 +35,66 @@
 
 <div class="container">
     <div class="gdsgogsf">
-        <div style="display: flex; flex-direction: column">
+        <div style="display: flex; flex-direction: column; width: 100%">
             <section class="user-info">
-                <div class="user-profile">
-                    <div class="user-photos">
-                        <div class="user-banner">
-                            <img src="{{ profile.banner.url }}" alt="banner">
+                {% if profile.is_business_account %}
+                    <div class="user-profile">
+
+                        <div class="user-photos">
+                            <div class="user-banner">
+                                <img src="{{ profile.banner.url }}" alt="banner">
+                            </div>
+                            <div class="user-profile__foto">
+                                <img src="{{ profile.logo.url }}" alt="profile foto">
+                            </div>
                         </div>
-                        <div class="user-profile__foto">
-                            <img src="{{ profile.logo.url }}" alt="profile foto">
-                        </div>
-                    </div>
-                    <div class="profile-info">
-                        <div class="block-1">
-                            <h1 class="profile-info__title">
-                                {{ profile.company_name }}
-                            </h1>
-                            <div class="profile-description">
-                                <p>{{ profile.description }}</p>
+                        <div class="profile-info">
+                            <div class="block-1">
+                                <h1 class="profile-info__title">
+                                    {{ profile.company_name }}
+                                </h1>
+                                <div class="profile-description">
+                                    <p>{{ profile.description }}</p>
+                                </div>
+
+                                <div class="company-data">
+                                    <div class="profile-country">
+                                        <p>{{ profile.country }}</p>
+                                    </div>
+                                    •
+                                    <div class="profile-category">
+                                        <p>{{ profile.category }}</p>
+                                    </div>
+                                    •
+                                    <div class="profile-sub_category">
+                                        <p>{{ profile.sub_category }}</p>
+                                    </div>
+                                    •
+                                    <div class="profile-followers">
+                                        <p><i class="fa-solid fa-user"></i> {{ followers }}-followers</p>
+                                    </div>
+                                    •
+                                    <div class="profile-verified" style="color: #0a24b9">
+                                        {% if verified %}
+                                            <p>Tecnoprom verified <i class="fa-solid fa-circle-check"></i></p>
+                                        {% else %}
+                                            <p>Tecnoprom verified <i class="fa-solid fa-circle-check"></i></p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% if profile.tags.all %}
+                                    <div class="profile-tags">
+                                        {% for tag in profile.tags.all %}
+                                            <p>{{ tag }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
                             </div>
 
-                            <div class="company-data">
-                                <div class="profile-country">
-                                    <p>{{ profile.country }}</p>
-                                </div>
-                                •
-                                <div class="profile-category">
-                                    <p>{{ profile.category }}</p>
-                                </div>
-                                •
-                                <div class="profile-sub_category">
-                                    <p>{{ profile.sub_category }}</p>
-                                </div>
-                                •
-                                <div class="profile-followers">
-                                    <p><i class="fa-solid fa-user"></i> {{ followers }}-followers</p>
-                                </div>
-                                •
-                                <div class="profile-verified" style="color: #0a24b9">
-                                    {% if verified %}
-                                        <p>Tecnoprom verified <i class="fa-solid fa-circle-check"></i></p>
-                                    {% else %}
-                                        <p>Tecnoprom verified <i class="fa-solid fa-circle-check"></i></p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            {% if profile.tags.all %}
-                                <div class="profile-tags">
-                                    {% for tag in profile.tags.all %}
-                                        <p>{{ tag }}</p>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
-                        </div>
-
-                        <div class="block-2">
-                            <div class="profile-buttons">
-                                {% if user != profile %}
-                                    <a class="dont-text-decoration" href="{% url 'subscribe' profile.pk %}">
+                            <div class="block-2">
+                                <div class="profile-buttons">
+                                    {% if user != profile %}
+                                        <a class="dont-text-decoration" href="{% url 'subscribe' profile.pk %}">
                                     <span class="following text-medium-weight border-for-buttons">
                                             {% if profile_subscription %}
                                                 <i class="fa-solid fa-minus"></i>
@@ -102,91 +104,183 @@
                                                 {% translate 'Подписаться' %}
                                             {% endif %}
                                     </span>
-                                    </a>
-                                {% endif %}
-                                <a class="dont-text-decoration" href="{{ profile.website }}">
+                                        </a>
+                                    {% endif %}
+                                    <a class="dont-text-decoration" href="{{ profile.website }}">
                                     <span class="web-site text-medium-weight border-for-buttons">
                                         <i class="fa-solid fa-globe"></i>
                                         {% translate 'Веб сайт' %}
                                     </span>
-                                </a>
-                                <a class="dont-text-decoration"
-                                   href="https://t.me/{{ profile.telegram }}">
+                                    </a>
+                                    <a class="dont-text-decoration"
+                                       href="https://t.me/{{ profile.telegram }}">
                                     <span class="connect-with-us text-medium-weight border-for-buttons disabled">
                                         <i class="fa-brands fa-telegram" style="color: white;"></i>
                                     {% translate 'Телеграм' %}
                                     </span>
-                                </a>
-                                {#                                <a class="dont-text-decoration" href="#">#}
-                                <div class="more-section">
-                                    <span class="more text-medium-weight border-for-buttons">...</span>
-                                    <div class="more-data">
-                                        <div class="more-data_2">
-                                            {% if profile.phone %}
-                                                <a href="" class="more-section_button">{{ profile.phone }}</a>
-                                            {% endif %}
-                                            {% if profile.whatsapp %}
-                                                <a href="" class="more-section_button">{{ profile.whatsapp }}</a>
-                                            {% endif %}
-                                            {% if profile.url_maps %}
-                                                <a href="{{ profile.url_maps }}" class="more-section_button"><i
-                                                        class="fa-solid fa-map"></i> Url map</a>
-                                            {% endif %}
+                                    </a>
+                                    {#                                <a class="dont-text-decoration" href="#">#}
+                                    <div class="more-section">
+                                        <span id="moreButton"
+                                              class="more text-medium-weight border-for-buttons">...</span>
+                                        <div id="moreData" class="more-data">
+                                            <div class="more-data_2">
+                                                {% if profile.phone %}
+                                                    <a href="" class="more-section_button">{{ profile.phone }}</a>
+                                                {% endif %}
+                                                {% if profile.whatsapp %}
+                                                    <a href="" class="more-section_button">{{ profile.whatsapp }}</a>
+                                                {% endif %}
+                                                {% if profile.url_maps %}
+                                                    <a href="{{ profile.url_maps }}" class="more-section_button"><i
+                                                            class="fa-solid fa-map"></i>Url map</a>
+                                                {% endif %}
 
-                                            <a href="{% url 'complaint_view' %}" class="more-section_button"><i
-                                                    class="fa-solid fa-flag"></i>
-                                                Report abuse</a>
-                                            <section class="section__repost-form">
-                                                <form class="repost-form">
-                                                    {% csrf_token %}
-                                                    <label>Тип жалобы:</label>
-                                                    <div class="form__complaint_type">
-                                                        {{ form.complaint_type }}
-                                                    </div>
-                                                    <label>
-                                                        {{ form.description.label }}
-                                                    </label>
+                                                <span id="reportAbuseButton" class="more-section_button"> <i
+                                                        class="fa-solid fa-flag"></i>
+                                                Report abuse</span>
+                                                <section id="repostForm" class="section__repost-form">
+                                                    <form class="repost-form" action="{% url 'complaint_view' %}"
+                                                          method="post">
+                                                        <input type="hidden" name="profile-pk" value="{{ profile.pk }}">
+                                                        {% csrf_token %}
+                                                        {{ form.as_p }}
 
-                                                    <div class="form__description">
-                                                        {{ form.description }}
-                                                    </div>
-                                                    <div class="form__button">
-                                                        <button class="repost-form__button" type="submit">Submit
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </section>
+                                                        <div class="form__button">
+                                                            <div class="">
+                                                                <button class="repost-form__button"
+                                                                        type="submit">{% translate "отправить" %}
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </section>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <form action="">
+                                    {% csrf_token %}
 
-                                {#                                </a>#}
+                                    {% if has_rated %}
+                                        <span id="average-rating">{% translate "рейтинг" %}: {{ average_rating }}</span>
+                                    {% else %}
+                                        <div class="rating-area">
+                                            <input type="radio" id="star-5" name="rating" value="5">
+                                            <label for="star-5" title="Оценка «5»"></label>
+                                            <input type="radio" id="star-4" name="rating" value="4">
+                                            <label for="star-4" title="Оценка «4»"></label>
+                                            <input type="radio" id="star-3" name="rating" value="3">
+                                            <label for="star-3" title="Оценка «3»"></label>
+                                            <input type="radio" id="star-2" name="rating" value="2">
+                                            <label for="star-2" title="Оценка «2»"></label>
+                                            <input type="radio" id="star-1" name="rating" value="1">
+                                            <label for="star-1" title="Оценка «1»"></label>
+                                        </div>
+                                        <span id="average-rating"
+                                              style="display: none;">{% translate "рейтинг" %}: {{ average_rating }}</span>
+                                    {% endif %}
+                                </form>
                             </div>
-                            <form action="">
-                                {% csrf_token %}
-
-                                {% if has_rated %}
-                                    <span id="average-rating">{% translate "рейтинг" %}: {{ average_rating }}</span>
-                                {% else %}
-                                    <div class="rating-area">
-                                        <input type="radio" id="star-5" name="rating" value="5">
-                                        <label for="star-5" title="Оценка «5»"></label>
-                                        <input type="radio" id="star-4" name="rating" value="4">
-                                        <label for="star-4" title="Оценка «4»"></label>
-                                        <input type="radio" id="star-3" name="rating" value="3">
-                                        <label for="star-3" title="Оценка «3»"></label>
-                                        <input type="radio" id="star-2" name="rating" value="2">
-                                        <label for="star-2" title="Оценка «2»"></label>
-                                        <input type="radio" id="star-1" name="rating" value="1">
-                                        <label for="star-1" title="Оценка «1»"></label>
-                                    </div>
-                                    <span id="average-rating"
-                                          style="display: none;">{% translate "рейтинг" %}: {{ average_rating }}</span>
-                                {% endif %}
-                            </form>
                         </div>
+
                     </div>
-                </div>
+                    {#                    <div id="cards-section" class="cards__buy-section">#}
+                    {#                        <div class="cards" id="card-container">#}
+                    {#                            {% for product in products %}#}
+                    {#                                {% if product.type == 'sell' %}#}
+                    {#                                    <div class="card__sell card-color">#}
+                    {#                                        <div class="card__buy-content">#}
+                    {#                                            <div class="card__sell-image">#}
+                    {#                                                <img src="{{ product.image.url }}" alt="Product Image">#}
+                    {#                                            </div>#}
+                    {#                                            <a href="{% url 'product-detail' product.pk %}"#}
+                    {#                                               class="title">{{ product.title }}</a>#}
+                    {#                                            <div class="product-data">#}
+                    {#                                                <div class="category-info">#}
+                    {#                                                    <div class="product-cat__image">#}
+                    {#                                                        <img src="{% static 'images/categories/1.svg' %}"#}
+                    {#                                                             alt="cat image">#}
+                    {#                                                    </div>#}
+                    {#                                                    <a href="#">{{ product.category }}</a>#}
+                    {#                                                </div>#}
+                    {##}
+                    {#                                                <div class="flags">#}
+                    {#                                                    <span class="country">{{ product.country }}</span>#}
+                    {#                                                </div>#}
+                    {#                                                <div class="date">#}
+                    {#                                                    <span class="full-date">{{ product.create_date }}</span>#}
+                    {#                                                </div>#}
+                    {#                                                <div class="like-and-more">#}
+                    {#                                                    <a href="{% url "product-detail" product.pk %}"#}
+                    {#                                                       class="read-more">{% translate "Подробнее" %}</a>#}
+                    {#                                                    <div class="svg-icon-container">#}
+                    {#                                                    {% if user.is_authenticated %}#}
+                    {#                                                        <span class="add-to-favorites"#}
+                    {#                                                              data-product-id="{{ product.id }}"#}
+                    {#                                                              data-url="{% url 'add_to_favorites' product.id %}">#}
+                    {#                                            <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart"#}
+                    {#                                               style="font-size: 15px"></i>#}
+                    {#                                            </span>#}
+                    {#                                                    {% endif %}#}
+                    {#                                                    </div>#}
+                    {#                                                </div>#}
+                    {#                                            </div>#}
+                    {#                                        </div>#}
+                    {#                                    </div>#}
+                    {#                                {% elif product.type == 'buy' %}#}
+                    {#                                    <div class="card__buy card-color">#}
+                    {#                                        <div class="card__buy-content">#}
+                    {#                                            <div class="category-info">#}
+                    {#                                                <div class="product-cat__image">#}
+                    {#                                                    <img src="{% static 'images/categories/1.svg' %}" alt="cat image">#}
+                    {#                                                </div>#}
+                    {#                                                <a href="#">{{ product.category }}</a>#}
+                    {#                                            </div>#}
+                    {#                                            <h2 class="title"><a href="{% url 'product-detail' product.pk %}"#}
+                    {#                                                                 class="title">{{ product.title }}</a></h2>#}
+                    {#                                            <p class="description">{{ product.description }}</p>#}
+                    {#                                            <div class="product-data">#}
+                    {#                                                <div class="flags">#}
+                    {#                                                    <span class="country">{{ product.country }}</span>#}
+                    {#                                                </div>#}
+                    {#                                                <div class="date">#}
+                    {#                                                    <span class="full-date">{{ product.create_date }}</span>#}
+                    {#                                                </div>#}
+                    {#                                                <div class="like-and-more">#}
+                    {#                                                    <a href="{% url 'product-detail' product.pk %}"#}
+                    {#                                                       class="read-more">{% translate "Подробнее" %}</a>#}
+                    {#                                                    <div class="svg-icon-container">#}
+                    {#                                                        {% if user.is_authenticated %}#}
+                    {#                                                            <span class="add-to-favorites"#}
+                    {#                                                                  data-product-id="{{ product.id }}"#}
+                    {#                                                                  data-url="{% url 'add_to_favorites' product.id %}">#}
+                    {#                                            <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart fa-lg"#}
+                    {#                                               style="font-size: 15px"></i>#}
+                    {#                                        </span>#}
+                    {#                                                        {% endif %}#}
+                    {#                                                    </div>#}
+                    {#                                                </div>#}
+                    {#                                            </div>#}
+                    {#                                        </div>#}
+                    {#                                    </div>#}
+                    {##}
+                    {#                                {% endif %}#}
+                    {#                            {% empty %}#}
+                    {#                                <h1>{% translate "Пока что нет таких объявлений." %}</h1>#}
+                    {#                            {% endfor %}#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+                {% else %}
+                    <div class="user-profile__user">
+                        <div class="user-photos">
+                            <img src="{% static "images/avatar.png" %}" alt="avatar">
+                        </div>
+                        <h1>
+                            {{ profile.username }}
+                        </h1>
+                    </div>
+                {% endif %}
                 <div id="cards-section" class="cards__buy-section">
                     <div class="cards" id="card-container">
                         {% for product in products %}
@@ -201,7 +295,8 @@
                                         <div class="product-data">
                                             <div class="category-info">
                                                 <div class="product-cat__image">
-                                                    <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
+                                                    <img src="{% static 'images/categories/1.svg' %}"
+                                                         alt="cat image">
                                                 </div>
                                                 <a href="#">{{ product.category }}</a>
                                             </div>
@@ -268,7 +363,7 @@
 
                             {% endif %}
                         {% empty %}
-                            <h1>{% translate "Пока что нет таких объявлений." %}</h1>
+                            <h1>{% translate "Пока что нет объявлений." %}</h1>
                         {% endfor %}
                     </div>
                 </div>
@@ -301,14 +396,22 @@
                                            href="#">{{ company.category }}</a>
                                     </div>
                                     <div class="company-sub_category" style="font-size: 12px"><a
-                                            class="dont-text-decoration color-for-mini-text" href="#">Agro</a></div>
+                                            class="dont-text-decoration color-for-mini-text" href="#">
+                                        {% if company.tags.all %}
+                                            <div class="profile-tags">
+                                                {% for tag in profile.tags.all %}
+                                                    <p>{{ tag }}</p>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}</a></div>
                                 </div>
 
                                 <div class="flags">
                                     <span class="country">{{ company.country }}</span>
                                 </div>
                                 <div class="like-and-more">
-                                    <a href="{% url 'profile' company.pk %}" class="read-more">Подробнее</a>
+                                    <a href="{% url 'profile' company.pk %}"
+                                       class="read-more">{% translate "Подробнее" %}</a>
                                 </div>
                             </div>
                         </div>
@@ -329,6 +432,27 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var moreButton = document.getElementById('moreButton');
+        var moreData = document.getElementById('moreData');
+        var reportAbuseButton = document.getElementById('reportAbuseButton');
+        var repostForm = document.getElementById('repostForm');
+
+        moreButton.addEventListener('click', function () {
+            // Добавляем класс 'active' при клике
+            moreData.classList.toggle('active');
+        });
+
+        reportAbuseButton.addEventListener('click', function () {
+            // Добавляем/удаляем класс 'active' при клике
+            repostForm.classList.toggle('active');
+        });
+    });
+
+</script>
 
 <script>
     const tabButtons = document.querySelectorAll('.tab-button');
@@ -489,6 +613,18 @@
     });
 </script>
 
+
+<script>
+    function disableButtons(clickedButton) {
+        // Находим все кнопки внутри родительского элемента
+        var buttons = clickedButton.parentElement.parentElement.getElementsByClassName("complaint_type__button");
+
+        // Отключаем все кнопки
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true;
+        }
+    }
+</script>
 
 </body>
 </html>

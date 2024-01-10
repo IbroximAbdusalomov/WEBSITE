@@ -32,28 +32,27 @@
                 <header>
                     {% translate 'Войти' %}
                 </header>
-                {#                <div class="error-message">{{  }}</div>#}
             </div>
             <form action="{% url 'login' %}" method="post">
                 {% csrf_token %}
                 <div class="field input-field">
-                    {#                    <label type="text" for="username">Имя пользователя</label>#}
                     {{ login_form.username }}
                 </div>
 
                 <div class="field input-field">
-                    {#                    <label type="text" for="username">Пароль</label>#}
                     {{ login_form.password }}
-                    <i class="fa-regular fa-eye-slash eye-icon"></i>
+                    <div class="eye-icon">
+                        <i class="fa-regular fa-eye-slash" id="togglePassword"></i>
+                    </div>
                 </div>
 
                 <div class="form-link">
-                    <a href="{% url 'forgot-password' %}" class="forgot-password">Forgot password?</a>
+                    <a href="{% url 'forgot-password' %}" class="forgot-password">{% translate "Забыли пароль?" %}</a>
                 </div>
 
 
                 <div class="field button-field">
-                    <button>{% translate "Login" %}</button>
+                    <button>{% translate "Войти" %}</button>
                 </div>
             </form>
 
@@ -82,6 +81,21 @@
     </div>
 
 </section>
+
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        var passwordInput = document.getElementById('id_password');
+
+        // Изменяем атрибут type у элемента input
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            document.getElementById('togglePassword').classList.replace('fa-eye-slash', 'fa-eye'); // Изменяем класс на fa-eye
+        } else {
+            passwordInput.type = 'password';
+            document.getElementById('togglePassword').classList.replace('fa-eye', 'fa-eye-slash'); // Изменяем класс на fa-eye-slash
+        }
+    });
+</script>
 
 <!-- Display error messages here -->
 {% include 'messages.html' %}

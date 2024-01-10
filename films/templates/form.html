@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,14 +29,15 @@
         </div>
         <div class="price__form-form">
             <div class="form-group">
-                <label class="form-label">Выберите действие:</label>
+                <label class="form-label">{% translate "Выберите действие:" %}</label>
                 <div class="buttons-for-choice-type">
                     <div class="form-check form-check-active">
-                        <button type="button" id="buy-button" class="btn btn-primary active">Купить</button>
+                        <button type="button" id="buy-button"
+                                class="btn btn-primary active">{% translate "Купить" %}</button>
                     </div>
                     <div class="form-check">
                         <button type="button" id="sell-button" class="btn btn-primary"
-                                data-authenticated="{{ request.user.is_authenticated }}">Продать
+                                data-authenticated="{{ request.user.is_authenticated }}">{% translate "Продать" %}
                         </button>
                     </div>
                 </div>
@@ -45,7 +47,7 @@
                 {% csrf_token %}
                 <input type="hidden" name="form-name" id="form-name" value="buy">
                 <div class="form-group">
-                    <label for="name" class="form-label">Название:{% for error in form.title.errors %}
+                    <label for="name" class="form-label">{% translate "Название" %}:{% for error in form.title.errors %}
                         <div class="error-message">{{ error }}</div>
                     {% endfor %}</label>
                     {{ form.title }}
@@ -53,27 +55,30 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="description" class="form-label">Описание:{% for error in form.description.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}</label>
+                    <label for="description" class="form-label">{% translate "Описание" %}:
+                        {% for error in form.description.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
                     {{ form.description }}
                     <div id="char-count description" class="char-count__description">0 / 700</div>
                 </div>
 
                 <div class="form-group">
-                    <label for="category" class="form-label">Категория:{% for error in form.category.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}</label>
+                    <label for="category" class="form-label">{% translate "Категория" %}:
+                        {% for error in form.category.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
                     {{ form.category }}
                 </div>
                 <div class="form-group" id="subcategory-group">
-                    <label for="subcategory" class="form-label">Субкатегория:{% for error in form.sub_category.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}</label>
+                    <label for="subcategory" class="form-label">{% translate "Субкатегория" %}:
+                        {% for error in form.sub_category.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
                     {{ form.sub_category }}
                 </div>
                 <div class="form-group" id="tags-group" style="display: block">
-                    <label for="tags" class="form-label">Теги:{% for error in form.tags.errors %}
+                    <label for="tags" class="form-label">{% translate "Теги" %}:{% for error in form.tags.errors %}
                         <div class="error-message">{{ error }}</div>
                     {% endfor %}</label>
                     <div id="tags-checkboxes">
@@ -81,27 +86,30 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="phone" class="form-label">Телефон номер:{% for error in form.telephone.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}</label>
+                    <label for="phone" class="form-label">{% translate "Телефон номер" %}:
+                        {% for error in form.telephone.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
                     {{ form.telephone }}
                 </div>
                 <div class="form-group">
-                    <label for="telegram" class="form-label">Телеграмм номер:{% for error in form.telegram.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}</label>
+                    <label for="telegram" class="form-label">{% translate "Телеграмм" %}:
+                        {% for error in form.telegram.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
                     {{ form.telegram }}
                 </div>
 
                 <div class="form-group" id="country-group">
-                    <label for="id_country" class="form-label">Страна: {% for error in form.country.errors %}
-                        <div class="error-message">{{ error }}</div>
-                    {% endfor %}</label>
+                    <label for="id_country" class="form-label">{% translate "Страна" %}:
+                        {% for error in form.country.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}</label>
                     {{ form.country }}
                 </div>
 
                 <div class="form-group" id="city-group">
-                    <label for="city" class="form-label">Город: {% for error in form.city.errors %}
+                    <label for="city" class="form-label">{% translate "Город" %}: {% for error in form.city.errors %}
                         <div class="error-message">{{ error }}</div>
                     {% endfor %}</label>
                     {{ form.city }}
@@ -109,10 +117,9 @@
 
                 <div class="form-group" id="image-group">
                     <div class="image-form">
-                        <label class="form-label">Фотографии</label>
-                        <label class="form-label" style="font-size: 16px; padding-left: 15px"> (Eng optimal product
-                            rasmini
-                            tanlang)</label>
+                        <label class="form-label">{% translate "Фотографии" %}</label>
+                        <label class="form-label"
+                               style="font-size: 16px; padding-left: 15px">{% translate " (Eng optimal product rasmini tanlang)" %}</label>
                         {#                        <p class="form-label"></p>#}
                     </div>
                     {#                    <input type="file" name="image" class="form-input" id="id_image">#}
@@ -122,14 +129,14 @@
                     {#                    <button type="button" id="reset-image" class="reset-image">Сбросить фото</button>#}
                 </div>
                 <div class="form-group" id="price-group">
-                    <label class="form-label">Цена:</label>
+                    <label class="form-label">{% translate "Цена" %}:</label>
                     {{ form.price }}
                 </div>
                 <div class="form-group" id="is_price_negotiable-group">
-                    <label class="form-label">Договорная:</label>
+                    <label class="form-label">{% translate "Договорная" %}:</label>
                     {{ form.is_price_negotiable }}
                 </div>
-                <button type="submit" class="form-button">Отправить</button>
+                <button type="submit" class="form-button">{% translate "Отправить" %}</button>
             </form>
 
         </div>

@@ -1,0 +1,40 @@
+{% extends 'admin/dashboard.html' %}
+{% load i18n %}
+
+
+{% block admin %}
+    <div id="verify-user">
+        {% if verify_accounts %}
+            {% for user in verify_accounts %}
+                <form method="post" action="{% url 'admin_user_verify' %}">
+                    {% csrf_token %}
+                    <div class="user-item">
+                        {% if user.is_business_account %}
+                            <div class="business-user">
+                                <h3>{{ user.company_name }}</h3>
+                                <p>Category: {{ user.category }}</p>
+                                <p>Subcategory: {{ user.sub_category }}</p>
+                                <p>Country: {{ user.country }}</p>
+                            </div>
+                        {% else %}
+                            <div class="regular-user">
+                                <h3>{{ user.username }}</h3>
+                            </div>
+                        {% endif %}
+
+                        <div class="common-info">
+                            <p>Trust: {{ user.trust }}</p>
+                            <p>Ball: {{ user.ball }}</p>
+                            <div class="user-buttons">
+                                <input type="text" name="user_id" value="{{ user.pk }}" hidden="hidden">
+                                <button type="submit">Activate User</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            {% endfor %}
+        {% else %}
+            <p>No users to verify.</p>
+        {% endif %}
+    </div>
+{% endblock %}

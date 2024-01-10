@@ -1,28 +1,56 @@
 .section__repost-form {
+    display: none;
     position: fixed;
     z-index: 999;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    /*max-width: ;*/
+    /*background-color: rgba(0, 0, 0, 0.5); !* Adjust the alpha value for the darkness *!*/
+    /*pointer-events: auto;*/
 }
 
 .repost-form {
+    width: 550px;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    max-width: 730px;
-    width: 100%;
     text-align: center;
 }
 
-.repost-form label {
-    font-weight: bold;
-    /*    margin-bottom: 10px;*/
-    display: block;
-    color: #333;
+.form__complaint_types {
+    display: flex;
+    flex-wrap: wrap;
+    /*gap: 5px;*/
+    padding: 15px;
 }
 
-.repost-form button {
+.form__complaint_type {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.repost-form #id_description {
+    width: 90%;
+    border-radius: 18px;
+    padding: 5px;
+}
+
+.form__button {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.form__button div {
+    width: 95%;
+    justify-content: flex-end;
+    display: flex;
+    padding-bottom: 5px;
+}
+
+.repost-form__button {
     background-color: #3498db;
     color: #fff;
     border: none;
@@ -32,40 +60,52 @@
     transition: background-color 0.3s;
 }
 
-.repost-form button:hover {
+.repost-form__button:hover {
     background-color: #2a80b9;
 }
 
-.complaint-radio-label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-
-.complaint-radio-input {
-    margin-right: 5px;
-}
-
-
-#id_complaint_type {
+.complaint_choices {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-    padding: 20px;
+    gap: 15px;
+    padding: 0 20px;
 }
 
-#id_complaint_type div {
-    padding: 5px;
-    border: 1px solid #bbccdd;
+/*.complaint_choices div {*/
+/*    display: inline;*/
+/*    gap: 15px;*/
+/*    border: 1px solid #6f6f6f;*/
+/*    border-radius: 18px;*/
+/*}*/
+
+.complaint_choices div label {
+    display: flex;
+    padding: 8px 12px;
+    border: 1px solid #6f6f6f;
     border-radius: 18px;
 }
 
-#id_complaint_type div label input {
-    display: none;
+.more-section_button {
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.form__description textarea {
-    width: 90%;
-    border-radius: 18px;
-    padding: 5px;
+/* Стили для активного состояния */
+.section__repost-form.active {
+    display: block;
+}
+
+/* Стили для выбранного инпута и его соседнего label */
+.complaint_choices input[type="radio"]:checked + label::before {
+    content: "+"; /* Или "-" вместо "+" в зависимости от вашего выбора */
+    font-size: 18px; /* Размер шрифта */
+    color: #00ff00; /* Цвет символа */
+    margin-right: 5px; /* Отступ справа от символа */
+}
+
+
+@media only screen and (max-width: 490px) {
+    .repost-form {
+        width: 350px;
+    }
 }

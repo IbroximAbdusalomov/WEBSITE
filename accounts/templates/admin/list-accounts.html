@@ -1,0 +1,40 @@
+{% extends 'admin/dashboard.html' %}
+
+
+{% block admin %}
+    <div id="users-list">
+        {% for user in users %}
+            <div class="user-item">
+                <form action="{% url 'admin_user_list' %}" method="post">
+                    {% csrf_token %}
+                    {% if user.is_business_account %}
+                        <div class="business-user">
+                            <h3>{{ user.company_name }}</h3>
+                            <p>Category: {{ user.category }}</p>
+                            <p>Subcategory: {{ user.sub_category }}</p>
+                            <p>Country: {{ user.country }}</p>
+                        </div>
+                    {% else %}
+                        <div class="regular-user">
+                            <h3>{{ user.username }}</h3>
+                        </div>
+                    {% endif %}
+
+                    <div class="common-info">
+                        <p>Trust: {{ user.trust }}</p>
+                        <p>Ball: {{ user.ball }}</p>
+                        <div class="user-buttons">
+                            <input type="text" name="user_id" value="{{ user.pk }}" hidden="hidden">
+                            <button name="action" value="delete" type="submit">Удалить</button>
+                            {% if user.is_business_account %}
+                                <button name="action" value="deactivate" type="submit">Деактивировать</button>
+                            {% endif %}
+                            <a href="{% url 'add_ball' user.pk %}">Добавить балл</a>
+                            <a target="_blank" href="{% url 'profile' user.pk %}">Подробнее</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'admin/dashboard.html' %}
+
+{% block admin %}
+    <div id="deleted-users">
+        {% if accounts %}
+            <form method="post" action="{% url 'admin_user_deleted' %}">
+                {% csrf_token %}
+                {% for user in accounts %}
+                    <div class="user-item">
+                        {% if user.is_business_account %}
+                            <div class="business-user">
+                                <h3>{{ user.company_name }}</h3>
+                                <p>Category: {{ user.category }}</p>
+                                <p>Subcategory: {{ user.sub_category }}</p>
+                                <p>Country: {{ user.country }}</p>
+                            </div>
+                        {% else %}
+                            <div class="regular-user">
+                                <h3>{{ user.username }}</h3>
+                            </div>
+                        {% endif %}
+
+                        <div class="common-info">
+                            <p>Trust: {{ user.trust }}</p>
+                            <p>Ball: {{ user.ball }}</p>
+                            <div class="user-buttons">
+                                <button name="user_id" value="{{ user.pk }}" type="submit">Activate User</button>
+                            </div>
+                        </div>
+                    
+                    </div>
+                {% endfor %}
+            </form>
+        {% else %}
+            <p>No users to verify.</p>
+        {% endif %}
+    </div>
+{% endblock %}

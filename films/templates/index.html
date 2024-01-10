@@ -43,7 +43,7 @@
                             </a>
                             <div class="product-data">
                                 {% if product.is_top_film %}
-                                    <span style="padding: 3px 10px; font-size: 12px; background-color: #4ac1f7; border-radius: 5px;">top</span>
+                                    <span style="padding: 3px 10px; font-size: 12px; background-color: #4ac1f7; border-radius: 5px;">{% translate "топ" %}</span>
                                 {% endif %}
                                 <div class="flags">
                                     <span class="country">{{ buy.country }}</span>
@@ -72,10 +72,10 @@
 
             <div class="listing-options">
                 <div class="view-all-button">
-                    <a href="{% url 'product-list' %}">{% translate 'Все объявления' %}</a>
+                    <a href="{% url 'product-list' %}">{% translate 'Все объявлении' %}</a>
                 </div>
                 <div class="create-listing-button">
-                    <a href="{% url 'add_film' %}">{% translate 'Создать объявление' %}</a>
+                    <a href="{% url 'add_film' %}">{% translate 'размещение заказа' %}</a>
                 </div>
             </div>
 
@@ -117,7 +117,7 @@
                                 </div>
 
                                 {% if sell.is_top_film %}
-                                    <span style="padding: 3px 10px; font-size: 12px; background-color: #4ac1f7; border-radius: 5px;">top</span>
+                                    <span style="padding: 3px 10px; font-size: 12px; background-color: #4ac1f7; border-radius: 5px;">{% translate "топ" %}</span>
                                 {% endif %}
 
                                 <div class="flags">
@@ -136,7 +136,7 @@
                                     {% if sell.price %}
                                         <a href="{% url 'product-detail' sell.pk %}">
                                             {{ sell.price|floatformat:0|intcomma }}
-                                            сум
+                                            {% translate "сум" %}
                                         </a>
                                     {% else %}
                                         <a href="{% url 'product-detail' sell.pk %}">
@@ -213,10 +213,10 @@
 
             <div class="listing-options">
                 <div class="view-all-button">
-                    <a href="{% url 'product-list' %}">{% translate 'Все объявления' %}</a>
+                    <a href="{% url 'product-list' %}">{% translate 'Все объявлении' %}</a>
                 </div>
                 <div class="create-listing-button">
-                    <a href="{% url 'add_film' %}">{% translate 'Создать объявление' %}</a>
+                    <a href="{% url 'add_film' %}">{% translate 'размещение заказа' %}</a>
                 </div>
             </div>
 
@@ -226,7 +226,7 @@
 
             <div class="listing-options">
                 <div class="purchase-button">
-                    <span>{% translate 'Jobs' %}</span>
+                    <span>{% translate 'Вакансии' %}</span>
                 </div>
             </div>
 
@@ -252,7 +252,7 @@
                                 </div>
 
                                 {% if job.is_top_film %}
-                                    <span style="padding: 3px 10px; font-size: 12px; background-color: #4ac1f7; border-radius: 5px;">top</span>
+                                    <span style="padding: 3px 10px; font-size: 12px; background-color: #4ac1f7; border-radius: 5px;">{% translate "топ" %}</span>
                                 {% endif %}
 
                                 <div class="flags">
@@ -348,10 +348,10 @@
 
             <div class="listing-options">
                 <div class="view-all-button">
-                    <a href="{% url 'product-list' %}">{% translate 'Все объявления' %}</a>
+                    <a href="{% url 'product-list' %}">{% translate 'Все объявлении' %}</a>
                 </div>
                 <div class="create-listing-button">
-                    <a href="{% url 'add_film' %}">{% translate 'Создать объявление' %}</a>
+                    <a href="{% url 'add_film' %}">{% translate 'размещение заказа' %}</a>
                 </div>
             </div>
 

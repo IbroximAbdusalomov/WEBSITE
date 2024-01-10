@@ -1,0 +1,145 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/product/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product/main.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/admin/style.css' %}">
+</head>
+<body>
+
+<div id="sidebar">
+    <span class="sidebar-link" style="cursor: pointer" onclick="showUsersSection()">Users</span>
+    <div id="users-submenu" style="display: none;">
+        <a href="{% url "admin_user_list" %}" class="sidebar-link">List Accounts</a>
+        <a href="{% url "admin_user_verify" %}" class="sidebar-link">Verify Accounts</a>
+        <a href="{% url "admin_user_deleted" %}" class="sidebar-link">Deleted Accounts</a>
+    </div>
+
+    <span class="sidebar-link" style="cursor: pointer" onclick="showProductsSection()">Products</span>
+    <div id="products-submenu" style="display: none;">
+        <a href="{% url "admin_user_products_active" %}" class="sidebar-link">Activates</a>
+        <a href="{% url "admin_user_products_moderation" %}" class="sidebar-link">Moderation</a>
+    </div>
+
+    <a href="#" class="sidebar-link">Support</a>
+    {#    <a href="#" class="sidebar-link" onclick="showSupportSection()">Support</a>#}
+
+    {#    <span class="sidebar-link" style="cursor: pointer">Statistics</span>#}
+    <a href="{% url "admin_statistics" %}" class="sidebar-link" style="cursor: pointer">Statistics</a>
+    {#    <div id="statistics-submenu" style="display: none;">#}
+    {#        <a href="#" class="sidebar-link" onclick="showPointsStatistics()">Ball</a>#}
+    {#    </div>#}
+
+</div>
+
+<div id="content">
+    <h2 class="content-title">Admin Dashboard</h2>
+
+
+    <div id="support-section" style="display: none;">
+        <div id="chat-list">
+            <div class="chat-item">User 1: Hello</div>
+            <div class="chat-item">User 2: How can I help you?</div>
+            <!-- Add more chat items as needed -->
+        </div>
+    </div>
+
+    {% block admin %}
+
+    {% endblock %}
+</div>
+
+<script>
+    function showUsersSection() {
+        var usersSubmenu = document.getElementById('users-submenu');
+        // Переключение видимости подменю при каждом вызове функции
+        usersSubmenu.style.display = usersSubmenu.style.display === 'none' ? 'flex' : 'none';
+    }
+
+    function showListAccounts() {
+        hideOtherSections();
+        {#document.getElementById('users-subsection').style.display = 'none';#}
+        document.getElementById('users-list').style.display = 'flex';
+    }
+
+    function showVerifyAccount() {
+        hideOtherSections();
+        document.getElementById('verify-user').style.display = 'flex';
+    }
+
+    function showProductsSection() {
+        var productsSubmenu = document.getElementById('products-submenu');
+        productsSubmenu.style.display = productsSubmenu.style.display === 'none' ? 'flex' : 'none';
+    }
+
+    function showActivates() {
+        hideOtherSections();
+        document.getElementById('activates-list').style.display = 'flex';
+        // Implement the logic for showing the Activates section
+    }
+
+    function showModeration() {
+        hideOtherSections();
+        document.getElementById('moderation-list').style.display = 'flex';
+        // Implement the logic for showing the Moderation section
+    }
+
+    function showSupportSection() {
+        hideAllSections();
+        document.getElementById('support-section').style.display = 'flex';
+    }
+
+    function showStatisticsSection() {
+        hideAllSections();
+        document.getElementById('statistics-section').style.display = 'flex';
+        document.getElementById('statistics-submenu').style.display = 'flex';
+    }
+
+    {#function showUserStatistics() {#}
+    {#    hideOtherSections();#}
+    {#    document.getElementById('user-statistics-section').style.display = 'flex';#}
+    {# }#}
+
+    {#function showProductStatistics() {#}
+    {#    hideOtherSections();#}
+    {#    document.getElementById('product-statistics-section').style.display = 'flex';#}
+    {# }#}
+
+    function showPointsStatistics() {
+        hideOtherSections();
+        document.getElementById('points-statistics-section').style.display = 'flex';
+    }
+
+
+    function hideOtherSections() {
+        document.getElementById('activates-list').style.display = 'none';
+        document.getElementById('moderation-list').style.display = 'none';
+        document.getElementById('users-list').style.display = 'none';
+        document.getElementById('verify-user').style.display = 'none';
+        document.getElementById('user-statistics-section').style.display = 'none';
+        document.getElementById('product-statistics-section').style.display = 'none';
+        document.getElementById('points-statistics-section').style.display = 'none';
+    }
+
+
+    function hideAllSections() {
+        document.getElementById('users-section').style.display = 'none';
+        document.getElementById('products-section').style.display = 'none';
+        document.getElementById('support-section').style.display = 'none';
+        document.getElementById('users-submenu').style.display = 'none';
+        document.getElementById('products-submenu').style.display = 'none';
+        document.getElementById('users-list').style.display = 'none';
+        document.getElementById('activates-list').style.display = 'none';
+        document.getElementById('moderation-list').style.display = 'none';
+
+    }
+</script>
+
+</body>
+</html>

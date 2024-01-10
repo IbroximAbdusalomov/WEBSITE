@@ -246,51 +246,51 @@
             <div class="main-navigations">
                 <nav class="main-navigation">
                     <a href="#" class="main-navigation__button">
-                        {% translate "sanoat" %}
+                        {% translate "промышленность" %}
                         <img src="{% static 'images/at.png' %}" class="img__categories" alt="img for categories">
                     </a>
 
                     <ul class="main-navigation__items">
-                        <li class="main-navigation__item"><a href="#">{% translate "Plastmassa" %}</a></li>
-                        <li class="main-navigation__item"><a href="#">{% translate "Qadoqlash" %}</a></li>
-                        <li class="main-navigation__item"><a href="#">{% translate "Tekstil" %}</a></li>
-                        <li class="main-navigation__item"><a href="#">{% translate "Oziq-ovqat" %}</a></li>
-                        <li class="main-navigation__item"><a href="#">{% translate "Agro" %}</a></li>
-                        <li class="main-navigation__item"><a href="#">{% translate "Metall" %}</a></li>
+                        <li class="main-navigation__item"><a href="#">{% translate "Пластик" %}</a></li>
+                        <li class="main-navigation__item"><a href="#">{% translate "Упаковка" %}</a></li>
+                        <li class="main-navigation__item"><a href="#">{% translate "Текстиль" %}</a></li>
+                        <li class="main-navigation__item"><a href="#">{% translate "Еда" %}</a></li>
+                        <li class="main-navigation__item"><a href="#">{% translate "Агро" %}</a></li>
+                        <li class="main-navigation__item"><a href="#">{% translate "Металл" %}</a></li>
                     </ul>
                 </nav>
 
                 <nav class="main-navigation">
-                    <a href="#" class="main-navigation__button">{% translate "yo'nalishlar" %}</a>
+                    <a href="#" class="main-navigation__button">{% translate "направления" %}</a>
                     <ul class="main-navigation__items">
                         <li class="main-navigation__item">
-                            <a href="#">
+                            <a href="#" data-category="1">
                                 <img src="{% static 'images/categories/yangi-uskunalar-24px.png' %}" alt="">
-                                {% translate "Yangi uskunalar" %}
+                                {% translate "Новое оборудование" %}
                             </a>
                         </li>
                         <li class="main-navigation__item">
-                            <a href="#">
+                            <a href="#" data-category="yangi-uskunalar">
                                 <img src="{% static 'images/categories/ishlatilgan-uskunalar-24px.png' %}" alt="">
-                                {% translate "Ishlatilgan uskunalar" %}
+                                {% translate "Б/у оборудование" %}
                             </a>
                         </li>
                         <li class="main-navigation__item">
-                            <a href="#">
+                            <a href="#" data-category="yangi-uskunalar">
                                 <img src="{% static 'images/categories/xomashyo-24px.png' %}" alt="">
-                                {% translate "Xom ashyo" %}
+                                {% translate "Сырье" %}
                             </a>
                         </li>
                         <li class="main-navigation__item">
                             <a href="#">
                                 <img src="{% static 'images/categories/sanoat-xomashyo-24px.png' %}" alt="">
-                                {% translate "Xizmat ko'rsatish" %}
+                                {% translate "Услуга" %}
                             </a>
                         </li>
                         <li class="main-navigation__item">
                             <a href="#">
                                 <img src="{% static 'images/categories/texnologlar-24px.png' %}" alt="">
-                                {% translate "Texnolog" %}
+                                {% translate "Технолог" %}
                             </a>
                         </li>
                     </ul>
@@ -303,9 +303,9 @@
                     {% if user.is_authenticated %}
                         <li class="login-button"><a href="{% url 'myaccount' %}">{{ user.username }}</a></li>
                     {% else %}
-                        <li class="login-button"><a href="{% url 'login' %}">{% translate "Sing in" %}</a></li>
+                        <li class="login-button"><a href="{% url 'login' %}">{% translate "Войти" %}</a></li>
                     {% endif %}
-                    <li class="price-button"><a href="{% url 'add_film' %}">{% translate "buyurtma berish" %}</a></li>
+                    <li class="price-button"><a href="{% url 'add_film' %}">{% translate "размещение заказа" %}</a></li>
                 </ul>
             </div>
             <div class="languages">
@@ -333,7 +333,7 @@
                         <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button"
                              aria-expanded="false">
                             <div class="button-for-choice-section">
-                                <div class="MuiBox-root">{% translate 'sanoat' %}<!-- --></div>
+                                <div class="MuiBox-root">{% translate 'промышленность' %}<!-- --></div>
                                 <div class="MuiAccordionSummary-expandIconWrapper">
                                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down"
                                          class="svg-inline--fa fa-chevron-down " role="img"
@@ -347,24 +347,24 @@
 
                             <div class="buttons-for-section profile">
                                 <a class="button-for-section dont-text-decoration"
-                                   href="{% url 'product-list' %}">{% translate "Plastmassa" %}</a>
+                                   href="{% url 'product-list' %}">{% translate "Пластик" %}</a>
                                 <a class="button-for-section dont-text-decoration"
-                                   href="{% url 'product-list' %}">{% translate "Qadoqlash" %}</a>
+                                   href="{% url 'product-list' %}">{% translate "Упаковка" %}</a>
                                 <a class="button-for-section dont-text-decoration"
-                                   href="{% url 'product-list' %}">{% translate "Tekstil" %}</a>
+                                   href="{% url 'product-list' %}">{% translate "Текстиль" %}</a>
                                 <a class="button-for-section dont-text-decoration"
-                                   href="{% url 'product-list' %}">{% translate "Oziq-ovqat" %}</a>
+                                   href="{% url 'product-list' %}">{% translate "Еда" %}</a>
                                 <a class="button-for-section dont-text-decoration"
-                                   href="{% url 'product-list' %}">{% translate "Agro" %}</a>
+                                   href="{% url 'product-list' %}">{% translate "Агро" %}</a>
                                 <a class="button-for-section dont-text-decoration"
-                                   href="{% url 'product-list' %}">{% translate "Metall" %}</a>
+                                   href="{% url 'product-list' %}">{% translate "Металл" %}</a>
                             </div>
 
                         </div>
                         <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button"
                              aria-expanded="false">
                             <div class="button-for-choice-section">
-                                <div class="MuiBox-root">{% translate "yo'nalishlar" %}<!-- --></div>
+                                <div class="MuiBox-root">{% translate "направления" %}<!-- --></div>
                                 <div class="MuiAccordionSummary-expandIconWrapper">
                                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down"
                                          class="svg-inline--fa fa-chevron-down " role="img"
@@ -378,13 +378,13 @@
 
                             <div class="buttons-for-section industry">
                                 <a class="button-for-section dont-text-decoration"
-                                   href="{% url 'product-list' %}">{% translate "Yangi uskuna" %}</a>
+                                   href="{% url 'product-list' %}">{% translate "Новое оборудование" %}</a>
                                 <a class="button-for-section dont-text-decoration"
-                                   href="{% url 'product-list' %}">{% translate "Ishlatilgan uskuna" %}</a>
+                                   href="{% url 'product-list' %}">{% translate "Б/у оборудование" %}</a>
                                 <a class="button-for-section dont-text-decoration"
-                                   href="{% url 'product-list' %}">{% translate "Xom ashyo" %}</a>
+                                   href="{% url 'product-list' %}">{% translate "Сырье" %}</a>
                                 <a class="button-for-section dont-text-decoration"
-                                   href="{% url 'product-list' %}">{% translate "Xizmat ko'rsatish" %}</a>
+                                   href="{% url 'product-list' %}">{% translate "Услуга" %}</a>
 
 
                             </div>
@@ -421,7 +421,7 @@
                                 <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button"
                                      aria-expanded="false">
                                     <div class="button-for-choice-section">
-                                        <div class="MuiBox-root">{% translate "profile" %}<!-- --></div>
+                                        <div class="MuiBox-root">{% translate "Профиль" %}<!-- --></div>
                                         <div class="MuiAccordionSummary-expandIconWrapper">
                                             <svg aria-hidden="true" focusable="false" data-prefix="fas"
                                                  data-icon="chevron-down"
@@ -435,11 +435,11 @@
                                     </div>
                                     <div class="buttons-for-section direction">
                                         <a class="button-for-section dont-text-decoration"
-                                           href="{% url 'myaccount' %}">{% translate "Profile" %}</a>
+                                           href="{% url 'myaccount' %}">{% translate "Профиль" %}</a>
                                         <a class="button-for-section dont-text-decoration"
-                                           href="{% url 'create-company' %}">{% translate "Create company" %}</a>
+                                           href="{% url 'create-company' %}">{% translate "Создать бизнесс аккоунт" %}</a>
                                         <a class="button-for-section dont-text-decoration"
-                                           href="{% url 'update_profile' %}">{% translate "Update profile" %}</a>
+                                           href="{% url 'update_profile' %}">{% translate "Обновить профиль" %}</a>
                                     </div>
 
                                 </div>
@@ -449,14 +449,14 @@
                             <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" aria-expanded="false">
                                 <div class="button-for-choice-section">
                                     <a class="MuiBox-root dont-text-decoration"
-                                       href="{% url 'product-list' %}">{% translate "product list" %}</a>
+                                       href="{% url 'product-list' %}">{% translate "Барахолка" %}</a>
                                 </div>
                             </div>
 
                         </div>
 
                         <div class="button-for-logout">
-                            <a href="{% url 'add_film' %}">{% translate "buyurtma berish" %}</a>
+                            <a href="{% url 'add_film' %}">{% translate "размещение заказа" %}</a>
                             {% if request.user.is_anonymous is not True %}
                                 <a class="" href="{% url 'logout' %}">Выйти</a>
                             {% else %}
@@ -470,6 +470,37 @@
     </header>
 </div>
 <!-- /Header section -->
+
+<!-- Add this script at the end of your HTML file, before the </body> tag -->
+<script>
+    $(document).ready(function () {
+        $('.main-navigation__item a').on('click', function (e) {
+            e.preventDefault();
+
+            // Get the category from the data-category attribute
+            var category = $(this).data('category');
+
+            // Send a POST request to product-list with the category data
+            $.ajax({
+                type: 'POST',
+                url: '{% url "product-list" %}',
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    category: category
+                },
+                success: function (response) {
+                    // Handle the success response, if needed
+                    console.log(response);
+                },
+                error: function (error) {
+                    // Handle the error, if needed
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>
+
 
 <script>
     // Get the bars icon and main header elements by their IDs

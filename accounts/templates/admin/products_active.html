@@ -1,0 +1,123 @@
+{% extends "admin/dashboard.html" %}
+{% load static %}
+{% load humanize %}
+{% load i18n %}
+
+
+{% block admin %}
+    <div id="products-section">
+        <div id="activates-list">
+            <form action="{% url 'admin_user_products_active' %}" method="post">
+                {% csrf_token %}
+                {% for product in products %}
+                    {% if product.type == 'sell' %}
+                        <div class="card__sell card-color">
+                            <div class="card__buy-content">
+                                <a class="dont-text-decoration" href="{% url 'product-detail' product.pk %}">
+                                    <div class="card__sell-image">
+                                        <img src="{{ product.image.url }}" alt="Product Image">
+                                    </div>
+                                    <div class="title">{{ product.title }}</div>
+                                </a>
+
+                                <div class="product-data">
+
+                                    <div class="category-info">
+                                        <div class="product-cat__image">
+                                            <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
+                                        </div>
+                                        <a href="#">{{ product.category }}</a>
+                                    </div>
+
+                                    {% if product.is_top_film %}
+                                        <span style="padding: 3px 10px; font-size: 12px; background-color: #4ac1f7; border-radius: 5px;">top</span>
+                                    {% endif %}
+
+                                    <div class="flags">
+                                        <a style="text-decoration: none; color: black;"
+                                           href="{% url 'product-detail' product.pk %}">
+                                            <span class="country">{{ product.country }}</span>
+                                        </a>
+                                    </div>
+                                    <div class="date">
+                                        <a style="text-decoration: none; color: black;"
+                                           href="{% url 'product-detail' product.pk %}">
+                                            <span class="full-date">{{ product.create_date }}</span>
+                                        </a>
+                                    </div>
+                                    <div class="like-and-more">
+                                        {% if product.price %}
+                                            <a href="{% url 'product-detail' product.pk %}">
+                                                {{ product.price|floatformat:0|intcomma }}
+                                                сум
+                                            </a>
+                                        {% else %}
+                                            <a href="{% url 'product-detail' product.pk %}">
+                                                Договорный
+                                            </a>
+                                        {% endif %}
+
+                                        <div class="svg-icon-container">
+                                            {% if user.is_authenticated %}
+                                                <span class="add-to-favorites" data-product-id="{{ product.pk }}"
+                                                      data-url="{% url 'add_to_favorites' product.pk %}">
+                                                    <i class="fa-{% if product.pk in in_favorite %}solid{% else %}regular{% endif %} fa-heart"></i>
+                                                </span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                    {#                                    <button name="action" value="deactive {{ product.pk }}">deactive</button>#}
+                                    <button name="action" value="delete{{ product.pk }}">delete</button>
+                                    <button name="action" value="update {{ product.pk }}">update</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    {% elif product.type == 'buy' %}
+                        <div class="card__buy card-color">
+                            <div class="card__buy-content">
+                                <div class="category-info">
+                                    <div class="product-cat__image">
+                                        <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
+                                    </div>
+                                    <a href="#">{{ product.category }}</a>
+                                </div>
+                                {#                            <div class="card__sell-image">#}
+                                {#                                <img src="{{ product.image.url }}" alt="Product Image">#}
+                                {#                            </div>#}
+                                <h2 class="title"><a href="{% url 'product-detail' product.pk %}"
+                                                     class="title">{{ product.title }}</a></h2>
+                                <p class="description">{{ product.description }}</p>
+                                <div class="product-data">
+                                    <div class="flags">
+                                        <span class="country">{{ product.country }}</span>
+                                    </div>
+                                    <div class="date">
+                                        <span class="full-date">{{ product.create_date }}</span>
+                                    </div>
+                                    <div class="like-and-more">
+                                        <a href="{% url 'product-detail' product.pk %}"
+                                           class="read-more">{% translate "Подробнее" %}</a>
+                                        <div class="svg-icon-container">
+                                            {% if user.is_authenticated %}
+                                                <span class="add-to-favorites" data-product-id="{{ product.pk }}"
+                                                      data-url="{% url 'add_to_favorites' product.pk %}">
+                                                    <i class="fa-{% if product.pk in in_favorite %}solid{% else %}regular{% endif %} fa-heart"></i>
+                                                </span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    {#                                    <button name="action" value="deactive {{ product.pk }}">deactive</button>#}
+                                    <button name="action" value="delete {{ product.pk }}">delete</button>
+                                    <button name="action" value="update {{ product.pk }}">update</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

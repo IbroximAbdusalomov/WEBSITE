@@ -1,0 +1,267 @@
+
+.user-info {
+    /*width: 800px;*/
+    /*width: 100%;*/
+    margin-top: 100px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+.user-profile {
+    border: 1px solid #cecece;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.user-photos {
+    position: relative;
+    width: 100%;
+}
+
+.user-banner {
+    height: 130px;
+}
+
+.user-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.user-profile__foto {
+    width: 120px;
+    position: absolute;
+    top: 40%;
+    margin: 24px;
+}
+
+.user-profile__foto img {
+    width: 100%;
+}
+
+.profile-info {
+    padding-top: 50px;
+}
+
+.profile-description {
+    word-wrap: break-word;
+}
+
+.block-1,
+.block-2 {
+    padding: 24px;
+}
+
+.block-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.profile-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.text-medium-weight {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.border-for-buttons {
+    border-radius: 22px;
+    padding: 6px 10px;
+    border: 1px solid #0a24b9;
+}
+
+.disabled {
+    background-color: #0a24b9;
+    color: white;
+}
+
+.web-site,
+.following {
+    color: #0a24b9;
+}
+
+.following:hover,
+.web-site:hover {
+    background-color: #0a24b9;
+    border: 2px solid #0a24b9;
+    padding: 5px 10px;
+    color: white;
+}
+
+/*.following:hover {*/
+/*    padding: 5px 9px;*/
+/*    border: 3px solid #0a24b9;*/
+/*}*/
+
+.connect-with-us:hover {
+    background-color: rgb(0, 21, 119);
+}
+
+.more {
+    color: #605f5f;
+    border: 1px solid #605f5f;
+}
+
+.more:hover {
+    padding: 6px 9px;
+    border: 3px solid #605f5f;
+}
+
+
+/*raiting----------------------------------*/
+
+.rating-area {
+    overflow: hidden;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.rating-area:not(:checked) > input {
+    display: none;
+}
+
+.rating-area:not(:checked) > label {
+    float: right;
+    width: 42px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 28px;
+    line-height: 28px;
+    color: lightgrey;
+    text-shadow: 1px 1px #bbb;
+}
+
+.rating-area:not(:checked) > label:before {
+    content: '★';
+}
+
+.rating-area > input:checked ~ label {
+    color: gold;
+    text-shadow: 1px 1px #c60;
+}
+
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+    color: gold;
+    text-shadow: 1px 1px goldenrod;
+}
+
+.rate-area > label:active {
+    position: relative;
+}
+
+
+.user-profile__user {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    height: 140px;
+    border: 1px solid #cecece;
+    background-color: white;
+    border-radius: 10px
+}
+
+.user-profile__logo img {
+    width: 60%;
+    border-radius: 90px;
+}
+
+
+.update-profile-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+.update-profile-button a {
+    color: black;
+}
+
+.test-view {
+    display: flex;
+    gap: 15px;
+    height: 100%;
+    align-items: flex-end;
+    padding-left: 50px;
+}
+
+
+.notification-info {
+    display: flex;
+    gap: 100px;
+}
+
+.notification-info a img {
+    width: 20px;
+}
+
+
+.add-to-favorites i {
+    font-size: 15px;
+}
+
+.gdsgogsf {
+    display: flex;
+}
+
+
+.benner-for-reklam {
+    padding-top: 110px;
+}
+
+.update-profile-btn {
+    margin-left: 15px;
+}
+
+.update-profile-btn i {
+    font-size: 18px;
+}
+
+.logout-profile-btn a i {
+    font-size: 18px;
+    color: black;
+}
+
+@media screen and (max-width: 480px) {
+    .test-view {
+        padding-left: 0;
+    }
+
+    .update-profile-btn {
+        display: none;
+    }
+
+    .notification-info {
+        width: 100%;
+        gap: 90px;
+        justify-content: space-between;
+    }
+
+    .block-2 {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .action-buttons {
+        flex-wrap: wrap;
+    }
+}

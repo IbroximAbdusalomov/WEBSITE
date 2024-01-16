@@ -1,0 +1,35 @@
+.price-form {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 100px;
+    justify-content: center;
+}
+
+.price__form-form {
+    width: 50%
+}
+
+.form-group {
+    position: relative
+}
+
+.price__image-form2 {
+    width: 50%;
+    flex: 1;
+}
+
+.price__image-form2 img {
+    max-width: 90%;
+    height: auto;
+}
+
+@media only screen and (max-width: 480px) {
+
+    .price__image-form2 {
+        display: none;
+    }
+
+    .price__form-form {
+        width: 100%;
+    }
+}

@@ -1,0 +1,162 @@
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin: 0;
+}
+
+.dashboard {
+    display: flex;
+}
+
+#sidebar {
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Фиксировать панель */
+    height: 100vh; /* Установить высоту на 100vh */
+}
+
+#content {
+    width: calc(100% - 200px); /* Учесть ширину боковой панели */
+    padding: 20px;
+    box-sizing: border-box;
+    margin-left: 200px; /* Учесть ширину боковой панели */
+    display: flex;
+    flex-direction: column;
+}
+
+
+.sidebar-link {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+.content-title {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.list-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.chat-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+}
+
+#deleted-users form,
+#users-list {
+    display: flex;
+    gap: 10px;
+}
+
+#deleted-users form,
+#users-list,
+#moderation-list form,
+#activates-list form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+
+#users-submenu,
+#statistics-submenu,
+#products-submenu {
+    flex-direction: column;
+    gap: 15px;
+    background-color: #4b4b4b;
+    padding: 15px 0;
+    margin-bottom: 15px;
+    align-items: center;
+    border-radius: 8px;
+}
+
+#products-submenu .sidebar-link:hover {
+    background-color: #6f6f6f;
+}
+
+
+/*User------------------------------------*/
+
+.user-item {
+    width: calc(25% + 40px);
+    border: 1px solid #0a24b9;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.business-user {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.regular-user {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.common-info {
+    margin-top: 10px;
+}
+
+.user-buttons {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.user-buttons a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+
+/*Statistic ball-----------------------------------------------------------*/
+
+#points-statistics-section {
+    width: 100%;
+}
+
+#points-statistics-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#points-statistics-section th, #points-statistics-section td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#points-statistics-section th {
+    background-color: #f2f2f2;
+}
+
+
+.card__sell, .card__buy {
+    height: 310px;
+}
+
+.card__company-content, .card__sell-content, .card__buy-content {
+    padding-left: 10px;
+}

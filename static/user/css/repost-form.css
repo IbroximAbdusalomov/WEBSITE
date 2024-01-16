@@ -1,0 +1,111 @@
+.section__repost-form {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*max-width: ;*/
+    /*background-color: rgba(0, 0, 0, 0.5); !* Adjust the alpha value for the darkness *!*/
+    /*pointer-events: auto;*/
+}
+
+.repost-form {
+    width: 550px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.form__complaint_types {
+    display: flex;
+    flex-wrap: wrap;
+    /*gap: 5px;*/
+    padding: 15px;
+}
+
+.form__complaint_type {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.repost-form #id_description {
+    width: 90%;
+    border-radius: 18px;
+    padding: 5px;
+}
+
+.form__button {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.form__button div {
+    width: 95%;
+    justify-content: flex-end;
+    display: flex;
+    padding-bottom: 5px;
+}
+
+.repost-form__button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.repost-form__button:hover {
+    background-color: #2a80b9;
+}
+
+.complaint_choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+/*.complaint_choices div {*/
+/*    display: inline;*/
+/*    gap: 15px;*/
+/*    border: 1px solid #6f6f6f;*/
+/*    border-radius: 18px;*/
+/*}*/
+
+.complaint_choices div label {
+    display: flex;
+    padding: 8px 12px;
+    border: 1px solid #6f6f6f;
+    border-radius: 18px;
+}
+
+.more-section_button {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Стили для активного состояния */
+.section__repost-form.active {
+    display: block;
+}
+
+/* Стили для выбранного инпута и его соседнего label */
+.complaint_choices input[type="radio"]:checked + label::before {
+    content: "+"; /* Или "-" вместо "+" в зависимости от вашего выбора */
+    font-size: 18px; /* Размер шрифта */
+    color: #00ff00; /* Цвет символа */
+    margin-right: 5px; /* Отступ справа от символа */
+}
+
+
+@media only screen and (max-width: 490px) {
+    .repost-form {
+        width: 350px;
+    }
+}

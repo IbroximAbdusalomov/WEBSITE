@@ -91,7 +91,7 @@ body {
 /*User------------------------------------*/
 
 .user-item {
-    width: calc(20% + 40px);
+    width: calc(25% + 40px);
     border: 1px solid #0a24b9;
     padding: 15px;
     margin-bottom: 20px;

@@ -11,9 +11,23 @@
                     {% translate "© 2023 Технопром. Все права защищены." %}
                     <br>
                 </p>
+                <form action="{% url "product-list" %}" method="post">
+                    {% csrf_token %}
+                    <p>
+                        <button name="category" value="1">{% translate "Новое оборудование" %}</button>
+                        <br>
+                        <button name="category" value="2">{% translate "Б/у оборудование" %}</button>
+                        <br>
+                        <button name="category" value="3">{% translate "Сырье" %}</button>
+                        <br>
+                        <button name="category" value="8">{% translate "Услуга" %}</button>
+                        <br>
+                        <button name="category" value="9">{% translate "Технолог" %}</button>
+                        <br>
+                        <button name="category" value="10">{% translate "Вторичный сирьё" %}</button>
+                    </p>
+                </form>
 
-                <p>{% translate "Вторичный сирьё" %}<br>{% translate "Новое оборудование" %}<br>{% translate "Б/у оборудование" %}<br>{% translate "Сырье" %}<br>{% translate "Услуга" %}<br>{% translate "Технолог" %}
-                </p>
 
             </div>
 
@@ -29,8 +43,10 @@
             </div>
             <div class="column-3">
                 <h5>{% translate "Телеграм группы" %}</h5>
+
                 <ul class="footer-navigation-items-2">
                     <li class="footer-navigation-item"><a href="#">{% translate "Новое оборудование" %}</a></li>
+                    <li class="footer-navigation-item"><a href="#">{% translate "Б/У оборудование" %}</a></li>
                     <li class="footer-navigation-item"><a href="#">{% translate "Сырье" %}</a></li>
                     <li class="footer-navigation-item"><a href="https://t.me/texnologuzb">{% translate "Технолог" %}</a>
                     </li>
@@ -41,11 +57,12 @@
                 <ul class="footer-navigation-items-4">
                     <li class="footer-navigation-item"><a
                             href="https://www.instagram.com/lemachineuz?igsh=MXN0YXI5eHJ0NTVmeA=="><i
-                            class="fa-brands fa-instagram"></i>Instagram</a></li>
+                            class="fa-brands fa-instagram"></i> Instagram</a></li>
                     <li class="footer-navigation-item"><a href="https://www.youtube.com/@technopromuz"><i
-                            class="fa-brands fa-youtube"></i>YouTube</a></li>
-                    <li class="footer-navigation-item"><a href=""><i class="fa-brands fa-linkedin"></i>Linkedin</a></li>
-                    <li class="footer-navigation-item"><a href="#"><i class="fa-brands fa-facebook"></i>Facebook</a>
+                            class="fa-brands fa-youtube"></i> YouTube</a></li>
+                    <li class="footer-navigation-item"><a href=""><i class="fa-brands fa-linkedin"></i> Linkedin</a>
+                    </li>
+                    <li class="footer-navigation-item"><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
                     </li>
                 </ul>
             </div>

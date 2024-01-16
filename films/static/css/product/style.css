@@ -347,6 +347,11 @@ body {
     display: block;
 }
 
+/* Добавляем более конкретный селектор для кнопки внутри формы */
+/*form:hover .main-navigation__button + .main-navigation__items {*/
+/*    display: block;*/
+/*}*/
+
 .main-navigation__item:hover,
 .main-navigation__item a:hover {
     color: #0c29d0;
@@ -400,7 +405,9 @@ body {
 /* ------------------------------------------------------ */
 
 .footer {
-    background-color: #f3f7fc;
+    /*background-color: #f3f7fc;*/
+    /*background-color: #cedae9;*/
+    background-color: #cedae97d;
     padding: 40px 0;
     position: relative;
     font-family: Arial, sans-serif;
@@ -455,10 +462,14 @@ body {
     margin-bottom: 20px;
 }
 
-.column-1 p {
+.column-1 p,
+.column-1 p button {
     color: #333;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     line-height: 1.5;
+    border: none;
+    background: none;
+    font-size: 16px;
 }
 
 .column-2 h5,
@@ -485,6 +496,7 @@ body {
     transition: color 0.3s;
 }
 
+.column-1 p button:hover,
 .footer-navigation-item a:hover {
     color: #007bff;
 }

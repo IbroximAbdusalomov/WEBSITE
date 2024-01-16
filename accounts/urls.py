@@ -63,6 +63,11 @@ urlpatterns = [
         name="admin_user_products_moderation",
     ),
     path(
+        "admin/dashboard/support/",
+        views.SupportView.as_view(),
+        name="admin_support",
+    ),
+    path(
         "admin/dashboard/statistics/",
         views.AdminStatistics.as_view(),
         name="admin_statistics",

@@ -6,8 +6,9 @@ from django.urls import path, include
 from django.utils.translation import gettext_lazy as _
 
 urlpatterns = [
-    path(_('admin/'), admin.site.urls),
+    path(_("admin/"), admin.site.urls),
     path("users/", include("accounts.urls")),
+    path("support/", include("support.urls")),
     path("", include("films.urls")),
     path("accounts/", include("allauth.urls")),
 ]

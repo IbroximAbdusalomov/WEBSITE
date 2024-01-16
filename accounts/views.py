@@ -29,6 +29,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.decorators import user_passes_test
 from django.views.generic.edit import CreateView, UpdateView
 
+from support.models import SupportTicket
 from films.forms import FilmsForm
 from films.models import Products, Favorite
 from .forms import (
@@ -950,7 +951,7 @@ class AdminProductsActive(ListView):
     context_object_name = "products"
 
     def get_queryset(self, *args, **kwargs):
-        return Products.objects.filter(is_active=True)
+        return Products.objects.filter(is_active=True).order_by("-create_date")
 
     def post(self, *args, **kwargs):
         action, product_id = self.request.POST.get("action").split()
@@ -961,6 +962,9 @@ class AdminProductsActive(ListView):
             product.delete()
         elif action == "update":
             ...
+        elif action == "deactive":
+            product.is_active = False
+        product.save()
         return redirect("admin_user_products_active")
 
 
@@ -970,7 +974,7 @@ class AdminProductsModeration(ListView):
     context_object_name = "products"
 
     def get_queryset(self):
-        return Products.objects.filter(is_active=False)
+        return Products.objects.filter(is_active=False).order_by("-create_date")
 
     def post(self, *args, **kwargs):
         action, product_id = self.request.POST.get("action").split()
@@ -993,29 +997,37 @@ class AdminStatistics(View):
 
     def post(self, *args, **kwargs):
         filter_statistics = self.request.POST.get("filter")
-        statistics = PointsTransaction.objects.none()
+        statistics = PointsTransaction.objects.filter(
+            transaction_type="purchase",
+        )
         if filter_statistics == "today":
-            statistics = PointsTransaction.objects.filter(
-                transaction_type="purchase",
+            statistics = statistics.filter(
                 timestamp__date=datetime.today().date(),
             )
 
         elif filter_statistics == "1 week":
             seven_days_ago = datetime.today() - timedelta(days=7)
-            statistics = PointsTransaction.objects.filter(
-                transaction_type="purchase",
+            statistics = statistics.filter(
                 timestamp__date__gte=seven_days_ago.date(),
             )
 
         elif filter_statistics == "1 month":
             first_day_of_month = datetime.today().replace(day=1)
-            statistics = PointsTransaction.objects.filter(
-                transaction_type="purchase",
+            statistics = statistics.filter(
                 timestamp__date__gte=first_day_of_month.date(),
             )
 
-        context = {"statistic_balls": statistics}
+        context = {"statistic_balls": statistics.order_by("-timestamp")}
         return render(self.request, self.template_name, context)
+
+
+class SupportView(ListView):
+    model = SupportTicket
+    template_name = "admin/admin_support.html"
+    context_object_name = "messages"
+
+    def get_queryset(self):
+        return self.model.objects.filter(checked=False).order_by("-created_at")
 
 
 def add_ball(request, user_id):
@@ -1032,4 +1044,3 @@ def add_ball(request, user_id):
         form = AddBallForm()
 
     return render(request, "admin/add_ball.html", {"form": form})
-

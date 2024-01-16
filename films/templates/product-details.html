@@ -22,7 +22,7 @@
 {% include 'nav_bar.html' %}
 <!-- /Header section -->
 
-<section class="product-details">
+<section class="product-details" style="padding-bottom: 250px">
     <div class="container">
         <div class="product-detail">
             <div class="product-foto-and-info">
@@ -50,10 +50,10 @@
 
                     <div class="product-description">
                         <div class="path_to_product" style="padding-bottom: 10px;">
-                            <a href="1">{{ product.country }}/</a>
-                            <a href="2">{% if product.city %}{{ product.city }}/{% endif %}</a>
-                            <a href="3">{{ product.category }}/</a>
-                            <a href="4">{{ product.sub_category }}/</a>
+                            <a href="#">{{ product.country }}/</a>
+                            <a href="#">{% if product.city %}{{ product.city }}/{% endif %}</a>
+                            <a href="#">{{ product.category }}/</a>
+                            <a href="#">{{ product.sub_category }}/</a>
                         </div>
                         <div class="product-tags">
                             {% for tag in product.tags.all %}
@@ -71,26 +71,26 @@
                             <span>{% translate "Просмотров" %}: {{ product.view_count }}</span>
                         </div>
                     </div>
-                    
+
                     <div class="contact-the-seller">
-                        
+
                         {#                        {% if product.author_id %}#}
                         <div class="author-info2">
-                        
+
                             <div class="author-foto">
                                 <img src="{% static "images/avatar.png" %}" alt="author avatar">
                             </div>
-                        
+
                             <div class="author-data">
                                 <a href="{% url 'profile' product.author_id %}"
                                    target="_blank">{{ product.author }}</a>
                             </div>
-                        
+
                         </div>
                         {#                        {% endif %}#}
-                        
+
                         <div class="author-buttons">
-                            
+
                             <div class="messanger">
                                 <a href="https://t.me/{{ product.telegram }}"
                                    class="messanger-link">{% translate "телеграм" %}</a>
@@ -101,21 +101,21 @@
                                 <a href="tel:{{ product.telephone }}"
                                    class="phone-number hidden">{{ product.telephone }}</a>
                             </div>
-                
+
                         </div>
-                
+
                     </div>
-                
+
                 </div>
-                
+
                 <div class="listing-info">
-                    
+
                     <div class="product-info">
-                    
+
                         <div class="publication-date">
-                    
+
                             <span class="css-fscvqi er34gjf0">{% translate 'Опубликовано' %} {{ product.create_date|date:"d F Y г." }}</span>
-                    
+
                             <div class="svg-icon-container">
                                 {#                                {% if user.is_authenticated %}#}
                                 <span class="add-to-favorites" data-product-id="{{ product.id }}"
@@ -126,11 +126,11 @@
                                 {#                                {% endif %}#}
                             </div>
                         </div>
-                    
+
                         <div class="product-title">
                             <h1>{{ product.title }}</h1>
                         </div>
-                    
+
                         <div class="product-title">
                             {% if product.price %}
                                 <h1>{{ product.price }}</h1>
@@ -140,7 +140,7 @@
                         </div>
 
                         <div class="product-buttons">
-                            
+
                             <div class="share-buttons">
                                 <div class="share_to-telegram">
                                     {% post_to_telegram object_or_url '' "<i class='fa-brands fa-telegram'></i>" 'fdsfasdf' %}
@@ -151,15 +151,15 @@
                                 <a href="https://t.me/{{ product.telegram }}"
                                    class="messanger-link">{% translate "телеграм" %}</a>
                             </div>
-                            
+
                             <div class="phone-number-block">
                                 <a href="#" class="show-phone-number">{% translate "Посмотреть телефон номер" %}</a>
                                 <a href="tel:{{ product.telephone }}"
                                    class="phone-number hidden">{{ product.telephone }}</a>
                             </div>
-                        
+
                         </div>
-                    
+
                     </div>
                     {% if product.author %}
                         <div class="author-info">
@@ -201,6 +201,8 @@
     </div>
 </section>
 
+
+{% include "footer.html" %}
 
 <!-- like button -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

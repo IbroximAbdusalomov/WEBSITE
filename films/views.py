@@ -201,7 +201,7 @@ class ProductSaveView(CreateView):
 class FilmsUpdateView(UpdateView):
     model = Products
     form_class = FilmsForm
-    template_name = "form.html"  # Update with your template path
+    template_name = "form.html"  # Update with your templates path
     success_url = "/success/"  # Redirect to a success page after updating
     context_object_name = "film"  # Optional: Customize the context object name
 
@@ -299,12 +299,6 @@ class FilmsListView(ListView):
     def post(self, request, *args, **kwargs):
         search_form = SearchForm(self.request.POST)
         product_filter_form = ProductFilterForm(self.request.POST)
-        type_product = self.request.POST.get("type")
-        category = self.request.POST.get("category")
-        sub_category = self.request.POST.get("sub_category")
-        tags = self.request.POST.get("tags")
-        city = self.request.POST.get("city")
-        country = self.request.POST.get("country")
 
         if self.request.user.is_authenticated:
             in_favorite = list(
@@ -322,253 +316,79 @@ class FilmsListView(ListView):
 
         # ---------------------------------------------------------------------------------
         queryset = Products.objects.filter(is_active=True, is_published=True)
+        companies = User.objects.filter(is_business_account=True)
 
         if search_form.is_valid():
-            query = search_form.cleaned_data.get("query")
-            latin_query = to_latin(query).lower()
-            cyrillic_query = to_cyrillic(query).lower()
-            filter1 = (
-                queryset.filter(
-                    Q(title__startswith=latin_query)
-                    | Q(description__startswith=latin_query)
-                    | Q(title__contains=latin_query)
-                    | Q(description__contains=latin_query)
-                    | Q(title__startswith=cyrillic_query)
-                    | Q(description__startswith=cyrillic_query)
-                    | Q(title__contains=cyrillic_query)
-                    | Q(description__contains=cyrillic_query)
-                )
-                .annotate(
-                    title_order=Case(
-                        When(title__startswith=latin_query, then=Value(1)),
-                        When(title__contains=latin_query, then=Value(2)),
-                        When(title__startswith=cyrillic_query, then=Value(3)),
-                        When(title__contains=cyrillic_query, then=Value(4)),
-                        default=Value(5),
-                        output_field=CharField(),
-                    ),
-                    description_order=Case(
-                        When(description__startswith=latin_query, then=Value(1)),
-                        When(description__contains=latin_query, then=Value(2)),
-                        When(description__startswith=cyrillic_query, then=Value(3)),
-                        When(description__contains=cyrillic_query, then=Value(4)),
-                        default=Value(5),
-                        output_field=CharField(),
-                    ),
-                )
-                .order_by("title_order", "description_order")
+            query = search_form["query"].data
+            queryset = queryset.filter(
+                Q(name__icontains=query) | Q(description__icontains=query)
             )
+            context["films"] = queryset
 
-            if filter1:
-                context["films"] = filter1
-            else:
-                thresholds = [90, 70, 50, 30]
-                filter2 = None
-                for threshold in thresholds:
-                    filter2 = self.fuzzywuzzy_search(
-                        latin_query, cyrillic_query, queryset, threshold
-                    )
-                    if filter2:
-                        break
-                context["films"] = filter2
         else:
-            companies = User.objects.filter(is_business_account=True)
-            if type_product != "company":
-                filter3 = None
-                if type_product != "all":
-                    filter3 = queryset.filter(type=type_product)
-                else:
-                    ...
-                if category:
-                    filter3 = queryset.filter(category=category)
-                    if sub_category:
-                        filter3 = queryset.filter(sub_category=sub_category)
-                if country:
-                    filter3 = queryset.filter(country=country)
-                    if city:
-                        filter3 = queryset.filter(city=city)
-                context["films"] = filter3
+            category = self.request.POST.get("category", "")
+            sub_category = self.request.POST.get("sub_category", "")
+            tags = self.request.POST.get("tags", "")
+            country = self.request.POST.get("country", "")
+            city = self.request.POST.get("city", "")
+            product_type = self.request.POST.get("type", "")
+
+            if product_type != "company":
+                filtered_queryset = new_filter(
+                    queryset,
+                    companies,
+                    category,
+                    sub_category,
+                    tags,
+                    country,
+                    city,
+                    product_type,
+                )
+                context["films"] = filtered_queryset
+
             else:
-                if category:
-                    companies = companies.filter(category=category)
-                    if sub_category:
-                        companies = companies.filter(sub_category=sub_category)
-                context["companies"] = companies
+                filtered_companies = new_filter(
+                    queryset,
+                    companies,
+                    category,
+                    sub_category,
+                    tags,
+                    country,
+                    city,
+                    product_type,
+                )
+                context["companies"] = filtered_companies
         return render(request, self.template_name, context=context)
 
-    # def get_queryset(self):
-    #     queryset = Products.objects.filter(is_active=True, is_published=True).order_by(
-    #         "-create_date"
-    #     )
-    #     form = SearchForm(self.request.GET)
-    #     category = self.request.GET.get("category")
-    #     sub_category = self.request.GET.get("sub_category")
-    #     tags = self.request.GET.getlist("tags")
-    #     country = self.request.GET.get("country")
-    #     city = self.request.GET.get("city")
-    #     type_product = self.request.GET.get("type")
-    #     if type_product != "company":
-    #         if form.is_valid():
-    #             query = form.cleaned_data["query"]
-    #             latin_query = to_latin(query)
-    #             cyrillic_query = to_cyrillic(query)
-    #             q_kirill = Q(title__icontains=cyrillic_query) | Q(
-    #                 description__icontains=cyrillic_query
-    #             )
-    #             q_latin = Q(title__icontains=latin_query) | Q(
-    #                 description__icontains=latin_query
-    #             )
-    #
-    #             products = Products.objects.filter(q_kirill | q_latin).filter(
-    #                 is_active=True, is_published=True
-    #             )
-    #
-    #             if products:
-    #                 queryset = products
-    #             else:
-    #                 similar_products = self.fuzzywuzzy_search(
-    #                     latin_query, cyrillic_query, queryset, 80
-    #                 )
-    #                 if similar_products:
-    #                     queryset = similar_products
-    #                 else:
-    #                     similar_products = self.fuzzywuzzy_search(
-    #                         latin_query, cyrillic_query, queryset, 50
-    #                     )
-    #                     if similar_products:
-    #                         queryset = similar_products
-    #                     else:
-    #                         similar_products = self.fuzzywuzzy_search(
-    #                             latin_query, cyrillic_query, queryset, 20
-    #                         )
-    #                         if similar_products:
-    #                             queryset = similar_products
-    #                         else:
-    #                             print("bom bo'sh")
-    #         filter_params = {}
-    #
-    #         if category:
-    #             filter_params["category"] = category
-    #         if sub_category:
-    #             filter_params["sub_category"] = sub_category
-    #         if country:
-    #             filter_params["country"] = country
-    #         if city:
-    #             filter_params["city"] = city
-    #         if type_product and type_product != "all":
-    #             filter_params["type"] = type_product
-    #         if tags:
-    #             tag_filters = Q()
-    #             for tag_id in tags:
-    #                 tag_filters |= Q(tags__id=tag_id)
-    #             queryset = queryset.filter(
-    #                 tag_filters, is_active=True, is_published=True
-    #             )
-    #
-    #         if filter_params:
-    #             queryset = queryset.filter(
-    #                 **filter_params, is_published=True, is_active=True
-    #             )
-    #         return queryset
-    #     else:
-    #         companies = User.objects.none()
-    #         if category:
-    #             companies = User.objects.filter(
-    #                 is_business_account=True,
-    #                 category=category,
-    #             )
-    #             if sub_category:
-    #                 companies = User.objects.filter(
-    #                     is_business_account=True,
-    #                     category=category,
-    #                     sub_category=sub_category,
-    #                 )
-    #         else:
-    #             companies = User.objects.filter(is_business_account=True)
-    #         return companies
 
-    # def post(self, request, **kwargs):
-    #     # context = self.get_context_data(object_list=Products.objects.none(), **kwargs)
-    #     context = {
-    #         "films": Products.objects.filter(
-    #             is_active=True, is_published=True
-    #         ).order_by("-create_date"),
-    #     }
-    #     form = SearchForm(request.POST)
-    #     queryset = Products.objects.all()
-    #     category = request.POST.get("category")
-    #     sub_category = request.POST.get("sub_category")
-    #     tags = request.POST.getlist("tags")
-    #     country = request.POST.get("country")
-    #     city = request.POST.get("city")
-    #     type_product = request.POST.get("type")
-    #
-    #     if form.is_valid():
-    #         if type_product == "company":
-    #             companies = User.objects.filter(is_business_account=True)
-    #             # context["companies"] = companies
-    #             return render(self.request, self.template_name, context)
-    #             # return redirect("product-list")
-    #         else:
-    #             query = form.cleaned_data["query"]
-    #             latin_query = to_latin(query)
-    #             cyrillic_query = to_cyrillic(query)
-    #
-    #             q_kirill = Q(title__icontains=cyrillic_query) | Q(
-    #                 description__icontains=cyrillic_query
-    #             )
-    #             q_latin = Q(title__icontains=latin_query) | Q(
-    #                 description__icontains=latin_query
-    #             )
-    #
-    #             products = Products.objects.filter(
-    #                 q_kirill | q_latin, is_active=True, is_published=True
-    #             )
-    #
-    #             if not products.exists():
-    #                 similar_products = self.fuzzywuzzy_search(
-    #                     latin_query, cyrillic_query, queryset, 80
-    #                 )
-    #                 if not similar_products:
-    #                     similar_products = self.fuzzywuzzy_search(
-    #                         latin_query, cyrillic_query, queryset, 50
-    #                     )
-    #                     if not similar_products:
-    #                         similar_products = self.fuzzywuzzy_search(
-    #                             latin_query, cyrillic_query, queryset, 20
-    #                         )
-    #                         if similar_products:
-    #                             queryset = similar_products
-    #                         else:
-    #                             print("bom bo'sh")
-    #
-    #             filter_params = {}
-    #
-    #             if category:
-    #                 filter_params["category"] = category
-    #             if sub_category:
-    #                 filter_params["sub_category"] = sub_category
-    #             if country:
-    #                 filter_params["country"] = country
-    #             if city:
-    #                 filter_params["city"] = city
-    #             if type_product and type_product != "all":
-    #                 filter_params["type"] = type_product
-    #             if tags:
-    #                 tag_filters = Q()
-    #                 for tag_id in tags:
-    #                     tag_filters |= Q(tags__id=tag_id)
-    #                 queryset = queryset.filter(
-    #                     tag_filters, is_active=True, is_published=True
-    #                 )
-    #
-    #             if filter_params:
-    #                 queryset = queryset.filter(
-    #                     **filter_params, is_published=True, is_active=True
-    #                 )
-    #
-    #         context["films"] = queryset
-    #         return render(self.request, self.template_name, context)
+def new_filter(
+    queryset,
+    companies,
+    category="",
+    sub_category="",
+    tags="",
+    country="",
+    city="",
+    product_type="",
+):
+    if product_type == "company":
+        queryset = companies.all()
+    if product_type not in ("all", "company", ""):
+        queryset = queryset.filter(type=product_type)
+    if category:
+        queryset = queryset.filter(category=category)
+    if sub_category:
+        queryset = queryset.filter(sub_category=sub_category)
+
+    if tags:
+        queryset = queryset.filter(tags__in=tags)
+
+    if country:
+        queryset = queryset.filter(country=country)
+
+    if city:
+        queryset = queryset.filter(city=city)
+    return queryset
 
 
 def related_to_it(request):

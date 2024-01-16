@@ -18,7 +18,7 @@
             <div class="cards" id="card-container">
                 {% for buy in films_buy %}
                     <div class="card__buy card-color">
-                        <div class="card__buy-content">
+                        <div class="card__buy-content" product-id="{{ buy.pk }}">
                             <div class="category-info">
                                 <div class="product-cat__image">
                                     {% if buy.category.pk == 1 %}
@@ -34,8 +34,10 @@
                                         <img src="{% static 'images/categories/4.svg' %}" alt="cat image">
                                     {% endif %}
                                 </div>
-                                <a href="{% url "product-list" %}">{{ buy.category }} | {{ buy.sub_category }}</a>
+                                <a href="{% url "product-detail" buy.pk %}">{{ buy.category }}
+                                    | {{ buy.sub_category }}</a>
                             </div>
+
                             <h2 class="title"><a href="{% url 'product-detail' buy.pk %}"
                                                  class="title">{{ buy.title }}</a></h2>
                             <a class="dont-text-decoration" href="{% url 'product-detail' buy.pk %}"><p
@@ -359,6 +361,21 @@
 
     </div>
     <!-- /Cards sell section -->
+
+    <script>
+        var cardBuyContent = document.querySelector(".card__buy-content");
+
+        cardBuyContent.addEventListener("click", function () {
+            // Получаем product_id из атрибута data-product-id
+            var productId = cardBuyContent.getAttribute("product-id");
+
+            if (productId) {
+                window.location.href = "{% url 'product-detail' 0 %}".replace('0', productId);
+            } else {
+                console.error("Product ID is empty or undefined");
+            }
+        });
+    </script>
 
     <script>
         const cardRows = document.querySelectorAll('.card-row');

@@ -27,7 +27,7 @@
         <a href="{% url "admin_user_products_moderation" %}" class="sidebar-link">Moderation</a>
     </div>
 
-    <a href="#" class="sidebar-link">Support</a>
+    <a href="{% url "admin_support" %}" class="sidebar-link">Support</a>
     {#    <a href="#" class="sidebar-link" onclick="showSupportSection()">Support</a>#}
 
     {#    <span class="sidebar-link" style="cursor: pointer">Statistics</span>#}
@@ -40,15 +40,6 @@
 
 <div id="content">
     <h2 class="content-title">Admin Dashboard</h2>
-
-
-    <div id="support-section" style="display: none;">
-        <div id="chat-list">
-            <div class="chat-item">User 1: Hello</div>
-            <div class="chat-item">User 2: How can I help you?</div>
-            <!-- Add more chat items as needed -->
-        </div>
-    </div>
 
     {% block admin %}
 

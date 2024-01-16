@@ -1,0 +1,11 @@
+{% extends "admin/dashboard.html" %}
+
+{% block admin %}
+    <div id="support-section" style="display: flex;">
+        <div id="chat-list">
+            {% for message in messages %}
+                <div class="chat-item">{{ message }}</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

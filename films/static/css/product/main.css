@@ -310,6 +310,10 @@
     text-align: left;
 }
 
+.card__buy-content {
+    cursor: pointer;
+}
+
 .category {
     font-size: 12px;
     color: #666;

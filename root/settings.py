@@ -33,9 +33,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "django.contrib.humanize",
-    "films.apps.FilmsConfig",
-    "accounts.apps.AccountsConfig",
-    "support.apps.SupportConfig",
+
+    "films",
+    "accounts",
+    "support",
+
     "formtools",
     "django_social_share",
     "elasticsearch",

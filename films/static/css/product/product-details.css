@@ -6,6 +6,7 @@ body {
 
 .product-detail {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding-top: 100px;
 }
@@ -14,12 +15,12 @@ body {
     display: flex;
     gap: 10px;
     justify-content: center;
-    flex-wrap: wrap;
-    /* flex-direction: row-reverse; */
+    /*flex-wrap: wrap;*/
+    flex-direction: row;
 }
 
 
-.product-foto-description-contant {
+.product-foto-description-contact {
     width: 690px;
     height: 60%;
 }
@@ -32,7 +33,8 @@ body {
 
 .product-foto {
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
+    height: 200px;
     border-radius: 22px;
     background-color: white;
     display: flex;
@@ -167,7 +169,7 @@ body {
 
 .author-info {
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 22px;
     /*background-color: white;*/
     display: flex;
     flex-direction: column;
@@ -262,7 +264,6 @@ body {
 .contact-the-seller,
 .product-description {
     background-color: #cbe2ff45;
-
     border-radius: 22px;
     word-wrap: break-word;
     padding: 20px;
@@ -295,7 +296,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 
@@ -484,17 +485,17 @@ body {
     color: #3691ec;
 }
 
-.fa-facebook {
-    color: #4867aa;
-}
-
 .share-buttons div i {
     font-size: 24px;
 }
 
-
 .footer::before {
     background: #f3f6fb;
+}
+
+.user-products,
+.similar-products {
+    padding-top: 50px;
 }
 
 @media only screen and (max-width: 480px) {
@@ -512,7 +513,7 @@ body {
         flex-direction: column;
     }
 
-    .product-foto-description-contant {
+    .product-foto-description-contact {
         width: 100%;
     }
 
@@ -524,4 +525,37 @@ body {
         width: auto;
     }
 
+}
+
+
+/* Стили для кнопок навигации Swiper.js */
+.swiper-button-next,
+.swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    background-color: #333; /* Цвет фона кнопок */
+    color: #fff; /* Цвет иконок на кнопках */
+    border-radius: 50%; /* Закругленные углы для создания круглых кнопок */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10; /* Убеждаемся, что кнопки навигации остаются поверх слайдов */
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: #555; /* Цвет фона кнопок при наведении */
+}
+
+/* Позиционирование кнопок навигации */
+.swiper-button-next {
+    right: 10px; /* Располагаем кнопку "Вперед" справа */
+}
+
+.swiper-button-prev {
+    left: 10px; /* Располагаем кнопку "Назад" слева */
 }

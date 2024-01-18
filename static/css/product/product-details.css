@@ -19,7 +19,7 @@ body {
 }
 
 
-.product-foto-description-contant {
+.product-foto-description-contact {
     width: 690px;
     height: 60%;
 }
@@ -484,10 +484,6 @@ body {
     color: #3691ec;
 }
 
-.fa-facebook {
-    color: #4867aa;
-}
-
 .share-buttons div i {
     font-size: 24px;
 }
@@ -512,7 +508,7 @@ body {
         flex-direction: column;
     }
 
-    .product-foto-description-contant {
+    .product-foto-description-contact {
         width: 100%;
     }
 

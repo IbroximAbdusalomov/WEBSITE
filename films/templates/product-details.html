@@ -22,11 +22,11 @@
 {% include 'nav_bar.html' %}
 <!-- /Header section -->
 
-<section class="product-details" style="padding-bottom: 250px">
-    <div class="container">
+<div class="container">
+    <section class="product-details" style="padding-bottom: 50px">
         <div class="product-detail">
             <div class="product-foto-and-info">
-                <div class="product-foto-description-contant">
+                <div class="product-foto-description-contact">
 
                     <div class="product-foto">
                         <div class="slider-container">
@@ -72,6 +72,7 @@
                         </div>
                     </div>
 
+
                     <div class="contact-the-seller">
 
                         {#                        {% if product.author_id %}#}
@@ -106,8 +107,8 @@
 
                     </div>
 
-                </div>
 
+                </div>
                 <div class="listing-info">
 
                     <div class="product-info">
@@ -197,12 +198,205 @@
                     </div>
                 </div>
             </div>
+            <div class="user-products">
+                <div class="cards" id="card-container">
+                    {% for product in author_products %}
+                        {% if product.type == 'sell' %}
+                            <div class="card__sell card-color">
+                                <div class="card__buy-content">
+                                    <div class="card__sell-image">
+                                        <img src="{{ product.image.url }}" alt="Product Image">
+                                    </div>
+                                    <a href="{% url 'product-detail' product.pk %}"
+                                       class="title">{{ product.title }}</a>
+                                    <div class="product-data">
+                                        <div class="category-info">
+                                            <div class="product-cat__image">
+                                                <img src="{% static 'images/categories/1.svg' %}"
+                                                     alt="cat image">
+                                            </div>
+                                            <a href="#">{{ product.category }}</a>
+                                        </div>
+
+                                        <div class="flags">
+                                            <span class="country">{{ product.country }}</span>
+                                        </div>
+                                        <div class="date">
+                                            <span class="full-date">{{ product.create_date }}</span>
+                                        </div>
+                                        <div class="like-and-more">
+                                            <a href="{% url "product-detail" product.pk %}"
+                                               class="read-more">{% translate "Подробнее" %}</a>
+                                            <div class="svg-icon-container">
+                                                {#                                                    {% if user.is_authenticated %}#}
+                                                <span class="add-to-favorites"
+                                                      data-product-id="{{ product.id }}"
+                                                      data-url="{% url 'add_to_favorites' product.id %}">
+                                            <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart"
+                                               style="font-size: 15px"></i>
+                                            </span>
+                                                {#                                                    {% endif %}#}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% elif product.type == 'buy' %}
+                            <div class="card__buy card-color">
+                                <div class="card__buy-content">
+                                    <div class="category-info">
+                                        <div class="product-cat__image">
+                                            <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
+                                        </div>
+                                        <a href="#">{{ product.category }}</a>
+                                    </div>
+                                    <h2 class="title"><a href="{% url 'product-detail' product.pk %}"
+                                                         class="title">{{ product.title }}</a></h2>
+                                    <p class="description">{{ product.description }}</p>
+                                    <div class="product-data">
+                                        <div class="flags">
+                                            <span class="country">{{ product.country }}</span>
+                                        </div>
+                                        <div class="date">
+                                            <span class="full-date">{{ product.create_date }}</span>
+                                        </div>
+                                        <div class="like-and-more">
+                                            <a href="{% url 'product-detail' product.pk %}"
+                                               class="read-more">{% translate "Подробнее" %}</a>
+                                            <div class="svg-icon-container">
+                                                {% if user.is_authenticated %}
+                                                    <span class="add-to-favorites"
+                                                          data-product-id="{{ product.id }}"
+                                                          data-url="{% url 'add_to_favorites' product.id %}">
+                                            <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart fa-lg"
+                                               style="font-size: 15px"></i>
+                                        </span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endif %}
+                    {% empty %}
+                        <h1>{% translate "Пока что нет объявлений." %}</h1>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="swiper-container similar-products">
+                <div class="swiper-wrapper cards" id="card-container">
+                    {% for product in similar_products %}
+                        {% if product.type == 'sell' %}
+                            <div class="card__sell card-color">
+                                <div class="card__buy-content">
+                                    <div class="card__sell-image">
+                                        <img src="{{ product.image.url }}" alt="Product Image">
+                                    </div>
+                                    <a href="{% url 'product-detail' product.pk %}"
+                                       class="title">{{ product.title }}</a>
+                                    <div class="product-data">
+                                        <div class="category-info">
+                                            <div class="product-cat__image">
+                                                <img src="{% static 'images/categories/1.svg' %}"
+                                                     alt="cat image">
+                                            </div>
+                                            <a href="#">{{ product.category }}</a>
+                                        </div>
+
+                                        <div class="flags">
+                                            <span class="country">{{ product.country }}</span>
+                                        </div>
+                                        <div class="date">
+                                            <span class="full-date">{{ product.create_date }}</span>
+                                        </div>
+                                        <div class="like-and-more">
+                                            <a href="{% url "product-detail" product.pk %}"
+                                               class="read-more">{% translate "Подробнее" %}</a>
+                                            <div class="svg-icon-container">
+                                                {#                                                    {% if user.is_authenticated %}#}
+                                                <span class="add-to-favorites"
+                                                      data-product-id="{{ product.id }}"
+                                                      data-url="{% url 'add_to_favorites' product.id %}">
+                                            <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart"
+                                               style="font-size: 15px"></i>
+                                            </span>
+                                                {#                                                    {% endif %}#}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% elif product.type == 'buy' %}
+                            <div class="card__buy card-color">
+                                <div class="card__buy-content">
+                                    <div class="category-info">
+                                        <div class="product-cat__image">
+                                            <img src="{% static 'images/categories/1.svg' %}" alt="cat image">
+                                        </div>
+                                        <a href="#">{{ product.category }}</a>
+                                    </div>
+                                    <h2 class="title"><a href="{% url 'product-detail' product.pk %}"
+                                                         class="title">{{ product.title }}</a></h2>
+                                    <p class="description">{{ product.description }}</p>
+                                    <div class="product-data">
+                                        <div class="flags">
+                                            <span class="country">{{ product.country }}</span>
+                                        </div>
+                                        <div class="date">
+                                            <span class="full-date">{{ product.create_date }}</span>
+                                        </div>
+                                        <div class="like-and-more">
+                                            <a href="{% url 'product-detail' product.pk %}"
+                                               class="read-more">{% translate "Подробнее" %}</a>
+                                            <div class="svg-icon-container">
+                                                {% if user.is_authenticated %}
+                                                    <span class="add-to-favorites"
+                                                          data-product-id="{{ product.id }}"
+                                                          data-url="{% url 'add_to_favorites' product.id %}">
+                                            <i class="fa-{% if is_favorite %}solid{% else %}regular{% endif %} fa-heart fa-lg"
+                                               style="font-size: 15px"></i>
+                                        </span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endif %}
+                    {% empty %}
+                        <h1>{% translate "Пока что нет объявлений." %}</h1>
+                    {% endfor %}
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 
 
 {% include "footer.html" %}
+
+
+<!-- Добавьте в шапку вашего HTML-документа -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Добавьте в конец вашего HTML-документа -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1, // Количество отображаемых слайдов
+            spaceBetween: 20, // Расстояние между слайдами
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    });
+</script>
 
 <!-- like button -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

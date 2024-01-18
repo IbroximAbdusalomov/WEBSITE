@@ -127,11 +127,34 @@ class ProductDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         user = self.request.user
         film = self.object
+        product_author = Products.objects.get(pk=self.kwargs["pk"]).author
+        product_category = Products.objects.get(pk=self.kwargs["pk"]).category_id
+        product_sub_category = Products.objects.get(
+            pk=self.kwargs["pk"]
+        ).sub_category_id
 
         if not self.request.user.is_anonymous:
             context["is_favorite"] = Favorite.objects.filter(
                 user=user, product_id=film
             ).exists()
+        context["author_products"] = Products.objects.filter(
+            author_id=product_author
+        ).order_by("-create_date")[:16]
+
+        similar_products = Products.objects.filter(
+            category=product_category, sub_category=product_sub_category
+        ).order_by("-create_date")[:16]
+        if len(similar_products) < 16:
+            add = 16 - len(similar_products)
+            similar_products += Products.objects.filter(
+                category=product_category
+            ).order_by("-create_date")[:add]
+        if len(similar_products) < 16:
+            add = 16 - len(similar_products)
+            similar_products += Products.objects.filter(
+                category=product_category
+            ).order_by("-create_date")[:add]
+        context["similar_products"] = similar_products
         return context
 
 

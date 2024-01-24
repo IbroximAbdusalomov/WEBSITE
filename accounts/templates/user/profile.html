@@ -155,7 +155,8 @@
             <div class="admin-panel__buttons right-buttons">
                 <ul class="buttons">
                     <li class="price-button"><a href="#"><i class="fa-solid fa-wallet"></i>: {{ user.ball }}</a></li>
-                    <li class="login-button"><a href="#">{% translate "Пополнить счет" %}</a></li>
+                    <li class="login-button"><a
+                            href="{% url "top-up-your-account" %}">{% translate "Пополнить счет" %}</a></li>
                     <li class="price-button"><a href="#">{% translate "Тарифы" %}</a></li>
                 </ul>
             </div>

@@ -1,0 +1,104 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add ball</title>
+    <link rel="stylesheet" href="{% static "css/product/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/product/main.css" %}">
+
+</head>
+
+<body>
+{% include "nav_bar.html" %}
+
+<section style="padding: 150px 0; display:flex; justify-content: center;">
+    <div class="instruction">
+        <h2>Инструкция:</h2>
+        <span class="pay">30 ball --> 30.000</span>
+        <ol>
+            <li>Скопируйте номер карты.</li>
+            <li>
+                <span id="codeSpan">XXXX XXXX XXXX XXXX</span>
+                <button onclick="copyCode()">Копировать</button>
+            </li>
+            <li>Скиньте скриншот чека.</li>
+        </ol>
+    </div>
+
+    <div class="form-container">
+        <h2>Отправка чека</h2>
+        {#    <form action="{% url 'your_form_submission_url' %}" method="post" enctype="multipart/form-data">#}
+        <form action="/ru/users/top-up-your-account" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>
+                <label for="id_photo">Загрузите фото чека:</label>
+                <input type="file" name="photo" accept="image/*" id="id_photo">
+            </p>
+
+
+            <p>
+                <label>Выберите сумму:</label>
+            </p>
+            <div>
+                <div>
+                    <label id="30.000" for="id_amount_0"><input type="radio" name="amount" value="30" required=""
+                                                                id="id_amount_0" checked>
+                        30</label>
+                </div>
+                <div>
+                    <label id="50.000" for="id_amount_1"><input type="radio" name="amount" value="50" required=""
+                                                                id="id_amount_1">
+                        50</label>
+                </div>
+                <div>
+                    <label id="100.000" for="id_amount_2"><input type="radio" name="amount" value="100" required=""
+                                                                 id="id_amount_2">
+                        100</label>
+                </div>
+            </div>
+            <button type="submit">submit</button>
+        </form>
+    </div>
+</section>
+
+
+{% include "footer.html" %}
+
+<script>
+    function copyCode() {
+        var codeSpan = document.getElementById('codeSpan');
+        var tempInput = document.createElement('input');
+        tempInput.value = codeSpan.textContent;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('Код скопирован: ' + codeSpan.textContent);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Получаем все элементы label для радиокнопок с именем "amount"
+        var amountLabels = document.querySelectorAll('label[for^="id_amount_"]');
+        var payElement = document.querySelector(".pay");
+
+
+        // Добавляем обработчик события click для каждого label
+        amountLabels.forEach(function (label) {
+            label.addEventListener("click", function () {
+                {#console.log(label.getAttribute('id'))#}
+                var selectedAmount = label.textContent.trim();
+                var id = label.getAttribute('id');
+                payElement.textContent = selectedAmount + " ball --> " + id;
+            });
+        });
+    });
+
+</script>
+
+</body>
+</html>

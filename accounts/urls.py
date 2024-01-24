@@ -77,4 +77,9 @@ urlpatterns = [
         views.add_ball,
         name="add_ball",
     ),
+    path(
+        "top-up-your-account",
+        views.TopUpYourAccount.as_view(),
+        name="top-up-your-account",
+    ),
 ]

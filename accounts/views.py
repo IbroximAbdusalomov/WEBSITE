@@ -44,9 +44,10 @@ from .forms import (
     UserProfileUpdateForm,
     ComplaintForm,
     AddBallForm,
+    TopUpYourAccountForm,
 )
 from .models import UserRating, Message, UserSubscription, Complaint, PointsTransaction
-from .utils import send_message_to_channel, true_account_status
+from .utils import send_message_to_channel, true_account_status, send_message
 
 
 def generate_password(length=12):
@@ -1044,3 +1045,16 @@ def add_ball(request, user_id):
         form = AddBallForm()
 
     return render(request, "admin/add_ball.html", {"form": form})
+
+
+class TopUpYourAccount(View):
+    template_name = "user/add-ball.html"
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {"form": TopUpYourAccountForm()})
+
+    def post(self, request, *args, **kwargs):
+        amount = self.request.POST.get("amount")
+        photo = self.request.FILES.get("photo")
+        asyncio.run(send_message(self.request.user.pk, amount, photo))
+        return self.get(request, *args, **kwargs)

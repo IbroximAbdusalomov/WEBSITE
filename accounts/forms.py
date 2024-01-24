@@ -406,3 +406,11 @@ class AddBallForm(forms.Form):
         min_value=1,
         widget=forms.NumberInput(attrs={"class": "form-control"}),
     )
+
+
+class TopUpYourAccountForm(forms.Form):
+    photo = forms.ImageField(label="Загрузите фото чека", required=False)
+    amount_choices = [(30, "30"), (50, "50"), (100, "100")]
+    amount = forms.ChoiceField(
+        label="Выберите сумму", choices=amount_choices, widget=forms.RadioSelect
+    )

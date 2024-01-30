@@ -71,17 +71,17 @@ class FilmsForm(forms.ModelForm):
         ),
     )
 
-    sub_category = forms.ModelChoiceField(
+    sub_category = forms.ModelMultipleChoiceField(
         label="",
         queryset=SubCategories.objects.all(),
-        empty_label="Выберите субкатегорию",
+        # empty_label="Выберите субкатегорию",
         to_field_name="id",
-        widget=forms.Select(
-            attrs={
-                "class": "form-select",
-                "id": "id_sub_category",
-                "name": "sub_category",
-            }
+        widget=forms.CheckboxSelectMultiple(
+            # attrs={
+            #     "class": "form-select",
+            #     "id": "id_sub_category",
+            #     "name": "sub_category",
+            # }
         ),
     )
 

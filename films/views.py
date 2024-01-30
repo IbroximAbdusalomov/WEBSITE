@@ -310,10 +310,10 @@ class FilmsListView(ListView):
             )
 
             if (
-                latin_similarity_title
-                or cyrillic_similarity_title
-                or latin_similarity_description
-                or cyrillic_similarity_description
+                    latin_similarity_title
+                    or cyrillic_similarity_title
+                    or latin_similarity_description
+                    or cyrillic_similarity_description
             ):
                 similar_products.add(product)
 
@@ -385,14 +385,14 @@ class FilmsListView(ListView):
 
 
 def new_filter(
-    queryset,
-    companies,
-    category="",
-    sub_category="",
-    tags="",
-    country="",
-    city="",
-    product_type="",
+        queryset,
+        companies,
+        category="",
+        sub_category="",
+        tags="",
+        country="",
+        city="",
+        product_type="",
 ):
     if product_type == "company":
         queryset = companies.all()

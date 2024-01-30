@@ -7,62 +7,232 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <title>Add ball</title>
     <link rel="stylesheet" href="{% static "css/product/style.css" %}">
     <link rel="stylesheet" href="{% static "css/product/main.css" %}">
 
 </head>
+<style>
+    ol li {
+        padding: 5px 0;
+    }
+
+    .pay {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #id_photo {
+        border: 1px #CCC solid;
+        border-radius: 22px;
+    }
+
+    #id_photo::file-selector-button {
+        padding: 5px;
+        border: 1px #CCC solid;
+        border-radius: 22px;
+    }
+
+    /* Стилизация для контейнера */
+    .file-input-container {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    /* Стилизация для input[type="file"] */
+    .file-input-container input[type="file"] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    /* Стилизация для фейковой кнопки */
+    .file-input-container .file-input-text {
+        display: inline-block;
+        padding: 10px;
+        background-color: #0a24b9;
+        color: white;
+        border: none;
+        border-radius: 22px;
+        cursor: pointer;
+    }
+
+    {#------------------------------------------------#}
+    #preview {
+        transition: opacity 0.5s ease-in-out;
+        cursor: pointer;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding: 20px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal-content {
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto;
+        display: block;
+    }
+
+    .close {
+        position: absolute;
+        top: 100px;
+        right: 50px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+
+    {#------------------------------------------------#}
+    /* Общие стили для радиокнопок */
+    .radio-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+    }
+
+    .radio-item {
+        width: max-content;
+    }
+
+    .radio-label {
+        cursor: pointer;
+        padding: 10px;
+        border: 2px solid #3498db;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+        display: flex;
+        align-items: center;
+    }
+
+    .radio-input {
+        display: none;
+    }
+
+    /* Стили для выбранных радиокнопок */
+    .radio-input:checked + .radio-label {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+    /* Анимация для эффекта hover */
+    .radio-label:hover {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+    /* Анимация для перехода при смене состояния */
+    .radio-label {
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+</style>
 
 <body>
 {% include "nav_bar.html" %}
 
 <section style="padding: 150px 0; display:flex; justify-content: center;">
-    <div class="instruction">
-        <h2>Инструкция:</h2>
-        <span class="pay">30 ball --> 30.000</span>
-        <ol>
-            <li>Скопируйте номер карты.</li>
-            <li>
-                <span id="codeSpan">XXXX XXXX XXXX XXXX</span>
-                <button onclick="copyCode()">Копировать</button>
-            </li>
-            <li>Скиньте скриншот чека.</li>
-        </ol>
-    </div>
-
-    <div class="form-container">
-        <h2>Отправка чека</h2>
-        {#    <form action="{% url 'your_form_submission_url' %}" method="post" enctype="multipart/form-data">#}
-        <form action="/ru/users/top-up-your-account" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <p>
-                <label for="id_photo">Загрузите фото чека:</label>
-                <input type="file" name="photo" accept="image/*" id="id_photo">
-            </p>
-
-
-            <p>
-                <label>Выберите сумму:</label>
-            </p>
-            <div>
-                <div>
-                    <label id="30.000" for="id_amount_0"><input type="radio" name="amount" value="30" required=""
-                                                                id="id_amount_0" checked>
-                        30</label>
-                </div>
-                <div>
-                    <label id="50.000" for="id_amount_1"><input type="radio" name="amount" value="50" required=""
-                                                                id="id_amount_1">
-                        50</label>
-                </div>
-                <div>
-                    <label id="100.000" for="id_amount_2"><input type="radio" name="amount" value="100" required=""
-                                                                 id="id_amount_2">
-                        100</label>
-                </div>
+    <div style="display:flex; gap: 25px; background-color: #e8efff; border-radius: 22px; padding: 0 20px 20px 20px; width: max-content;">
+        <div class="instruction" style="min-width: 300px">
+            <h2>Инструкция:</h2>
+            <div class="pay">
+                30 ball --> 30.000 sum
             </div>
-            <button type="submit">submit</button>
-        </form>
+            <ol>
+                <li>Скопируйте номер карты.</li>
+                <li>
+                    <span id="codeSpan1">XXXX XXXX XXXX XXX1</span>
+                    <button style="border: none; background: none;" onclick="copyCode(1)"><i
+                            class="fa-solid fa-copy" style="font-size: 16px"></i>
+                    </button>
+                    <br>
+                    <br>
+                    <span id="codeSpan2">XXXX XXXX XXXX XXX2</span>
+                    <button style="border: none; background: none;" onclick="copyCode(2)"><i
+                            class="fa-solid fa-copy" style="font-size: 16px"></i>
+                    </button>
+                    <br>
+                    <br>
+
+                    <span id="codeSpan1">или</span>
+                    <br>
+                    <img src="{% static "user/image/click.JPG" %}" alt="clickqr"
+                         style="max-width: 100px; padding: 5px;">
+                    {#                    <br>#}
+                    <img src="{% static "user/image/payme.png" %}" alt="clickqr"
+                         style="max-width: 100px; padding: 5px;">
+                </li>
+                <li>Скиньте скриншот чека.</li>
+            </ol>
+        </div>
+
+        <div class="form-container" style="min-width: 300px">
+            <h2>Отправка чека</h2>
+            {#    <form action="{% url 'your_form_submission_url' %}" method="post" enctype="multipart/form-data">#}
+            <form action="{% url "top-up-your-account" %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p class="file-input-container">
+                    <label for="id_photo" class="file-input-text">Выбрать файл</label>
+                    <input type="file" name="photo" accept="image/*" id="id_photo" onchange="previewImage()">
+                </p>
+                <br>
+                <div id="imageModal" class="modal">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <img class="modal-content" id="modalImage" style="padding-top: 100px; max-width: 470px">
+                </div>
+                <img id="preview" style="opacity: 0; max-width: 100px;" onclick="openModal()"/>
+
+                <p>
+                    <label>Выберите сумму:</label>
+                </p>
+                <div class="radio-container">
+                    <div class="radio-item">
+                        <label id="30.000" for="id_amount_0" class="radio-label">
+                            <input type="radio" name="amount" value="30" required="" id="id_amount_0"
+                                   class="radio-input" checked="">
+                            30
+                        </label>
+                    </div>
+                    <div class="radio-item">
+                        <label id="50.000" for="id_amount_1" class="radio-label">
+                            <input type="radio" name="amount" value="50" required="" id="id_amount_1"
+                                   class="radio-input">
+                            50
+                        </label>
+                    </div>
+                    <div class="radio-item">
+                        <label id="100.000" for="id_amount_2" class="radio-label">
+                            <input type="radio" name="amount" value="100" required="" id="id_amount_2"
+                                   class="radio-input">
+                            100
+                        </label>
+                    </div>
+                </div>
+
+                <div class="">
+                    <button class="form-button" type="submit" style="width: 300px;">submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 </section>
 
@@ -70,8 +240,8 @@
 {% include "footer.html" %}
 
 <script>
-    function copyCode() {
-        var codeSpan = document.getElementById('codeSpan');
+    function copyCode(index) {
+        var codeSpan = document.getElementById('codeSpan' + index);
         var tempInput = document.createElement('input');
         tempInput.value = codeSpan.textContent;
         document.body.appendChild(tempInput);
@@ -82,21 +252,49 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-        // Получаем все элементы label для радиокнопок с именем "amount"
         var amountLabels = document.querySelectorAll('label[for^="id_amount_"]');
         var payElement = document.querySelector(".pay");
 
 
-        // Добавляем обработчик события click для каждого label
         amountLabels.forEach(function (label) {
             label.addEventListener("click", function () {
-                {#console.log(label.getAttribute('id'))#}
                 var selectedAmount = label.textContent.trim();
                 var id = label.getAttribute('id');
-                payElement.textContent = selectedAmount + " ball --> " + id;
+                payElement.textContent = selectedAmount + " ball --> " + id + 'sum';
             });
         });
     });
+
+
+    function previewImage() {
+        var input = document.getElementById('id_photo');
+        var preview = document.getElementById('preview');
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+                preview.style.opacity = 1;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function openModal() {
+        var modal = document.getElementById('imageModal');
+        var modalImage = document.getElementById('modalImage');
+        var preview = document.getElementById('preview');
+
+        modal.style.display = 'block';
+        modalImage.src = preview.src;
+    }
+
+    function closeModal() {
+        var modal = document.getElementById('imageModal');
+        modal.style.display = 'none';
+    }
 
 </script>
 

@@ -8,9 +8,7 @@ from root.settings import TOKEN, chat_id
 from .models import Message
 
 logging.basicConfig(level=logging.INFO)
-bot_token = TOKEN
-chat_id = chat_id
-bot = Bot(token=bot_token)
+bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
 User = get_user_model()
 

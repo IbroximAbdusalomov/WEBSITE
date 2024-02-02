@@ -166,34 +166,31 @@
         const categorySelect = $('#id_category');
         const subcategoryGroup = $('#subcategory-group');
         const subcategorySelect = $('#id_sub_category');
-        const tagsGroup = $('#tags-group'); // Добавляем элемент для тегов
-        const tagsSelect = $('#id_tags'); // Замените на соответствующий id поля тегов
+        const tagsGroup = $('#tags-group');
+        const tagsSelect = $('#id_tags');
 
-        // Функция для загрузки субкатегорий
         function loadSubcategories() {
             const selectedCategoryId = categorySelect.val();
 
-            // Очищаем предыдущие опции и добавляем "Выберите субкатегорию"
             subcategorySelect.empty().append($('<option></option>').attr('value', '').text('Выберите субкатегорию'));
-            tagsGroup.hide(); // Скрываем поле выбора тегов
+            tagsGroup.hide();
 
             if (selectedCategoryId) {
-                // Запрос на сервер для получения субкатегорий по выбранной категории
                 $.ajax({
                     url: `/related_to_it/?category_id=${selectedCategoryId}`,
                     dataType: 'json',
                     success: function (data) {
-                        console.log(data.subcategories); // Здесь data определена и содержит данные
+                        console.log(data.subcategories);
                         subcategorySelect.empty();
-                        subcategorySelect.append($('<option></option>').attr('value', '').text('Выберите субкатегорию')); // Добавляем опцию поумолчанию
+                        subcategorySelect.append($('<option></option>').attr('value', '').text('Выберите субкатегорию'));
                         $.each(data.subcategories, function (key, value) {
                             subcategorySelect.append($('<option></option>').attr('value', key).text(value));
                         });
-                        subcategoryGroup.show(); // Показываем поле выбора субкатегории
+                        subcategoryGroup.show();
                     }
                 });
             } else {
-                subcategoryGroup.hide(); // Скрываем поле выбора субкатегории, если категория не выбрана
+                subcategoryGroup.hide();
             }
         }
 
@@ -201,73 +198,55 @@
 
         loadSubcategories();
 
-        // Функция для загрузки тегов
         function loadTags() {
             const selectedSubcategoryId = subcategorySelect.val();
 
-            // Очищаем предыдущие чекбоксы
             $('#tags-checkboxes').empty();
 
             if (selectedSubcategoryId) {
-                // Запрос на сервер для получения тегов по выбранной субкатегории
                 $.ajax({
                     url: `/related_to_it/?subcategory_id=${selectedSubcategoryId}`,
                     dataType: 'json',
                     success: function (data) {
-                        console.log(data.tags); // Здесь data определена и содержит данные
+                        console.log(data.tags);
                         $.each(data.tags, function (key, value) {
-                            // Создаем div контейнер для каждого чекбокса и его лейбла
                             const checkboxContainer = $('<div>')
                                 .addClass('cat')
-                                {#.addClass(`action`)#}
                                 .addClass('action');
 
-                            // Создаем лейбл для каждого тега
                             const label = $('<label>');
 
-                            // Создаем чекбокс для каждого тега и добавляем его внутрь лейбла
                             const checkbox = $('<input type="checkbox">')
                                 .attr('id', `tag-${key}`)
                                 .attr('name', 'tags')
                                 .attr('value', key)
                                 .appendTo(label);
 
-                            // Добавляем текст тега внутрь лейбла
                             label.append($('<span>').text(value));
 
-                            // Добавляем лейбл в контейнер
                             checkboxContainer.append(label);
 
-                            // Добавляем контейнер в блок с чекбоксами
                             $('#tags-checkboxes').append(checkboxContainer);
                         });
-                        $('#tags-group').show(); // Показываем блок с чекбоксами для тегов
+                        $('#tags-group').show();
                     }
                 });
             } else {
-                $('#tags-group').hide(); // Скрываем блок с чекбоксами для тегов, если субкатегория не выбрана
+                $('#tags-group').hide();
             }
         }
 
-
-// Отслеживаем изменения в поле выбора субкатегории
         subcategorySelect.change(loadTags);
-
-// Вызываем функцию загрузки тегов при инициализации страницы
         loadTags();
-
     });
 </script>
 
 
 <script>
     $(document).ready(function () {
-        // Функция, которая будет вызываться при изменении поля "Страна"
         $("#id_country").change(function () {
-            // Получаем значение выбранной страны
             var selectedCountry = $(this).val();
 
-            // Если выбран Узбекистан, показываем поле "Город", иначе скрываем его
             if (selectedCountry === "1") {
                 $("#city-group").show();
             } else {
@@ -275,7 +254,6 @@
             }
         });
 
-        // Инициализация состояния поля "Город" при загрузке страницы
         if ($("#country").val() === "1") {
             $("#city-group").show();
         } else {
@@ -291,52 +269,46 @@
         const sellButton = document.getElementById('sell-button');
         const formNameInput = document.getElementById('form-name');
 
-
-        buyButton.addEventListener('click', function () {
-            if (!buyButton.classList.contains("active")) {
+        if (!buyButton.classList.contains("active")) {
+            buyButton.addEventListener('click', function () {
                 buyButton.classList.add("active");
                 sellButton.classList.remove("active");
                 formNameInput.value = "buy";
-            }
-        });
-        sellButton.addEventListener('click', function () {
-            if (!sellButton.classList.contains("active")) {
+            });
+        }
 
+        if (!sellButton.classList.contains("active")) {
+            sellButton.addEventListener('click', function () {
                 const isAuthenticated = sellButton.getAttribute('data-authenticated');
-                const userBall = {{ request.user.ball|default:0 }};
+                const userCurrency = {{ request.user.currency|default:0 }};
 
-                if (isAuthenticated === "True" && userBall >= 10) {
+                if (isAuthenticated === "True" && userCurrency >= 10.0) {
                     sellButton.classList.add("active");
                     buyButton.classList.remove("active");
                     formNameInput.value = "sell";
-                } else if (isAuthenticated === "True" && userBall < 10) {
-                    const messageData = "You need at least 10 balls to perform the 'sell' action";
-                    alert(messageData)
+                } else if (isAuthenticated === "True" && userCurrency < 10.0) {
+                    const messageData = "You need at least 10 currency to perform the 'sell' action";
+                    alert(messageData);
                     window.location.href = "{% url 'myaccount' %}";
                 } else {
-
                     window.location.href = "{% url 'login' %}";
                 }
-            }
-        });
+
+
+            });
+        }
     });
 </script>
 
 <script>
-    // Получаем ссылку на поле ввода файла и кнопку "Сбросить"
     const imageInput = document.getElementById('id_image');
     const resetButton = document.getElementById('reset-image');
 
-    // Устанавливаем обработчик события для кнопки "Сбросить"
     resetButton.addEventListener('click', function () {
-        // Очищаем значение поля ввода файла
         imageInput.value = '';
 
-        // В некоторых браузерах поле ввода файла нельзя очистить программно
-        // по соображениям безопасности. В этом случае вы можете скрыть и затем снова показать
-        // поле ввода файла для эмуляции его сброса.
         imageInput.style.display = 'none';
-        imageInput.offsetHeight; // Это чтение свойства вызывает перерисовку элемента
+        imageInput.offsetHeight;
         imageInput.style.display = 'block';
     });
 </script>
@@ -350,12 +322,10 @@
             const currentLength = descriptionField.value.length;
             charCount.textContent = currentLength + ' / 700';
 
-            // Если текст приближается к лимиту (например, 750 символов),
-            // можно изменить цвет на красный
             if (currentLength >= 700) {
                 charCount.style.color = 'red';
             } else {
-                charCount.style.color = ''; // Сбросить цвет, если не приближается к лимиту
+                charCount.style.color = '';
             }
         });
     });
@@ -370,12 +340,10 @@
             const currentLength = titleField.value.length;
             charCount.textContent = currentLength + ' / 100';
 
-            // Если текст приближается к лимиту (например, 90 символов),
-            // можно изменить цвет на красный
             if (currentLength >= 90) {
                 charCount.style.color = 'red';
             } else {
-                charCount.style.color = ''; // Сбросить цвет, если не приближается к лимиту
+                charCount.style.color = '';
             }
         });
     });
@@ -383,39 +351,28 @@
 
 <script>
     $(document).ready(function () {
-        // При загрузке страницы скрываем сначала все элементы
         $('#image-group, #price-group, #is_price_negotiable-group').hide();
 
-        // При клике на кнопку "Купить"
         $('#buy-button').click(function () {
             $('#price-group').hide();
             $('#is_price_negotiable-group').hide();
             $('#image-group').hide();
         });
 
-        // При клике на кнопку "Продать"
         $('#sell-button').click(function () {
             $('#image-group').show();
             $('#price-group').show();
             $('#is_price_negotiable-group').show();
-
-            {#$('#id_is_price_negotiable').show();#}
-            // Проверяем состояние "Договорной" и настроек поля "Цена" при переключении
-            {#togglePriceField($('#id_is_price_negotiable').is(':checked'));#}
         });
 
-        // Обработка изменения состояния "Договорной"
         $('#id_is_price_negotiable').change(function () {
             togglePriceField(this.checked);
         });
 
-        // Функция для скрытия/показа поля "Цена" в зависимости от состояния "Договорной"
         function togglePriceField(isPriceNegotiable) {
             if (isPriceNegotiable) {
-                // Если "Договорная" выбрана, выключаем поле "Цена" и очищаем его
                 $('#id_price').prop('disabled', true).val('');
             } else {
-                // Если "Договорная" не выбрана, включаем поле "Цена"
                 $('#id_price').prop('disabled', false);
             }
         }

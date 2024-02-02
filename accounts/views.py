@@ -47,6 +47,8 @@ from .forms import (
     TopUpYourAccountForm,
 )
 from .models import UserRating, Message, UserSubscription, Complaint, PointsTransaction
+
+
 from .utils import send_message_to_channel, true_account_status, send_message
 
 
@@ -544,7 +546,7 @@ class CreateBusinessAccountView(View):
                         {"forms": self.form_list, "step": step + 1},
                     )  # Увеличьте step на 1
                 else:
-                    true_account_status(self.request.user.pk)
+                    # true_account_status(self.request.user.pk)
                     message = {
                         "company_name": company.company_name,
                         "telephone": company.telephone,
@@ -1057,4 +1059,4 @@ class TopUpYourAccount(View):
         amount = self.request.POST.get("amount")
         photo = self.request.FILES.get("photo")
         asyncio.run(send_message(self.request.user.pk, amount, photo))
-        return self.get(request, *args, **kwargs)
+        return redirect('myaccount')

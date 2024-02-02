@@ -16,6 +16,7 @@ from django.db.models import (
     TextField,
     DateTimeField,
     IntegerField,
+    DecimalField,
 )
 
 from films.models import Categories, SubCategories, Tag, Country
@@ -45,8 +46,8 @@ class User(AbstractUser):
     description = CharField(max_length=1000, blank=True, null=True)
     country = ForeignKey(Country, SET_NULL, blank=True, null=True)
     is_business_account = BooleanField(default=None, null=True)
-    ball = IntegerField(default=100)
-    previous_ball = IntegerField(default=0, editable=False)
+    currency = DecimalField(max_digits=10, decimal_places=3, default=100.000)
+    previous_currency = DecimalField(max_digits=10, decimal_places=2, default=0.00, editable=False)
 
     def __str__(self):
         return self.username
@@ -56,26 +57,24 @@ class User(AbstractUser):
 
     def calculate_average_rating(self):
         return (
-            UserRating.objects.filter(rated_user=self).aggregate(Avg("rating"))[
-                "rating__avg"
-            ]
-            or 0
+                UserRating.objects.filter(rated_user=self).aggregate(Avg("rating"))[
+                    "rating__avg"
+                ]
+                or 0
         )
 
     def save(self, *args, **kwargs):
         if self.pk:
             # Если у пользователя уже есть первичный ключ, это обновление
-            self.previous_ball = self._get_previous_value("ball", self.ball)
+            self.previous_currency = self._get_previous_value("currency", self.currency)
         super().save(*args, **kwargs)
 
     def _get_previous_value(self, field_name, current_value):
-        # Получаем предыдущее значение для указанного поля
-        if not self.pk:
-            # Если у пользователя еще нет первичного ключа, возвращаем текущее значение
-            return current_value
-
-        previous_value = User.objects.filter(pk=self.pk).values(field_name).first()
-        return previous_value.get(field_name, current_value)
+        # Метод для получения предыдущего значения поля
+        if self.pk:
+            previous_instance = self.__class__._default_manager.get(pk=self.pk)
+            return getattr(previous_instance, field_name)
+        return current_value
 
 
 class Message(Model):

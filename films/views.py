@@ -1,15 +1,15 @@
 import emoji
-import asyncio
+# import asyncio
 from fuzzywuzzy import fuzz
 from django.db.models import Q
 from django.utils import timezone
 from django.contrib import messages
 from django.http import JsonResponse
 from accounts.models import Message, User
-from .utils import send_message_to_channel
+# from .utils import send_message_to_channel
 from cyrtranslit import to_cyrillic, to_latin
 from django.shortcuts import redirect, render
-from django.db.models import CharField, Case, Value, When
+# from django.db.models import CharField, Case, Value, When
 from django.contrib.auth.decorators import login_required
 from .models import Products, SubCategories, Favorite, Tag
 from .forms import FilmsForm, ProductFilterForm, SearchForm
@@ -84,7 +84,7 @@ class IndexView(ListView):
             film.save()
             film.tags.set(selected_tags)
             message["film_id"] = film.id
-            asyncio.run(send_message_to_channel(message))
+            # asyncio.run(send_message_to_channel(message))
             messages.success(request, "Отправлено на модерацию")
             return redirect("index")
         else:
@@ -171,8 +171,8 @@ class ProductSaveView(CreateView):
             film.type = "sell"
             message["тип"] = "Продать"
             user = self.request.user
-            if user.ball >= 10:
-                user.ball -= 10
+            if user.currency >= 10:
+                user.currency -= 10
                 user.save()
         else:
             film.price = None
@@ -196,10 +196,10 @@ class ProductSaveView(CreateView):
         film.tags.set(selected_tags)
 
         message["film_id"] = film.id
-        if image:
-            asyncio.run(send_message_to_channel(message, film.image.path))
-        else:
-            asyncio.run(send_message_to_channel(message))
+        # if image:
+        #     asyncio.run(send_message_to_channel(message, film.image.path))
+        # else:
+        #     asyncio.run(send_message_to_channel(message))
 
         message = Message.objects.create(
             sender=self.request.user,

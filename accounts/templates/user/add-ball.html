@@ -21,8 +21,8 @@
     }
 
     .pay {
-        font-size: 24px;
-        font-weight: bold;
+        font-size: 18px;
+        font-weight: 400;
         text-align: center;
     }
 
@@ -107,18 +107,20 @@
     .radio-container {
         display: flex;
         justify-content: space-between;
-        margin: 20px;
+        flex-direction: column;
+        gap: 20px;
+        margin: 5px;
     }
 
     .radio-item {
-        width: max-content;
+        width: 100%;
     }
 
     .radio-label {
         cursor: pointer;
         padding: 10px;
         border: 2px solid #3498db;
-        border-radius: 5px;
+        border-radius: 22px;
         transition: background-color 0.3s, color 0.3s;
         display: flex;
         align-items: center;
@@ -154,8 +156,13 @@
     <div style="display:flex; gap: 25px; background-color: #e8efff; border-radius: 22px; padding: 0 20px 20px 20px; width: max-content;">
         <div class="instruction" style="min-width: 300px">
             <h2>Инструкция:</h2>
+            <div class="">
+                sizning hisobingiz: {{ request.user.currency }}
+            </div>
+            <br>
+            <br>
             <div class="pay">
-                30 ball --> 30.000 sum
+                30.000 so'm
             </div>
             <ol>
                 <li>Скопируйте номер карты.</li>
@@ -187,7 +194,6 @@
 
         <div class="form-container" style="min-width: 300px">
             <h2>Отправка чека</h2>
-            {#    <form action="{% url 'your_form_submission_url' %}" method="post" enctype="multipart/form-data">#}
             <form action="{% url "top-up-your-account" %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <p class="file-input-container">
@@ -209,21 +215,21 @@
                         <label id="30.000" for="id_amount_0" class="radio-label">
                             <input type="radio" name="amount" value="30" required="" id="id_amount_0"
                                    class="radio-input" checked="">
-                            30
+                            30.000 so'm
                         </label>
                     </div>
                     <div class="radio-item">
                         <label id="50.000" for="id_amount_1" class="radio-label">
                             <input type="radio" name="amount" value="50" required="" id="id_amount_1"
                                    class="radio-input">
-                            50
+                            50.000 so'm
                         </label>
                     </div>
                     <div class="radio-item">
                         <label id="100.000" for="id_amount_2" class="radio-label">
                             <input type="radio" name="amount" value="100" required="" id="id_amount_2"
                                    class="radio-input">
-                            100
+                            100.000 so'm
                         </label>
                     </div>
                 </div>
@@ -260,7 +266,8 @@
             label.addEventListener("click", function () {
                 var selectedAmount = label.textContent.trim();
                 var id = label.getAttribute('id');
-                payElement.textContent = selectedAmount + " ball --> " + id + 'sum';
+                {#payElement.textContent = selectedAmount + " ball --> " + id + 'sum';#}
+                payElement.textContent = id + " so'm";
             });
         });
     });

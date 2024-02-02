@@ -351,14 +351,14 @@ class MyAccountRedirectView(DetailView):
 
         elif action.startswith("up_to_recommendation"):
             if not film.is_top_film:
-                if user.ball >= 10:
+                if user.currency >= 10.0:
                     if action.endswith("1"):
                         film.top_duration = 1
                     elif action.endswith("2"):
                         film.top_duration = 3
                     elif action.endswith("3"):
                         film.top_duration = 7
-                    user.ball -= 10
+                    user.currency -= 10.0
                     film.save()
                     user.save()
                     message = Message.objects.create(
@@ -374,14 +374,14 @@ class MyAccountRedirectView(DetailView):
                     message = Message.objects.create(
                         sender=user,
                         message="У вас не достаточно баллов поднятия в топ. \n Баллы: {}".format(
-                            user.ball
+                            user.currency
                         ),
                         created_at=timezone.now(),
                     )
                     messages.success(
                         request,
                         "У вас не достаточно баллов поднятия в топ. \n Баллы: {}".format(
-                            user.ball
+                            user.currency
                         ),
                     )
 
@@ -403,8 +403,8 @@ class MyAccountRedirectView(DetailView):
                 message.recipients.set([user])
         elif action == "up_to_top":
             user = request.user
-            if user.ball >= 10:
-                user.ball -= 10
+            if user.currency >= 10.0:
+                user.currency -= 10
                 film.create_date = timezone.now()
                 film.create_date_changed = True
                 film.save()
@@ -443,8 +443,8 @@ class ProductActionView(View):
             )
         elif action.startswith("up_to_recommendation"):
             user = request.user
-            if user.ball >= 10:
-                user.ball -= 10
+            if user.currency >= 10.0:
+                user.currency -= 10
                 film = Products.objects.get(pk=int(selected_product_ids[0]))
                 # film.create_date = timezone.now()
                 if action.endswith("1"):
@@ -466,7 +466,7 @@ class ProductActionView(View):
                 message = Message.objects.create(
                     sender=user,
                     message="У вас не достаточно баллов поднятия в топ. \n Баллы: {}".format(
-                        user.ball
+                        user.currency
                     ),
                     created_at=timezone.now(),
                 )
@@ -1039,7 +1039,7 @@ def add_ball(request, user_id):
         form = AddBallForm(request.POST)
         if form.is_valid():
             ball_amount = form.cleaned_data["ball_amount"]
-            user.ball += ball_amount
+            user.currency += ball_amount
             user.save()
             return redirect("admin_user_list")
     else:

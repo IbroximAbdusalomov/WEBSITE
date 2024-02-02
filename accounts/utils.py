@@ -16,7 +16,8 @@ User = get_user_model()
 async def send_message(user_id, amount, photo):
     inline_kb = [
         InlineKeyboardButton(text="Добавить", callback_data=f"+"),
-        InlineKeyboardButton(text="Перейти", url="https://t.me"),
+        InlineKeyboardButton(text="Перейти",
+                             url="https://tecnoprom-2024.onrender.com/users/profile/{}".format(user_id)),
     ]
 
     message = f"""

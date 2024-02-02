@@ -1,0 +1,36 @@
+{% extends 'admin/dashboard.html' %}
+{% block admin %}
+    <form action="{% url 'admin_statistics' %}" method="post">
+        {% csrf_token %}
+        <button name="filter" value="all">all</button>
+        <button name="filter" value="today">today</button>
+        <button name="filter" value="1 week">last 7 day's</button>
+        <button name="filter" value="1 month">last month</button>
+    </form>
+
+    <div id="statistics-section">
+        <div id="points-statistics-section">
+            <table>
+                <thead>
+                <tr>
+                    <th>User</th>
+                    {#                    <th>Transaction Type</th>#}
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for statistic_ball in statistic_balls %}
+                    <tr>
+                        <td>
+                            <a href="{% url "admin_user_list" %}#user-{{ user.pk }}">{{ statistic_ball.user.username }}</a>
+                        </td>
+                        <td>{{ statistic_ball.amount }}</td>
+                        <td>{{ statistic_ball.timestamp }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

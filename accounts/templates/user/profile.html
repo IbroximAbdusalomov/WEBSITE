@@ -33,27 +33,27 @@
             <div class="user-profile">
                 <div class="user-photos">
                     <div class="user-banner">
-                        <img src="{{ user.banner.url }}" alt="banner">
+                        <img src="{{ profile.banner.url }}" alt="banner">
                     </div>
                     <div class="user-profile__foto">
-                        <img src="{{ user.logo.url }}" alt="profile foto">
+                        <img src="{{ profile.logo.url }}" alt="profile foto">
                     </div>
                 </div>
                 <div class="profile-info">
                     <div class="block-1">
                         <h1 class="profile-info__title">
-                            {{ user.company_name }}
+                            {{ profile.company_name }}
                             <a class="update-profile-btn dont-text-decoration" href="{% url 'update_profile' %}"
                                style="color: black">
                                 <i class="fa-solid fa-pen"></i>
                             </a>
                         </h1>
                         <div class="profile-description">
-                            <p>{{ user.description }}</p>
+                            <p>{{ profile.description }}</p>
                         </div>
 
-                        <div class="more_data-company">{{ user.country }}</div>
-                        <div class="more_data-company">{{ user.category }} / {{ user.sub_category }}</div>
+                        <div class="more_data-company">{{ profile.country }}</div>
+                        <div class="more_data-company">{{ profile.category }} / {{ profile.sub_category }}</div>
                         <div class="more_data-company">{% for foo in user.tags.all %}
                             {{ foo }}
                         {% endfor %}
@@ -95,7 +95,7 @@
                         <div class="notification-info">
 
                             {#                            <div class="balls">#}
-                            {#                                : {{ user.ball }}#}
+                            {#                                : {{ profile.ball }}#}
                             {#                            </div>#}
 
                             <a href="{% url 'notification' %}">
@@ -125,12 +125,14 @@
             </div>
         {% else %}
             <div class="user-profile__user">
-                <div class="user-photos">
-                    <img src="{% static "images/avatar.png" %}" alt="avatar">
+                <div style="display: flex">
+                    <div class="user-photos">
+                        <img src="{% static "images/avatar.png" %}" alt="avatar">
+                    </div>
+                    <h1 style="display:flex; align-items: center;">
+                        {{ profile.username }}
+                    </h1>
                 </div>
-                <h1>
-                    {{ user.username }}
-                </h1>
                 <div class="test-view">
                     <div class="all_views-product">
                         <span>{% translate "seen" %}:{{ count_all_views_product }}</span>
@@ -154,7 +156,8 @@
             <div><h3 data-testid="header-title" class="css-6i2gxn er34gjf0">{% translate "Ваши объявления" %}</h3></div>
             <div class="admin-panel__buttons right-buttons">
                 <ul class="buttons">
-                    <li class="price-button"><a href="#"><i class="fa-solid fa-wallet"></i>: {{ user.ball }}</a></li>
+                    <li class="price-button"><a href="#"><i class="fa-solid fa-wallet"></i>: {{ profile.currency }}</a>
+                    </li>
                     <li class="login-button"><a
                             href="{% url "top-up-your-account" %}">{% translate "Пополнить счет" %}</a></li>
                     <li class="price-button"><a href="#">{% translate "Тарифы" %}</a></li>

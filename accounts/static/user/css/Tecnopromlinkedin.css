@@ -169,13 +169,14 @@
 
 .user-profile__user {
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
     padding: 20px;
     position: relative;
-    height: 140px;
+    height: max-content;
     border: 1px solid #cecece;
     background-color: white;
-    border-radius: 10px
+    border-radius: 10px;
+    flex-direction: column;
 }
 
 .user-profile__logo img {

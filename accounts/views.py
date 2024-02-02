@@ -48,7 +48,6 @@ from .forms import (
 )
 from .models import UserRating, Message, UserSubscription, Complaint, PointsTransaction
 
-
 from .utils import send_message_to_channel, true_account_status, send_message
 
 

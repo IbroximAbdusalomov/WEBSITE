@@ -167,12 +167,12 @@ class PointsTransaction(Model):
 
 
 @receiver(post_save, sender=get_user_model())
-def update_ball_transaction(sender, instance, created, **kwargs):
+def update_currency_transaction(sender, instance, created, **kwargs):
     if not created:
-        previous_ball = instance.previous_ball
+        previous_currency = instance.previous_currency
 
         PointsTransaction.objects.create(
             user=instance,
-            transaction_type="purchase" if instance.ball > previous_ball else "usage",
-            amount=abs(instance.ball - previous_ball),
+            transaction_type="purchase" if instance.currency > previous_currency else "usage",
+            amount=abs(instance.currency - previous_currency),
         )

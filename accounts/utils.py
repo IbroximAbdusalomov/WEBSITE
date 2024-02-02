@@ -16,8 +16,7 @@ User = get_user_model()
 async def send_message(user_id, amount, photo):
     inline_kb = [
         InlineKeyboardButton(text="Добавить", callback_data=f"+"),
-        InlineKeyboardButton(text="Перейти", callback_data="-"),
-        # InlineKeyboardButton(text="Перейти", url="http://localhost:8000/"),
+        InlineKeyboardButton(text="Перейти", url="https://t.me"),
     ]
 
     message = f"""

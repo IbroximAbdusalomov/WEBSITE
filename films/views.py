@@ -60,6 +60,7 @@ class IndexView(ListView):
         }
         form = FilmsForm(request.POST)
         selected_tags = request.POST.getlist("tags")
+        selected_subcategories = request.POST.getlist("subcategories")
         if form.is_valid():
             film = form.save(commit=False)
             if not request.user.is_anonymous:
@@ -82,6 +83,7 @@ class IndexView(ListView):
                 film.price = None
             film.save()
             film.tags.set(selected_tags)
+            film.sub_category.set(selected_subcategories)
             message["film_id"] = film.id
             asyncio.run(send_message_to_channel(message))
             messages.success(request, "Отправлено на модерацию")
@@ -139,21 +141,26 @@ class ProductDetailView(DetailView):
         context["author_products"] = Products.objects.filter(
             author_id=product_author
         ).order_by("-create_date")[:16]
-
         similar_products = Products.objects.filter(
             category=product_category, sub_category=product_sub_category
         ).order_by("-create_date")[:16]
+
         if len(similar_products) < 16:
             add = 16 - len(similar_products)
-            similar_products += Products.objects.filter(
+            additional_products = Products.objects.filter(
                 category=product_category
-            ).order_by("-create_date")[:add]
+            ).exclude(id__in=[product.id for product in similar_products]).order_by("-create_date")[:add]
+            similar_products = list(similar_products) + list(additional_products)
+
         if len(similar_products) < 16:
             add = 16 - len(similar_products)
-            similar_products += Products.objects.filter(
-                category=product_category
-            ).order_by("-create_date")[:add]
+            additional_products = Products.objects.filter(
+                sub_category=product_sub_category
+            ).exclude(id__in=[product.id for product in similar_products]).order_by("-create_date")[:add]
+            similar_products = list(similar_products) + list(additional_products)
+
         context["similar_products"] = similar_products
+
         return context
 
 
@@ -166,6 +173,7 @@ class ProductSaveView(CreateView):
         film = form.save(commit=False)
         message = {}
         selected_tags = self.request.POST.getlist("tags")
+        selected_subcategories = self.request.POST.getlist("subcategories")  # Получаем список выбранных субкатегорий
         if self.request.POST.get("form-name") == "sell":
             film.type = "sell"
             message["тип"] = "Продать"
@@ -191,8 +199,9 @@ class ProductSaveView(CreateView):
         for field_name, field_value in form.cleaned_data.items():
             message[field_name] = field_value
 
-        film.save()
         film.tags.set(selected_tags)
+        film.subcategories.set(selected_subcategories)
+        film.save()
 
         message["film_id"] = film.id
         if image:

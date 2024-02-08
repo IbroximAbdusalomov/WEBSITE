@@ -71,19 +71,17 @@
                     {{ form.category }}
                 </div>
                 <div class="form-group" id="subcategory-group">
-                    <label for="subcategory" class="form-label">{% translate "Субкатегория" %}:
+                    <label for="subcategories" class="form-label">{% translate "Субкатегория" %}:
                         {% for error in form.sub_category.errors %}
                             <div class="error-message">{{ error }}</div>
                         {% endfor %}</label>
-                    {{ form.sub_category }}
+                    <div id="subcategories-checkboxes"></div>
                 </div>
                 <div class="form-group" id="tags-group" style="display: block">
                     <label for="tags" class="form-label">{% translate "Теги" %}:{% for error in form.tags.errors %}
                         <div class="error-message">{{ error }}</div>
                     {% endfor %}</label>
-                    <div id="tags-checkboxes">
-                        {#                        {{ form.tags }}#}
-                    </div>
+                    <div id="tags-checkboxes"></div>
                 </div>
                 <div class="form-group">
                     <label for="phone" class="form-label">{% translate "Телефон номер" %}:
@@ -92,6 +90,7 @@
                         {% endfor %}</label>
                     {{ form.telephone }}
                 </div>
+            
                 <div class="form-group">
                     <label for="telegram" class="form-label">{% translate "Телеграмм" %}:
                         {% for error in form.telegram.errors %}
@@ -165,28 +164,38 @@
     $(document).ready(function () {
         const categorySelect = $('#id_category');
         const subcategoryGroup = $('#subcategory-group');
-        const subcategorySelect = $('#id_sub_category');
+        const subcategoryCheckboxes = $('#subcategories-checkboxes');
         const tagsGroup = $('#tags-group');
-        const tagsSelect = $('#id_tags');
+        const tagsCheckboxes = $('#tags-checkboxes');
 
         function loadSubcategories() {
             const selectedCategoryId = categorySelect.val();
 
-            subcategorySelect.empty().append($('<option></option>').attr('value', '').text('Выберите субкатегорию'));
-            tagsGroup.hide();
+            subcategoryCheckboxes.empty();
 
             if (selectedCategoryId) {
+                subcategoryGroup.show();
+
                 $.ajax({
                     url: `/related_to_it/?category_id=${selectedCategoryId}`,
                     dataType: 'json',
                     success: function (data) {
                         console.log(data.subcategories);
-                        subcategorySelect.empty();
-                        subcategorySelect.append($('<option></option>').attr('value', '').text('Выберите субкатегорию'));
+
                         $.each(data.subcategories, function (key, value) {
-                            subcategorySelect.append($('<option></option>').attr('value', key).text(value));
+                            const checkboxContainer = $('<div>').addClass('cat action');
+                            const label = $('<label>');
+                            const checkbox = $('<input type="checkbox">')
+                                .attr('id', `subcategory-${key}`)
+                                .attr('name', 'subcategories')
+                                .attr('value', key)
+                                .appendTo(label);
+
+                            label.append(checkbox);
+                            label.append(`<span>${value}</span>`);
+                            checkboxContainer.append(label);
+                            subcategoryCheckboxes.append(checkboxContainer);
                         });
-                        subcategoryGroup.show();
                     }
                 });
             } else {
@@ -195,58 +204,68 @@
         }
 
         categorySelect.change(loadSubcategories);
-
         loadSubcategories();
 
+        function getSelectedSubcategories() {
+            const selectedSubcategories = [];
+            subcategoryCheckboxes.find('input[name="subcategories"]:checked').each(function () {
+                selectedSubcategories.push($(this).val());
+            });
+            return selectedSubcategories;
+        }
+
         function loadTags() {
-            const selectedSubcategoryId = subcategorySelect.val();
+            const selectedSubcategories = getSelectedSubcategories();
 
-            $('#tags-checkboxes').empty();
+            tagsCheckboxes.empty();
 
-            if (selectedSubcategoryId) {
-                $.ajax({
-                    url: `/related_to_it/?subcategory_id=${selectedSubcategoryId}`,
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log(data.tags);
-                        $.each(data.tags, function (key, value) {
-                            const checkboxContainer = $('<div>')
-                                .addClass('cat')
-                                .addClass('action');
+            if (selectedSubcategories.length > 0) {
+                selectedSubcategories.forEach(function (subcategoryId) {
+                    $.ajax({
+                        url: `/related_to_it/?subcategory_id=${subcategoryId}`,
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(`Tags for Subcategory ${subcategoryId}:`, data.tags);
 
-                            const label = $('<label>');
+                            $.each(data.tags, function (key, value) {
+                                const checkboxContainer = $('<div>').addClass('cat action');
+                                const label = $('<label>');
+                                const checkbox = $('<input type="checkbox">')
+                                    .attr('id', `tag-${key}`)
+                                    .attr('name', 'tags')
+                                    .attr('value', key)
+                                    .appendTo(label);
 
-                            const checkbox = $('<input type="checkbox">')
-                                .attr('id', `tag-${key}`)
-                                .attr('name', 'tags')
-                                .attr('value', key)
-                                .appendTo(label);
-
-                            label.append($('<span>').text(value));
-
-                            checkboxContainer.append(label);
-
-                            $('#tags-checkboxes').append(checkboxContainer);
-                        });
-                        $('#tags-group').show();
-                    }
+                                label.append(checkbox);
+                                label.append(`<span>${value}</span>`);
+                                checkboxContainer.append(label);
+                                tagsCheckboxes.append(checkboxContainer);
+                            });
+                        }
+                    });
                 });
+
+                tagsGroup.show();
             } else {
-                $('#tags-group').hide();
+                tagsGroup.hide();
             }
         }
 
-        subcategorySelect.change(loadTags);
+        subcategoryCheckboxes.on('change', loadTags);
         loadTags();
     });
+
 </script>
 
 
 <script>
     $(document).ready(function () {
+        // Функция, которая будет вызываться при изменении поля "Страна"
         $("#id_country").change(function () {
+            // Получаем значение выбранной страны
             var selectedCountry = $(this).val();
 
+            // Если выбран Узбекистан, показываем поле "Город", иначе скрываем его
             if (selectedCountry === "1") {
                 $("#city-group").show();
             } else {
@@ -254,6 +273,7 @@
             }
         });
 
+        // Инициализация состояния поля "Город" при загрузке страницы
         if ($("#country").val() === "1") {
             $("#city-group").show();
         } else {
@@ -269,33 +289,62 @@
         const sellButton = document.getElementById('sell-button');
         const formNameInput = document.getElementById('form-name');
 
-        if (!buyButton.classList.contains("active")) {
-            buyButton.addEventListener('click', function () {
+
+        buyButton.addEventListener('click', function () {
+            if (!buyButton.classList.contains("active")) {
                 buyButton.classList.add("active");
                 sellButton.classList.remove("active");
                 formNameInput.value = "buy";
-            });
-        }
+            }
+        });
+        sellButton.addEventListener('click', function () {
+            if (!sellButton.classList.contains("active")) {
 
-        if (!sellButton.classList.contains("active")) {
-            sellButton.addEventListener('click', function () {
                 const isAuthenticated = sellButton.getAttribute('data-authenticated');
-                const userCurrency = {{ request.user.currency|default:0 }};
-
-                if (isAuthenticated === "True" && userCurrency >= 10.0) {
+                const userBall = {{ request.user.currency|default:0|stringformat:"s"|safe }};
+                console.log(userBall)
+                if (isAuthenticated === "True" && userBall >= 10) {
                     sellButton.classList.add("active");
                     buyButton.classList.remove("active");
                     formNameInput.value = "sell";
-                } else if (isAuthenticated === "True" && userCurrency < 10.0) {
-                    const messageData = "You need at least 10 currency to perform the 'sell' action";
-                    alert(messageData);
+                } else if (isAuthenticated === "True" && userBall < 10) {
+                    const messageData = "You need at least 10 balls to perform the 'sell' action";
+                    alert(messageData)
                     window.location.href = "{% url 'myaccount' %}";
                 } else {
                     window.location.href = "{% url 'login' %}";
                 }
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#image-group, #price-group, #is_price_negotiable-group').hide();
 
+        $('#buy-button').click(function () {
+            $('#price-group').hide();
+            $('#is_price_negotiable-group').hide();
+            $('#image-group').hide();
+        });
 
-            });
+        $('#sell-button').click(function () {
+            $('#image-group').show();
+            $('#price-group').show();
+            $('#is_price_negotiable-group').show();
+
+        });
+
+        $('#id_is_price_negotiable').change(function () {
+            togglePriceField(this.checked);
+        });
+
+        function togglePriceField(isPriceNegotiable) {
+            if (isPriceNegotiable) {
+                $('#id_price').prop('disabled', true).val('');
+            } else {
+                $('#id_price').prop('disabled', false);
+            }
         }
     });
 </script>
@@ -322,10 +371,12 @@
             const currentLength = descriptionField.value.length;
             charCount.textContent = currentLength + ' / 700';
 
+            // Если текст приближается к лимиту (например, 750 символов),
+            // можно изменить цвет на красный
             if (currentLength >= 700) {
                 charCount.style.color = 'red';
             } else {
-                charCount.style.color = '';
+                charCount.style.color = ''; // Сбросить цвет, если не приближается к лимиту
             }
         });
     });
@@ -340,43 +391,16 @@
             const currentLength = titleField.value.length;
             charCount.textContent = currentLength + ' / 100';
 
+            // Если текст приближается к лимиту (например, 90 символов),
+            // можно изменить цвет на красный
             if (currentLength >= 90) {
                 charCount.style.color = 'red';
             } else {
-                charCount.style.color = '';
+                charCount.style.color = ''; // Сбросить цвет, если не приближается к лимиту
             }
         });
     });
 </script>
 
-<script>
-    $(document).ready(function () {
-        $('#image-group, #price-group, #is_price_negotiable-group').hide();
-
-        $('#buy-button').click(function () {
-            $('#price-group').hide();
-            $('#is_price_negotiable-group').hide();
-            $('#image-group').hide();
-        });
-
-        $('#sell-button').click(function () {
-            $('#image-group').show();
-            $('#price-group').show();
-            $('#is_price_negotiable-group').show();
-        });
-
-        $('#id_is_price_negotiable').change(function () {
-            togglePriceField(this.checked);
-        });
-
-        function togglePriceField(isPriceNegotiable) {
-            if (isPriceNegotiable) {
-                $('#id_price').prop('disabled', true).val('');
-            } else {
-                $('#id_price').prop('disabled', false);
-            }
-        }
-    });
-</script>
 
 </html>

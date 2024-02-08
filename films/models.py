@@ -122,7 +122,7 @@ class Products(Model):  # Модель
     country = ForeignKey(Country, on_delete=CASCADE)
     city = ForeignKey(City, on_delete=CASCADE, blank=True, null=True)
     category = ForeignKey(Categories, CASCADE)
-    sub_category = ForeignKey(SubCategories, CASCADE)
+    sub_category = ManyToManyField(SubCategories, blank=True)
     tags = ManyToManyField(Tag, blank=True)
     is_active = BooleanField(default=False)
     type = CharField(max_length=50, choices=TYPE_CHOICES, default="buy")

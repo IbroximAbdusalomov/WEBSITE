@@ -61,7 +61,7 @@
                                     {% translate "Б/у оборудование" %}
                                 </button>
                             </li>
-                            
+
                             <li class="main-navigation__item">
                                 <img src="{% static 'images/categories/xomashyo-24px.png' %}" alt="">
                                 <button name="category" value="3">
@@ -236,6 +236,12 @@
                                 <div class="button-for-choice-section">
                                     <a class="MuiBox-root dont-text-decoration"
                                        href="{% url 'product-list' %}">{% translate "Барахолка" %}</a>
+                                </div>
+                            </div>
+                            <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" aria-expanded="false">
+                                <div class="button-for-choice-section">
+                                    <a class="MuiBox-root dont-text-decoration"
+                                       href="{% url 'top-up-your-account' %}">{% translate "Пополнить счет" %}</a>
                                 </div>
                             </div>
 

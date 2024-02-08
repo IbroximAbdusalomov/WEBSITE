@@ -16,6 +16,25 @@
 
 </head>
 <style>
+    #paymentSection {
+        padding: 150px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    #paymentContainer {
+        display: flex;
+        gap: 25px;
+        background-color: #e8efff;
+        border-radius: 22px;
+        padding: 0 20px 20px 20px;
+        width: max-content;
+    }
+
+    #instructionDiv {
+        min-width: 300px
+    }
+
     ol li {
         padding: 5px 0;
     }
@@ -147,21 +166,26 @@
         transition: background-color 0.3s, color 0.3s;
     }
 
+    @media only screen and (max-width: 600px) {
+        #paymentContainer {
+            flex-direction: column;
+        }
+    }
 </style>
 
 <body>
 {% include "nav_bar.html" %}
 
-<section style="padding: 150px 0; display:flex; justify-content: center;">
-    <div style="display:flex; gap: 25px; background-color: #e8efff; border-radius: 22px; padding: 0 20px 20px 20px; width: max-content;">
-        <div class="instruction" style="min-width: 300px">
+<section id="paymentSection">
+    <div id="paymentContainer">
+        <div id="instructionDiv" class="instruction">
             <h2>Инструкция:</h2>
-            <div class="">
+            <div id="userAccountInfo">
                 sizning hisobingiz: {{ request.user.currency }}
             </div>
             <br>
             <br>
-            <div class="pay">
+            <div id="paymentAmount" class="pay">
                 30.000 so'm
             </div>
             <ol>
@@ -180,11 +204,10 @@
                     <br>
                     <br>
 
-                    <span id="codeSpan1">или</span>
+                    <span id="alternativePayment">или</span>
                     <br>
                     <img src="{% static "user/image/click.JPG" %}" alt="clickqr"
                          style="max-width: 100px; padding: 5px;">
-                    {#                    <br>#}
                     <img src="{% static "user/image/payme.png" %}" alt="clickqr"
                          style="max-width: 100px; padding: 5px;">
                 </li>
@@ -192,7 +215,7 @@
             </ol>
         </div>
 
-        <div class="form-container" style="min-width: 300px">
+        <div id="formContainer" class="form-container" style="min-width: 300px">
             <h2>Отправка чека</h2>
             <form action="{% url "top-up-your-account" %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -234,7 +257,7 @@
                     </div>
                 </div>
 
-                <div class="">
+                <div id="submitButtonContainer">
                     <button class="form-button" type="submit" style="width: 300px;">submit</button>
                 </div>
             </form>

@@ -10,32 +10,30 @@
     <link rel="stylesheet" href="{% static 'css/product/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/product/main.css' %}">
     <link rel="stylesheet" href="{% static 'user/css/admin/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
 
+<button id="toggle-menu-btn" class="mobile-only" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+
 <div id="sidebar">
-    <span class="sidebar-link" style="cursor: pointer" onclick="showUsersSection()">Users</span>
+    <span class="sidebar-links" style="cursor: pointer" onclick="showUsersSection()">Users</span>
     <div id="users-submenu" style="display: none;">
         <a href="{% url "admin_user_list" %}" class="sidebar-link">List Accounts</a>
         <a href="{% url "admin_user_verify" %}" class="sidebar-link">Verify Accounts</a>
         <a href="{% url "admin_user_deleted" %}" class="sidebar-link">Deleted Accounts</a>
     </div>
 
-    <span class="sidebar-link" style="cursor: pointer" onclick="showProductsSection()">Products</span>
+    <span class="sidebar-links" style="cursor: pointer" onclick="showProductsSection()">Products</span>
     <div id="products-submenu" style="display: none;">
         <a href="{% url "admin_user_products_active" %}" class="sidebar-link">Activates</a>
         <a href="{% url "admin_user_products_moderation" %}" class="sidebar-link">Moderation</a>
     </div>
 
     <a href="{% url "admin_support" %}" class="sidebar-link">Support</a>
-    {#    <a href="#" class="sidebar-link" onclick="showSupportSection()">Support</a>#}
-
-    {#    <span class="sidebar-link" style="cursor: pointer">Statistics</span>#}
     <a href="{% url "admin_statistics" %}" class="sidebar-link" style="cursor: pointer">Statistics</a>
-    {#    <div id="statistics-submenu" style="display: none;">#}
-    {#        <a href="#" class="sidebar-link" onclick="showPointsStatistics()">Ball</a>#}
-    {#    </div>#}
-
 </div>
 
 <div id="content">
@@ -49,13 +47,11 @@
 <script>
     function showUsersSection() {
         var usersSubmenu = document.getElementById('users-submenu');
-        // Переключение видимости подменю при каждом вызове функции
         usersSubmenu.style.display = usersSubmenu.style.display === 'none' ? 'flex' : 'none';
     }
 
     function showListAccounts() {
         hideOtherSections();
-        {#document.getElementById('users-subsection').style.display = 'none';#}
         document.getElementById('users-list').style.display = 'flex';
     }
 
@@ -72,7 +68,6 @@
     function showActivates() {
         hideOtherSections();
         document.getElementById('activates-list').style.display = 'flex';
-        // Implement the logic for showing the Activates section
     }
 
     function showModeration() {
@@ -91,16 +86,6 @@
         document.getElementById('statistics-section').style.display = 'flex';
         document.getElementById('statistics-submenu').style.display = 'flex';
     }
-
-    {#function showUserStatistics() {#}
-    {#    hideOtherSections();#}
-    {#    document.getElementById('user-statistics-section').style.display = 'flex';#}
-    {# }#}
-
-    {#function showProductStatistics() {#}
-    {#    hideOtherSections();#}
-    {#    document.getElementById('product-statistics-section').style.display = 'flex';#}
-    {# }#}
 
     function showPointsStatistics() {
         hideOtherSections();
@@ -130,7 +115,23 @@
         document.getElementById('moderation-list').style.display = 'none';
 
     }
+
+    // Функция для открытия/закрытия меню
+    function toggleMenu() {
+        var menu = document.getElementById('sidebar');
+        menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+    }
+
+    var links = document.getElementsByClassName('sidebar-link');
+    for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function () {
+            var menu = document.getElementById('sidebar');
+            menu.style.display = 'none';
+        });
+    }
+
 </script>
+
 
 </body>
 </html>

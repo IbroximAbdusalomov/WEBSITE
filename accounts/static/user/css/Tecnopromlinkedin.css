@@ -241,6 +241,14 @@
     color: black;
 }
 
+.tab-list__1 {
+    padding-right: 45%;
+}
+
+.tab-list__2 {
+    display: flex;
+}
+
 @media screen and (max-width: 480px) {
     .test-view {
         padding-left: 0;
@@ -264,5 +272,14 @@
 
     .action-buttons {
         flex-wrap: wrap;
+    }
+
+    .tab-list__1 {
+        display: none;
+    }
+
+    .tab-list__2 {
+        flex-direction: column;
+        width: 100%;
     }
 }

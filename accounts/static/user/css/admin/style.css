@@ -31,6 +31,7 @@ body {
 }
 
 
+.sidebar-links,
 .sidebar-link {
     color: #fff;
     text-decoration: none;
@@ -159,4 +160,38 @@ body {
 
 .card__company-content, .card__sell-content, .card__buy-content {
     padding-left: 10px;
+}
+
+
+/* Стили для мобильного меню */
+#toggle-menu-btn {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    #sidebar {
+        display: none;
+        z-index: 9;
+        flex-direction: row;
+        gap: 25px;
+        width: 100%;
+        height: max-content;
+    }
+
+    #content {
+        margin-left: 0;
+    }
+
+    .sidebar-link {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    #toggle-menu-btn {
+        display: block;
+        margin-bottom: 10px;
+        border: none;
+        background: none;
+        height: max-content;
+    }
 }

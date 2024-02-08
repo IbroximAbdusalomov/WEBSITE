@@ -363,17 +363,22 @@
     <!-- /Cards sell section -->
 
     <script>
-        var cardBuyContent = document.querySelector(".card__buy-content");
+        // Ensure DOM content is loaded before accessing elements
+        document.addEventListener("DOMContentLoaded", function () {
+            var cardBuyContents = document.querySelectorAll(".card__buy-content");
 
-        cardBuyContent.addEventListener("click", function () {
-            // Получаем product_id из атрибута data-product-id
-            var productId = cardBuyContent.getAttribute("product-id");
+            // Loop through each card__buy-content element
+            cardBuyContents.forEach(function (cardBuyContent) {
+                cardBuyContent.addEventListener("click", function () {
+                    var productId = cardBuyContent.getAttribute("product-id");
 
-            if (productId) {
-                window.location.href = "{% url 'product-detail' 0 %}".replace('0', productId);
-            } else {
-                console.error("Product ID is empty or undefined");
-            }
+                    if (productId) {
+                        window.location.href = "{% url 'product-detail' 0 %}".replace('0', productId);
+                    } else {
+                        console.error("Product ID is empty or undefined");
+                    }
+                });
+            });
         });
     </script>
 

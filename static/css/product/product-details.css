@@ -498,7 +498,7 @@ body {
     padding-top: 50px;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
 
     .product-details {
         padding-bottom: 20px;
@@ -525,37 +525,30 @@ body {
         width: auto;
     }
 
+    .product-foto-and-info {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        /*flex-wrap: wrap;*/
+        flex-direction: column;
+    }
+
 }
 
-
-/* Стили для кнопок навигации Swiper.js */
-.swiper-button-next,
-.swiper-button-prev {
-    width: 40px;
-    height: 40px;
-    background-color: #333; /* Цвет фона кнопок */
-    color: #fff; /* Цвет иконок на кнопках */
-    border-radius: 50%; /* Закругленные углы для создания круглых кнопок */
+.user-products,
+.similar-products {
+    position: relative;
+    z-index: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    z-index: 10; /* Убеждаемся, что кнопки навигации остаются поверх слайдов */
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    background-color: #555; /* Цвет фона кнопок при наведении */
+.swiper-container {
+    overflow: hidden;
+    width: 90%;
 }
 
-/* Позиционирование кнопок навигации */
-.swiper-button-next {
-    right: 10px; /* Располагаем кнопку "Вперед" справа */
-}
-
-.swiper-button-prev {
-    left: 10px; /* Располагаем кнопку "Назад" слева */
+.swiper-wrapper .card__sell,
+.swiper-wrapper .card__buy {
+    width: 95%;
 }

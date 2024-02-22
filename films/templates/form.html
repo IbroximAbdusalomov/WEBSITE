@@ -71,7 +71,7 @@
                     {{ form.category }}
                 </div>
                 <div class="form-group" id="subcategory-group">
-                    <label for="subcategories" class="form-label">{% translate "Субкатегория" %}:
+                    <label for="subcategory" class="form-label">{% translate "Субкатегория" %}:
                         {% for error in form.sub_category.errors %}
                             <div class="error-message">{{ error }}</div>
                         {% endfor %}</label>
@@ -90,7 +90,6 @@
                         {% endfor %}</label>
                     {{ form.telephone }}
                 </div>
-            
                 <div class="form-group">
                     <label for="telegram" class="form-label">{% translate "Телеграмм" %}:
                         {% for error in form.telegram.errors %}

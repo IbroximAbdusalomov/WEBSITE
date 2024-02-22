@@ -551,7 +551,7 @@ class CreateBusinessAccountView(View):
                         "telephone": company.telephone,
                         "email": company.email,
                         "category": company.category,
-                        "sub_category": company.sub_category,
+                        "subcategories": company.sub_category,
                         "tags": company.tags,
                         "telegram": company.telegram,
                         "whatsapp": company.whatsapp,

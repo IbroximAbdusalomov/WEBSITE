@@ -258,3 +258,17 @@ class SearchForm(forms.Form):
             attrs={"class": "input", "placeholder": "Поиск...", "autocomplete": "off"}
         ),
     )
+
+
+class ServiceForm(forms.Form):
+    service_name_1 = forms.CharField(label='Название услуги 1', max_length=100)
+    service_price_1 = forms.DecimalField(label='Сумма услуги 1', max_digits=10, decimal_places=2)
+    service_info_1 = forms.CharField(label='Информация об услуге 1', widget=forms.Textarea)
+
+    service_name_2 = forms.CharField(label='Название услуги 2', max_length=100)
+    service_price_2 = forms.DecimalField(label='Сумма услуги 2', max_digits=10, decimal_places=2)
+    service_info_2 = forms.CharField(label='Информация об услуге 2', widget=forms.Textarea)
+
+    service_name_3 = forms.CharField(label='Название услуги 3', max_length=100)
+    service_price_3 = forms.DecimalField(label='Сумма услуги 3', max_digits=10, decimal_places=2)
+    service_info_3 = forms.CharField(label='Информация об услуге 3', widget=forms.Textarea)

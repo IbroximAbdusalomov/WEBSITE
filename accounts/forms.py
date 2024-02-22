@@ -184,7 +184,7 @@ class CompanyInfoForm(forms.ModelForm):
         required=False,
     )
 
-    sub_category = forms.ModelChoiceField(
+    subcategories = forms.ModelChoiceField(
         queryset=SubCategories.objects.all(),  # Replace with your actual queryset
         widget=forms.Select(attrs={"class": "company-select", "id": "id_sub_category"}),
         required=False,

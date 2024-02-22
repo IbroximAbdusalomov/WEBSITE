@@ -1,5 +1,7 @@
 import asyncio
 import emoji
+from django.urls import reverse_lazy
+from django.views import View
 from fuzzywuzzy import fuzz
 from django.db.models import Q
 from django.utils import timezone
@@ -11,7 +13,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from .utils import send_message_to_channel
 from .models import Products, SubCategories, Favorite, Tag
-from .forms import FilmsForm, ProductFilterForm, SearchForm
+from .forms import FilmsForm, ProductFilterForm, SearchForm, ServiceForm
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import ListView, CreateView, DetailView, UpdateView
 
@@ -82,8 +84,8 @@ class IndexView(ListView):
             except ValueError:
                 film.price = None
             film.save()
-            film.tags.set(selected_tags)
             film.sub_category.set(selected_subcategories)
+            film.tags.set(selected_tags)
             message["film_id"] = film.id
             asyncio.run(send_message_to_channel(message))
             messages.success(request, "Отправлено на модерацию")
@@ -173,7 +175,7 @@ class ProductSaveView(CreateView):
         film = form.save(commit=False)
         message = {}
         selected_tags = self.request.POST.getlist("tags")
-        selected_subcategories = self.request.POST.getlist("subcategories")  # Получаем список выбранных субкатегорий
+        selected_subcategories = self.request.POST.getlist("subcategories")
         if self.request.POST.get("form-name") == "sell":
             film.type = "sell"
             message["тип"] = "Продать"
@@ -199,9 +201,9 @@ class ProductSaveView(CreateView):
         for field_name, field_value in form.cleaned_data.items():
             message[field_name] = field_value
 
-        film.tags.set(selected_tags)
-        film.subcategories.set(selected_subcategories)
         film.save()
+        film.sub_category.set(selected_subcategories)
+        film.tags.set(selected_tags)
 
         message["film_id"] = film.id
         if image:
@@ -209,15 +211,21 @@ class ProductSaveView(CreateView):
         else:
             asyncio.run(send_message_to_channel(message))
 
-        message = Message.objects.create(
-            sender=self.request.user,
-            message="Вы успешно отправили запрос !.",
-            created_at=timezone.now(),
-        )
+        user = self.request.user
+        if not user.is_anonymous:
+            message = Message.objects.create(
+                sender=user,
+                message="Вы успешно отправили запрос !.",
+                created_at=timezone.now(),
+            )
 
-        message.recipients.set([self.request.user])
+            message.recipients.set([self.request.user])
         messages.success(self.request, "Вы успешно отправили запрос !")
-        return redirect("index")
+
+        if self.request.user.is_authenticated:
+            return render(self.request, "additional_services.html", {"product": film.pk})
+        else:
+            return redirect("index")
 
     def form_invalid(self, form):
         errors = form.errors
@@ -227,6 +235,34 @@ class ProductSaveView(CreateView):
         return render(
             self.request, self.template_name, {"form": form, "errors": errors}
         )
+
+
+class ProductUpdateStatus(View):
+    template_name = "additional_services.html"
+    form_class = ServiceForm
+
+    def get(self, request):
+        return render(request, self.template_name, {"form": self.form_class()})
+
+    def post(self, request):
+        service = self.request.POST.get("service", None)
+        product_pk = self.request.POST.get("product", None)
+        if service is not None:
+            product = Products.objects.get(pk=product_pk)
+            if str(service).endswith("1"):
+                product.is_top_film = True
+                product.top_duration = 1
+
+            elif str(service).endswith("2"):
+                product.is_top_film = True
+                product.top_duration = 2
+
+            elif str(service).endswith("3"):
+                product.is_top_film = True
+                product.top_duration = 3
+            product.save()
+        messages.success(self.request, "Success")
+        return redirect("index")
 
 
 class FilmsUpdateView(UpdateView):
@@ -527,3 +563,6 @@ def get_suggestions(request):
 
 def access_denied_page(request):
     return render(request, "access_denied_page.html")
+
+
+""""""

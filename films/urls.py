@@ -12,6 +12,7 @@ from .views import (
     send_message,
     get_suggestions,
     access_denied_page,
+    ProductUpdateStatus,
 )
 
 urlpatterns = [
@@ -27,4 +28,6 @@ urlpatterns = [
     path("send-message/<str:text>", send_message, name="send_message"),
     path("get_suggestions/", get_suggestions, name="get_suggestions"),
     path("access-denied/", access_denied_page, name="access_denied_page"),
+
+    path("product-status/", ProductUpdateStatus.as_view(), name="product_update_status")
 ]

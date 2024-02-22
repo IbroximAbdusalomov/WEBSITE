@@ -1,0 +1,159 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "css/product/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/product/main.css" %}">
+</head>
+<style>
+    #cards-for-services {
+        display: flex;
+        padding-top: 100px;
+    }
+
+    .card {
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin: 20px;
+        width: calc(33.33% - 40px); /* Ширина каждой карточки (33.33% минус отступы) */
+        float: left; /* Для расположения карточек в ряд */
+        box-sizing: border-box; /* Учитываем padding в общей ширине */
+    }
+
+    .card h2 {
+        margin-top: 0;
+    }
+
+    .card p {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .card ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .card ul li {
+        margin-bottom: 5px;
+    }
+
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    .card.selected {
+        border: 1px solid #0a24b9;
+        padding: 19px;
+    }
+
+    #button-service {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    button {
+        border-radius: 10px;
+        color: white;
+        transition: .2s linear;
+        background: #0B63F6;
+        padding: 15px;
+    }
+
+    button:hover {
+        box-shadow: 0 0 0 2px white, 0 0 0 4px #3C82F8;
+    }
+</style>
+<body>
+{% include "nav_bar.html" %}
+
+
+<div class="container">
+    <form method="post">
+        <input type="hidden" name="product" value="{{ product }}">
+        {% csrf_token %}
+        <div id="cards-for-services">
+            <div class="card">
+                <input type="radio" id="service_1" name="service" value="service_1">
+                <label for="service_1">
+                    <h2>Название услуги 1</h2>
+                    <p>Сумма услуги: $100</p>
+                    <ul>
+                        <li>Информация об услуге 1 - пункт 1</li>
+                        <li>Информация об услуге 1 - пункт 2</li>
+                        <li>Информация об услуге 1 - пункт 3</li>
+                    </ul>
+                </label>
+            </div>
+
+            <div class="card">
+                <input type="radio" id="service_2" name="service" value="service_2">
+                <label for="service_2">
+                    <h2>Название услуги 2</h2>
+                    <p>Сумма услуги: $200</p>
+                    <ul>
+                        <li>Информация об услуге 2 - пункт 1</li>
+                        <li>Информация об услуге 2 - пункт 2</li>
+                        <li>Информация об услуге 2 - пункт 3</li>
+                    </ul>
+                </label>
+            </div>
+
+            <div class="card">
+                <input type="radio" id="service_3" name="service" value="service_3">
+                <label for="service_3">
+                    <h2>Название услуги 3</h2>
+                    <p>Сумма услуги: $300</p>
+                    <ul>
+                        <li>Информация об услуге 3 - пункт 1</li>
+                        <li>Информация об услуге 3 - пункт 2</li>
+                        <li>Информация об услуге 3 - пункт 3</li>
+                    </ul>
+                </label>
+            </div>
+        </div>
+
+        <div id="button-service">
+            <button type="submit">Отправить</button>
+        </div>
+        <div id="button-service">
+            <button type="submit">Пропустить</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+
+        radioButtons.forEach((radio) => {
+            radio.addEventListener('change', (event) => {
+                const cards = document.querySelectorAll('.card');
+
+                cards.forEach((card) => {
+                    card.classList.remove('selected');
+                });
+
+                const card = event.target.closest('.card');
+                if (card && event.target.checked) {
+                    card.classList.add('selected');
+                } else {
+                    event.target.checked = false;
+                }
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>

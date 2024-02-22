@@ -4,7 +4,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputFile
 from django.contrib.auth import get_user_model
 
-from root.settings import TOKEN, chat_id
+from root.settings import TOKEN, CHAT_ID
 from .models import Message
 
 logging.basicConfig(level=logging.INFO)
@@ -31,7 +31,7 @@ async def send_message(user_id, amount, photo):
     inline_query = InlineKeyboardMarkup(row_width=1).row(*inline_kb)
     # with open(photo, "rb"):
     await bot.send_photo(
-        chat_id=chat_id,
+        chat_id=CHAT_ID,
         photo=InputFile(photo.file),
         reply_markup=inline_query,
         caption=amount,
@@ -59,7 +59,7 @@ async def send_message_to_channel(message_data, pk):
     inline_kb = InlineKeyboardMarkup().add(inline_kb1, inline_kb2)
 
     await bot.send_message(
-        chat_id=chat_id, text=message, parse_mode="markdown", reply_markup=inline_kb
+        chat_id=CHAT_ID, text=message, parse_mode="markdown", reply_markup=inline_kb
     )
 
 

@@ -11,7 +11,6 @@ class CountryAdmin(admin.ModelAdmin):
 admin.site.register(Tag)
 
 
-#
 @admin.register(City)
 class CityAdmin(admin.ModelAdmin):
     list_display = ("name", "slug")

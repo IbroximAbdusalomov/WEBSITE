@@ -20,7 +20,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG")
 # DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ["https://tecnoprom.uz/"]
+ALLOWED_HOSTS = ["tecnoprom.uz"]
 
 # Application definition
 SITE_ID = 2
@@ -161,7 +161,6 @@ STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

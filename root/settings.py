@@ -20,7 +20,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG")
 # DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ["tecnoprom.uz"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 SITE_ID = 2

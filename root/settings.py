@@ -20,7 +20,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG")
 # DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ["https://tecnoprom.up.railway.app"]
+ALLOWED_HOSTS = ["tecnoprom.up.railway.app"]
 
 # Application definition
 SITE_ID = 2
